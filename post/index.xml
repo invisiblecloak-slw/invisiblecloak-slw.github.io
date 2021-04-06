@@ -8,6 +8,30 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>0001-Two Sum</title>
+      <link>/post/2021/04/06/0001-two-sum/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/06/0001-two-sum/</guid>
+      <description>题目描述  给定一个整数数组nums和一个整数目标值target，请你在该数组中找出和为目标值的那两个整数，并返回它们的数组下标。
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
+你可以按任意顺序返回答案。
+示例1
+ 输入: nums = [2,7,11,15], target = 9
+输出: [0,1]
+解释: 因为 nums[0] + nums[1] == 9, 返回 [0, 1]。
+ 示例2
+ 输入: nums = [3,2,4], target = 6
+输出: [1,2]
+ 示例3
+ 输入: nums = [3,3], target = 6 输出: [0,1]
+ 提示
+  2 &amp;lt;= nums.length &amp;lt;= 103
+  只会存在一个有效答案
+   代码 class Solution: def twoSum(self, nums: List[int], target: int) -&amp;gt; List[int]: hashtable = dict() for i, val in enumerate(nums): if target - val in hashtable: return [hashtable[target - val], i] else: hashtable[val] = i 分析  使用哈希将查找元素的时间复杂度降至O(1)  </description>
+    </item>
+    
+    <item>
       <title>Mac下使用VMware创建Ubuntu虚拟机</title>
       <link>/post/2021/04/06/macos-vmware-ubuntu/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
@@ -20,6 +44,25 @@ Ubuntu:
 step1:修改ShadowsocksX-NG http 代理端口 step2:测试通过局域网是否能访问(可选) step3:查看虚拟机局域网ip step4:找到主机的局域网ip step5:虚拟机export代理配置 使用export命令只对当前的terminal session有效，如果想全部流量都走Shadowsocks出去，需要将export命令写到.bashrc、.zshrc、.profile文件中。
 参考链接 Mac下虚拟机如何使用主机的shadowsockets科学上网
 VMware虚拟机（Ubuntu）通过主机代理实现翻墙（shadowsocks）</description>
+    </item>
+    
+    <item>
+      <title>Markdown Grammer</title>
+      <link>/post/2021/04/06/markdown-grammer/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/06/markdown-grammer/</guid>
+      <description>HTML 上标: Bull&amp;lt;sup&amp;gt;TM&amp;lt;/sup&amp;gt; BullTM
+下标: H&amp;lt;sub&amp;gt;2&amp;lt;/sub&amp;gt;O H2O</description>
+    </item>
+    
+    <item>
+      <title>VIM Shorcuts</title>
+      <link>/post/2021/04/06/vim-shorcuts/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/06/vim-shorcuts/</guid>
+      <description>跳转命令 shift + g: 跳转到文件结尾</description>
     </item>
     
     <item>

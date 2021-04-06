@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Leetcode on XIU</title>
+    <link>/tags/leetcode/</link>
+    <description>Recent content in Leetcode on XIU</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0001-Two Sum</title>
+      <link>/post/2021/04/06/0001-two-sum/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/06/0001-two-sum/</guid>
+      <description>题目描述  给定一个整数数组nums和一个整数目标值target，请你在该数组中找出和为目标值的那两个整数，并返回它们的数组下标。
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
+你可以按任意顺序返回答案。
+示例1
+ 输入: nums = [2,7,11,15], target = 9
+输出: [0,1]
+解释: 因为 nums[0] + nums[1] == 9, 返回 [0, 1]。
+ 示例2
+ 输入: nums = [3,2,4], target = 6
+输出: [1,2]
+ 示例3
+ 输入: nums = [3,3], target = 6 输出: [0,1]
+ 提示
+  2 &amp;lt;= nums.length &amp;lt;= 103
+  只会存在一个有效答案
+   代码 class Solution: def twoSum(self, nums: List[int], target: int) -&amp;gt; List[int]: hashtable = dict() for i, val in enumerate(nums): if target - val in hashtable: return [hashtable[target - val], i] else: hashtable[val] = i 分析  使用哈希将查找元素的时间复杂度降至O(1)  </description>
+    </item>
+    
+  </channel>
+</rss>
