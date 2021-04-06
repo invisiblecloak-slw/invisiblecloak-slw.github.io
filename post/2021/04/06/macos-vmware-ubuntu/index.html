@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>MacOs下使用VMware创建Ubuntu虚拟机 - XIU</title>
-    <meta property="og:title" content="MacOs下使用VMware创建Ubuntu虚拟机 - XIU">
+    <title>Mac下使用VMware创建Ubuntu虚拟机 - XIU</title>
+    <meta property="og:title" content="Mac下使用VMware创建Ubuntu虚拟机 - XIU">
     
     <meta name="twitter:card" content="summary">
 
@@ -14,6 +14,19 @@
     
 
     
+      
+      <meta property="description" content="macOS Big Sur: 11.0.1
+ShadowsocksX-NG:
+VMware Fusion:
+Ubuntu:
+[&amp;hellip;] 使用export命令只对当前的terminal session有效，如果想全部流量都走Shadowsocks出去，需要将export命令写到.bashrc、.zshrc、.profile文件中。
+[&amp;hellip;] Mac下虚拟机如何使用主机 &amp;hellip;">
+      <meta property="og:description" content="macOS Big Sur: 11.0.1
+ShadowsocksX-NG:
+VMware Fusion:
+Ubuntu:
+[&amp;hellip;] 使用export命令只对当前的terminal session有效，如果想全部流量都走Shadowsocks出去，需要将export命令写到.bashrc、.zshrc、.profile文件中。
+[&amp;hellip;] Mac下虚拟机如何使用主机 &amp;hellip;">
       
     
 
@@ -65,7 +78,7 @@
     <article class="main">
       <header class="title">
       
-<h1>MacOs下使用VMware创建Ubuntu虚拟机</h1>
+<h1>Mac下使用VMware创建Ubuntu虚拟机</h1>
 
 <h3>Xiu Di
   /  2021-04-06</h3>
@@ -76,6 +89,21 @@
 
 
 
+<h1 id="配置ubuntu虚拟机使用宿主机vpn">配置Ubuntu虚拟机使用宿主机VPN</h1>
+<h2 id="环境介绍">环境介绍</h2>
+<p>macOS Big Sur: 11.0.1</p>
+<p>ShadowsocksX-NG:</p>
+<p>VMware Fusion:</p>
+<p>Ubuntu:</p>
+<h3 id="step1修改shadowsocksx-ng-http-代理端口">step1:修改ShadowsocksX-NG http 代理端口</h3>
+<h3 id="step2测试通过局域网是否能访问可选">step2:测试通过局域网是否能访问(可选)</h3>
+<h3 id="step3查看虚拟机局域网ip">step3:查看虚拟机局域网ip</h3>
+<h3 id="step4找到主机的局域网ip">step4:找到主机的局域网ip</h3>
+<h3 id="step5虚拟机export代理配置">step5:虚拟机export代理配置</h3>
+<p>使用<code>export</code>命令只对当前的terminal session有效，如果想全部流量都走Shadowsocks出去，需要将<code>export</code>命令写到<code>.bashrc</code>、<code>.zshrc</code>、<code>.profile</code>文件中。</p>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://liushiming.cn/article/mac-virtual-machine-proxy-through-host-machine-shadowsocks.html">Mac下虚拟机如何使用主机的shadowsockets科学上网</a></p>
+<p><a href="https://steemit.com/ubutnu/@yanwu/vmware-ubuntu-shadowsocks">VMware虚拟机（Ubuntu）通过主机代理实现翻墙（shadowsocks）</a></p>
 
 
   <footer>
