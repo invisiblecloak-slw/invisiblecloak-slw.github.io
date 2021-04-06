@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Home on XIU</title>
-    <link>/</link>
-    <description>Recent content in Home on XIU</description>
+    <title>Linux on XIU</title>
+    <link>/tags/linux/</link>
+    <description>Recent content in Linux on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MacOs下使用VMware创建Ubuntu虚拟机</title>
       <link>/post/2021/04/06/macos-vmware-ubuntu/</link>
@@ -14,15 +14,6 @@
       
       <guid>/post/2021/04/06/macos-vmware-ubuntu/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>关于</title>
-      <link>/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description>喜欢 心理学 </description>
     </item>
     
   </channel>
