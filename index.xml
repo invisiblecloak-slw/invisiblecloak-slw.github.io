@@ -83,7 +83,7 @@ blogdown::hugo_build()命令，在push给Github远程仓库之前，编译文件
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>喜欢 心理学 </description>
+      <description>喜欢 心理学 友情链接 StriveZs的博客</description>
     </item>
     
   </channel>
