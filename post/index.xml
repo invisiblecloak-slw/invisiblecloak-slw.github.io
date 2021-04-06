@@ -22,5 +22,17 @@ step1:修改ShadowsocksX-NG http 代理端口 step2:测试通过局域网是否�
 VMware虚拟机（Ubuntu）通过主机代理实现翻墙（shadowsocks）</description>
     </item>
     
+    <item>
+      <title>基于Hugo和Github Pages的个人博客搭建过程</title>
+      <link>/post/2021/04/06/hugo-github-pages/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/06/hugo-github-pages/</guid>
+      <description>撰写博文 使用RStudio IDE
+blogdown::serve_site()命令，提供个人网站的本地实时渲染
+blogdown::hugo_build()命令，在push给Github远程仓库之前，编译文件
+可以在Vim中使用markdown语法对文本进行编辑</description>
+    </item>
+    
   </channel>
 </rss>
