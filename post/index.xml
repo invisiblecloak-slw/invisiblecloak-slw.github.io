@@ -62,6 +62,35 @@
     </item>
     
     <item>
+      <title>0020-Valid Parentheses</title>
+      <link>/post/2021/04/07/0020-valid-parentheses/</link>
+      <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/07/0020-valid-parentheses/</guid>
+      <description>问题描述  给定一个只包括&#39;(&#39;,&#39;)&#39;,&#39;{&#39;,&#39;}&#39;,&#39;[&#39;,&#39;]&#39;的字符串s，判断字符串是否有效。
+有效字符串需满足：
+ 左括号必须用相同类型的右括号闭合。 左括号必须以正确的顺序闭合。  示例1:
+ 输入: s = &amp;ldquo;()&amp;rdquo;
+输出: true
+ 示例2:
+ 输入: s = &amp;ldquo;()[]{}&amp;rdquo;
+输出: true
+ 示例3:
+ 输入: s = &amp;ldquo;(]&amp;rdquo;
+输出: false
+ 示例4:
+ 输入: s = &amp;ldquo;([)]&amp;rdquo;
+输出: false
+ 示例5:
+ 输入: s = &amp;ldquo;{[]}&amp;rdquo;
+输出:true
+ 提示:
+  1 &amp;lt;= s.length &amp;lt;= 104
+  s仅由括号()[]{}组成
+   代码 class Solution: def isValid(self, s: str) -&amp;gt; bool: if len(s) % 2 == 1: return False dictionary = {&amp;#39;(&amp;#39;:&amp;#39;)&amp;#39;, &amp;#39;{&amp;#39;:&amp;#39;}&amp;#39;, &amp;#39;[&amp;#39;:&amp;#39;]&amp;#39;} stack = [] for ch in s: if ch in dictionary: stack.</description>
+    </item>
+    
+    <item>
       <title>0001-Two Sum</title>
       <link>/post/2021/04/06/0001-two-sum/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0020-Valid Parentheses - XIU</title>
+    <meta property="og:title" content="0020-Valid Parentheses - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="给定一个只包括&#39;(&#39;,&#39;)&#39;,&#39;{&#39;,&#39;}&#39;,&#39;[&#39;,&#39;]&#39;的字符串s，判断字符串是否有效。
+有效字符串需满足：
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: s = &amp;ldquo;()&amp;rdquo;
+输出: true
+[&amp;hellip;] 示例2:
+[&amp;hellip;] 输入: s = &amp;ldquo;()[]{}&amp;rdquo;
+输出: true
+[&amp;hellip;] 示例3: &amp;hellip;">
+      <meta property="og:description" content="给定一个只包括&#39;(&#39;,&#39;)&#39;,&#39;{&#39;,&#39;}&#39;,&#39;[&#39;,&#39;]&#39;的字符串s，判断字符串是否有效。
+有效字符串需满足：
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: s = &amp;ldquo;()&amp;rdquo;
+输出: true
+[&amp;hellip;] 示例2:
+[&amp;hellip;] 输入: s = &amp;ldquo;()[]{}&amp;rdquo;
+输出: true
+[&amp;hellip;] 示例3: &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>0020-Valid Parentheses</h1>
+
+<h3>Xiu Di
+  /  2021-04-07</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="问题描述">问题描述</h2>
+<blockquote>
+<p>给定一个只包括<code>'('</code>,<code>')'</code>,<code>'{'</code>,<code>'}'</code>,<code>'['</code>,<code>']'</code>的字符串<code>s</code>，判断字符串是否有效。</p>
+<p>有效字符串需满足：</p>
+<ul>
+<li>左括号必须用相同类型的右括号闭合。</li>
+<li>左括号必须以正确的顺序闭合。</li>
+</ul>
+<p><strong>示例1</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: s = &ldquo;()&rdquo;</p>
+<p><strong>输出</strong>: true</p>
+</blockquote>
+<p><strong>示例2</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: s = &ldquo;()[]{}&rdquo;</p>
+<p><strong>输出</strong>: true</p>
+</blockquote>
+<p><strong>示例3</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: s = &ldquo;(]&rdquo;</p>
+<p><strong>输出</strong>: false</p>
+</blockquote>
+<p><strong>示例4</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: s = &ldquo;([)]&rdquo;</p>
+<p><strong>输出</strong>: false</p>
+</blockquote>
+<p><strong>示例5</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: s = &ldquo;{[]}&rdquo;</p>
+<p><strong>输出</strong>:true</p>
+</blockquote>
+<p><strong>提示</strong>:</p>
+<ul>
+<li>
+<p>1 &lt;= s.length &lt;= 10<sup>4</sup></p>
+</li>
+<li>
+<p><code>s</code>仅由括号<code>()[]{}</code>组成</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isValid</span>(self, s: str) <span style="color:#f92672">-&gt;</span> bool:
+        <span style="color:#66d9ef">if</span> len(s) <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>: <span style="color:#66d9ef">return</span> False
+        dictionary <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;(&#39;</span>:<span style="color:#e6db74">&#39;)&#39;</span>, <span style="color:#e6db74">&#39;{&#39;</span>:<span style="color:#e6db74">&#39;}&#39;</span>, <span style="color:#e6db74">&#39;[&#39;</span>:<span style="color:#e6db74">&#39;]&#39;</span>}
+        stack <span style="color:#f92672">=</span> []
+        <span style="color:#66d9ef">for</span> ch <span style="color:#f92672">in</span> s:
+            <span style="color:#66d9ef">if</span> ch <span style="color:#f92672">in</span> dictionary: 
+                stack<span style="color:#f92672">.</span>append(ch)
+            <span style="color:#66d9ef">elif</span> <span style="color:#f92672">not</span> stack <span style="color:#f92672">or</span> dictionary[stack<span style="color:#f92672">.</span>pop()] <span style="color:#f92672">!=</span> ch:
+                    <span style="color:#66d9ef">return</span> False 
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">not</span> stack
+</code></pre></div><h2 id="分析">分析</h2>
+<ul>
+<li>栈可以用于括号匹配</li>
+<li>用字典存储相应的括号对</li>
+<li>列表可以用于实现栈
+<ul>
+<li><code>L[-1]</code>访问栈顶元素</li>
+<li><code>L.pop()</code>删除并返回栈顶元素</li>
+</ul>
+</li>
+<li>not [] 将返回True，可用于判定列表是否为空</li>
+</ul>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/06/0001-two-sum/">0001-Two Sum</a></span>
+  <span class="nav-next"><a href="/post/2021/04/07/0003-longest-substring-without-repeating-characters/">0003-longest substring without repeating characters</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
