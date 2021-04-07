@@ -6,7 +6,32 @@
     <description>Recent content in Leetcode on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0002-add-two-numbers</title>
+      <link>/post/2021/04/07/0002-add-two-numbers/</link>
+      <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/07/0002-add-two-numbers/</guid>
+      <description>题目描述  给定两个非空的链表，表示两个非负整数。它们的每位数字都是按照逆序的方式存储的，并且每个节点只能存储一位数字。
+请你将两个数字相加，并以相同形式返回一个表示和的链表
+你可以假设除了数字0之外，这两个数都不会以0开头。 示例1
+ 输入: l1 = [2,4,3], l2 = [5,6,4]
+输出: [7,0,8]
+解释: 342 + 465 = 807
+ 示例2
+ 输入: l1 = [0], l2 = [0]
+输出: [0]
+ 示例3
+ 输入: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+输出: [8,9,9,9,0,0,0,1]
+ 提示
+  每个链表中的节点数在范围[1, 100]内
+  0 &amp;lt;= Node.val &amp;lt;= 9
+  题目数据保证列表表示的数字不含前导零
+   代码 # Definition for singly-linked list.</description>
+    </item>
+    
     <item>
       <title>0001-Two Sum</title>
       <link>/post/2021/04/06/0001-two-sum/</link>
@@ -24,7 +49,8 @@
  输入: nums = [3,2,4], target = 6
 输出: [1,2]
  示例3
- 输入: nums = [3,3], target = 6 输出: [0,1]
+ 输入: nums = [3,3], target = 6
+输出: [0,1]
  提示
   2 &amp;lt;= nums.length &amp;lt;= 103
   只会存在一个有效答案

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0002-add-two-numbers - XIU</title>
+    <meta property="og:title" content="0002-add-two-numbers - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="给定两个非空的链表，表示两个非负整数。它们的每位数字都是按照逆序的方式存储的，并且每个节点只能存储一位数字。
+请你将两个数字相加，并以相同形式返回一个表示和的链表
+你可以假设除了数字0之外，这两个数都不会以0开头。 示例1
+[&amp;hellip;] 输入: l1 = [2,4,3], l2 = [5,6,4]
+输出: [7,0,8]
+解释: 342 &#43; 465 = 807
+[&amp;hellip;] 示例2 &amp;hellip;">
+      <meta property="og:description" content="给定两个非空的链表，表示两个非负整数。它们的每位数字都是按照逆序的方式存储的，并且每个节点只能存储一位数字。
+请你将两个数字相加，并以相同形式返回一个表示和的链表
+你可以假设除了数字0之外，这两个数都不会以0开头。 示例1
+[&amp;hellip;] 输入: l1 = [2,4,3], l2 = [5,6,4]
+输出: [7,0,8]
+解释: 342 &#43; 465 = 807
+[&amp;hellip;] 示例2 &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>0002-add-two-numbers</h1>
+
+<h3>Xiu Di
+  /  2021-04-07</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="题目描述">题目描述</h2>
+<blockquote>
+<p>给定两个<strong>非空</strong>的链表，表示两个非负整数。它们的每位数字都是按照<strong>逆序</strong>的方式存储的，并且每个节点只能存储<strong>一位</strong>数字。</p>
+<p>请你将两个数字相加，并以相同形式返回一个表示和的链表</p>
+<p>你可以假设除了数字0之外，这两个数都不会以0开头。
+<strong>示例1</strong></p>
+<blockquote>
+<p><strong>输入</strong>: l1 = [2,4,3], l2 = [5,6,4]</p>
+<p><strong>输出</strong>: [7,0,8]</p>
+<p><strong>解释</strong>: 342 + 465 = 807</p>
+</blockquote>
+<p><strong>示例2</strong></p>
+<blockquote>
+<p><strong>输入</strong>: l1 = [0], l2 = [0]</p>
+<p><strong>输出</strong>: [0]</p>
+</blockquote>
+<p><strong>示例3</strong></p>
+<blockquote>
+<p><strong>输入</strong>: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]</p>
+<p><strong>输出</strong>: [8,9,9,9,0,0,0,1]</p>
+</blockquote>
+<p><strong>提示</strong></p>
+<ul>
+<li>
+<p>每个链表中的节点数在范围[1, 100]内</p>
+</li>
+<li>
+<p><code>0 &lt;= Node.val &lt;= 9</code></p>
+</li>
+<li>
+<p>题目数据保证列表表示的数字不含前导零</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for singly-linked list.</span>
+<span style="color:#75715e"># class ListNode:</span>
+<span style="color:#75715e">#     def __init__(self, val=0, next=None):</span>
+<span style="color:#75715e">#         self.val = val</span>
+<span style="color:#75715e">#         self.next = next</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">addTwoNumbers</span>(self, l1: ListNode, l2: ListNode) <span style="color:#f92672">-&gt;</span> ListNode:
+        res <span style="color:#f92672">=</span> cur <span style="color:#f92672">=</span> ListNode()
+        carry <span style="color:#f92672">=</span> val <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">while</span> l1 <span style="color:#f92672">or</span> l2 <span style="color:#f92672">or</span> carry:
+            val <span style="color:#f92672">=</span> carry
+            <span style="color:#66d9ef">if</span> l1 : l1, val <span style="color:#f92672">=</span> l1<span style="color:#f92672">.</span>next, l1<span style="color:#f92672">.</span>val <span style="color:#f92672">+</span> val
+            <span style="color:#66d9ef">if</span> l2 : l2, val <span style="color:#f92672">=</span> l2<span style="color:#f92672">.</span>next, l2<span style="color:#f92672">.</span>val <span style="color:#f92672">+</span> val
+            carry, val <span style="color:#f92672">=</span> divmod(val, <span style="color:#ae81ff">10</span>)
+            cur<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> cur <span style="color:#f92672">=</span> ListNode(val)
+        <span style="color:#66d9ef">return</span> res<span style="color:#f92672">.</span>next
+</code></pre></div><h2 id="分析">分析</h2>
+<h3 id="python-3-新特性类型注释">Python 3 新特性：类型注释</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add</span>(x:int, y:int) <span style="color:#f92672">-&gt;</span> int:
+    <span style="color:#66d9ef">return</span> x <span style="color:#f92672">+</span> y
+</code></pre></div><p>用<code>: 类型</code>的形式指定函数的<strong>参数类型</strong>，用<code>-&gt; 类型</code>的形式指定函数的<strong>返回值类型</strong>。</p>
+<p>需要强调的是，Python解释器并不会因为这些注释提供额外的校验，没有任何的类型检查工作。</p>
+<p>这种做法的好处是：</p>
+<ul>
+<li>
+<p>增加代码的可读性</p>
+</li>
+<li>
+<p>使IDE了解类型，从而提供更准确的代码提示、补全和语法检查。</p>
+</li>
+</ul>
+<h3 id="python-3-多变量赋值">Python 3 多变量赋值</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+a, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, a
+</code></pre></div><p>多变量赋值的过程中，等式右边其实都是局部变量，而不是真正的变量值本身。如上例，Python解析时，只是将变量a指向的对象3赋给变量b，而不是<code>a=1</code>之后a的结果。</p>
+<h3 id="python-3-连续赋值">Python 3 连续赋值</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#f92672">=</span> b <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hello&#39;</span>
+</code></pre></div><p>在Python中类似上例的连续赋值过程，实际上是将最右侧的常量或变量，对其<code>=</code>前的各变量从左至右依次赋值。即等同于：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hello&#39;</span>
+b <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hello&#39;</span>
+</code></pre></div><p>对于链表的情况：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#f92672">=</span> a<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> ListNode()
+</code></pre></div><p>等同于：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">_ <span style="color:#f92672">=</span> ListNode()
+a <span style="color:#f92672">=</span> _
+a<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> _
+</code></pre></div><p>如果要实现如下效果：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">_ <span style="color:#f92672">=</span> ListNode()
+a<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> _
+a <span style="color:#f92672">=</span> _
+</code></pre></div><p>需要将语句修改为：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> a <span style="color:#f92672">=</span> ListNode()
+</code></pre></div><h2 id="参考链接">参考链接</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/37239021">Python 3 新特性：类型注释</a></p>
+<p><a href="https://blog.csdn.net/xjcvip007/article/details/54348245">Python连续赋值需要注意的地方</a></p>
+<p><a href="https://chowyi.com/key-points-of-chained-assignment-in-python/">Python连续赋值的两个要点</a></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/06/0001-two-sum/">0001-Two Sum</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
