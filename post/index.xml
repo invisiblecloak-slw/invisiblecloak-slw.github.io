@@ -34,6 +34,34 @@
     </item>
     
     <item>
+      <title>0003-longest substring without repeating characters</title>
+      <link>/post/2021/04/07/0003-longest-substring-without-repeating-characters/</link>
+      <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/07/0003-longest-substring-without-repeating-characters/</guid>
+      <description>题目描述  给定一个字符串，请你找出其中不含有重复字符的最长子串的长度。
+示例1
+ 输入: s = &amp;ldquo;abcabcbb&amp;rdquo;
+输出: 3
+解释: 因为无重复字符的最长子串是&amp;quot;abc&amp;quot;，所以其长度为3。
+ 示例2
+ 输入: s = &amp;ldquo;bbbbb&amp;rdquo;
+输出: 1
+解释: 因为无重复字符的最长子串是&amp;quot;b&amp;quot;，所以其长度为1。
+ 示例3
+ 输入: s = &amp;ldquo;pwwkew&amp;rdquo;
+输出: 3
+解释: 因为无重复字符的最长子串是&amp;quot;wke&amp;quot;，所以其长度为3。
+ 示例4
+ 输入: s = &amp;quot;&amp;quot;
+输出: 0
+ 提示
+  0 &amp;lt;= s.length &amp;lt;= 5 * 104
+  s由英文字母、数字、符号和空格组成
+   代码 class Solution: def lengthOfLongestSubstring(self, s: str) -&amp;gt; int: #考虑以某一下标为起始位置的最长子串。 l = r = maxlen = 0 hashtable = dict() #记录某一元素出现的最靠结尾的下标 while r in range(len(s)): if s[r] in hashtable and hashtable[s[r]] in range(l, r): l = hashtable[s[r]] + 1 hashtable[s[r]] = r maxlen = max(maxlen, r - l + 1) r += 1 return maxlen 分析 使用滑动窗方法处理子字符串</description>
+    </item>
+    
+    <item>
       <title>0001-Two Sum</title>
       <link>/post/2021/04/06/0001-two-sum/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
