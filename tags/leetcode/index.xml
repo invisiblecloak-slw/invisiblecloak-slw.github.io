@@ -57,6 +57,33 @@
     </item>
     
     <item>
+      <title>0070-climbing stairs</title>
+      <link>/post/2021/04/08/0070-climbing-stairs/</link>
+      <pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/08/0070-climbing-stairs/</guid>
+      <description>问题描述
+假设你正在爬楼梯。需要n阶你才能到达楼顶。
+每次你可以爬1或2个台阶。你有多少种不同的方法可以爬到楼顶呢？
+示例1:
+ 输入: 2
+输出: 2
+解释: 有两种方法可以到达楼顶。
+  1阶 + 1阶
+  2阶
+   示例2:
+ 输入: 3
+输出: 3
+解释:
+  1阶 + 1阶 + 1阶
+  1阶 + 2阶
+  2阶 + 1阶
+   注意:
+给定n是一个正整数。
+ 代码 # 递归，超时 class Solution: def climbStairs(self, n: int) -&amp;gt; int: if n &amp;lt;= 2: return n else: return self.</description>
+    </item>
+    
+    <item>
       <title>0002-add-two-numbers</title>
       <link>/post/2021/04/07/0002-add-two-numbers/</link>
       <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
