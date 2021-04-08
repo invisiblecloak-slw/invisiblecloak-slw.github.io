@@ -13,7 +13,15 @@
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>/post/2021/04/06/vim-shorcuts/</guid>
-      <description>跳转命令 shift + g: 跳转到文件结尾</description>
+      <description>跳转命令 shift + g: 跳转到文件结尾 :10: 跳转到第10行
+删除命令 :1,10d: VIM模式下删除1～10行的内容
+选中命令 v+j/k/h/l: 进入VISUAL模式，文本选中。
+对于选中的文本可执行以下操作：
+d: 剪切
+y: 复制
+p: 粘贴
+0: 选中当前行，光标位置到行首
+$: 选中当前行，光标位置到行尾</description>
     </item>
     
   </channel>
