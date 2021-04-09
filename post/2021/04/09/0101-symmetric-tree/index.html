@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0101-symmetric tree - XIU</title>
+    <meta property="og:title" content="0101-symmetric tree - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="给定一个二叉树，检查它是否是镜像对称的。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入:
+ 1 / \ 2 2 / \ / \ 3 4 4 3  输出: True
+[&amp;hellip;] 示例2:
+[&amp;hellip;] 输入:
+">
+      <meta property="og:description" content="给定一个二叉树，检查它是否是镜像对称的。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入:
+ 1 / \ 2 2 / \ / \ 3 4 4 3  输出: True
+[&amp;hellip;] 示例2:
+[&amp;hellip;] 输入:
+">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>0101-symmetric tree</h1>
+
+<h3>Xiu Di
+  /  2021-04-09</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="题目描述"><strong>题目描述</strong></h2>
+<p>给定一个二叉树，检查它是否是镜像对称的。</p>
+<blockquote>
+<p><strong>示例1</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>:</p>
+<pre><code>    1
+   / \
+  2   2
+ / \ / \
+3  4 4  3
+</code></pre>
+<p><strong>输出</strong>:
+True</p>
+</blockquote>
+<p><strong>示例2</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>:</p>
+<pre><code>    1
+   / \
+  2   2
+   \   \
+    3   3
+</code></pre>
+</blockquote>
+</blockquote>
+<h2 id="代码"><strong>代码</strong>:</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 递归</span>
+<span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, val=0, left=None, right=None):</span>
+<span style="color:#75715e">#         self.val = val</span>
+<span style="color:#75715e">#         self.left = left</span>
+<span style="color:#75715e">#         self.right = right</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isSame</span>(self, lptr:TreeNode, rptr:TreeNode) <span style="color:#f92672">-&gt;</span> bool:
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> lptr <span style="color:#f92672">and</span> <span style="color:#f92672">not</span> rptr: <span style="color:#66d9ef">return</span> True
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> lptr <span style="color:#f92672">or</span> <span style="color:#f92672">not</span> rptr <span style="color:#f92672">or</span> lptr<span style="color:#f92672">.</span>val <span style="color:#f92672">!=</span> rptr<span style="color:#f92672">.</span>val: <span style="color:#66d9ef">return</span> False
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>isSame(lptr<span style="color:#f92672">.</span>left, rptr<span style="color:#f92672">.</span>right) <span style="color:#f92672">and</span> self<span style="color:#f92672">.</span>isSame(lptr<span style="color:#f92672">.</span>right, rptr<span style="color:#f92672">.</span>left)
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isSymmetric</span>(self, root: TreeNode) <span style="color:#f92672">-&gt;</span> bool:
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root: <span style="color:#66d9ef">return</span> True
+        <span style="color:#66d9ef">else</span>: <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>isSame(root<span style="color:#f92672">.</span>left, root<span style="color:#f92672">.</span>right)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 迭代，效率较高</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isSymmetric</span>(self, root: TreeNode) <span style="color:#f92672">-&gt;</span> bool:
+        L <span style="color:#f92672">=</span> [root<span style="color:#f92672">.</span>left, root<span style="color:#f92672">.</span>right]
+        <span style="color:#66d9ef">while</span> L:
+            lptr, rptr <span style="color:#f92672">=</span> L<span style="color:#f92672">.</span>pop(), L<span style="color:#f92672">.</span>pop()
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> lptr <span style="color:#f92672">and</span> <span style="color:#f92672">not</span> rptr: <span style="color:#66d9ef">continue</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> lptr <span style="color:#f92672">or</span> <span style="color:#f92672">not</span> rptr <span style="color:#f92672">or</span> lptr<span style="color:#f92672">.</span>val <span style="color:#f92672">!=</span> rptr<span style="color:#f92672">.</span>val: <span style="color:#66d9ef">return</span> False
+            L<span style="color:#f92672">.</span>extend([lptr<span style="color:#f92672">.</span>left, rptr<span style="color:#f92672">.</span>right, lptr<span style="color:#f92672">.</span>right, rptr<span style="color:#f92672">.</span>left])
+        <span style="color:#66d9ef">return</span> True
+</code></pre></div>
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/09/0104-maximum-depth-of-binary-tree/">0104-maximum depth of binary tree</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
