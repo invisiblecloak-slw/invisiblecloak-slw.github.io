@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on XIU</title>
+    <link>/tags/git/</link>
+    <description>Recent content in Git on XIU</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git 简介</title>
+      <link>/post/2021/04/09/git/</link>
+      <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/09/git/</guid>
+      <description>版本控制 版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。
+图形或网页设计师，可能会需要保存某一幅图片或页面布局文件的所有修订版本。版本控制系统可以帮助将选定的文件甚或整个项目回溯到之前某个状态、比较文件的变化细节、查看何时报告了某个功能缺陷。
+分布式版本控制系统 在分布式版本控制系统 (Distributed Version Control System) 中，客户端不只提取最新版本的文件快照，而是把代码仓库完整地镜像下来，包括完整的历史记录。
+每一次的克隆操作，实际上都是一次对代码仓库的完整备份。
+任何一处协同工作的服务器发生故障，都可以用任何一个镜像出来的本地仓库恢复。
+Git 简史 Git诞生于一个极富纷争的年代。
+Linux内核开源项目有着为数众多的参与者。1991-2002年间，Linux内核维护工作牵涉到大量提交补丁、保存归档的繁琐事务。2002年，项目组启用分布式版本控制系统BitKeeper来管理和维护代码。2005年，BitKeeper的开发者同Linux内核开源社区合作关系结束，迫使Linux开源社区（特别是Linux的缔造者Linus Torvalds）开发出自己的版本控制系统。他们对新的系统制定了若干目标：
+  速度
+  简单的设计
+  对非线性开发模式的强力支持（允许成千上万个并行开发的分支）
+  完全分布式
+  有能力高效管理类似Linux内核一样的超大规模项目（速度和数据量）
+  自2005年诞生以来，Git日臻完善。在高度易用的同时，保留着初期设定的目标。Git速度飞快，及其适合管理大型项目，有着令人难以置信的非线性分支管理系统。
+Git 是什么 Git与其他的版本控制系统有颇多相似之处，但在对信息的存储和认知方式上有着很大差异。
+直接记录快照，而非差异比较 大部分系统以文件变更列表的方式存储信息，这类系统(常称为基于差异(delta-based)的版本控制)将它们存储的信息看作是一组基本文件和每个文件随时间逐步累积的差异。 Git对待数据更像是一个快照流。每当提交更新或保存项目状态时，Git对此时全部文件创建快照并保存快照索引。 参考链接 Pro Git 1.起步</description>
+    </item>
+    
+  </channel>
+</rss>
