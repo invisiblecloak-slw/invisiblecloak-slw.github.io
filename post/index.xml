@@ -38,6 +38,18 @@
     </item>
     
     <item>
+      <title>0121-best time to buy and sell stock</title>
+      <link>/post/2021/04/09/0121-best-time-to-buy-and-sell-stock/</link>
+      <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/09/0121-best-time-to-buy-and-sell-stock/</guid>
+      <description>问题描述 给定一个数组prices，它的第i个元素prices[i]表示一支给定股票第i天的价格。
+你只能选择某一天买入这只股票，并选择在未来的某一个不同的日子卖出该股票。设计一个算法来计算你所能获取的最大利润。
+返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回0。
+代码: class Solution: def maxProfit(self, prices: List[int]) -&amp;gt; int: profit = [0] * len(prices) for i in range(1, len(prices)): profit[i] = max(0, profit[i-1] + prices[i] - prices[i-1]) return max(profit) 分析:  本问题与最大子序和问题相似  </description>
+    </item>
+    
+    <item>
       <title>0021-merge two sorted list</title>
       <link>/post/2021/04/08/0021-merge-two-sorted-list/</link>
       <pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate>
