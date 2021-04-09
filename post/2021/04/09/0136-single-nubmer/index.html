@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0136-single nubmer - XIU</title>
+    <meta property="og:title" content="0136-single nubmer - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="给定一个非空整数数组，除了某个元素只出现一次之外，其余每个元素均出现两次。找出那个只出现了一次的元素。
+示例1:
+[&amp;hellip;] 输入: [2,2,1]
+输出: 1
+[&amp;hellip;] 示例2:
+[&amp;hellip;] 输入: [4,1,2,1,2]
+输出: 4
+[&amp;hellip;] 说明:
+考虑线性时间复杂度的原地算法。
+[&amp;hellip;] # 异或运算 class Solution: &amp;hellip;">
+      <meta property="og:description" content="给定一个非空整数数组，除了某个元素只出现一次之外，其余每个元素均出现两次。找出那个只出现了一次的元素。
+示例1:
+[&amp;hellip;] 输入: [2,2,1]
+输出: 1
+[&amp;hellip;] 示例2:
+[&amp;hellip;] 输入: [4,1,2,1,2]
+输出: 4
+[&amp;hellip;] 说明:
+考虑线性时间复杂度的原地算法。
+[&amp;hellip;] # 异或运算 class Solution: &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>0136-single nubmer</h1>
+
+<h3>Xiu Di
+  /  2021-04-09</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="问题描述"><strong>问题描述</strong></h2>
+<blockquote>
+<p>给定一个<strong>非空</strong>整数数组，除了某个元素只出现一次之外，其余每个元素均出现两次。找出那个只出现了一次的元素。</p>
+<p><strong>示例1</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: [2,2,1]</p>
+<p><strong>输出</strong>: 1</p>
+</blockquote>
+<p><strong>示例2</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: [4,1,2,1,2]</p>
+<p><strong>输出</strong>: 4</p>
+</blockquote>
+<p><strong>说明</strong>:</p>
+<p>考虑线性时间复杂度的原地算法。</p>
+</blockquote>
+<h2 id="代码"><strong>代码</strong></h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 异或运算</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">singleNumber</span>(self, nums: List[int]) <span style="color:#f92672">-&gt;</span> int:
+        <span style="color:#66d9ef">return</span> reduce(<span style="color:#66d9ef">lambda</span> x,y: x<span style="color:#f92672">^</span>y, nums)
+</code></pre></div><h2 id="分析"><strong>分析</strong></h2>
+<h3 id="mapreduce"><strong>map/reduce</strong>:</h3>
+<ul>
+<li><code>map()</code>函数接收两个参数，一为函数，一为<code>Iterable</code>。
+<ul>
+<li><code>map()</code>将传入的函数依次作用到序列的每个元素，并把结果作为新的<code>Iterator</code>返回。</li>
+</ul>
+</li>
+<li><code>reduce()</code>函数接收两个参数，一为函数，一为序列。效果为：
+<ul>
+<li><code>reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>示例1</strong>:</p>
+<blockquote>
+<p>利用<code>map()</code>函数，把用户输入的不规范的英文名字，变为首字母大写，其他小些的规范名字。</p>
+<p>输入<code>['adam', 'LISA', 'barT']</code>，输出<code>['Adam', 'Lisa', 'Bart']</code>。</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">list(map(<span style="color:#66d9ef">lambda</span> x: x<span style="color:#f92672">.</span>capitalize(), [<span style="color:#e6db74">&#39;adam&#39;</span>, <span style="color:#e6db74">&#39;LISA&#39;</span>, <span style="color:#e6db74">&#39;barT&#39;</span>]))
+</code></pre></div><p><strong>示例2</strong>:</p>
+<blockquote>
+<p>利用<code>reduce()</code>函数实现：接受一个list，返回元素之积。</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> functools <span style="color:#f92672">import</span> reduce
+
+<span style="color:#66d9ef">return</span> reduce(<span style="color:#66d9ef">lambda</span> x,y: x<span style="color:#f92672">*</span>y, L)
+</code></pre></div><p><strong>示例3</strong>:</p>
+<blockquote>
+<p>利用<code>map()</code>和<code>reduce()</code>编写一个<code>str2float</code>函数。</p>
+<p>把字符串<code>123.456</code>转换成浮点数<code>123.456</code>：</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> functools import reduce
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">str2float</span>(s):
+    d <span style="color:#f92672">=</span> dict(zip(list(map(str,range(<span style="color:#ae81ff">10</span>))), list(range(<span style="color:#ae81ff">10</span>))))
+    pos <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>index(<span style="color:#e6db74">&#39;.&#39;</span>)
+    s1 <span style="color:#f92672">=</span> s[ : pos]
+    s2 <span style="color:#f92672">=</span> s[pos <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> : ]
+    s3 <span style="color:#f92672">=</span> s[::<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;0&#39;</span>
+    <span style="color:#66d9ef">return</span> reduce(<span style="color:#66d9ef">lambda</span> x,y: x <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">+</span> y, map(<span style="color:#66d9ef">lambda</span> x: d[x], s1)) <span style="color:#f92672">+</span> reduce(<span style="color:#66d9ef">lambda</span> x,y: x <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.1</span> <span style="color:#f92672">+</span> y, map(<span style="color:#66d9ef">lambda</span> x: d[x], s3))
+</code></pre></div><h3 id="其他思路">其他思路</h3>
+<ul>
+<li>使用集合存储数字，遍历数组中的每个数字，如果集合中没有该数字，则将该数字加入集合。如果集合中已经有该数字，则将该数字从集合中删除，最后剩下的数字就是只出现一次的数字。</li>
+<li>使用哈希表存储每个数字和该数字出现的次数。遍历数字即可得到每个数字出现的次数，并更新哈希表，最后遍历哈希表，得到只出现一次的数字。</li>
+<li>使用集合存储数组中出现的所有数字，并计算数组中的元素之和。由于集合保证元素无重复，因此计算机和中的所有元素之和的两倍，即为每个元素出现两次的情况下的元素之和。由于数组中只有一个元素出现一次，其他元素都出现两次，因此用集合中的元素之和的两倍减去数组中的元素之和，剩下的数就是数组中只出现一次的数字。</li>
+</ul>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://leetcode-cn.com/problems/single-number/solution/zhi-chu-xian-yi-ci-de-shu-zi-by-leetcode-solution/">只出现一次的数字</a></li>
+<li><a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017329367486080">map/reduce</a></li>
+</ul>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/08/0021-merge-two-sorted-list/">0021-merge two sorted list</a></span>
+  <span class="nav-next"><a href="/post/2021/04/09/0121-best-time-to-buy-and-sell-stock/">0121-best time to buy and sell stock</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

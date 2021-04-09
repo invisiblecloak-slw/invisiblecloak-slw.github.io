@@ -50,6 +50,27 @@
     </item>
     
     <item>
+      <title>0136-single nubmer</title>
+      <link>/post/2021/04/09/0136-single-nubmer/</link>
+      <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/09/0136-single-nubmer/</guid>
+      <description>问题描述  给定一个非空整数数组，除了某个元素只出现一次之外，其余每个元素均出现两次。找出那个只出现了一次的元素。
+示例1:
+ 输入: [2,2,1]
+输出: 1
+ 示例2:
+ 输入: [4,1,2,1,2]
+输出: 4
+ 说明:
+考虑线性时间复杂度的原地算法。
+ 代码 # 异或运算 class Solution: def singleNumber(self, nums: List[int]) -&amp;gt; int: return reduce(lambda x,y: x^y, nums) 分析 map/reduce:  map()函数接收两个参数，一为函数，一为Iterable。  map()将传入的函数依次作用到序列的每个元素，并把结果作为新的Iterator返回。   reduce()函数接收两个参数，一为函数，一为序列。效果为：  reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)    示例1:
+ 利用map()函数，把用户输入的不规范的英文名字，变为首字母大写，其他小些的规范名字。
+输入[&#39;adam&#39;, &#39;LISA&#39;, &#39;barT&#39;]，输出[&#39;Adam&#39;, &#39;Lisa&#39;, &#39;Bart&#39;]。
+ list(map(lambda x: x.</description>
+    </item>
+    
+    <item>
       <title>0021-merge two sorted list</title>
       <link>/post/2021/04/08/0021-merge-two-sorted-list/</link>
       <pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate>
@@ -95,7 +116,7 @@
  提示:
   1 &amp;lt;= nums.length &amp;lt;= 3 * 104
   -105 &amp;lt;= nums[i] &amp;lt;= 105
-   代码 class Solution: def maxSubArray(self, nums: List[int]) -&amp;gt; int: for i in range(1, len(nums)): nums[i] = max(nums[i], nums[i-1] + nums[i]) return max(nums) 分析 考虑nums[i]，若nums[i-1]所存储的累加值为正，则对nums[i]有增益。从而以i结尾的子序和大于nums[i]。</description>
+   代码 class Solution: def maxSubArray(self, nums: List[int]) -&amp;gt; int: for i in range(1, len(nums)): nums[i] = max(nums[i], nums[i-1] + nums[i]) return max(nums) 分析   考虑nums[i]，若nums[i-1]所存储的累加值为正，则对nums[i]有增益。从而以i结尾的子序和大于nums[i]。</description>
     </item>
     
     <item>
@@ -176,7 +197,7 @@
  提示
   0 &amp;lt;= s.length &amp;lt;= 5 * 104
   s由英文字母、数字、符号和空格组成
-   代码 class Solution: def lengthOfLongestSubstring(self, s: str) -&amp;gt; int: #考虑以某一下标为起始位置的最长子串。 l = r = maxlen = 0 hashtable = dict() #记录某一元素出现的最靠结尾的下标 while r in range(len(s)): if s[r] in hashtable and hashtable[s[r]] in range(l, r): l = hashtable[s[r]] + 1 hashtable[s[r]] = r maxlen = max(maxlen, r - l + 1) r += 1 return maxlen 分析 使用滑动窗方法处理子字符串</description>
+   代码 class Solution: def lengthOfLongestSubstring(self, s: str) -&amp;gt; int: #考虑以某一下标为起始位置的最长子串。 l = r = maxlen = 0 hashtable = dict() #记录某一元素出现的最靠结尾的下标 while r in range(len(s)): if s[r] in hashtable and hashtable[s[r]] in range(l, r): l = hashtable[s[r]] + 1 hashtable[s[r]] = r maxlen = max(maxlen, r - l + 1) r += 1 return maxlen 分析  使用滑动窗方法处理子字符串  </description>
     </item>
     
     <item>

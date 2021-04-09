@@ -146,8 +146,14 @@
             nums[i] <span style="color:#f92672">=</span> max(nums[i], nums[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> nums[i]) 
         <span style="color:#66d9ef">return</span> max(nums)
 </code></pre></div><h2 id="分析">分析</h2>
+<ul>
+<li>
 <p>考虑<code>nums[i]</code>，若<code>nums[i-1]</code>所存储的累加值为正，则对<code>nums[i]</code>有增益。从而以<code>i</code>结尾的子序和大于<code>nums[i]</code>。</p>
+</li>
+<li>
 <p>最后返回<code>[0, len(nums))</code>范围内的最大值。</p>
+</li>
+</ul>
 
 
   <footer>
