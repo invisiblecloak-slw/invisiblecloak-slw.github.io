@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0169-majority element - XIU</title>
+    <meta property="og:title" content="0169-majority element - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="给定一个大小为n的数组，找到其中的多数元素。
+多数元素是指在数组中出现次数大于⌊ n/2 ⌋的元素。
+可以假设数组是非空的，并且给定的数组总是存在多数元素。
+[&amp;hellip;] 示例1
+[&amp;hellip;] 输入: [3,2,3]
+输出: 3
+[&amp;hellip;] 示例2
+[&amp;hellip;] 输入: [2,2,1,1,1,2,2]
+输出: 2
+[&amp;hellip;] class &amp;hellip;">
+      <meta property="og:description" content="给定一个大小为n的数组，找到其中的多数元素。
+多数元素是指在数组中出现次数大于⌊ n/2 ⌋的元素。
+可以假设数组是非空的，并且给定的数组总是存在多数元素。
+[&amp;hellip;] 示例1
+[&amp;hellip;] 输入: [3,2,3]
+输出: 3
+[&amp;hellip;] 示例2
+[&amp;hellip;] 输入: [2,2,1,1,1,2,2]
+输出: 2
+[&amp;hellip;] class &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>0169-majority element</h1>
+
+<h3>Xiu Di
+  /  2021-04-10</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="多数元素"><strong>多数元素</strong></h2>
+<p>给定一个大小为n的数组，找到其中的多数元素。</p>
+<p>多数元素是指在数组中出现次数<strong>大于</strong><code>⌊ n/2 ⌋</code>的元素。</p>
+<p>可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
+<ul>
+<li>尝试使用时间复杂度为O(n)，空间复杂度为O(1)的算法解决此问题。</li>
+</ul>
+<blockquote>
+<p><strong>示例1</strong></p>
+<blockquote>
+<p><strong>输入</strong>: [3,2,3]</p>
+<p><strong>输出</strong>: 3</p>
+</blockquote>
+<p><strong>示例2</strong></p>
+<blockquote>
+<p><strong>输入</strong>: [2,2,1,1,1,2,2]</p>
+<p><strong>输出</strong>: 2</p>
+</blockquote>
+</blockquote>
+<h2 id="代码"><strong>代码</strong></h2>
+<h3 id="boyer-moore-投票法"><strong>Boyer-Moore 投票法</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">majorityElement</span>(self, nums: List[int]) <span style="color:#f92672">-&gt;</span> int:
+        winner, winner_counter <span style="color:#f92672">=</span> None, <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">for</span> candidate <span style="color:#f92672">in</span> nums:
+            <span style="color:#66d9ef">if</span> winner_counter <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>: 
+                winner <span style="color:#f92672">=</span> candidate
+                winner_counter <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+            <span style="color:#66d9ef">elif</span> winner <span style="color:#f92672">==</span> candidate:
+                winner_counter <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+            <span style="color:#66d9ef">else</span>:
+                winner_counter <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">return</span> winner
+</code></pre></div><h2 id="分析"><strong>分析</strong></h2>
+<h3 id="boyer-moore-投票法-1"><strong>Boyer-Moore 投票法</strong></h3>
+<p>Moore投票法旨在解决：如何在任意多的候选人中，定出获得票数最多的候选人。</p>
+<p><strong>形象化描述：</strong></p>
+<p>会议大厅站满了投票代表，每个代表都选中了一位候选人。选举意见不同的代表将会同时击倒对方。易见，若某个候选人拥有的选票大于其他候选人拥有的选票，支持此候选人的代表们将会最终获得胜利。如果所有候选者的选票都非<strong>大多数</strong>(超过总人数的一半)，那么算法最后选定的候选人并非拥有<strong>大多数</strong>选票的候选人。</p>
+<p><strong>证明：</strong></p>
+<p>假定共有<code>n</code>个代表(一人一票，选票总数为<code>n</code>)。考虑第<code>i</code>个代表时，其之前的<code>i-1</code>章选票可以分为两组：第一组为<code>k</code>个代表赞同<code>candidate</code>；第二组为<code>i-1-k</code>个代表的选票可以成对抵消(支持的候选人不同)。当处理完所有的选票时，如果<strong>大多数</strong>存在，那么<code>candidate</code>即为拥有<strong>大多数</strong>支持者的候选人。</p>
+<p><strong>反证法</strong>：假定存在某一候选者<code>x</code>不同于<code>candidate</code>，但<code>x</code>拥有<strong>大多数</strong>选票。由于第二组的选票全部抵消，故<code>x</code>获取选票数的上限为<code>(n-k)/2</code>。又<code>(n-k)/2 &gt; ⌊ n/2 ⌋</code>不成立，与假设矛盾，故<code>candidate</code>即拥有<strong>大多数</strong>选票的候选者。</p>
+<h2 id="其他思路"><strong>其他思路</strong></h2>
+<ul>
+<li><strong>哈希表法</strong></li>
+<li><strong>分治法</strong></li>
+<li><strong>排序法</strong></li>
+</ul>
+<h2 id="参考链接"><strong>参考链接</strong></h2>
+<p><a href="https://blog.csdn.net/happyeveryday62/article/details/104136295">摩尔投票法(Boyer-Moore majority vote algorithm)</a></p>
+<p><a href="https://leetcode-cn.com/problems/majority-element/solution/duo-shu-yuan-su-by-leetcode-solution/">多数元素</a></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/09/0101-symmetric-tree/">0101-symmetric tree</a></span>
+  <span class="nav-next"><a href="/post/2021/04/10/0160-intersection-of-two-linked-lists/">0160-intersection of two linked lists</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

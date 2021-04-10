@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0160-intersection of two linked lists - XIU</title>
+    <meta property="og:title" content="0160-intersection of two linked lists - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="编写一个程序，找到两个单链表相交的起始节点。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3
+输出: Reference of the node with value = 8
+输入解释: 相交节点的值为 8 （注意，如果 &amp;hellip;">
+      <meta property="og:description" content="编写一个程序，找到两个单链表相交的起始节点。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3
+输出: Reference of the node with value = 8
+输入解释: 相交节点的值为 8 （注意，如果 &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>0160-intersection of two linked lists</h1>
+
+<h3>Xiu Di
+  /  2021-04-10</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="题目描述"><strong>题目描述</strong></h2>
+<p>编写一个程序，找到两个单链表相交的起始节点。</p>
+<blockquote>
+<p><strong>示例1</strong>:</p>
+<blockquote>
+<p><img src="images/instance_1.png" alt="instance 1">
+<strong>输入</strong>: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3</p>
+<p><strong>输出</strong>: Reference of the node with value = 8</p>
+<p><strong>输入解释</strong>: 相交节点的值为 8 （注意，如果两个链表相交则不能为 0）。链表A为[4,1,8,4,5]，链表B为[5,0,1,8,4,5]。在A中，相交节点前有2个节点；在B中，相交节点前有3个节点。</p>
+</blockquote>
+<p><strong>示例2</strong>:</p>
+<blockquote>
+<p><img src="images/instance_2.png" alt="instance 2">
+<strong>输入</strong>: intersectVal = 2, listA = [0,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1</p>
+<p><strong>输出</strong>: Refernce of the node with value = 2</p>
+<p><strong>输入解释</strong>: 相交节点的值为 2 （注意，如果两个链表相交则不能为0）。链表A为[0,9,1,2,4]，链表B为[3,2,4]。在A中，相交节点前有3个节点；在B中，相交节点前有1个节点。</p>
+</blockquote>
+<p><strong>示例3</strong>:</p>
+<blockquote>
+<p><img src="images/instance_3.png" alt="instance 3"></p>
+<p><strong>输入</strong>: intersecVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2</p>
+<p><strong>输出</strong>: null</p>
+<p><strong>输入解释</strong>: 链表A为[2,6,4]，链表B为[1,5]。由于这两个链表不相交，所以intersectVal必须为0，而skipA和skipB可以是任意值。</p>
+<p><strong>解释</strong>: 这两个链表不相交，因此返回null。</p>
+</blockquote>
+<p><strong>注意</strong>:</p>
+<ul>
+<li>如果两个链表没有交点，返回<code>null</code>。</li>
+<li>在返回结果后，两个链表仍须保持原有的结构。</li>
+<li>可假定整个链表结构中没有循环。</li>
+<li>程序尽量满足O(n)时间复杂度，且仅用O(1)内存。</li>
+</ul>
+</blockquote>
+<h2 id="代码"><strong>代码</strong></h2>
+<h3 id="哈希表法"><strong>哈希表法</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for singly-linked list.</span>
+<span style="color:#75715e"># class ListNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.next = None</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">getIntersectionNode</span>(self, headA: ListNode, headB: ListNode) <span style="color:#f92672">-&gt;</span> ListNode:
+        hashTable <span style="color:#f92672">=</span> set()
+        curA, curB, res <span style="color:#f92672">=</span> headA, headB, None
+        <span style="color:#66d9ef">while</span> curA <span style="color:#f92672">or</span> curB:
+            <span style="color:#66d9ef">if</span> curA: 
+                <span style="color:#66d9ef">if</span> curA <span style="color:#f92672">in</span> hashTable: 
+                    res <span style="color:#f92672">=</span> curA
+                    <span style="color:#66d9ef">break</span>
+                <span style="color:#66d9ef">else</span>: 
+                    hashTable<span style="color:#f92672">.</span>add(curA)
+                    curA <span style="color:#f92672">=</span> curA<span style="color:#f92672">.</span>next
+            <span style="color:#66d9ef">if</span> curB:
+                <span style="color:#66d9ef">if</span> curB <span style="color:#f92672">in</span> hashTable:
+                    res <span style="color:#f92672">=</span> curB
+                    <span style="color:#66d9ef">break</span>
+                <span style="color:#66d9ef">else</span>:
+                    hashTable<span style="color:#f92672">.</span>add(curB)
+                    curB <span style="color:#f92672">=</span> curB<span style="color:#f92672">.</span>next
+        <span style="color:#66d9ef">return</span> res
+</code></pre></div><h3 id="双指针法"><strong>双指针法</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">getIntersectionNode</span>(self, headA: ListNode, headB: ListNode) <span style="color:#f92672">-&gt;</span> ListNode:
+        curA, curB <span style="color:#f92672">=</span> headA, headB
+        <span style="color:#66d9ef">while</span> curA <span style="color:#f92672">!=</span> curB:
+            curA <span style="color:#f92672">=</span> curA<span style="color:#f92672">.</span>next <span style="color:#66d9ef">if</span> curA <span style="color:#66d9ef">else</span> headB
+            curB <span style="color:#f92672">=</span> curB<span style="color:#f92672">.</span>next <span style="color:#66d9ef">if</span> curB <span style="color:#66d9ef">else</span> headA
+        <span style="color:#66d9ef">return</span> curA
+</code></pre></div>
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/10/0169-majority-element/">0169-majority element</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
