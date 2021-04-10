@@ -119,6 +119,34 @@
 <img src="images/delta_based.png" alt="delta-based version control system"></p>
 <p>Git对待数据更像是一个<strong>快照流</strong>。每当提交更新或保存项目状态时，Git对此时全部文件创建快照并保存快照索引。
 <img src="images/snapshot_flow.png" alt="Snapshot Flow"></p>
+<h3 id="近乎所有操作都是本地执行"><strong>近乎所有操作都是本地执行</strong></h3>
+<p>在Git中的绝大多数操作都只需要访问本地文件和资源，一般不需要来自网络上其他计算机的信息。</p>
+<h3 id="git保证完整性"><strong>Git保证完整性</strong></h3>
+<p>Git中所有的数据在存储前都计算校验和，然后以校验和来引用。这意味着在Git不知情时不能更改任何文件内容或目录内容。</p>
+<p>Git用于计算校验和的机制为SHA-1散列，这是一个由40个十六进制字符组成的字符串，基于Git中文件的内容或目录结构计算出来。</p>
+<p>Git中众多场景应用这种哈希值。Git数据库中保存的信息都是以文件内容的哈希值来索引，而不是文件名。</p>
+<h3 id="git一般只添加数据"><strong>Git一般只添加数据</strong></h3>
+<p>Git操作几乎只向Git数据库中添加数据。而Git几乎不会执行任何可能导致文件不可恢复的操作，即Git不会从数据库中删除数据。</p>
+<h3 id="三种状态"><strong>三种状态</strong></h3>
+<p>Git有三种状态，文件状态可能处于其中之一：</p>
+<p><strong>已修改(modified)</strong>:<code>修改了文件，但还没保存到数据库中。</code></p>
+<p><strong>已暂存(staged)</strong>:<code>对一个已修改文件的当前版本做了标记，使其包含在下次提交的快照中。</code></p>
+<p><strong>已提交(committed)</strong>:<code>数据已经安全地保存在本地数据库中。</code></p>
+<p>相应地，在Git中有三个阶段：<strong>工作区</strong>、<strong>暂存区</strong>、<strong>Git目录</strong>。
+<img src="images/three_stages.png" alt="Three stages"></p>
+<p><strong>工作区</strong>:<code>对项目的某个版本独立提取出的内容。</code></p>
+<p><strong>暂存区</strong>:<code>保存了下次将要提交的文件信息列表信息。</code></p>
+<p><strong>Git目录</strong>:<code>Git用来保存项目的元数据和对象数据库的地方。</code></p>
+<p><strong>基本的Git工作流程如下:</strong></p>
+<p>1.<code>在工作区中修改文件。</code></p>
+<p>2.<code>将下次要提交的更改选择性地暂存。</code></p>
+<p>3.<code>提交更新，找到暂存区的文件，将快照永久性地存储到Git目录中。</code></p>
+<h2 id="help">HELP</h2>
+<p>使用Git时若需要获取帮助，有三种查阅手册的等价方式：</p>
+<p><code>$ git help &lt;verb&gt;</code></p>
+<p><code>$ git &lt;verb&gt; --help</code></p>
+<p><code>$ man git-&lt;verb&gt;</code></p>
+<p>如果不需要全面的手册，可以用<code>-h</code>选项获得更加简明的输出。如<code>$ git add -h</code></p>
 <h2 id="参考链接"><strong>参考链接</strong></h2>
 <p><a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%85%B3%E4%BA%8E%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6">Pro Git 1.起步</a></p>
 
