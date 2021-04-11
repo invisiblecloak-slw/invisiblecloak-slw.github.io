@@ -6,7 +6,22 @@
     <description>Recent content in Home on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0206-reverse linked list</title>
+      <link>/post/2021/04/11/0206-reverse-linked-list/</link>
+      <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/11/0206-reverse-linked-list/</guid>
+      <description>问题描述 反转一个简单链表。
+ 示例:
+ 输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL
+输出: 5-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;1-&amp;gt;NULL
+ 提示:
+ 可以使用递归和迭代两种方式反转链表。
+  代码 递归 # Definition for singly-linked list. # class ListNode: # def __init__(self, val=0, next=None): # self.val = val # self.next = next class Solution: def reverseList(self, head: ListNode) -&amp;gt; ListNode: if not head or not head.next: return head rhead = self.reverseList(head.next) head.next.next, head.next = head, None return rhead 迭代 # Definition for singly-linked list. # class ListNode: # def __init__(self, val=0, next=None): # self.</description>
+    </item>
+    
     <item>
       <title>0160-intersection of two linked lists</title>
       <link>/post/2021/04/10/0160-intersection-of-two-linked-lists/</link>
@@ -388,7 +403,9 @@ VMware虚拟机（Ubuntu）通过主机代理实现翻墙（shadowsocks）</desc
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>/post/2021/04/06/vim-shorcuts/</guid>
-      <description>跳转命令 shift + g: 跳转到文件结尾 :10: 跳转到第10行
+      <description>跳转命令 shift + g: 跳转到文件结尾
+gg: 跳转到文件开头
+:10: 跳转到第10行
 删除命令 :1,10d: VIM模式下删除1～10行的内容
 选中命令 v+j/k/h/l: 进入VISUAL模式，文本选中。
 对于选中的文本可执行以下操作：

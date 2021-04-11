@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0206-reverse linked list - XIU</title>
+    <meta property="og:title" content="0206-reverse linked list - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="反转一个简单链表。
+[&amp;hellip;] 示例:
+[&amp;hellip;] 输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL
+输出: 5-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;1-&amp;gt;NULL
+[&amp;hellip;] 提示:
+[&amp;hellip;] 可以使用递归和迭代两种方式反转链表。
+">
+      <meta property="og:description" content="反转一个简单链表。
+[&amp;hellip;] 示例:
+[&amp;hellip;] 输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL
+输出: 5-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;1-&amp;gt;NULL
+[&amp;hellip;] 提示:
+[&amp;hellip;] 可以使用递归和迭代两种方式反转链表。
+">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>0206-reverse linked list</h1>
+
+<h3>Xiu Di
+  /  2021-04-11</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="问题描述"><strong>问题描述</strong></h2>
+<p>反转一个简单链表。</p>
+<blockquote>
+<p><strong>示例</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</p>
+<p><strong>输出</strong>: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
+</blockquote>
+<p><strong>提示</strong>:</p>
+<blockquote>
+<p>可以使用递归和迭代两种方式反转链表。</p>
+</blockquote>
+</blockquote>
+<h2 id="代码"><strong>代码</strong></h2>
+<h3 id="递归">递归</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for singly-linked list.</span>
+<span style="color:#75715e"># class ListNode:</span>
+<span style="color:#75715e">#     def __init__(self, val=0, next=None):</span>
+<span style="color:#75715e">#         self.val = val</span>
+<span style="color:#75715e">#         self.next = next</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">reverseList</span>(self, head: ListNode) <span style="color:#f92672">-&gt;</span> ListNode:
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> head <span style="color:#f92672">or</span> <span style="color:#f92672">not</span> head<span style="color:#f92672">.</span>next: <span style="color:#66d9ef">return</span> head
+        rhead <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>reverseList(head<span style="color:#f92672">.</span>next)
+        head<span style="color:#f92672">.</span>next<span style="color:#f92672">.</span>next, head<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> head, None
+        <span style="color:#66d9ef">return</span> rhead
+</code></pre></div><h3 id="迭代">迭代</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for singly-linked list.</span>
+<span style="color:#75715e"># class ListNode:</span>
+<span style="color:#75715e">#     def __init__(self, val=0, next=None):</span>
+<span style="color:#75715e">#         self.val = val</span>
+<span style="color:#75715e">#         self.next = next</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">reverseList</span>(self, head: ListNode) <span style="color:#f92672">-&gt;</span> ListNode:
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> head <span style="color:#f92672">or</span> <span style="color:#f92672">not</span> head<span style="color:#f92672">.</span>next: <span style="color:#66d9ef">return</span> head
+    prev, cur, Next <span style="color:#f92672">=</span> None, head, head<span style="color:#f92672">.</span>next
+    <span style="color:#66d9ef">while</span> cur:
+        cur<span style="color:#f92672">.</span>next, prev, cur <span style="color:#f92672">=</span> prev, cur, Next
+        <span style="color:#66d9ef">if</span> Next: Next <span style="color:#f92672">=</span> Next<span style="color:#f92672">.</span>next
+    <span style="color:#66d9ef">return</span> prev
+</code></pre></div>
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/10/0160-intersection-of-two-linked-lists/">0160-intersection of two linked lists</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
