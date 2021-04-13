@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0234-palindrome linked list - XIU</title>
+    <meta property="og:title" content="0234-palindrome linked list - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="请判断一个链表是否为回文链表
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: 1-&amp;gt;2-&amp;gt;2-&amp;gt;1
+输出: true
+[&amp;hellip;] 示例2:
+[&amp;hellip;] 输入: 1-&amp;gt;2
+输出: false
+[&amp;hellip;] 提示:考虑使用O(n)时间复杂度和O(1)空间复杂度。
+[&amp;hellip;] # Definition for &amp;hellip;">
+      <meta property="og:description" content="请判断一个链表是否为回文链表
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: 1-&amp;gt;2-&amp;gt;2-&amp;gt;1
+输出: true
+[&amp;hellip;] 示例2:
+[&amp;hellip;] 输入: 1-&amp;gt;2
+输出: false
+[&amp;hellip;] 提示:考虑使用O(n)时间复杂度和O(1)空间复杂度。
+[&amp;hellip;] # Definition for &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>0234-palindrome linked list</h1>
+
+<h3>Xiu Di
+  /  2021-04-13</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="问题描述"><strong>问题描述</strong></h2>
+<p>请判断一个链表是否为回文链表</p>
+<blockquote>
+<p><strong>示例1</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: 1-&gt;2-&gt;2-&gt;1</p>
+<p><strong>输出</strong>: true</p>
+</blockquote>
+<p><strong>示例2</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: 1-&gt;2</p>
+<p><strong>输出</strong>: false</p>
+</blockquote>
+<p><strong>提示</strong>:考虑使用O(n)时间复杂度和O(1)空间复杂度。</p>
+</blockquote>
+<h2 id="代码"><strong>代码</strong></h2>
+<h3 id="将链表中的元素复制到数组中借助数组元素的随机访问特性使用双指针法判定是否为回文链表"><strong>将链表中的元素复制到数组中，借助数组元素的随机访问特性，使用双指针法判定是否为回文链表</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for singly-linked list.</span>
+<span style="color:#75715e"># class ListNode:</span>
+<span style="color:#75715e">#     def __init__(self, val = 0, next = None):</span>
+<span style="color:#75715e">#         self.val = val</span>
+<span style="color:#75715e">#         self.next = next</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>(self, head : ListNode) <span style="color:#f92672">-&gt;</span> bool:
+    ptr, array <span style="color:#f92672">=</span> head, list()
+    <span style="color:#66d9ef">while</span> ptr:
+        array<span style="color:#f92672">.</span>append(ptr<span style="color:#f92672">.</span>val)
+        ptr <span style="color:#f92672">=</span> ptr<span style="color:#f92672">.</span>next
+    lptr, rptr <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, len(array) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">while</span> lptr <span style="color:#f92672">&lt;</span> rptr:
+        <span style="color:#66d9ef">if</span> array[lptr] <span style="color:#f92672">!=</span> array[rptr]: <span style="color:#66d9ef">return</span> False
+        lptr, rptr <span style="color:#f92672">=</span> lptr <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, rptr <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">return</span> True
+</code></pre></div><h3 id="参考逆序打印链表设置前向指针与逆向递归栈的节点比较元素值"><strong>参考逆序打印链表，设置前向指针，与逆向递归栈的节点比较元素值</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isPalindrome</span>(self, head: ListNode) <span style="color:#f92672">-&gt;</span> bool:
+        self<span style="color:#f92672">.</span>front <span style="color:#f92672">=</span> head
+        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">helper</span>(head: ListNode):
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> head: <span style="color:#66d9ef">return</span> True
+            <span style="color:#66d9ef">if</span> helper(head<span style="color:#f92672">.</span>next) <span style="color:#f92672">and</span> head<span style="color:#f92672">.</span>val <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>front<span style="color:#f92672">.</span>val:
+                self<span style="color:#f92672">.</span>front <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>front<span style="color:#f92672">.</span>next
+                <span style="color:#66d9ef">return</span> True
+            <span style="color:#66d9ef">return</span> False
+        <span style="color:#66d9ef">return</span> helper(head)
+</code></pre></div><h3 id="显式使用栈"><strong>显式使用栈</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isPalindrome</span>(self, head: ListNode) <span style="color:#f92672">-&gt;</span> bool:
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> head: <span style="color:#66d9ef">return</span> True
+        stack, ptr <span style="color:#f92672">=</span> list(), head
+        <span style="color:#66d9ef">while</span> ptr:
+            stack<span style="color:#f92672">.</span>append(ptr)
+            ptr <span style="color:#f92672">=</span> ptr<span style="color:#f92672">.</span>next
+        <span style="color:#66d9ef">while</span> head:
+            <span style="color:#66d9ef">if</span> head<span style="color:#f92672">.</span>val <span style="color:#f92672">!=</span> stack<span style="color:#f92672">.</span>pop()<span style="color:#f92672">.</span>val: <span style="color:#66d9ef">return</span> False
+            head <span style="color:#f92672">=</span> head<span style="color:#f92672">.</span>next
+        <span style="color:#66d9ef">return</span> True
+</code></pre></div><h3 id="结合翻转链表算法"><strong>结合翻转链表算法</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">reverseList</span>(self, head: ListNode) <span style="color:#f92672">-&gt;</span> bool:
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> head <span style="color:#f92672">or</span> <span style="color:#f92672">not</span> head<span style="color:#f92672">.</span>next: <span style="color:#66d9ef">return</span> head
+        rhead <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>reverseList(head<span style="color:#f92672">.</span>next)
+        head<span style="color:#f92672">.</span>next<span style="color:#f92672">.</span>next, head<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> head, None
+        <span style="color:#66d9ef">return</span> rhead
+    
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">ifPalindrome</span>(self, head: ListNode) <span style="color:#f92672">-&gt;</span> bool:
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> head <span style="color:#f92672">or</span> <span style="color:#f92672">not</span> head<span style="color:#f92672">.</span>next: <span style="color:#66d9ef">return</span> True
+        slow <span style="color:#f92672">=</span> fast <span style="color:#f92672">=</span> head
+        <span style="color:#66d9ef">while</span> fast<span style="color:#f92672">.</span>next <span style="color:#f92672">and</span> fast<span style="color:#f92672">.</span>next<span style="color:#f92672">.</span>next:
+            slow, fast <span style="color:#f92672">=</span> slow<span style="color:#f92672">.</span>next, fast<span style="color:#f92672">.</span>next<span style="color:#f92672">.</span>next
+        <span style="color:#75715e"># 如果链表长度是奇数，那么slow指针位于链表正中央</span>
+        <span style="color:#75715e"># 如果链表长度是偶数，那么slow指针位于链表前半部分最后节点</span>
+        rhead <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>reverseList(slow)
+        ptr, rptr <span style="color:#f92672">=</span> head, rhead
+        <span style="color:#66d9ef">while</span> rptr <span style="color:#f92672">!=</span> slow <span style="color:#f92672">and</span> ptr <span style="color:#f92672">!=</span> rptr:
+            <span style="color:#66d9ef">if</span> ptr<span style="color:#f92672">.</span>val <span style="color:#f92672">!=</span> rptr<span style="color:#f92672">.</span>val: <span style="color:#66d9ef">return</span> False
+            ptr, rptr <span style="color:#f92672">=</span> ptr<span style="color:#f92672">.</span>next, rptr<span style="color:#f92672">.</span>next
+        <span style="color:#66d9ef">return</span> True
+</code></pre></div><h2 id="分析"><strong>分析</strong></h2>
+<p>对于<code>结合翻转链表</code>的方法，须注意：</p>
+<ul>
+<li><code>rhead = self.reverseList(slow)</code> 反转后半部分链表，其尾节点应为<code>slow</code>而非<code>slow.next</code></li>
+<li>如果采用迭代方式实现链表翻转函数，那么本问题可以在<code>O(1</code>)的空间复杂度内解决。</li>
+</ul>
+<h2 id="参考链接"><strong>参考链接</strong></h2>
+<p><a href="https://leetcode-cn.com/problems/palindrome-linked-list/solution/hui-wen-lian-biao-by-leetcode-solution/">回文链表</a></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/13/python-ch2-python-ipython-jupyter-notebooks/">[利用Python进行数据分析] Ch2. Python语法基础 Ipython和Jupyter Notebooks</a></span>
+  <span class="nav-next"><a href="/post/2021/04/13/0226-invert-binary-tree/">0226-invert-binary-tree</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

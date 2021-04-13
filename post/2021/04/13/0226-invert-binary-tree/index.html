@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0226-invert-binary-tree - XIU</title>
+    <meta property="og:title" content="0226-invert-binary-tree - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="翻转一棵二叉树。
+[&amp;hellip;] 示例
+[&amp;hellip;] 输入:
+ 4 / \ 2 7 / \ / \ 1 3 6 9  输出:
+ 4 / \ 7 2 / \ / \ 9 6 3 1    代码 递归 # Definition for a binary tree node # class TreeNode: # def __init__(self, val = 0, left = &amp;hellip;">
+      <meta property="og:description" content="翻转一棵二叉树。
+[&amp;hellip;] 示例
+[&amp;hellip;] 输入:
+ 4 / \ 2 7 / \ / \ 1 3 6 9  输出:
+ 4 / \ 7 2 / \ / \ 9 6 3 1    代码 递归 # Definition for a binary tree node # class TreeNode: # def __init__(self, val = 0, left = &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>0226-invert-binary-tree</h1>
+
+<h3>Xiu Di
+  /  2021-04-13</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="题目描述"><strong>题目描述</strong></h2>
+<p>翻转一棵二叉树。</p>
+<blockquote>
+<p><strong>示例</strong></p>
+<blockquote>
+<p><strong>输入</strong>:</p>
+<pre><code>         4
+       /   \
+      2     7
+     / \   / \
+    1   3 6   9
+</code></pre>
+<p><strong>输出</strong>:</p>
+<pre><code>         4
+       /   \
+      7     2
+     / \   / \
+    9   6 3   1
+</code></pre>
+</blockquote>
+</blockquote>
+<h2 id="代码"><strong>代码</strong></h2>
+<h3 id="递归"><strong>递归</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, val = 0, left = None, right = None):</span>
+<span style="color:#75715e">#         self.val = val</span>
+<span style="color:#75715e">#         self.left = left</span>
+<span style="color:#75715e">#         self.right = right</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">invertTree</span>(self, root: TreeNode) <span style="color:#f92672">-&gt;</span> TreeNode:
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root: <span style="color:#66d9ef">return</span> root
+        root<span style="color:#f92672">.</span>left, root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>invertTree(root<span style="color:#f92672">.</span>right), self<span style="color:#f92672">.</span>invertTree(root<span style="color:#f92672">.</span>left)
+        <span style="color:#66d9ef">return</span> root
+</code></pre></div><h3 id="迭代"><strong>迭代</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">invertTree</span>(self, root: TreeNode) <span style="color:#f92672">-&gt;</span> TreeNode:
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root: <span style="color:#66d9ef">return</span> root
+        Q <span style="color:#f92672">=</span> [root]
+        <span style="color:#66d9ef">while</span> Q:
+            node <span style="color:#f92672">=</span> Q<span style="color:#f92672">.</span>pop(<span style="color:#ae81ff">0</span>)
+            node<span style="color:#f92672">.</span>left, node<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>right, node<span style="color:#f92672">.</span>left
+            <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>left: Q<span style="color:#f92672">.</span>append(node<span style="color:#f92672">.</span>left)
+            <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>right: Q<span style="color:#f92672">.</span>append(node<span style="color:#f92672">.</span>right)
+        <span style="color:#66d9ef">return</span> root
+</code></pre></div><h2 id="参考链接"><strong>参考链接</strong></h2>
+<p><a href="https://leetcode-cn.com/problems/invert-binary-tree/solution/dong-hua-yan-shi-liang-chong-shi-xian-226-fan-zhua/">动画演示 两种实现 226.翻转二叉树</a></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/13/0234-palindrome-linked-list/">0234-palindrome linked list</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

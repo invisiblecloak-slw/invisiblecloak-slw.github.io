@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shortcuts on XIU</title>
+    <link>/categories/shortcuts/</link>
+    <description>Recent content in Shortcuts on XIU</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/shortcuts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google Chrome Shortcuts</title>
+      <link>/post/2021/04/13/google-chrome-shortcuts/</link>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/13/google-chrome-shortcuts/</guid>
+      <description>cmd + shift + T: 打开上一个关闭的标签页</description>
+    </item>
+    
+  </channel>
+</rss>

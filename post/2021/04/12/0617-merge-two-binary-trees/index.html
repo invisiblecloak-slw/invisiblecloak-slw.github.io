@@ -133,7 +133,35 @@
         root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> mergeTrees(root1<span style="color:#f92672">.</span>right, root2<span style="color:#f92672">.</span>right)
         <span style="color:#66d9ef">return</span> root
 </code></pre></div><h3 id="bfs算法"><strong>BFS算法</strong></h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mergeTrees</span>(self, root1:TreeNode, root2:TreeNode) <span style="color:#f92672">-&gt;</span> TreeNode:
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root1: <span style="color:#66d9ef">return</span> root2
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root2: <span style="color:#66d9ef">return</span> root1
+        Q <span style="color:#f92672">=</span> collections<span style="color:#f92672">.</span>deque([root])
+        Q1 <span style="color:#f92672">=</span> collections<span style="color:#f92672">.</span>deque([root1])
+        Q2 <span style="color:#f92672">=</span> collections<span style="color:#f92672">.</span>deque([root2])
+        <span style="color:#66d9ef">while</span> Q:
+            node, node1, node2 <span style="color:#f92672">=</span> Q<span style="color:#f92672">.</span>popleft(), Q1<span style="color:#f92672">.</span>popleft(), Q2<span style="color:#f92672">.</span>popleft()
+            left1, right1 <span style="color:#f92672">=</span> node1<span style="color:#f92672">.</span>left, node1<span style="color:#f92672">.</span>right
+            left2, right2 <span style="color:#f92672">=</span> node2<span style="color:#f92672">.</span>left, node2<span style="color:#f92672">.</span>right
+            <span style="color:#66d9ef">if</span> left1 <span style="color:#f92672">or</span> left2:
+                <span style="color:#66d9ef">if</span> left1 <span style="color:#f92672">and</span> left2:
+                    node<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> TreeNode(left1<span style="color:#f92672">.</span>val <span style="color:#f92672">+</span> left2<span style="color:#f92672">.</span>val)
+                    Q<span style="color:#f92672">.</span>append(node<span style="color:#f92672">.</span>left)
+                    Q1<span style="color:#f92672">.</span>append(left1)
+                    Q2<span style="color:#f92672">.</span>append(left2)
+	        <span style="color:#66d9ef">elif</span> left1: node<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> left1
+	        <span style="color:#66d9ef">elif</span> left2: node<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> left2
+            <span style="color:#66d9ef">if</span> right1 <span style="color:#f92672">or</span> right2:
+                <span style="color:#66d9ef">if</span> right1 <span style="color:#f92672">and</span> right2:
+                    node<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> TreeNode(right1<span style="color:#f92672">.</span>val <span style="color:#f92672">+</span> right2<span style="color:#f92672">.</span>val)
+                    Q<span style="color:#f92672">.</span>append(node<span style="color:#f92672">.</span>right)
+                    Q1<span style="color:#f92672">.</span>append(right1)
+                    Q2<span style="color:#f92672">.</span>append(right2)
+                <span style="color:#66d9ef">elif</span> right1: node<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> right1
+                <span style="color:#66d9ef">elif</span> right2: node<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> right2
+        <span style="color:#66d9ef">return</span> root
+</code></pre></div>
 
   <footer>
   

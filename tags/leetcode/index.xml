@@ -6,7 +6,37 @@
     <description>Recent content in Leetcode on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0226-invert-binary-tree</title>
+      <link>/post/2021/04/13/0226-invert-binary-tree/</link>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/13/0226-invert-binary-tree/</guid>
+      <description>题目描述 翻转一棵二叉树。
+ 示例
+ 输入:
+ 4 / \ 2 7 / \ / \ 1 3 6 9  输出:
+ 4 / \ 7 2 / \ / \ 9 6 3 1    代码 递归 # Definition for a binary tree node # class TreeNode: # def __init__(self, val = 0, left = None, right = None): # self.val = val # self.left = left # self.</description>
+    </item>
+    
+    <item>
+      <title>0234-palindrome linked list</title>
+      <link>/post/2021/04/13/0234-palindrome-linked-list/</link>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/13/0234-palindrome-linked-list/</guid>
+      <description>问题描述 请判断一个链表是否为回文链表
+ 示例1:
+ 输入: 1-&amp;gt;2-&amp;gt;2-&amp;gt;1
+输出: true
+ 示例2:
+ 输入: 1-&amp;gt;2
+输出: false
+ 提示:考虑使用O(n)时间复杂度和O(1)空间复杂度。
+ 代码 将链表中的元素复制到数组中，借助数组元素的随机访问特性，使用双指针法判定是否为回文链表 # Definition for singly-linked list. # class ListNode: # def __init__(self, val = 0, next = None): # self.val = val # self.next = next class Solution(self, head : ListNode) -&amp;gt; bool: ptr, array = head, list() while ptr: array.append(ptr.val) ptr = ptr.next lptr, rptr = 0, len(array) - 1 while lptr &amp;lt; rptr: if array[lptr] !</description>
+    </item>
+    
     <item>
       <title>0461-hamming distance</title>
       <link>/post/2021/04/12/0461-hamming-distance/</link>
