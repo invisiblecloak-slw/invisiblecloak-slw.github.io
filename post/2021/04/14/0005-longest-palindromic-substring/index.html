@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0005-longest palindromic substring - XIU</title>
+    <meta property="og:title" content="0005-longest palindromic substring - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="给定字符串s，找到s中的最长回文子串。
+[&amp;hellip;] 示例1：
+[&amp;hellip;] 输入: s = &amp;ldquo;babad&amp;rdquo;
+输出: &amp;ldquo;bab&amp;quot;或&amp;quot;aba&amp;rdquo;
+[&amp;hellip;] 示例2：
+[&amp;hellip;] 输入: s = &amp;ldquo;cbbd&amp;rdquo;
+输出: &amp;ldquo;bb&amp;rdquo;
+[&amp;hellip;] 示 &amp;hellip;">
+      <meta property="og:description" content="给定字符串s，找到s中的最长回文子串。
+[&amp;hellip;] 示例1：
+[&amp;hellip;] 输入: s = &amp;ldquo;babad&amp;rdquo;
+输出: &amp;ldquo;bab&amp;quot;或&amp;quot;aba&amp;rdquo;
+[&amp;hellip;] 示例2：
+[&amp;hellip;] 输入: s = &amp;ldquo;cbbd&amp;rdquo;
+输出: &amp;ldquo;bb&amp;rdquo;
+[&amp;hellip;] 示 &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>0005-longest palindromic substring</h1>
+
+<h3>Xiu Di
+  /  2021-04-14</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="最长回文子串"><strong>最长回文子串</strong></h2>
+<p>给定字符串<code>s</code>，找到<code>s</code>中的最长回文子串。</p>
+<blockquote>
+<p><strong>示例1</strong>：</p>
+<blockquote>
+<p><strong>输入</strong>: s = &ldquo;babad&rdquo;</p>
+<p><strong>输出</strong>: &ldquo;bab&quot;或&quot;aba&rdquo;</p>
+</blockquote>
+<p><strong>示例2</strong>：</p>
+<blockquote>
+<p><strong>输入</strong>: s = &ldquo;cbbd&rdquo;</p>
+<p><strong>输出</strong>: &ldquo;bb&rdquo;</p>
+</blockquote>
+<p><strong>示例3</strong>：</p>
+<blockquote>
+<p><strong>输入</strong>: s = &ldquo;a&rdquo;</p>
+<p><strong>输出</strong>: &ldquo;a&rdquo;</p>
+</blockquote>
+<p><strong>示例4</strong>：</p>
+<blockquote>
+<p><strong>输入</strong>: s = &ldquo;ac&rdquo;</p>
+<p><strong>输出</strong>: &ldquo;a&rdquo;</p>
+</blockquote>
+<p><strong>提示</strong>:</p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+<li><code>s</code>仅由数字和英文字母（大写和/或小写）组成</li>
+</ul>
+</blockquote>
+<h2 id="代码"><strong>代码</strong></h2>
+<h3 id="动态规划法"><strong>动态规划法</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">longestPalindrome</span>(self, s: str) <span style="color:#f92672">-&gt;</span> str:
+        n <span style="color:#f92672">=</span> len(s)
+        <span style="color:#75715e"># 记录dp过程中发现的最长回文子串</span>
+        start, stride <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
+        <span style="color:#75715e"># step = 0, 默认为True</span>
+        dp <span style="color:#f92672">=</span> [[True <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(n)] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n)]
+        <span style="color:#75715e"># step = 1, 另一种构建块，进行判定</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">in</span> <span style="color:#f92672">in</span> range(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>):
+            <span style="color:#66d9ef">if</span> s[i] <span style="color:#f92672">==</span> s[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]:
+                start, stride <span style="color:#f92672">=</span> i, <span style="color:#ae81ff">1</span>
+            <span style="color:#66d9ef">else</span>:
+                dp[i][i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> False
+        <span style="color:#75715e"># step in [2, n-1], 进行判定</span>
+        <span style="color:#66d9ef">for</span> step <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>, n):
+            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n <span style="color:#f92672">-</span> step):
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> dp[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>][i <span style="color:#f92672">+</span> step <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">or</span> s[i] <span style="color:#f92672">!=</span> s[i <span style="color:#f92672">+</span> step]:
+                    dp[i][i <span style="color:#f92672">+</span> step] <span style="color:#f92672">=</span> False
+                <span style="color:#66d9ef">else</span>:
+                    start, stride <span style="color:#f92672">=</span> i, step
+        <span style="color:#66d9ef">return</span> s[start: start <span style="color:#f92672">+</span> stride <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]
+</code></pre></div><h3 id="中心扩散法"><strong>中心扩散法</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">longestPalindrome</span>(self, s: str) <span style="color:#f92672">-&gt;</span> str:
+        n, maxlen <span style="color:#f92672">=</span> len(s), <span style="color:#ae81ff">1</span>
+        start, end <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
+        <span style="color:#75715e"># 以单个元素为构建块</span>
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+        l, r <span style="color:#f92672">=</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">while</span> l <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> r <span style="color:#f92672">&lt;</span> n:
+            <span style="color:#66d9ef">if</span> s[l] <span style="color:#f92672">!=</span> s[r]: <span style="color:#66d9ef">break</span>
+            <span style="color:#66d9ef">elif</span> maxlen <span style="color:#f92672">&lt;</span> r <span style="color:#f92672">-</span> l <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>:
+                maxlen, start, end <span style="color:#f92672">=</span> r <span style="color:#f92672">-</span> l <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, l, r
+            l, r <span style="color:#f92672">=</span> l <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, r <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#75715e"># 以两个元素为构建块</span>
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>):
+            <span style="color:#66d9ef">if</span> s[i] <span style="color:#f92672">!=</span> s[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]: <span style="color:#66d9ef">continue</span>
+            <span style="color:#66d9ef">else</span>:
+                <span style="color:#66d9ef">if</span> maxlen <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>: maxlen, start, end <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, i, i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+                l, r <span style="color:#f92672">=</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, i <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>
+                <span style="color:#66d9ef">while</span> l <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> r <span style="color:#f92672">&lt;</span> n:
+                    <span style="color:#66d9ef">if</span> s[l] <span style="color:#f92672">!=</span> s[r]: <span style="color:#66d9ef">break</span>
+                    <span style="color:#66d9ef">elif</span> maxlen <span style="color:#f92672">&lt;</span> r <span style="color:#f92672">-</span> l <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>:
+                        maxlen, start, end <span style="color:#f92672">=</span> r <span style="color:#f92672">-</span> l <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, l, r
+                    l, r <span style="color:#f92672">=</span> l <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, r <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">return</span> s[start: end <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]
+</code></pre></div><h3 id="关于中心扩散法的重构lc题解"><strong>关于中心扩散法的重构(LC题解)</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">expandAroungCenter</span>(self, s, left, right):
+        <span style="color:#66d9ef">while</span> left <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> right <span style="color:#f92672">&lt;</span> len(s) <span style="color:#f92672">and</span> s[left] <span style="color:#f92672">==</span> s[right]:
+            left <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+            right <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">return</span> left <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, right <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+    
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">longestPalindrome</span>(self, s: str) <span style="color:#f92672">-&gt;</span> str:
+        start, end <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(s)):
+            left1, right1 <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>expandAroundCenter(s, i, i)
+            left2, right2 <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>expandAroundCenter(s, i, i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+            <span style="color:#66d9ef">if</span> right1 <span style="color:#f92672">-</span> left1 <span style="color:#f92672">&gt;</span> end <span style="color:#f92672">-</span> start:
+                start, end <span style="color:#f92672">=</span> left1, right1
+            <span style="color:#66d9ef">if</span> right2 <span style="color:#f92672">-</span> left2 <span style="color:#f92672">&gt;</span> end <span style="color:#f92672">-</span> start:
+                start, end <span style="color:#f92672">=</span> left2, right2
+        <span style="color:#66d9ef">return</span> s[start: end <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]
+</code></pre></div><h2 id="分析"><strong>分析</strong></h2>
+<ul>
+<li>Python借助列表构建二维数组的语句形如:
+<ul>
+<li><code>array = [[0 for j in range(nj)] for i in range(ni)]</code></li>
+<li><code>j</code>和<code>i</code>分别指定数组的列数和行数。</li>
+</ul>
+</li>
+<li>嵌套循环中，<code>break</code>跳出最内层循环。</li>
+</ul>
+<h2 id="参考链接"><strong>参考链接</strong></h2>
+<p><a href="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zui-chang-hui-wen-zi-chuan-by-leetcode-solution/">最长回文子串</a></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/13/0226-invert-binary-tree/">0226-invert-binary-tree</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

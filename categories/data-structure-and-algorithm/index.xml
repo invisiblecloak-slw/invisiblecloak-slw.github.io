@@ -6,7 +6,30 @@
     <description>Recent content in Data Structure and Algorithm on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/data-structure-and-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/data-structure-and-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0005-longest palindromic substring</title>
+      <link>/post/2021/04/14/0005-longest-palindromic-substring/</link>
+      <pubDate>Wed, 14 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/14/0005-longest-palindromic-substring/</guid>
+      <description>最长回文子串 给定字符串s，找到s中的最长回文子串。
+ 示例1：
+ 输入: s = &amp;ldquo;babad&amp;rdquo;
+输出: &amp;ldquo;bab&amp;quot;或&amp;quot;aba&amp;rdquo;
+ 示例2：
+ 输入: s = &amp;ldquo;cbbd&amp;rdquo;
+输出: &amp;ldquo;bb&amp;rdquo;
+ 示例3：
+ 输入: s = &amp;ldquo;a&amp;rdquo;
+输出: &amp;ldquo;a&amp;rdquo;
+ 示例4：
+ 输入: s = &amp;ldquo;ac&amp;rdquo;
+输出: &amp;ldquo;a&amp;rdquo;
+ 提示:
+ 1 &amp;lt;= s.length &amp;lt;= 1000 s仅由数字和英文字母（大写和/或小写）组成   代码 动态规划法 class Solution: def longestPalindrome(self, s: str) -&amp;gt; str: n = len(s) # 记录dp过程中发现的最长回文子串 start, stride = 0, 0 # step = 0, 默认为True dp = [[True for j in range(n)] for i in range(n)] # step = 1, 另一种构建块，进行判定 for in in range(n - 1): if s[i] == s[i+1]: start, stride = i, 1 else: dp[i][i+1] = False # step in [2, n-1], 进行判定 for step in range(2, n): for i in range(n - step): if not dp[i + 1][i + step - 1] or s[i] !</description>
+    </item>
+    
     <item>
       <title>0226-invert-binary-tree</title>
       <link>/post/2021/04/13/0226-invert-binary-tree/</link>
