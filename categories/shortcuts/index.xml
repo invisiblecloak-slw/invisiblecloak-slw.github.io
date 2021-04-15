@@ -6,7 +6,16 @@
     <description>Recent content in Shortcuts on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/shortcuts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/shortcuts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shell Shortcuts</title>
+      <link>/post/2021/04/15/shell-shortcuts/</link>
+      <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/15/shell-shortcuts/</guid>
+      <description>   快捷键 说明     Ctrl-P 用当前输入的文本搜索之前的命令   Ctrl-N 用当前输入的文本搜索之后的命令   Ctrl-Shift-V 从剪贴板粘贴文本   Ctrl-C 中断运行的代码   Ctrl-A 将光标移动到当前行的开头   Ctrl-E 将光标移动到当前行的末尾   Ctrl-K 删除光标到行末的文本   Ctrl-U 删除当前行的所有文本   Ctrl-F 光标向行末移动一个字符   Ctrl-B 光标向行首移动一个字符   Ctrl-L 清空屏幕    </description>
+    </item>
+    
     <item>
       <title>Google Chrome Shortcuts</title>
       <link>/post/2021/04/13/google-chrome-shortcuts/</link>

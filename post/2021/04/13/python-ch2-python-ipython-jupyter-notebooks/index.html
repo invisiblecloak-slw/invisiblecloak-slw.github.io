@@ -15,6 +15,15 @@
 
     
       
+      <meta property="description" content="在IPython中使用%run命令，将执行指定文件，执行结束之后可以与结果进行交互
+[&amp;hellip;] Ipython shell相对于标准Python解释器的进步之一是具备其他IDE和交互计算分析环境所具有的Tab补全功能
+[&amp;hellip;] 对象的自省:在变量前后使用问号?，可以显示对象的信息。
+[&amp;hellip;] 在Jupyter notebook中，可以使用%load，将脚本导入到一 &amp;hellip;">
+      <meta property="og:description" content="在IPython中使用%run命令，将执行指定文件，执行结束之后可以与结果进行交互
+[&amp;hellip;] Ipython shell相对于标准Python解释器的进步之一是具备其他IDE和交互计算分析环境所具有的Tab补全功能
+[&amp;hellip;] 对象的自省:在变量前后使用问号?，可以显示对象的信息。
+[&amp;hellip;] 在Jupyter notebook中，可以使用%load，将脚本导入到一 &amp;hellip;">
+      
     
 
     
@@ -67,7 +76,7 @@
       
 <h1>[利用Python进行数据分析] Ch2. Python语法基础 Ipython和Jupyter Notebooks</h1>
 
-<h3>R package build
+<h3>Xiu Di
   /  2021-04-13</h3>
 <hr>
 
@@ -76,6 +85,100 @@
 
 
 
+<h2 id="21-python解释器">2.1 Python解释器</h2>
+<ul>
+<li>退出Python解释器返回终端，可输入<code>exit()</code>或<code>Ctrl+D</code>。</li>
+</ul>
+<h2 id="22-ipython基础">2.2 Ipython基础</h2>
+<ul>
+<li>
+<p>在<code>IPython</code>中使用<code>%run</code>命令，将执行指定文件，执行结束之后可以<strong>与结果进行交互</strong></p>
+</li>
+<li>
+<p>Ipython shell相对于标准Python解释器的进步之一是<strong>具备其他IDE和交互计算分析环境所具有的Tab补全功能</strong></p>
+</li>
+<li>
+<p><strong>对象的自省</strong>:在变量<em>前后</em>使用问号<code>?</code>，可以显示对象的信息。</p>
+<ul>
+<li>对于<code>函数</code>或<code>实例方法</code>，将显示<strong>文档字符串</strong>。</li>
+<li>使用<code>??</code>将会显示函数源码。<code>add_numbers??</code></li>
+</ul>
+</li>
+<li>
+<p>在Jupyter notebook中，可以使用<code>%load</code>，将脚本导入到一个代码格中。</p>
+</li>
+<li>
+<p>代码运行时按下<code>Ctrl-C</code>，无论是<code>%run</code>或长时间运行命令，都会导致<code>KeyboardInterrupt</code>。这会使几乎所有Pyhton程序立即停止。</p>
+</li>
+<li>
+<p><strong>从剪贴板执行程序</strong>:如果使用<code>Jupyter notebook</code>，可以将代码复制粘贴到任意代码格执行。在<code>Ipython shell</code>中也可以从剪切板执行。</p>
+<ul>
+<li><code>%paste</code>可以直接运行剪贴板中的代码。</li>
+<li><code>%cpaste</code>可以粘贴任意多的代码再运行。可以在运行之前查看代码。如果粘贴了错误的代码，可以使用<code>Ctrl-C</code>中断。</li>
+</ul>
+</li>
+<li>
+<p>IPython有众多键盘快捷键(类似Unix bash Shell)和交互shell的历史命令。</p>
+</li>
+<li>
+<p>Jupyter notebook有另一套庞大的快捷键，可参阅Jupyter notebook的帮助文档。</p>
+</li>
+<li>
+<p><strong>魔术命令</strong>：指令前添加%前缀</p>
+<ul>
+<li>如可以用<code>%timeit%</code>测量Python语句的执行时间。</li>
+<li>某些魔术命令有命令行选项，可通过<code>?</code>查看。<code>debug?</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="23-python语法基础">2.3 Python语法基础</h2>
+<ul>
+<li>
+<p>Python语言设计强调可读性。Python有时被称为<code>可执行的伪代码</code></p>
+</li>
+<li>
+<p>对象作为参数传递给被调函数时，后者的局部变量引用对象，故可以改变可变参数的内容。</p>
+</li>
+<li>
+<p>Python变量不固定类型，可引用任意类型对象，此为<strong>动态引用</strong>。</p>
+</li>
+<li>
+<p>Python是强类型语言，<strong>每个对象都有明确的类型</strong>。</p>
+</li>
+<li>
+<p>可以借助<code>isinstance</code>函数检查对象是否是某个类型的实例。</p>
+<ul>
+<li><code>isinstance</code>可借助元组，检查对象的类型是否在元组中：
+<ul>
+<li><code>isinstance(x, (int, float))</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>要判断两个变量是否指向同一个对象，可以使用<code>is</code>方法。</p>
+<ul>
+<li><code>is not</code>用于判断两个变量是否指向不同对象。</li>
+<li><code>is</code> 和 <code>is not</code>常用来判断一个变量是否为<code>None</code>。</li>
+<li><code>None</code>不仅是一个保留字，也是唯一的<code>NoneType</code>实例。</li>
+</ul>
+</li>
+<li>
+<p>对于集合或迭代器中的元素序列(列表或元组)，可以使用<code>for</code>循环将其拆分为变量。</p>
+<ul>
+<li><code>for a, b, c in iterator:</code></li>
+</ul>
+</li>
+<li>
+<p><code>pass</code>是Python中的非操作语句。用作<strong>占位符</strong></p>
+</li>
+<li>
+<p>Python中的<strong>三元表达式</strong>可以将<code>if-else</code>语句放在同一行中。</p>
+<ul>
+<li><code>val = true-expr if condition else false-expr</code></li>
+</ul>
+</li>
+</ul>
 
 
   <footer>

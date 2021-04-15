@@ -13,7 +13,19 @@
       <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>/post/2021/04/13/python-ch2-python-ipython-jupyter-notebooks/</guid>
-      <description></description>
+      <description>2.1 Python解释器  退出Python解释器返回终端，可输入exit()或Ctrl+D。  2.2 Ipython基础   在IPython中使用%run命令，将执行指定文件，执行结束之后可以与结果进行交互
+  Ipython shell相对于标准Python解释器的进步之一是具备其他IDE和交互计算分析环境所具有的Tab补全功能
+  对象的自省:在变量前后使用问号?，可以显示对象的信息。
+ 对于函数或实例方法，将显示文档字符串。 使用??将会显示函数源码。add_numbers??    在Jupyter notebook中，可以使用%load，将脚本导入到一个代码格中。
+  代码运行时按下Ctrl-C，无论是%run或长时间运行命令，都会导致KeyboardInterrupt。这会使几乎所有Pyhton程序立即停止。
+  从剪贴板执行程序:如果使用Jupyter notebook，可以将代码复制粘贴到任意代码格执行。在Ipython shell中也可以从剪切板执行。
+ %paste可以直接运行剪贴板中的代码。 %cpaste可以粘贴任意多的代码再运行。可以在运行之前查看代码。如果粘贴了错误的代码，可以使用Ctrl-C中断。    IPython有众多键盘快捷键(类似Unix bash Shell)和交互shell的历史命令。
+  Jupyter notebook有另一套庞大的快捷键，可参阅Jupyter notebook的帮助文档。
+  魔术命令：指令前添加%前缀
+ 如可以用%timeit%测量Python语句的执行时间。 某些魔术命令有命令行选项，可通过?查看。debug?    2.3 Python语法基础   Python语言设计强调可读性。Python有时被称为可执行的伪代码
+  对象作为参数传递给被调函数时，后者的局部变量引用对象，故可以改变可变参数的内容。
+  Python变量不固定类型，可引用任意类型对象，此为动态引用。
+  Python是强类型语言，每个对象都有明确的类型。</description>
     </item>
     
   </channel>
