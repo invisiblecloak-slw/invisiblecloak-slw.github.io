@@ -6,7 +6,16 @@
     <description>Recent content in Data Analysis on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/data-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/data-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[利用Python进行数据分析] Ch3. Python数据结构 函数和文件</title>
+      <link>/post/2021/04/15/python-ch2-python/</link>
+      <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/15/python-ch2-python/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>[利用Python进行数据分析] Ch2. Python语法基础 Ipython和Jupyter Notebooks</title>
       <link>/post/2021/04/13/python-ch2-python-ipython-jupyter-notebooks/</link>

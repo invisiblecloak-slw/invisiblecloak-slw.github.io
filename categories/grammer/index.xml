@@ -14,7 +14,15 @@
       
       <guid>/post/2021/04/06/markdown-grammer/</guid>
       <description>HTML 上标: Bull&amp;lt;sup&amp;gt;TM&amp;lt;/sup&amp;gt; BullTM
-下标: H&amp;lt;sub&amp;gt;2&amp;lt;/sub&amp;gt;O H2O</description>
+下标: H&amp;lt;sub&amp;gt;2&amp;lt;/sub&amp;gt;O H2O
+表格 markdown制作表格，使用|分隔不同单元格，-分隔表头和其他行。
+语法格式为：
+ | 表头 | 表头 |
+| ---- | ---- |
+| 单元 | 单元 |
+| 单元 | 单元 |
+ 可以设置表格的对齐方式：
+ -:设置单元格内容和标题栏居右对齐 :-设置单元格内容和标题栏居左对齐 :-:设置单元格内容和标题栏居中对齐  </description>
     </item>
     
   </channel>

@@ -8,6 +8,39 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 15 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>0011-container with most water</title>
+      <link>/post/2021/04/15/0011-container-with-most-water/</link>
+      <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/15/0011-container-with-most-water/</guid>
+      <description>问题描述 给定n个非负整数a1,a2,...,an。每个数代表坐标中的一个点(i, ai)。在坐标内画n条垂直线，垂直线i的两个端点分别为(i,ai)和(i,0)。找出其中的两条线，使得它们与x轴共同构成的容器可以容纳最多的水。
+ 示例1
+ 输入: [1,8,6,2,5,4,8,3,7]
+![water container](images/Screen Shot 2021-04-15 at 10.49.17 PM.png)
+输出: 49
+ 示例2
+ 输入: [1,1]
+输出: 1
+ 示例3
+ 输入: [4,3,2,1,4]
+输出: 16
+ 示例4
+ 输入: [1,2,1]
+输出: 2
+ 提示:
+ n = height.length 2 &amp;lt;= n &amp;lt;= 3 * 104 0 &amp;lt;= height[i] &amp;lt;= 3 * 104   </description>
+    </item>
+    
+    <item>
+      <title>[利用Python进行数据分析] Ch3. Python数据结构 函数和文件</title>
+      <link>/post/2021/04/15/python-ch2-python/</link>
+      <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/15/python-ch2-python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Shell Shortcuts</title>
       <link>/post/2021/04/15/shell-shortcuts/</link>
       <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
@@ -651,7 +684,15 @@ VMware虚拟机（Ubuntu）通过主机代理实现翻墙（shadowsocks）</desc
       
       <guid>/post/2021/04/06/markdown-grammer/</guid>
       <description>HTML 上标: Bull&amp;lt;sup&amp;gt;TM&amp;lt;/sup&amp;gt; BullTM
-下标: H&amp;lt;sub&amp;gt;2&amp;lt;/sub&amp;gt;O H2O</description>
+下标: H&amp;lt;sub&amp;gt;2&amp;lt;/sub&amp;gt;O H2O
+表格 markdown制作表格，使用|分隔不同单元格，-分隔表头和其他行。
+语法格式为：
+ | 表头 | 表头 |
+| ---- | ---- |
+| 单元 | 单元 |
+| 单元 | 单元 |
+ 可以设置表格的对齐方式：
+ -:设置单元格内容和标题栏居右对齐 :-设置单元格内容和标题栏居左对齐 :-:设置单元格内容和标题栏居中对齐  </description>
     </item>
     
     <item>
