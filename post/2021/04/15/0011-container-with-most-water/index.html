@@ -141,18 +141,21 @@
 <p>使用双指针法搜索盛最多水时的容器边界。搜索过程中进行剪枝。</p>
 </li>
 <li>
-<p>考虑<code>l</code>,<code>r</code>指针分别指向容器左右边界。且height[l] &lt; height[r]:</p>
+<p>考虑<code>l</code>,<code>r</code>指针分别指向容器左右边界，对应整个搜索空间。</p>
+<ul>
+<li>且height[l] &lt; height[r]:
 <ul>
 <li>此时若<code>r</code>指针左移，则水面高度不大于hright[l]且水面宽度相对于(l,r)布局减小。故此时<code>r</code>指针左移无法搜索到更优边界。</li>
 <li>因此此时尝试<code>l</code>指针右移。</li>
-<li>height[l] &gt; height[r]的情况可做对称考虑。</li>
 </ul>
 </li>
-<li>
-<p>若height[l] == height[r]:</p>
+<li>height[l] &gt; height[r]的情况可做对称考虑。</li>
+<li>若height[l] == height[r]:
 <ul>
 <li>(l,r)布局优于(l,r-1)布局，(l,r)布局优于(l+1, r)布局。</li>
 <li>因此此时尝试(l+1, r-1)布局。即同时左指针右移、右指针左移。</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
