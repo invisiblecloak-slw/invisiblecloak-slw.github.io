@@ -6,7 +6,30 @@
     <description>Recent content in Data Structure and Algorithm on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/data-structure-and-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/data-structure-and-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0015-3sum</title>
+      <link>/post/2021/04/16/0015-3sum/</link>
+      <pubDate>Fri, 16 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/16/0015-3sum/</guid>
+      <description>问题描述 给定包含n个整数的数组nums。
+判断nums中是否存在三个元素a, b, c，使得a + b + c = 0？
+找出所有和为0且不重复的三元组。
+ 示例1
+ 输入: nums = [-1, 0, 1, 2, -1, -4]
+输出: [[-1, -1, 2], [-1, 0, 1]]
+ 示例2
+ 输入: nums = []
+输出: []
+ 示例3
+ 输入: nums = [0]
+输出: []
+ 提示:
+ 0 &amp;lt;= nums.length &amp;lt;= 3000 -105 &amp;lt;= nums[i] &amp;lt;= 105  注意: 答案中不包含重复的三元组。
+ 代码 class Solution: def threeSum(self, nums: List[int]) -&amp;gt; List[List[int]]: res = [] if not nums or len(nums) &amp;lt;= 2: return res nums.</description>
+    </item>
+    
     <item>
       <title>0011-container with most water</title>
       <link>/post/2021/04/15/0011-container-with-most-water/</link>

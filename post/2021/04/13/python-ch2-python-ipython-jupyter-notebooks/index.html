@@ -93,6 +93,9 @@
 <ul>
 <li>
 <p>在<code>IPython</code>中使用<code>%run</code>命令，将执行指定文件，执行结束之后可以<strong>与结果进行交互</strong></p>
+<ul>
+<li>如果是在<code>%run</code>一个脚本或一条语句时抛出异常，<code>Ipython</code>默认会打印完整的调用栈，在栈的每个点都会有几行上下文。在发生错误之后，可以使用<code>%debug</code>或<code>%pdb</code>访问栈进行事后调试。</li>
+</ul>
 </li>
 <li>
 <p>Ipython shell相对于标准Python解释器的进步之一是<strong>具备其他IDE和交互计算分析环境所具有的Tab补全功能</strong></p>

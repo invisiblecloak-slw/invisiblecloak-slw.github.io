@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0015-3sum - XIU</title>
+    <meta property="og:title" content="0015-3sum - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="给定包含n个整数的数组nums。
+判断nums中是否存在三个元素a, b, c，使得a &#43; b &#43; c = 0？
+找出所有和为0且不重复的三元组。
+[&amp;hellip;] 示例1
+[&amp;hellip;] 输入: nums = [-1, 0, 1, 2, -1, -4]
+输出: [[-1, -1, 2], [-1, 0, 1]]
+[&amp;hellip;] 示例2
+[&amp;hellip;] 输入: nums = &amp;hellip;">
+      <meta property="og:description" content="给定包含n个整数的数组nums。
+判断nums中是否存在三个元素a, b, c，使得a &#43; b &#43; c = 0？
+找出所有和为0且不重复的三元组。
+[&amp;hellip;] 示例1
+[&amp;hellip;] 输入: nums = [-1, 0, 1, 2, -1, -4]
+输出: [[-1, -1, 2], [-1, 0, 1]]
+[&amp;hellip;] 示例2
+[&amp;hellip;] 输入: nums = &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>0015-3sum</h1>
+
+<h3>Xiu Di
+  /  2021-04-16</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="问题描述">问题描述</h2>
+<p>给定包含<code>n</code>个整数的数组<code>nums</code>。</p>
+<p>判断<code>nums</code>中是否存在三个元素<code>a</code>, <code>b</code>, <code>c</code>，使得<code>a + b + c = 0</code>？</p>
+<p>找出所有和为<code>0</code>且不重复的三元组。</p>
+<blockquote>
+<p><strong>示例1</strong></p>
+<blockquote>
+<p><strong>输入</strong>: nums = [-1, 0, 1, 2, -1, -4]</p>
+<p><strong>输出</strong>: [[-1, -1, 2], [-1, 0, 1]]</p>
+</blockquote>
+<p><strong>示例2</strong></p>
+<blockquote>
+<p><strong>输入</strong>: nums = []</p>
+<p><strong>输出</strong>: []</p>
+</blockquote>
+<p><strong>示例3</strong></p>
+<blockquote>
+<p><strong>输入</strong>: nums = [0]</p>
+<p><strong>输出</strong>: []</p>
+</blockquote>
+<p><strong>提示</strong>:</p>
+<ul>
+<li>0 &lt;= nums.length &lt;= 3000</li>
+<li>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></li>
+</ul>
+<p><strong>注意</strong>: 答案中不包含重复的三元组。</p>
+</blockquote>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">threeSum</span>(self, nums: List[int]) <span style="color:#f92672">-&gt;</span> List[List[int]]:
+        res <span style="color:#f92672">=</span> []
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> nums <span style="color:#f92672">or</span> len(nums) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">2</span>: <span style="color:#66d9ef">return</span> res
+        nums<span style="color:#f92672">.</span>sort()
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(nums)):
+            <span style="color:#66d9ef">if</span> nums[i] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>: <span style="color:#66d9ef">return</span> res
+            <span style="color:#66d9ef">if</span> i <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> nums[i] <span style="color:#f92672">==</span> nums[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]: <span style="color:#66d9ef">continue</span>
+            j, k <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, len(nums) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+            <span style="color:#66d9ef">while</span> j <span style="color:#f92672">&lt;</span> k:
+                <span style="color:#66d9ef">if</span> nums[i] <span style="color:#f92672">+</span> nums[j] <span style="color:#f92672">+</span> nums[k] <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>: j <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+                <span style="color:#66d9ef">elif</span> nums[i] <span style="color:#f92672">+</span> nums[j] <span style="color:#f92672">+</span> nums[k] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>: j <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+                <span style="color:#66d9ef">else</span>:
+                    res<span style="color:#f92672">.</span>append([nums[i], nums[j], nums[k]])
+                    <span style="color:#66d9ef">while</span> j <span style="color:#f92672">&lt;</span> k <span style="color:#f92672">and</span> nums[j] <span style="color:#f92672">==</span> nums[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]: j <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+                    <span style="color:#66d9ef">while</span> j <span style="color:#f92672">&lt;</span> k <span style="color:#f92672">and</span> nums[k] <span style="color:#f92672">==</span> nums[k <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>]: k <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+                    j <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+                    k <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">return</span> res
+</code></pre></div><h2 id="分析">分析</h2>
+<ul>
+<li>
+<p>考虑特例：当数组为空或数组元素数目小于3时，返回空列表。</p>
+</li>
+<li>
+<p>对于泛例：在排序后的数组上按从左到右的顺序搜索符合要求的三元组。固定三元组的最小元素后，采用双指针向中间逼近的方法寻找可行解。</p>
+<ul>
+<li>若<code>nums[i] &gt; 0</code>，数组的非递减性决定后续不会搜索到可行解。返回当前的可行解列表。</li>
+</ul>
+</li>
+<li>
+<p>当讨论某最小元素完毕最后，下次讨论的最小元素与这一最小元素不同。保证了可行解的不重复性。</p>
+</li>
+<li>
+<p>当双指针找到了某一可行解后，两指针从不同值的下标开始下一次讨论。保证可行解的不重复性。</p>
+<ul>
+<li>若<code>nums[i] + nums[j] + nums[k] &gt; 0</code>，说明<code>nums[k]</code>过大，将指针<code>k</code>左移。</li>
+<li>若<code>nums[i] + nums[j] + nums[k] &lt; 0</code>，说明<code>nums[j]</code>过小，将指针<code>j</code>右移。</li>
+</ul>
+</li>
+<li>
+<p><strong>时间复杂度</strong>: O(n<sup>2</sup>)。</p>
+<ul>
+<li>数组排序O(nlogn)。</li>
+<li>指针<code>i</code>遍历数组O(n)，固定<code>i</code>后双指针遍历数组O(n)。</li>
+<li>总时间复杂度O(nlogn) + O(n) * O(n) = O(n<sup>2</sup>)。</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://leetcode-cn.com/problems/3sum/solution/pai-xu-shuang-zhi-zhen-zhu-xing-jie-shi-python3-by/">排序 + 双指针，逐行解释</a></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/15/0011-container-with-most-water/">0011-container with most water</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

@@ -6,7 +6,30 @@
     <description>Recent content in Posts on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0015-3sum</title>
+      <link>/post/2021/04/16/0015-3sum/</link>
+      <pubDate>Fri, 16 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/16/0015-3sum/</guid>
+      <description>问题描述 给定包含n个整数的数组nums。
+判断nums中是否存在三个元素a, b, c，使得a + b + c = 0？
+找出所有和为0且不重复的三元组。
+ 示例1
+ 输入: nums = [-1, 0, 1, 2, -1, -4]
+输出: [[-1, -1, 2], [-1, 0, 1]]
+ 示例2
+ 输入: nums = []
+输出: []
+ 示例3
+ 输入: nums = [0]
+输出: []
+ 提示:
+ 0 &amp;lt;= nums.length &amp;lt;= 3000 -105 &amp;lt;= nums[i] &amp;lt;= 105  注意: 答案中不包含重复的三元组。
+ 代码 class Solution: def threeSum(self, nums: List[int]) -&amp;gt; List[List[int]]: res = [] if not nums or len(nums) &amp;lt;= 2: return res nums.</description>
+    </item>
+    
     <item>
       <title>0011-container with most water</title>
       <link>/post/2021/04/15/0011-container-with-most-water/</link>
@@ -36,7 +59,7 @@
       <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>/post/2021/04/15/python-ch2-python/</guid>
-      <description></description>
+      <description>数据结构和序列 元组  元组是一个固定长度的不可变Python序列对象。 创建元组，可用逗号分隔一列值。  In [1]: tup = 4, 5, 6  In [2]: tup Out[2]: (4, 5, 6)     用复杂的表达式定义元组，最好将值放到圆括号内。  In [3]: nested_tup = (4, 5, 6), (7, 8)  In [4]: nested_tup Out[4]: ((4, 5, 6), (7, 8))     元组是不可变对象。但元组中存储的对象可以是可变对象。  可以原地修改这些可变对象。   将元组赋值给类似元组的变量的语句，会拆分等号右边的值。  In [5]: tup = 4, 5, (6, 7)  In [6]: a, b, (c, d) = tup  In [7]: d Out[7]: 7       变量拆分常用于迭代元组或列表:  In [8]: seq = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]  In[9] : for a, b, c in seq: &amp;hellip;     使用*_的元组拆分:  In [10]: values = 1, 2, 3, 4, 5  In [11]: a, b, *_ = values  In [12]: _ Out[12]: [3, 4, 5]        列表   切片语法seq[::-1]返回颠倒的列表或元组。</description>
     </item>
     
     <item>
@@ -108,7 +131,7 @@
       
       <guid>/post/2021/04/13/python-ch2-python-ipython-jupyter-notebooks/</guid>
       <description>2.1 Python解释器  退出Python解释器返回终端，可输入exit()或Ctrl+D。  2.2 Ipython基础   在IPython中使用%run命令，将执行指定文件，执行结束之后可以与结果进行交互
-  Ipython shell相对于标准Python解释器的进步之一是具备其他IDE和交互计算分析环境所具有的Tab补全功能
+ 如果是在%run一个脚本或一条语句时抛出异常，Ipython默认会打印完整的调用栈，在栈的每个点都会有几行上下文。在发生错误之后，可以使用%debug或%pdb访问栈进行事后调试。    Ipython shell相对于标准Python解释器的进步之一是具备其他IDE和交互计算分析环境所具有的Tab补全功能
   对象的自省:在变量前后使用问号?，可以显示对象的信息。
  对于函数或实例方法，将显示文档字符串。 使用??将会显示函数源码。add_numbers??    在Jupyter notebook中，可以使用%load，将脚本导入到一个代码格中。
   代码运行时按下Ctrl-C，无论是%run或长时间运行命令，都会导致KeyboardInterrupt。这会使几乎所有Pyhton程序立即停止。
@@ -118,8 +141,7 @@
   魔术命令：指令前添加%前缀
  如可以用%timeit%测量Python语句的执行时间。 某些魔术命令有命令行选项，可通过?查看。debug?    2.3 Python语法基础   Python语言设计强调可读性。Python有时被称为可执行的伪代码
   对象作为参数传递给被调函数时，后者的局部变量引用对象，故可以改变可变参数的内容。
-  Python变量不固定类型，可引用任意类型对象，此为动态引用。
-  Python是强类型语言，每个对象都有明确的类型。</description>
+  Python变量不固定类型，可引用任意类型对象，此为动态引用。</description>
     </item>
     
     <item>
