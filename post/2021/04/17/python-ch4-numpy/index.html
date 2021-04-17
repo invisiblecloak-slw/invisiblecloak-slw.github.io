@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>[利用Python进行数据分析] Ch4. Numpy基础 数组和矢量计算 - XIU</title>
+    <meta property="og:title" content="[利用Python进行数据分析] Ch4. Numpy基础 数组和矢量计算 - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>[利用Python进行数据分析] Ch4. Numpy基础 数组和矢量计算</h1>
+
+<h3>Xiu Di
+  /  2021-04-17</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="ndarray-一种多维数组对象">ndarray: 一种多维数组对象</h2>
+<ul>
+<li>ndarray是一个通用的同构数据多维容器。
+<ul>
+<li>ndarray中所有元素必须是相同类型的。</li>
+<li>ndarray有<code>shape</code>属性（表示各维度大小的元组）和<code>dtype</code>属性（用于说明数组数据类型的对象）</li>
+</ul>
+</li>
+</ul>
+<h3 id="创建ndarray">创建ndarray</h3>
+<ul>
+<li><code>array</code>函数：将一切序列对象（含其他数组）转化为NumPy数组。</li>
+<li><code>np.zeros</code>、<code>np.ones</code>、<code>np.empty</code>分别可以创建指定长度或形状的全0或全1数组或没有任何具体值的数组。需传入一个表示形状的元组
+<ul>
+<li><code>np.empty</code>返回数组的元素大多是未初始化的值，非全0或全1。</li>
+</ul>
+</li>
+<li><code>np.arange</code>函数是Python内置函数<code>range</code>的数组版。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">array</td>
+<td style="text-align:center">将输入数据（列表、元组、数组或序列类型）转换为ndarray。推断或指定dtype。创建新ndarray对象</td>
+</tr>
+<tr>
+<td style="text-align:center">asarray</td>
+<td style="text-align:center">将输入转换为ndarray，如果输入本身是ndarray对象则指向输入</td>
+</tr>
+<tr>
+<td style="text-align:center">arange</td>
+<td style="text-align:center">与内置<code>range</code>相似，返回ndarray对象而非列表`</td>
+</tr>
+<tr>
+<td style="text-align:center">ones</td>
+<td style="text-align:center">根据指定的形状和dtype创建一个全1数组</td>
+</tr>
+<tr>
+<td style="text-align:center">ones_like</td>
+<td style="text-align:center">以另一个数组为参数，根据其形状和dtype创建一个全1数组</td>
+</tr>
+<tr>
+<td style="text-align:center">zeros</td>
+<td style="text-align:center">根据指定的形状和dtype创建一个全0数组</td>
+</tr>
+<tr>
+<td style="text-align:center">zeros_like</td>
+<td style="text-align:center">以另一个数组为参数，根据其形状和dtype创建一个全0数组</td>
+</tr>
+<tr>
+<td style="text-align:center">empty</td>
+<td style="text-align:center">根据指定的形状和dtype创建数组，只分配内存空间不填充值</td>
+</tr>
+<tr>
+<td style="text-align:center">empty_like</td>
+<td style="text-align:center">以另一个数组为参数，根据祺形状和dtype创建数组，只分配内存空间不填充值</td>
+</tr>
+<tr>
+<td style="text-align:center">full</td>
+<td style="text-align:center">根据指定的形状和dtype创建数组，值依据参数fill_value指定</td>
+</tr>
+<tr>
+<td style="text-align:center">full_like</td>
+<td style="text-align:center">以另一个数组为参数，根据祺形状和dtype创建数组，值依据参数fill_value指定</td>
+</tr>
+<tr>
+<td style="text-align:center">eye</td>
+<td style="text-align:center">创建N阶方阵</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ndarray数据类型">ndarray数据类型</h3>
+<ul>
+<li>dtype含有ndarray将一块内存解释为特定数据类型所需的信息。
+<ul>
+<li>需要控制数据再内存和磁盘中的存储方式时，要了解如何控制存储类型。</li>
+<li>narray的<code>astype</code>方法将数组的dtype转变后返回。当前数组不变。即创建一个新的数组。</li>
+</ul>
+</li>
+</ul>
+<h3 id="numpy数组运算">NumPy数组运算</h3>
+<ul>
+<li>数组使得批量处理数据不需要借助循环。即<code>向量化(vectorization)</code>。
+<ul>
+<li>相同<code>shape</code>的数组之间的算术运算将作用于元素级。</li>
+<li>数组与标量的算术运算会将标量值传播到数组各个元素。</li>
+<li>大小相同的数组之间的比较会生成布尔值数组。
+<ul>
+<li>大小不同的数组之间的运算称为<code>广播</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="索引和切片">索引和切片</h4>
+<ul>
+<li>将一个标量值赋给一个切片时，该值会自动传播。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">arr <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">10</span>)
+arr[<span style="color:#ae81ff">5</span>:<span style="color:#ae81ff">8</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span> <span style="color:#75715e"># arr: array([0, 1, 2, 3, 4, 12, 12, 12, 8, 9])</span>
+</code></pre></div><ul>
+<li>数组与列表的区别之一在于：数组切片是原始数组的视图。这意味着数据不会复制。试图上的任何修改都会直接反映到数组上。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">arr_slice <span style="color:#f92672">=</span> arr[<span style="color:#ae81ff">5</span>:<span style="color:#ae81ff">8</span>] <span style="color:#75715e"># arr_slice: array([12, 12, 12])</span>
+arr_slice[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">12345</span> <span style="color:#75715e"># arr: array([0, 1, 2, 3, 4, 12, 12345, 12, 8, 9])</span>
+</code></pre></div><ul>
+<li>切片[:]会给数组中的所有元素赋值。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">arr_slice[:] <span style="color:#f92672">=</span> <span style="color:#ae81ff">11</span> <span style="color:#75715e"># arr: array([0, 1, 2, 3, 4, 11, 11, 11, 12, 8, 9])</span>
+</code></pre></div><ul>
+<li>如果想要得到的是ndarray切片的一份副本而非试图，就需要明确地进行复制操作。例如<code>arr[5:8].copy()</code></li>
+<li>访问高维数组的元素可借助形如<code>arr2d[0][2]</code>的形式。<code>axis 0</code>作为行，<code>axis 1</code>作为列。</li>
+<li>对于高维数组，切片方式略有不同：</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">arr2d <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>],[<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>],[<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>]])
+arr2d[:<span style="color:#ae81ff">2</span>] <span style="color:#75715e"># array([[1,2,3],[4,5,6]])</span>
+arr2d[:<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>:] <span style="color:#75715e"># array([[2,3],[5,6]])</span>
+</code></pre></div><ul>
+<li>即：高维数组切片，依次沿着各个轴执行。得到相同维数的数组视图。</li>
+<li>布尔型索引：布尔型数组可以用于数组索引。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">names <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#e6db74">&#39;Bob&#39;</span>, <span style="color:#e6db74">&#39;Joe&#39;</span>, <span style="color:#e6db74">&#39;Will&#39;</span>, <span style="color:#e6db74">&#39;Bob&#39;</span>, <span style="color:#e6db74">&#39;Will&#39;</span>, <span style="color:#e6db74">&#39;Joe&#39;</span>, <span style="color:#e6db74">&#39;Joe&#39;</span>])
+data <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">4</span>)
+data[names <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;Bob&#39;</span>] <span style="color:#75715e"># array([[..., ..., ..., ...], [..., ..., ..., ...])</span>
+data[names <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;Bob&#39;</span>, <span style="color:#ae81ff">3</span>] <span style="color:#75715e"># array([..., ...])</span>
+data[<span style="color:#f92672">~</span>(names <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;Bob&#39;</span>)] <span style="color:#75715e"># array([..., ..., ..., ...], ..., ..., [..., ..., ..., ...])</span>
+</code></pre></div><ul>
+<li>通过布尔型索引选取数组中的数据，将总是创建数据的副本，即使返回一模一样的数组也是如此。</li>
+<li>通过布尔型数组设置值也是一种常用做法。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">data[data <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#75715e"># data数组中的所有负值都设置为0</span>
+</code></pre></div><ul>
+<li><strong>Fancy Indexing(花式索引)</strong>：利用整数数组进行索引。为了以特定顺序选取行子集，只需传入一个用于指定顺序的整数列表或ndarray即可。
+<ul>
+<li>花式索引与切片不同，总是将数据复制到新数组内。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">arr <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>empty((<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">4</span>))
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">8</span>): arr[i] <span style="color:#f92672">=</span> i
+arr[[<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">6</span>]] <span style="color:#75715e"># ...</span>
+</code></pre></div><ul>
+<li>一次传入多个索引数组，将会返回一个一维数组。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">arr <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arrange(<span style="color:#ae81ff">32</span>)<span style="color:#f92672">.</span>reshape((<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">4</span>))
+arr[[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">2</span>], [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>]] <span style="color:#75715e"># array([4, 23, 29, 10])</span>
+arr[[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">2</span>]][:, [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>]] 
+</code></pre></div><h4 id="数组转置和轴对换">数组转置和轴对换</h4>
+<ul>
+<li>可使用数组的<code>transpose</code>方法或<code>T</code>属性实现数组转置。
+<ul>
+<li>转置返回的是源数据的视图。</li>
+<li>简单的转置可以使用<code>.T</code>，本质上是进行轴对换。</li>
+</ul>
+</li>
+<li>对于高维数组，<code>transpose</code>方法需要得到一个由轴编号组成的元组才能对这些轴进行转置。</li>
+<li>ndarray含有一个<code>swapaxes</code>方法，需要接受一对轴编号。
+<ul>
+<li><code>swapaxes</code>方法也返回源数据的视图，不进行任何复制操作。</li>
+</ul>
+</li>
+</ul>
+<h2 id="通用函数快速的元素级数组函数">通用函数：快速的元素级数组函数</h2>
+<ul>
+<li><strong>通用函数(ufunc)</strong>：对ndarray中的数据执行元素级运算的函数。
+<ul>
+<li>如<code>np.sqrt()</code>、<code>np.exp()</code>、<code>np.maximum(x, y)</code></li>
+<li>某些<strong>ufunc</strong>会返回多个数组。
+<ul>
+<li><code>np.modf()</code>，Python内置函数<code>divmod</code>的矢量化版本。返回浮点数数组的小数和整数部分。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>通用函数可以接受一个<code>out</code>可选参数，完成数组的原地操作。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">arr <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">10</span>)
+np<span style="color:#f92672">.</span>sqrt(arr, arr) <span style="color:#75715e"># arr: array([ nan, nan, nan, 2.318, 1.9022, 1.8574, 2.2378])</span>
+</code></pre></div><h2 id="利用数组进行数据处理">利用数组进行数据处理</h2>
+<ul>
+<li>Numpy数组可以将许多数据处理任务表述为简洁的数组表达式。</li>
+<li>用数组表达式代替循环的做法，称为<strong>矢量化</strong>。</li>
+</ul>
+<h3 id="将条件逻辑表述为数组运算">将条件逻辑表述为数组运算</h3>
+<ul>
+<li><code>np.where</code>函数是三元表达式<code>x if condition else y</code>的矢量化版本。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">xarr <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">1.1</span>, <span style="color:#ae81ff">1.2</span>, <span style="color:#ae81ff">1.3</span>, <span style="color:#ae81ff">1.4</span>, <span style="color:#ae81ff">1.5</span>])
+yarr <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">2.1</span>, <span style="color:#ae81ff">2.2</span>, <span style="color:#ae81ff">2.3</span>, <span style="color:#ae81ff">2.4</span>, <span style="color:#ae81ff">2.5</span>])
+cond <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([True, False, True, True, False])
+res <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(cond, xarr, yarr) <span style="color:#75715e"># res: array([1.1, 2.2, 1.3, 1.4, 2.5])</span>
+</code></pre></div><ul>
+<li><code>np.where</code>函数的第二个和第三个参数不必是数组，都可以是标量值。也可将标量和数组结合起来。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">arr <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">4</span>)
+np<span style="color:#f92672">.</span>where(arr <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>) <span style="color:#75715e"># 将随机矩阵arr中所有正值替换为2，所有负值替换为-2</span>
+np<span style="color:#f92672">.</span>where(arr <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>, arr) <span style="color:#75715e"># 用常数2替换随机矩阵arr中所有的正值</span>
+</code></pre></div><h3 id="数学和统计方法">数学和统计方法</h3>
+<ul>
+<li>可以通过数组上的一组数学函数对整个数组或某个轴向上的数据进行统计计算。<code>sum</code>、<code>mean</code>以及标准差<code>std</code>等聚合计算，既可以当做数组的实例方法调用，也可以当作Numpy函数调用。
+<ul>
+<li><code>mean</code>和<code>sum</code>这类函数可以接受一个<code>axis</code>选项参数，用于计算该轴向上的统计值，<strong>最终结果是一个少一维的数组</strong>。</li>
+<li><code>arr.mean(axis = 1)</code>计算行的平均值，<code>arr.sum(axis = 0)</code>计算每列的和。</li>
+</ul>
+</li>
+<li>其他如<code>cumsum</code>和<code>cumprod</code>之泪的方法不聚合，产生一个由中间结果组成的数组。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">arr <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">8</span>)
+arr<span style="color:#f92672">.</span>cumsum() <span style="color:#75715e"># array([0, 1, 3, 6, 10, 15, 21, 28])</span>
+</code></pre></div><ul>
+<li>多维数组中形如<code>cumsum</code>的累加函数返回同样大小的数组，根据每个低维的切片沿着标记轴计算部分聚类。</li>
+</ul>
+<h3 id="用于布尔数组的方法">用于布尔数组的方法</h3>
+<ul>
+<li>上述方法中，布尔值会被强制转化为1(True)和0(False)。<code>sum</code>经常用于对布尔数组中的True值计数。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">arr <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">100</span>)
+(arr <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>sum()
+</code></pre></div><ul>
+<li><code>any</code>用于测试数组中是否存在一个或多个True。</li>
+<li><code>all</code>检查数组中所有值是否都是True。
+<ul>
+<li><code>any</code>和<code>all</code>这两个方法也能用于非布尔型数组，所有的非0元素会被当作True。</li>
+</ul>
+</li>
+</ul>
+<h3 id="排序">排序</h3>
+<ul>
+<li>Numpy数组可以通过<code>sort</code>方法原地排序。</li>
+<li>多维数组可以在任何一个轴向上进行排序，需将轴传递给<code>sort</code>。</li>
+<li><code>np.sort</code>方法返回的是数组的已排序副本。</li>
+</ul>
+<h3 id="唯一化以及其他的集合逻辑">唯一化以及其他的集合逻辑</h3>
+<ul>
+<li>Numpy提供了一些针对一维ndarray的基本集合运算。
+<ul>
+<li><code>np.unique</code>用于找出数组中的<strong>唯一值</strong>并返回<strong>已排序</strong>的结果。</li>
+<li><code>np.in1d</code>用于测试一个数组中的值在另一个数组中的成员资格，返回布尔型数组。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">values <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>])
+np<span style="color:#f92672">.</span>in1d(values, [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">6</span>]) <span style="color:#75715e"># array([True, False, False, True, True, False, True], dtype=bool)</span>
+</code></pre></div><ul>
+<li><code>np.unique(x)</code>: 计算x中的唯一元素，并返回有序结果</li>
+<li><code>np.intersect1d(x, y)</code>: 计算x和y中的公共元素，并返回有序结果</li>
+<li><code>np.union1d(x, y)</code>: 计算x和y的并集，并返回有序结果</li>
+<li><code>np.setdiff1d(x, y)</code>: 集合的差，即元素在x中且不在y中</li>
+<li><code>np.setxor1d(x, y)</code>: 集合的对称差，即存在一个数组中但不同时存在于两个数组中的元素</li>
+</ul>
+<h3 id="线性代数">线性代数</h3>
+<ul>
+<li>Numpy提供了用于矩阵乘法的<code>dot</code>函数。
+<ul>
+<li><code>dot</code>函数既是数组方法，也是Numpy命名空间中的一个函数。</li>
+</ul>
+</li>
+<li>一个二维数组与一个维度匹配的一维数组的矩阵点积运算返回一个一维数组。</li>
+<li><code>@</code>可以作为中缀运算符，进行矩阵乘法。</li>
+</ul>
+<h3 id="伪随机数生成">伪随机数生成</h3>
+<ul>
+<li><code>numpy.random</code>模块对Python内置的<code>random</code>进行了补充。</li>
+<li><code>伪随机数</code>的称谓源于<code>算法基于随机数生成器种子，确定地生成数字序列</code>。
+<ul>
+<li>可以使用Numpy的<code>np.random.seed</code>更改随机数生成种子。</li>
+</ul>
+</li>
+<li><code>numpy.random</code>的数据生成函数使用了全局的随机种子。
+<ul>
+<li>要避免全局状态，可以使用<code>numpy.random.RandomState</code>，创建一个与其他隔离的随机数生成器。
+<ul>
+<li>rng = np.random.RandomState(1234)</li>
+<li>rng.randn(10)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/16/0015-3sum/">0015-3sum</a></span>
+  <span class="nav-next"><a href="/post/2021/04/17/0019-remove-nth-node-from-end-of-list/">0019-remove nth node from end of list</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

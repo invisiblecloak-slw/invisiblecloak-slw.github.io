@@ -6,7 +6,16 @@
     <description>Recent content in Python on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[利用Python进行数据分析] Ch4. Numpy基础 数组和矢量计算</title>
+      <link>/post/2021/04/17/python-ch4-numpy/</link>
+      <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/17/python-ch4-numpy/</guid>
+      <description>ndarray: 一种多维数组对象  ndarray是一个通用的同构数据多维容器。  ndarray中所有元素必须是相同类型的。 ndarray有shape属性（表示各维度大小的元组）和dtype属性（用于说明数组数据类型的对象）    创建ndarray  array函数：将一切序列对象（含其他数组）转化为NumPy数组。 np.zeros、np.ones、np.empty分别可以创建指定长度或形状的全0或全1数组或没有任何具体值的数组。需传入一个表示形状的元组  np.empty返回数组的元素大多是未初始化的值，非全0或全1。   np.arange函数是Python内置函数range的数组版。     函数 说明     array 将输入数据（列表、元组、数组或序列类型）转换为ndarray。推断或指定dtype。创建新ndarray对象   asarray 将输入转换为ndarray，如果输入本身是ndarray对象则指向输入   arange 与内置range相似，返回ndarray对象而非列表`   ones 根据指定的形状和dtype创建一个全1数组   ones_like 以另一个数组为参数，根据其形状和dtype创建一个全1数组   zeros 根据指定的形状和dtype创建一个全0数组   zeros_like 以另一个数组为参数，根据其形状和dtype创建一个全0数组   empty 根据指定的形状和dtype创建数组，只分配内存空间不填充值   empty_like 以另一个数组为参数，根据祺形状和dtype创建数组，只分配内存空间不填充值   full 根据指定的形状和dtype创建数组，值依据参数fill_value指定   full_like 以另一个数组为参数，根据祺形状和dtype创建数组，值依据参数fill_value指定   eye 创建N阶方阵    ndarray数据类型  dtype含有ndarray将一块内存解释为特定数据类型所需的信息。  需要控制数据再内存和磁盘中的存储方式时，要了解如何控制存储类型。 narray的astype方法将数组的dtype转变后返回。当前数组不变。即创建一个新的数组。    NumPy数组运算  数组使得批量处理数据不需要借助循环。即向量化(vectorization)。  相同shape的数组之间的算术运算将作用于元素级。 数组与标量的算术运算会将标量值传播到数组各个元素。 大小相同的数组之间的比较会生成布尔值数组。  大小不同的数组之间的运算称为广播。      索引和切片  将一个标量值赋给一个切片时，该值会自动传播。  arr = np.</description>
+    </item>
+    
     <item>
       <title>[利用Python进行数据分析] Ch3. Python数据结构 函数和文件</title>
       <link>/post/2021/04/15/python-ch2-python/</link>

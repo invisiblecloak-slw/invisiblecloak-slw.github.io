@@ -6,7 +6,48 @@
     <description>Recent content in Leetcode on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 16 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0017-letter combinations of a phone number</title>
+      <link>/post/2021/04/17/0017-letter-combinations-of-a-phone-number/</link>
+      <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/17/0017-letter-combinations-of-a-phone-number/</guid>
+      <description>题目描述 给定一个仅包含数字2-9的字符串，返回所有它能表示的字母组合。
+给定数字到字母的映射如下（与电话按键相同）。
+ 示例1
+ 输入: digits = &amp;ldquo;23&amp;rdquo;
+输出: [&amp;ldquo;ad&amp;rdquo;, &amp;ldquo;ae&amp;rdquo;, &amp;ldquo;af&amp;rdquo;, &amp;ldquo;bd&amp;rdquo;, &amp;ldquo;be&amp;rdquo;, &amp;ldquo;bf&amp;rdquo;, &amp;ldquo;cd&amp;rdquo;, &amp;ldquo;ce&amp;rdquo;, &amp;ldquo;cf&amp;rdquo;]
+ 示例2
+ 输入: digits = &amp;quot;&amp;quot;
+输出: []
+ 示例3
+ 输入: digits = &amp;ldquo;2&amp;rdquo;
+输出: [&amp;ldquo;a&amp;rdquo;, &amp;ldquo;b&amp;rdquo;, &amp;ldquo;c&amp;rdquo;]
+ 提示:
+ 0 &amp;lt;= digits.length &amp;lt;= 4 digits[i]是范围[&#39;2&#39;, &#39;9&#39;]的一个数字 答案可以按任意顺序返回   代码 BFS class Solution: def letterCombinations(self, digits: str) -&amp;gt; List[str]: digit = [str(x) for x in range(2, 10)] alphabet = [&amp;#39;abc&amp;#39;, &amp;#39;def&amp;#39;, &amp;#39;ghi&amp;#39;, &amp;#39;jkl&amp;#39;, &amp;#39;mno&amp;#39;, &amp;#39;pqrs&amp;#39;, &amp;#39;tuv&amp;#39;, &amp;#39;wxyz&amp;#39;] d = dict(zip(digit, alphabet)) queue = list() cnt = 0 for digit in digits: if not cnt: for alphabet in d[digit]: queue.</description>
+    </item>
+    
+    <item>
+      <title>0019-remove nth node from end of list</title>
+      <link>/post/2021/04/17/0019-remove-nth-node-from-end-of-list/</link>
+      <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/17/0019-remove-nth-node-from-end-of-list/</guid>
+      <description>删除链表的倒数第N个结点 给定一个链表，删除链表的倒数第n个结点，并返回链表的头结点。
+ 示例1
+ 输入: head = [1,2,3,4,5], n = 2
+输出: [1,2,3,5]
+ 示例2
+ 输入: head = [1], n = 1
+输出: []
+ 示例3
+ 输入: head = [1,2], n = 1
+输出: [1]
+ 提示:
+ 链表中节点的数目为sz 1 &amp;lt;= sz &amp;lt;= 30 0 &amp;lt;= Node.val &amp;lt;= 100 1 &amp;lt;= n &amp;lt;= sz   代码 # Definition for singly-linked list. # class ListNode: # def __init__(self, val = 0, next = None): # self.</description>
+    </item>
+    
     <item>
       <title>0015-3sum</title>
       <link>/post/2021/04/16/0015-3sum/</link>
