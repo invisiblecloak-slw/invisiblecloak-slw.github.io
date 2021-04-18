@@ -6,7 +6,34 @@
     <description>Recent content in Home on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0022-generate parentheses</title>
+      <link>/post/2021/04/18/0022-generate-parentheses/</link>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/18/0022-generate-parentheses/</guid>
+      <description>问题描述 设计函数，生成所有可能的并且有效的括号组合。
+数字n代表生成括号的对数。
+ 示例1:
+ 输入: n = 3
+输出: [&amp;quot;((()))&amp;quot;, &amp;ldquo;(()())&amp;rdquo;, &amp;ldquo;(())()&amp;rdquo;, &amp;ldquo;()(())&amp;rdquo;, &amp;ldquo;()()()&amp;quot;]
+ 示例2:
+ 输入: n = 1
+输出: [&amp;quot;()&amp;quot;]
+ 提示: 1 &amp;lt;= n &amp;lt;= 8
+ 代码 DFS1 class Solution: def helper(self, comb = &amp;#39;&amp;#39;, lcnt = 0, matched = 0) -&amp;gt; None: if matched == self.n: self.res.append(comb) elif matched == lcnt: self.helper(comb + &amp;#39;(&amp;#39;, lcnt + 1, matched) elif lcnt &amp;lt; self.n: self.</description>
+    </item>
+    
+    <item>
+      <title>[利用Python进行数据分析] Ch5. Pandas基础</title>
+      <link>/post/2021/04/18/python-ch5-pandas/</link>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/18/python-ch5-pandas/</guid>
+      <description>Pandas 简介  Pandas采用了Numpy编码风格。特别是基于数组的函数和不使用for循环的数据处理。  Numpy更适合处理统一的数值数组数据。 Pandas专门为处理表格和混杂数据设计。    Pandas 数据结构 Series  Series是一种类似于一维数组的对象。由一组数据以及一组与之相关的数据标签（索引）组成。  可通过Series的values和index属性获取其数组表示形式和索引对象。 可通过指定index关键字制定索引。  obj = pd.Series([4, 7, -4, 3], index = [&#39;d&#39;, &#39;b&#39;, &#39;a&#39;, &#39;c&#39;])     由于可看作是索引值到数据值的一个映射，Series可以看成是一种定长的有序字典。  可以通过Python内置字典来创建Series。  如果只传入一个字典，则结果Series中的索引就是原字典的键（有序排列）。可以传入排序好的字典的键来改变顺序。      sdata = {&amp;#39;Ohio&amp;#39;: 35000, &amp;#39;Texas&amp;#39;: 71000, &amp;#39;Oregon&amp;#39;: 16000, &amp;#39;Utah&amp;#39;: 5000} states = [&amp;#39;California&amp;#39;, &amp;#39;Ohio&amp;#39;, &amp;#39;Oregon&amp;#39;, &amp;#39;Texas&amp;#39;] obj = pd.Series(sdata, index = states) # obj: # California NaN # Ohio 35000.</description>
+    </item>
+    
     <item>
       <title>0017-letter combinations of a phone number</title>
       <link>/post/2021/04/17/0017-letter-combinations-of-a-phone-number/</link>

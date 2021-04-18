@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0022-generate parentheses - XIU</title>
+    <meta property="og:title" content="0022-generate parentheses - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="设计函数，生成所有可能的并且有效的括号组合。
+数字n代表生成括号的对数。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: n = 3
+输出: [&amp;quot;((()))&amp;quot;, &amp;ldquo;(()())&amp;rdquo;, &amp;ldquo;(())()&amp;rdquo;, &amp;ldquo;()(())&amp;rdquo;, &amp;ldquo;()()()&amp;quot;]
+[&amp;hellip;] 示 &amp;hellip;">
+      <meta property="og:description" content="设计函数，生成所有可能的并且有效的括号组合。
+数字n代表生成括号的对数。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: n = 3
+输出: [&amp;quot;((()))&amp;quot;, &amp;ldquo;(()())&amp;rdquo;, &amp;ldquo;(())()&amp;rdquo;, &amp;ldquo;()(())&amp;rdquo;, &amp;ldquo;()()()&amp;quot;]
+[&amp;hellip;] 示 &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>0022-generate parentheses</h1>
+
+<h3>Xiu Di
+  /  2021-04-18</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="问题描述">问题描述</h2>
+<p>设计函数，生成所有可能的并且<strong>有效</strong>的括号组合。</p>
+<p>数字<code>n</code>代表生成括号的对数。</p>
+<blockquote>
+<p><strong>示例1</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: n = 3</p>
+<p><strong>输出</strong>: [&quot;((()))&quot;, &ldquo;(()())&rdquo;, &ldquo;(())()&rdquo;, &ldquo;()(())&rdquo;, &ldquo;()()()&quot;]</p>
+</blockquote>
+<p><strong>示例2</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: n = 1</p>
+<p><strong>输出</strong>: [&quot;()&quot;]</p>
+</blockquote>
+<p><strong>提示</strong>: <code>1 &lt;= n &lt;= 8</code></p>
+</blockquote>
+<h2 id="代码">代码</h2>
+<h3 id="dfs1">DFS1</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">helper</span>(self, comb <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>, lcnt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, matched <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">-&gt;</span> None:
+        <span style="color:#66d9ef">if</span> matched <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>n:
+            self<span style="color:#f92672">.</span>res<span style="color:#f92672">.</span>append(comb)
+        <span style="color:#66d9ef">elif</span> matched <span style="color:#f92672">==</span> lcnt:
+            self<span style="color:#f92672">.</span>helper(comb <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;(&#39;</span>, lcnt <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, matched)
+        <span style="color:#66d9ef">elif</span> lcnt <span style="color:#f92672">&lt;</span> self<span style="color:#f92672">.</span>n:
+            self<span style="color:#f92672">.</span>helper(comb <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;(&#39;</span>, lcnt <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, matched)
+            self<span style="color:#f92672">.</span>helper(comb <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;)&#39;</span>, lcnt, matched <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+        <span style="color:#66d9ef">else</span>:
+            self<span style="color:#f92672">.</span>helper(comb <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;)&#39;</span>, lcnt, matched <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generateParenthesis</span>(self, n: int) <span style="color:#f92672">-&gt;</span> List[str]:
+        self<span style="color:#f92672">.</span>res <span style="color:#f92672">=</span> list()
+        self<span style="color:#f92672">.</span>n <span style="color:#f92672">=</span> n
+        self<span style="color:#f92672">.</span>helper()
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>res
+</code></pre></div><h3 id="dfs2">DFS2</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">DFS</span>(self, comb <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>, cnt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, max_cnt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, score <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, max_score <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>):
+        <span style="color:#66d9ef">if</span> cnt <span style="color:#f92672">==</span> max_cnt:
+            <span style="color:#66d9ef">if</span> score <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>: self<span style="color:#f92672">.</span>res<span style="color:#f92672">.</span>append(comb)
+        <span style="color:#66d9ef">else</span>:
+            <span style="color:#66d9ef">if</span> score <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;=</span> max_score:
+                self<span style="color:#f92672">.</span>DFS(comb <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;(&#39;</span>, cnt <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>n, score <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, self<span style="color:#f92672">.</span>n)
+            <span style="color:#66d9ef">if</span> score <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>:
+                self<span style="color:#f92672">.</span>DFS(comb <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;)&#39;</span>, cnt <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>n, score <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, self<span style="color:#f92672">.</span>n)
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generateParenthesis</span>(self, n: int) <span style="color:#f92672">-&gt;</span> List[str]:
+        self<span style="color:#f92672">.</span>res <span style="color:#f92672">=</span> list()
+        self<span style="color:#f92672">.</span>n <span style="color:#f92672">=</span> n
+        self<span style="color:#f92672">.</span>DFS(max_cnt <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>n, max_score <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>n)
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>res
+</code></pre></div><h3 id="分析">分析</h3>
+<ul>
+<li>可以设定初值为0的分值。每添加一个<code>(</code>分值<code>+1</code>，添加<code>)</code>分值<code>-1</code>。
+<ul>
+<li>一个合法的括号组合，最终得分为0。</li>
+<li>整个DFS过程中，得分范围为[0, n]。
+<ul>
+<li>得分不超过<code>n</code>意味着不能添加数量超过<code>n</code>的左括号</li>
+<li>得分不为负数，意味着每个右括号必有一个左括号与之匹配。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://leetcode-cn.com/problems/generate-parentheses/solution/gong-shui-san-xie-sheng-cheng-suo-you-yo-7l45/">【宫水三叶】生成所有「有效括号」，以及如何考虑「成对组合生成」问题..</a></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/18/python-ch5-pandas/">[利用Python进行数据分析] Ch5. Pandas基础</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

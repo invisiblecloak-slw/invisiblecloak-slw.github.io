@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>[利用Python进行数据分析] Ch5. Pandas基础 - XIU</title>
+    <meta property="og:title" content="[利用Python进行数据分析] Ch5. Pandas基础 - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="sdata = {&amp;#39;Ohio&amp;#39;: 35000, &amp;#39;Texas&amp;#39;: 71000, &amp;#39;Oregon&amp;#39;: 16000, &amp;#39;Utah&amp;#39;: 5000} states = [&amp;#39;California&amp;#39;, &amp;#39;Ohio&amp;#39;, &amp;#39;Oregon&amp;#39;, &amp;#39;Texas&amp;#39;] obj = &amp;hellip;">
+      <meta property="og:description" content="sdata = {&amp;#39;Ohio&amp;#39;: 35000, &amp;#39;Texas&amp;#39;: 71000, &amp;#39;Oregon&amp;#39;: 16000, &amp;#39;Utah&amp;#39;: 5000} states = [&amp;#39;California&amp;#39;, &amp;#39;Ohio&amp;#39;, &amp;#39;Oregon&amp;#39;, &amp;#39;Texas&amp;#39;] obj = &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>[利用Python进行数据分析] Ch5. Pandas基础</h1>
+
+<h3>Xiu Di
+  /  2021-04-18</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="pandas-简介">Pandas 简介</h2>
+<ul>
+<li>Pandas采用了Numpy编码风格。特别是基于数组的函数和不使用for循环的数据处理。
+<ul>
+<li>Numpy更适合处理统一的数值数组数据。</li>
+<li>Pandas专门为处理表格和混杂数据设计。</li>
+</ul>
+</li>
+</ul>
+<h2 id="pandas-数据结构">Pandas 数据结构</h2>
+<h3 id="series">Series</h3>
+<ul>
+<li>Series是一种类似于一维数组的对象。由一组数据以及一组与之相关的数据标签（索引）组成。
+<ul>
+<li>可通过Series的values和index属性获取其数组表示形式和索引对象。</li>
+<li>可通过指定<code>index</code>关键字制定索引。
+<ul>
+<li><code>obj = pd.Series([4, 7, -4, 3], index = ['d', 'b', 'a', 'c'])</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>由于可看作是索引值到数据值的一个映射，Series可以看成是一种定长的有序字典。
+<ul>
+<li>可以通过Python内置字典来创建Series。
+<ul>
+<li>如果只传入一个字典，则结果Series中的索引就是原字典的键（有序排列）。可以传入排序好的字典的键来改变顺序。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sdata <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;Ohio&#39;</span>: <span style="color:#ae81ff">35000</span>, <span style="color:#e6db74">&#39;Texas&#39;</span>: <span style="color:#ae81ff">71000</span>, <span style="color:#e6db74">&#39;Oregon&#39;</span>: <span style="color:#ae81ff">16000</span>, <span style="color:#e6db74">&#39;Utah&#39;</span>: <span style="color:#ae81ff">5000</span>}
+states <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;California&#39;</span>, <span style="color:#e6db74">&#39;Ohio&#39;</span>, <span style="color:#e6db74">&#39;Oregon&#39;</span>, <span style="color:#e6db74">&#39;Texas&#39;</span>]
+obj <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series(sdata, index <span style="color:#f92672">=</span> states)
+<span style="color:#75715e"># obj:</span>
+<span style="color:#75715e"># California NaN</span>
+<span style="color:#75715e"># Ohio       35000.0</span>
+<span style="color:#75715e"># Oregon     16000.0</span>
+<span style="color:#75715e"># Texas      71000.0</span>
+</code></pre></div><ul>
+<li>
+<p>sdata中与states索引相匹配的值会被找出来放到相应位置上。若在sdata中找不到雨states索引相匹配的值，相应值设置为<code>NaN</code>。</p>
+</li>
+<li>
+<p>Pandas的isnull和notnull函数可以用于检测缺失数据。Series也有相应实例方法。</p>
+</li>
+<li>
+<p>Series会根据运算的索引标签自动对齐数据。</p>
+</li>
+<li>
+<p>Series对象本身及索引各有其name属性。该属性与Pandas其他功能关系密切。</p>
+<ul>
+<li><code>obj.name</code>、<code>obj.index.name</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="dataframe">DataFrame</h3>
+<ul>
+<li>DataFrame是一个表格型的数据结构，含有一组有序的列，每列可以是不同的值类型。DataFrame可以看作是由Series组成的字典，各字典共用同一个索引。</li>
+<li>可以通过传入由等长列表或Numpy数组组成的字典来创建DataFrame。DataFrame会自动加上索引，全部列会被有序排列。
+<ul>
+<li>如果指定了列序列，则DataFrame的列就会按照指定顺序进行排列。</li>
+<li>如果指定的列在数据中找不到，结果中会产生缺省值。</li>
+</ul>
+</li>
+<li>行可以通过位置或名称的方式进行获取，比如使用<code>loc</code>属性。</li>
+<li>列可以通过赋值的方式进行修改。可以赋标量值或一组数。
+<ul>
+<li>将列表或数组赋给某个列时，其长度需要与DataFrame的长度匹配。如果赋一个Series，将会精确匹配DataFrame的索引。
+<ul>
+<li>为不存在的列赋值将会创建出一个新列。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>用<code>del</code>方法可以删除DataFrame的某一列。</li>
+<li>索引方式返回DataFrame列的视图。通过Series的<code>copy</code>方法即可指定复制列。</li>
+<li>可以将嵌套字典传递给DataFrame。Pandas会将其解释为：外层字典的键作为列，内层键作为行索引。</li>
+<li>可以使用类似Numpy数组的方法，对DataFrame进行转置（交换行列）。</li>
+</ul>
+<h2 id="基本功能">基本功能</h2>
+<h3 id="重新索引">重新索引</h3>
+<ul>
+<li>pandas对象方法<code>reindex</code>用于创建一个新对象，其数据符合新的索引。如果某个索引值不存在，则引入缺省值。</li>
+<li><code>reindex</code>方法的<code>method</code>选项可以进行插值处理。
+<ul>
+<li>将<code>method</code>指定为<code>ffill</code>可以实现前向值填充。</li>
+</ul>
+</li>
+</ul>
+<h3 id="丢弃指定轴上的项">丢弃指定轴上的项</h3>
+<ul>
+<li><code>drop</code>方法返回的是一个在指定轴上删除了指定值的对象。
+<ul>
+<li>对标签序列调用<code>drop</code>会从行标签删除值。</li>
+<li>通过传递<code>axis=1</code>或<code>axis=columns</code>会从列标签删除值。</li>
+</ul>
+</li>
+<li><code>drop</code>方法通过指定<code>inplace=True</code>关键字原地修改对象，删除所有被删除的数据。</li>
+</ul>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/17/0017-letter-combinations-of-a-phone-number/">0017-letter combinations of a phone number</a></span>
+  <span class="nav-next"><a href="/post/2021/04/18/0022-generate-parentheses/">0022-generate parentheses</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
