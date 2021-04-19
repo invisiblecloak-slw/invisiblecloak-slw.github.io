@@ -2,17 +2,62 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on XIU</title>
-    <link>/post/</link>
+    <link>https://qidi.ink/post/</link>
     <description>Recent content in Posts on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0031-next permutation</title>
+      <link>https://qidi.ink/post/2021/04/19/0031-next-permutation/</link>
+      <pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/04/19/0031-next-permutation/</guid>
+      <description>问题描述 实现获取下一个排列的函数：将给定数字序列重新排列成字典序中下一个更大的排列。
+如果不存在下一个更大的排列，则将数组重新排列盛最小的序列（即升序排列）。
+考虑原地修改，且只使用额外常数空间。
+ 示例1
+ 输入: nums = [1,2,3]
+输出: [1,3,2]
+ 示例2
+ 输入: nums = [3,2,1]
+输出: [1,2,3]
+ 示例3
+ 输入: nums = [1,1,5]
+输出: [1,5,1]
+ 示例4
+ 输入: nums = [1]
+输出: [1]
+ 提示:
+ 1 &amp;lt;= nums.length &amp;lt;= 100 0 &amp;lt;= nums[i] &amp;lt;= 100   代码 pre = post = -1 for pos in range(len(nums) - 1, 0, -1): if nums[pos] &amp;gt; nums[pos - 1]: pre, post = pos - 1, pos break if post == -1: nums.</description>
+    </item>
+    
+    <item>
+      <title>【动手学深度学习】数据处理</title>
+      <link>https://qidi.ink/post/2021/04/19/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</link>
+      <pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/04/19/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</guid>
+      <description>目标   深度学习经典模型和最新模型
+  机器学习基础
+  实践
+  深度学习基础
+ 线性神经网络 多层感知机    卷积神经网络（空间）
+  循环神经网络（时间）
+  注意力机制
+  优化算法
+  高性能计算
+  计算机视觉
+  自然语言处理
+  将要学习到什么  深度学习里有什么技术 如何实现和调参 背后的原因（直觉、数学）  资源  教材:https://zh-v2.d2l.ai/  Q&amp;amp;A  模型可解释性  有效与可解释性不同。    安装 </description>
+    </item>
+    
     <item>
       <title>0022-generate parentheses</title>
-      <link>/post/2021/04/18/0022-generate-parentheses/</link>
+      <link>https://qidi.ink/post/2021/04/18/0022-generate-parentheses/</link>
       <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/18/0022-generate-parentheses/</guid>
+      <guid>https://qidi.ink/post/2021/04/18/0022-generate-parentheses/</guid>
       <description>问题描述 设计函数，生成所有可能的并且有效的括号组合。
 数字n代表生成括号的对数。
  示例1:
@@ -27,19 +72,19 @@
     
     <item>
       <title>[利用Python进行数据分析] Ch5. Pandas基础</title>
-      <link>/post/2021/04/18/python-ch5-pandas/</link>
+      <link>https://qidi.ink/post/2021/04/18/python-ch5-pandas/</link>
       <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/18/python-ch5-pandas/</guid>
+      <guid>https://qidi.ink/post/2021/04/18/python-ch5-pandas/</guid>
       <description>Pandas 简介  Pandas采用了Numpy编码风格。特别是基于数组的函数和不使用for循环的数据处理。  Numpy更适合处理统一的数值数组数据。 Pandas专门为处理表格和混杂数据设计。    Pandas 数据结构 Series  Series是一种类似于一维数组的对象。由一组数据以及一组与之相关的数据标签（索引）组成。  可通过Series的values和index属性获取其数组表示形式和索引对象。 可通过指定index关键字制定索引。  obj = pd.Series([4, 7, -4, 3], index = [&#39;d&#39;, &#39;b&#39;, &#39;a&#39;, &#39;c&#39;])     由于可看作是索引值到数据值的一个映射，Series可以看成是一种定长的有序字典。  可以通过Python内置字典来创建Series。  如果只传入一个字典，则结果Series中的索引就是原字典的键（有序排列）。可以传入排序好的字典的键来改变顺序。      sdata = {&amp;#39;Ohio&amp;#39;: 35000, &amp;#39;Texas&amp;#39;: 71000, &amp;#39;Oregon&amp;#39;: 16000, &amp;#39;Utah&amp;#39;: 5000} states = [&amp;#39;California&amp;#39;, &amp;#39;Ohio&amp;#39;, &amp;#39;Oregon&amp;#39;, &amp;#39;Texas&amp;#39;] obj = pd.Series(sdata, index = states) # obj: # California NaN # Ohio 35000.</description>
     </item>
     
     <item>
       <title>0017-letter combinations of a phone number</title>
-      <link>/post/2021/04/17/0017-letter-combinations-of-a-phone-number/</link>
+      <link>https://qidi.ink/post/2021/04/17/0017-letter-combinations-of-a-phone-number/</link>
       <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/17/0017-letter-combinations-of-a-phone-number/</guid>
+      <guid>https://qidi.ink/post/2021/04/17/0017-letter-combinations-of-a-phone-number/</guid>
       <description>题目描述 给定一个仅包含数字2-9的字符串，返回所有它能表示的字母组合。
 给定数字到字母的映射如下（与电话按键相同）。
  示例1
@@ -57,10 +102,10 @@
     
     <item>
       <title>0019-remove nth node from end of list</title>
-      <link>/post/2021/04/17/0019-remove-nth-node-from-end-of-list/</link>
+      <link>https://qidi.ink/post/2021/04/17/0019-remove-nth-node-from-end-of-list/</link>
       <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/17/0019-remove-nth-node-from-end-of-list/</guid>
+      <guid>https://qidi.ink/post/2021/04/17/0019-remove-nth-node-from-end-of-list/</guid>
       <description>删除链表的倒数第N个结点 给定一个链表，删除链表的倒数第n个结点，并返回链表的头结点。
  示例1
  输入: head = [1,2,3,4,5], n = 2
@@ -77,19 +122,19 @@
     
     <item>
       <title>[利用Python进行数据分析] Ch4. Numpy基础 数组和矢量计算</title>
-      <link>/post/2021/04/17/python-ch4-numpy/</link>
+      <link>https://qidi.ink/post/2021/04/17/python-ch4-numpy/</link>
       <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/17/python-ch4-numpy/</guid>
+      <guid>https://qidi.ink/post/2021/04/17/python-ch4-numpy/</guid>
       <description>ndarray: 一种多维数组对象  ndarray是一个通用的同构数据多维容器。  ndarray中所有元素必须是相同类型的。 ndarray有shape属性（表示各维度大小的元组）和dtype属性（用于说明数组数据类型的对象）    创建ndarray  array函数：将一切序列对象（含其他数组）转化为NumPy数组。 np.zeros、np.ones、np.empty分别可以创建指定长度或形状的全0或全1数组或没有任何具体值的数组。需传入一个表示形状的元组  np.empty返回数组的元素大多是未初始化的值，非全0或全1。   np.arange函数是Python内置函数range的数组版。     函数 说明     array 将输入数据（列表、元组、数组或序列类型）转换为ndarray。推断或指定dtype。创建新ndarray对象   asarray 将输入转换为ndarray，如果输入本身是ndarray对象则指向输入   arange 与内置range相似，返回ndarray对象而非列表`   ones 根据指定的形状和dtype创建一个全1数组   ones_like 以另一个数组为参数，根据其形状和dtype创建一个全1数组   zeros 根据指定的形状和dtype创建一个全0数组   zeros_like 以另一个数组为参数，根据其形状和dtype创建一个全0数组   empty 根据指定的形状和dtype创建数组，只分配内存空间不填充值   empty_like 以另一个数组为参数，根据祺形状和dtype创建数组，只分配内存空间不填充值   full 根据指定的形状和dtype创建数组，值依据参数fill_value指定   full_like 以另一个数组为参数，根据祺形状和dtype创建数组，值依据参数fill_value指定   eye 创建N阶方阵    ndarray数据类型  dtype含有ndarray将一块内存解释为特定数据类型所需的信息。  需要控制数据再内存和磁盘中的存储方式时，要了解如何控制存储类型。 narray的astype方法将数组的dtype转变后返回。当前数组不变。即创建一个新的数组。    NumPy数组运算  数组使得批量处理数据不需要借助循环。即向量化(vectorization)。  相同shape的数组之间的算术运算将作用于元素级。 数组与标量的算术运算会将标量值传播到数组各个元素。 大小相同的数组之间的比较会生成布尔值数组。  大小不同的数组之间的运算称为广播。      索引和切片  将一个标量值赋给一个切片时，该值会自动传播。  arr = np.</description>
     </item>
     
     <item>
       <title>0015-3sum</title>
-      <link>/post/2021/04/16/0015-3sum/</link>
+      <link>https://qidi.ink/post/2021/04/16/0015-3sum/</link>
       <pubDate>Fri, 16 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/16/0015-3sum/</guid>
+      <guid>https://qidi.ink/post/2021/04/16/0015-3sum/</guid>
       <description>问题描述 给定包含n个整数的数组nums。
 判断nums中是否存在三个元素a, b, c，使得a + b + c = 0？
 找出所有和为0且不重复的三元组。
@@ -109,10 +154,10 @@
     
     <item>
       <title>0011-container with most water</title>
-      <link>/post/2021/04/15/0011-container-with-most-water/</link>
+      <link>https://qidi.ink/post/2021/04/15/0011-container-with-most-water/</link>
       <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/15/0011-container-with-most-water/</guid>
+      <guid>https://qidi.ink/post/2021/04/15/0011-container-with-most-water/</guid>
       <description>问题描述 给定n个非负整数a1,a2,...,an。每个数代表坐标中的一个点(i, ai)。在坐标内画n条垂直线，垂直线i的两个端点分别为(i,ai)和(i,0)。找出其中的两条线，使得它们与x轴共同构成的容器可以容纳最多的水。
  示例1
  输入: [1,8,6,2,5,4,8,3,7]
@@ -132,28 +177,28 @@
     
     <item>
       <title>[利用Python进行数据分析] Ch3. Python数据结构 函数和文件</title>
-      <link>/post/2021/04/15/python-ch2-python/</link>
+      <link>https://qidi.ink/post/2021/04/15/python-ch2-python/</link>
       <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/15/python-ch2-python/</guid>
+      <guid>https://qidi.ink/post/2021/04/15/python-ch2-python/</guid>
       <description>数据结构和序列 元组  元组是一个固定长度的不可变Python序列对象。 创建元组，可用逗号分隔一列值。  In [1]: tup = 4, 5, 6  In [2]: tup Out[2]: (4, 5, 6)     用复杂的表达式定义元组，最好将值放到圆括号内。  In [3]: nested_tup = (4, 5, 6), (7, 8)  In [4]: nested_tup Out[4]: ((4, 5, 6), (7, 8))     元组是不可变对象。但元组中存储的对象可以是可变对象。  可以原地修改这些可变对象。   将元组赋值给类似元组的变量的语句，会拆分等号右边的值。  In [5]: tup = 4, 5, (6, 7)  In [6]: a, b, (c, d) = tup  In [7]: d Out[7]: 7       变量拆分常用于迭代元组或列表:  In [8]: seq = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]  In[9] : for a, b, c in seq: &amp;hellip;     使用*_的元组拆分:  In [10]: values = 1, 2, 3, 4, 5  In [11]: a, b, *_ = values  In [12]: _ Out[12]: [3, 4, 5]        列表   切片语法seq[::-1]返回颠倒的列表或元组。</description>
     </item>
     
     <item>
       <title>Shell Shortcuts</title>
-      <link>/post/2021/04/15/shell-shortcuts/</link>
+      <link>https://qidi.ink/post/2021/04/15/shell-shortcuts/</link>
       <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/15/shell-shortcuts/</guid>
+      <guid>https://qidi.ink/post/2021/04/15/shell-shortcuts/</guid>
       <description>   快捷键 说明     Ctrl-P 用当前输入的文本搜索之前的命令   Ctrl-N 用当前输入的文本搜索之后的命令   Ctrl-Shift-V 从剪贴板粘贴文本   Ctrl-C 中断运行的代码   Ctrl-A 将光标移动到当前行的开头   Ctrl-E 将光标移动到当前行的末尾   Ctrl-K 删除光标到行末的文本   Ctrl-U 删除当前行的所有文本   Ctrl-F 光标向行末移动一个字符   Ctrl-B 光标向行首移动一个字符   Ctrl-L 清空屏幕    </description>
     </item>
     
     <item>
       <title>0005-longest palindromic substring</title>
-      <link>/post/2021/04/14/0005-longest-palindromic-substring/</link>
+      <link>https://qidi.ink/post/2021/04/14/0005-longest-palindromic-substring/</link>
       <pubDate>Wed, 14 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/14/0005-longest-palindromic-substring/</guid>
+      <guid>https://qidi.ink/post/2021/04/14/0005-longest-palindromic-substring/</guid>
       <description>最长回文子串 给定字符串s，找到s中的最长回文子串。
  示例1：
  输入: s = &amp;ldquo;babad&amp;rdquo;
@@ -173,10 +218,10 @@
     
     <item>
       <title>0226-invert-binary-tree</title>
-      <link>/post/2021/04/13/0226-invert-binary-tree/</link>
+      <link>https://qidi.ink/post/2021/04/13/0226-invert-binary-tree/</link>
       <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/13/0226-invert-binary-tree/</guid>
+      <guid>https://qidi.ink/post/2021/04/13/0226-invert-binary-tree/</guid>
       <description>题目描述 翻转一棵二叉树。
  示例
  输入:
@@ -186,10 +231,10 @@
     
     <item>
       <title>0234-palindrome linked list</title>
-      <link>/post/2021/04/13/0234-palindrome-linked-list/</link>
+      <link>https://qidi.ink/post/2021/04/13/0234-palindrome-linked-list/</link>
       <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/13/0234-palindrome-linked-list/</guid>
+      <guid>https://qidi.ink/post/2021/04/13/0234-palindrome-linked-list/</guid>
       <description>问题描述 请判断一个链表是否为回文链表
  示例1:
  输入: 1-&amp;gt;2-&amp;gt;2-&amp;gt;1
@@ -203,10 +248,10 @@
     
     <item>
       <title>[利用Python进行数据分析] Ch2. Python语法基础 Ipython和Jupyter Notebooks</title>
-      <link>/post/2021/04/13/python-ch2-python-ipython-jupyter-notebooks/</link>
+      <link>https://qidi.ink/post/2021/04/13/python-ch2-python-ipython-jupyter-notebooks/</link>
       <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/13/python-ch2-python-ipython-jupyter-notebooks/</guid>
+      <guid>https://qidi.ink/post/2021/04/13/python-ch2-python-ipython-jupyter-notebooks/</guid>
       <description>2.1 Python解释器  退出Python解释器返回终端，可输入exit()或Ctrl+D。  2.2 Ipython基础   在IPython中使用%run命令，将执行指定文件，执行结束之后可以与结果进行交互
  如果是在%run一个脚本或一条语句时抛出异常，Ipython默认会打印完整的调用栈，在栈的每个点都会有几行上下文。在发生错误之后，可以使用%debug或%pdb访问栈进行事后调试。    Ipython shell相对于标准Python解释器的进步之一是具备其他IDE和交互计算分析环境所具有的Tab补全功能
   对象的自省:在变量前后使用问号?，可以显示对象的信息。
@@ -223,19 +268,19 @@
     
     <item>
       <title>Google Chrome Shortcuts</title>
-      <link>/post/2021/04/13/google-chrome-shortcuts/</link>
+      <link>https://qidi.ink/post/2021/04/13/google-chrome-shortcuts/</link>
       <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/13/google-chrome-shortcuts/</guid>
+      <guid>https://qidi.ink/post/2021/04/13/google-chrome-shortcuts/</guid>
       <description>cmd + shift + T: 打开上一个关闭的标签页</description>
     </item>
     
     <item>
       <title>0461-hamming distance</title>
-      <link>/post/2021/04/12/0461-hamming-distance/</link>
+      <link>https://qidi.ink/post/2021/04/12/0461-hamming-distance/</link>
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/12/0461-hamming-distance/</guid>
+      <guid>https://qidi.ink/post/2021/04/12/0461-hamming-distance/</guid>
       <description>问题描述 两个整数之间的汉明距离指的是这两个数字对应二进制位不同的位置的数目。
 给出两个整数x和y，计算它们之间的汉明距离。
  示例
@@ -250,10 +295,10 @@
     
     <item>
       <title>0543-diameter of binary tree</title>
-      <link>/post/2021/04/12/0543-diameter-of-binary-tree/</link>
+      <link>https://qidi.ink/post/2021/04/12/0543-diameter-of-binary-tree/</link>
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/12/0543-diameter-of-binary-tree/</guid>
+      <guid>https://qidi.ink/post/2021/04/12/0543-diameter-of-binary-tree/</guid>
       <description>问题描述 给定一棵二叉树，计算它的直径长度。一棵二叉树的直径长度是指任意两个节点路径长度中的最大值。这条路径可能穿过也可能不穿过根节点。
  示例
  输入:
@@ -265,10 +310,10 @@
     
     <item>
       <title>0617-merge two binary trees</title>
-      <link>/post/2021/04/12/0617-merge-two-binary-trees/</link>
+      <link>https://qidi.ink/post/2021/04/12/0617-merge-two-binary-trees/</link>
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/12/0617-merge-two-binary-trees/</guid>
+      <guid>https://qidi.ink/post/2021/04/12/0617-merge-two-binary-trees/</guid>
       <description>问题描述 给定两个二叉树，想想当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。
 你需要将他们合并为一个新的二叉树。合并的规则是如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则不为NULL的节点将直接作为新二叉树的节点。
  示例
@@ -280,10 +325,10 @@
     
     <item>
       <title>0155-min stack</title>
-      <link>/post/2021/04/11/0155-min-stack/</link>
+      <link>https://qidi.ink/post/2021/04/11/0155-min-stack/</link>
       <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/11/0155-min-stack/</guid>
+      <guid>https://qidi.ink/post/2021/04/11/0155-min-stack/</guid>
       <description>题目描述 设计一个支持push,pop,top操作，并能在常数时间内检索到最小元素的栈。
  push(x): 将元素x推入栈中 pop(): 删除栈顶的元素 top(): 获取栈顶元素 getMin(): 检索栈中的最小元素   示例
  输入:
@@ -306,10 +351,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0206-reverse linked list</title>
-      <link>/post/2021/04/11/0206-reverse-linked-list/</link>
+      <link>https://qidi.ink/post/2021/04/11/0206-reverse-linked-list/</link>
       <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/11/0206-reverse-linked-list/</guid>
+      <guid>https://qidi.ink/post/2021/04/11/0206-reverse-linked-list/</guid>
       <description>问题描述 反转一个简单链表。
  示例:
  输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL
@@ -321,10 +366,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0283-move zeroes</title>
-      <link>/post/2021/04/11/0283-move-zeroes/</link>
+      <link>https://qidi.ink/post/2021/04/11/0283-move-zeroes/</link>
       <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/11/0283-move-zeroes/</guid>
+      <guid>https://qidi.ink/post/2021/04/11/0283-move-zeroes/</guid>
       <description>问题描述 给定数组nums，编写一个函数将所有0移动到数组的末尾，同时保持非零元素的相对顺序。
  示例
  输入: [0,1,0,3,12]
@@ -337,10 +382,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0448-find all numbers disappeared in an array</title>
-      <link>/post/2021/04/11/0448-find-all-numbers-disappeared-in-an-array/</link>
+      <link>https://qidi.ink/post/2021/04/11/0448-find-all-numbers-disappeared-in-an-array/</link>
       <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/11/0448-find-all-numbers-disappeared-in-an-array/</guid>
+      <guid>https://qidi.ink/post/2021/04/11/0448-find-all-numbers-disappeared-in-an-array/</guid>
       <description>找到所有数组中消失的数字 给定一个范围在 1 &amp;lt;= a[i] &amp;lt;= n(n = 数组大小)的整型数组，数组中的元素一些出现了两次，另一些只出现一次。
 找到所有在[1,n]范围之间没有出现在数组中的数字。
 考虑不使用额外空间的时间复杂度为O(n)的算法。
@@ -352,10 +397,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>《当我真正开始爱自己》</title>
-      <link>/post/2021/04/11/%E5%BD%93%E6%88%91%E7%9C%9F%E6%AD%A3%E5%BC%80%E5%A7%8B%E7%88%B1%E8%87%AA%E5%B7%B1/</link>
+      <link>https://qidi.ink/post/2021/04/11/%E5%BD%93%E6%88%91%E7%9C%9F%E6%AD%A3%E5%BC%80%E5%A7%8B%E7%88%B1%E8%87%AA%E5%B7%B1/</link>
       <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/11/%E5%BD%93%E6%88%91%E7%9C%9F%E6%AD%A3%E5%BC%80%E5%A7%8B%E7%88%B1%E8%87%AA%E5%B7%B1/</guid>
+      <guid>https://qidi.ink/post/2021/04/11/%E5%BD%93%E6%88%91%E7%9C%9F%E6%AD%A3%E5%BC%80%E5%A7%8B%E7%88%B1%E8%87%AA%E5%B7%B1/</guid>
       <description>当我真正开始爱自己，
 我才认识到，所有的痛苦和情感的折磨，
 都只是提醒我：活着，不要违背自己的本心。
@@ -412,10 +457,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0160-intersection of two linked lists</title>
-      <link>/post/2021/04/10/0160-intersection-of-two-linked-lists/</link>
+      <link>https://qidi.ink/post/2021/04/10/0160-intersection-of-two-linked-lists/</link>
       <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/10/0160-intersection-of-two-linked-lists/</guid>
+      <guid>https://qidi.ink/post/2021/04/10/0160-intersection-of-two-linked-lists/</guid>
       <description>题目描述 编写一个程序，找到两个单链表相交的起始节点。
  示例1:
  输入: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3
@@ -431,10 +476,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0169-majority element</title>
-      <link>/post/2021/04/10/0169-majority-element/</link>
+      <link>https://qidi.ink/post/2021/04/10/0169-majority-element/</link>
       <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/10/0169-majority-element/</guid>
+      <guid>https://qidi.ink/post/2021/04/10/0169-majority-element/</guid>
       <description>多数元素 给定一个大小为n的数组，找到其中的多数元素。
 多数元素是指在数组中出现次数大于⌊ n/2 ⌋的元素。
 可以假设数组是非空的，并且给定的数组总是存在多数元素。
@@ -449,10 +494,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0101-symmetric tree</title>
-      <link>/post/2021/04/09/0101-symmetric-tree/</link>
+      <link>https://qidi.ink/post/2021/04/09/0101-symmetric-tree/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/09/0101-symmetric-tree/</guid>
+      <guid>https://qidi.ink/post/2021/04/09/0101-symmetric-tree/</guid>
       <description>题目描述 给定一个二叉树，检查它是否是镜像对称的。
  示例1:
  输入:
@@ -464,10 +509,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0104-maximum depth of binary tree</title>
-      <link>/post/2021/04/09/0104-maximum-depth-of-binary-tree/</link>
+      <link>https://qidi.ink/post/2021/04/09/0104-maximum-depth-of-binary-tree/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/09/0104-maximum-depth-of-binary-tree/</guid>
+      <guid>https://qidi.ink/post/2021/04/09/0104-maximum-depth-of-binary-tree/</guid>
       <description>题目描述 给定一个二叉树，找出其最大深度。
 二叉树的深度为根结点到最远叶子结点的最长路径上的节点数。
  示例:
@@ -479,10 +524,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0121-best time to buy and sell stock</title>
-      <link>/post/2021/04/09/0121-best-time-to-buy-and-sell-stock/</link>
+      <link>https://qidi.ink/post/2021/04/09/0121-best-time-to-buy-and-sell-stock/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/09/0121-best-time-to-buy-and-sell-stock/</guid>
+      <guid>https://qidi.ink/post/2021/04/09/0121-best-time-to-buy-and-sell-stock/</guid>
       <description>问题描述 给定一个数组prices，它的第i个元素prices[i]表示一支给定股票第i天的价格。
 你只能选择某一天买入这只股票，并选择在未来的某一个不同的日子卖出该股票。设计一个算法来计算你所能获取的最大利润。
 返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回0。
@@ -491,10 +536,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0136-single nubmer</title>
-      <link>/post/2021/04/09/0136-single-nubmer/</link>
+      <link>https://qidi.ink/post/2021/04/09/0136-single-nubmer/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/09/0136-single-nubmer/</guid>
+      <guid>https://qidi.ink/post/2021/04/09/0136-single-nubmer/</guid>
       <description>问题描述  给定一个非空整数数组，除了某个元素只出现一次之外，其余每个元素均出现两次。找出那个只出现了一次的元素。
 示例1:
  输入: [2,2,1]
@@ -512,10 +557,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0141-linked list cycle</title>
-      <link>/post/2021/04/09/0141-linked-list-cycle/</link>
+      <link>https://qidi.ink/post/2021/04/09/0141-linked-list-cycle/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/09/0141-linked-list-cycle/</guid>
+      <guid>https://qidi.ink/post/2021/04/09/0141-linked-list-cycle/</guid>
       <description>问题描述 给定一个链表，判断链表中是否有环。
 如果链表中有某个节点，可以通过连续跟踪next指针再次到达，则链表中存在环。为了表示给定链表中的环，我们使用整数pos来表示链表尾连接到链表中的位置（索引从0开始）。如果pos是-1，则在该链表中没有环。注意：pos不作为参数进行传递，仅仅是为了标识链表的实际情况。
 如果链表中存在环，则返回true。否则返回false。
@@ -537,10 +582,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>Git 简介</title>
-      <link>/post/2021/04/09/git/</link>
+      <link>https://qidi.ink/post/2021/04/09/git/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/09/git/</guid>
+      <guid>https://qidi.ink/post/2021/04/09/git/</guid>
       <description>版本控制 版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。
 图形或网页设计师，可能会需要保存某一幅图片或页面布局文件的所有修订版本。版本控制系统可以帮助将选定的文件甚或整个项目回溯到之前某个状态、比较文件的变化细节、查看何时报告了某个功能缺陷。
 分布式版本控制系统 在分布式版本控制系统 (Distributed Version Control System) 中，客户端不只提取最新版本的文件快照，而是把代码仓库完整地镜像下来，包括完整的历史记录。
@@ -578,10 +623,10 @@ $ git &amp;lt;verb&amp;gt; --help</description>
     
     <item>
       <title>0021-merge two sorted list</title>
-      <link>/post/2021/04/08/0021-merge-two-sorted-list/</link>
+      <link>https://qidi.ink/post/2021/04/08/0021-merge-two-sorted-list/</link>
       <pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/08/0021-merge-two-sorted-list/</guid>
+      <guid>https://qidi.ink/post/2021/04/08/0021-merge-two-sorted-list/</guid>
       <description>题目描述  将两个升序链表合并为一个新的升序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
 示例1
  输入: l1 = [1,2,4], l2 = [1,3,4]
@@ -598,10 +643,10 @@ $ git &amp;lt;verb&amp;gt; --help</description>
     
     <item>
       <title>0053-maximum subarray</title>
-      <link>/post/2021/04/08/0053-maximum-subarray/</link>
+      <link>https://qidi.ink/post/2021/04/08/0053-maximum-subarray/</link>
       <pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/08/0053-maximum-subarray/</guid>
+      <guid>https://qidi.ink/post/2021/04/08/0053-maximum-subarray/</guid>
       <description>题目描述  给定一个整数数组nums，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
 示例1:
  输入: nums = [-2,1,-3,4,-1,2,1,-5,4]
@@ -627,10 +672,10 @@ $ git &amp;lt;verb&amp;gt; --help</description>
     
     <item>
       <title>0070-climbing stairs</title>
-      <link>/post/2021/04/08/0070-climbing-stairs/</link>
+      <link>https://qidi.ink/post/2021/04/08/0070-climbing-stairs/</link>
       <pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/08/0070-climbing-stairs/</guid>
+      <guid>https://qidi.ink/post/2021/04/08/0070-climbing-stairs/</guid>
       <description>问题描述
 假设你正在爬楼梯。需要n阶你才能到达楼顶。
 每次你可以爬1或2个台阶。你有多少种不同的方法可以爬到楼顶呢？
@@ -654,10 +699,10 @@ $ git &amp;lt;verb&amp;gt; --help</description>
     
     <item>
       <title>0002-add-two-numbers</title>
-      <link>/post/2021/04/07/0002-add-two-numbers/</link>
+      <link>https://qidi.ink/post/2021/04/07/0002-add-two-numbers/</link>
       <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/07/0002-add-two-numbers/</guid>
+      <guid>https://qidi.ink/post/2021/04/07/0002-add-two-numbers/</guid>
       <description>题目描述  给定两个非空的链表，表示两个非负整数。它们的每位数字都是按照逆序的方式存储的，并且每个节点只能存储一位数字。
 请你将两个数字相加，并以相同形式返回一个表示和的链表
 你可以假设除了数字0之外，这两个数都不会以0开头。
@@ -680,10 +725,10 @@ $ git &amp;lt;verb&amp;gt; --help</description>
     
     <item>
       <title>0003-longest substring without repeating characters</title>
-      <link>/post/2021/04/07/0003-longest-substring-without-repeating-characters/</link>
+      <link>https://qidi.ink/post/2021/04/07/0003-longest-substring-without-repeating-characters/</link>
       <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/07/0003-longest-substring-without-repeating-characters/</guid>
+      <guid>https://qidi.ink/post/2021/04/07/0003-longest-substring-without-repeating-characters/</guid>
       <description>题目描述  给定一个字符串，请你找出其中不含有重复字符的最长子串的长度。
 示例1
  输入: s = &amp;ldquo;abcabcbb&amp;rdquo;
@@ -708,10 +753,10 @@ $ git &amp;lt;verb&amp;gt; --help</description>
     
     <item>
       <title>0020-Valid Parentheses</title>
-      <link>/post/2021/04/07/0020-valid-parentheses/</link>
+      <link>https://qidi.ink/post/2021/04/07/0020-valid-parentheses/</link>
       <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/07/0020-valid-parentheses/</guid>
+      <guid>https://qidi.ink/post/2021/04/07/0020-valid-parentheses/</guid>
       <description>问题描述  给定一个只包括&#39;(&#39;,&#39;)&#39;,&#39;{&#39;,&#39;}&#39;,&#39;[&#39;,&#39;]&#39;的字符串s，判断字符串是否有效。
 有效字符串需满足：
  左括号必须用相同类型的右括号闭合。 左括号必须以正确的顺序闭合。  示例1:
@@ -737,10 +782,10 @@ $ git &amp;lt;verb&amp;gt; --help</description>
     
     <item>
       <title>0001-Two Sum</title>
-      <link>/post/2021/04/06/0001-two-sum/</link>
+      <link>https://qidi.ink/post/2021/04/06/0001-two-sum/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/06/0001-two-sum/</guid>
+      <guid>https://qidi.ink/post/2021/04/06/0001-two-sum/</guid>
       <description>题目描述  给定一个整数数组nums和一个整数目标值target，请你在该数组中找出和为目标值的那两个整数，并返回它们的数组下标。
 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
 你可以按任意顺序返回答案。
@@ -762,10 +807,10 @@ $ git &amp;lt;verb&amp;gt; --help</description>
     
     <item>
       <title>Mac下使用VMware创建Ubuntu虚拟机</title>
-      <link>/post/2021/04/06/macos-vmware-ubuntu/</link>
+      <link>https://qidi.ink/post/2021/04/06/macos-vmware-ubuntu/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/06/macos-vmware-ubuntu/</guid>
+      <guid>https://qidi.ink/post/2021/04/06/macos-vmware-ubuntu/</guid>
       <description>配置Ubuntu虚拟机使用宿主机VPN 环境介绍 macOS Big Sur: 11.0.1
 ShadowsocksX-NG:
 VMware Fusion:
@@ -777,10 +822,10 @@ VMware虚拟机（Ubuntu）通过主机代理实现翻墙（shadowsocks）</desc
     
     <item>
       <title>Markdown Grammer</title>
-      <link>/post/2021/04/06/markdown-grammer/</link>
+      <link>https://qidi.ink/post/2021/04/06/markdown-grammer/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/06/markdown-grammer/</guid>
+      <guid>https://qidi.ink/post/2021/04/06/markdown-grammer/</guid>
       <description>HTML 上标: Bull&amp;lt;sup&amp;gt;TM&amp;lt;/sup&amp;gt; BullTM
 下标: H&amp;lt;sub&amp;gt;2&amp;lt;/sub&amp;gt;O H2O
 表格 markdown制作表格，使用|分隔不同单元格，-分隔表头和其他行。
@@ -795,10 +840,10 @@ VMware虚拟机（Ubuntu）通过主机代理实现翻墙（shadowsocks）</desc
     
     <item>
       <title>VIM Shorcuts</title>
-      <link>/post/2021/04/06/vim-shorcuts/</link>
+      <link>https://qidi.ink/post/2021/04/06/vim-shorcuts/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/06/vim-shorcuts/</guid>
+      <guid>https://qidi.ink/post/2021/04/06/vim-shorcuts/</guid>
       <description>跳转命令 shift + g: 跳转到文件结尾
 gg: 跳转到文件开头
 :10: 跳转到第10行
@@ -816,10 +861,10 @@ $: 选中当前行，光标位置到行尾
     
     <item>
       <title>基于Hugo和Github Pages的个人博客搭建过程</title>
-      <link>/post/2021/04/06/hugo-github-pages/</link>
+      <link>https://qidi.ink/post/2021/04/06/hugo-github-pages/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/06/hugo-github-pages/</guid>
+      <guid>https://qidi.ink/post/2021/04/06/hugo-github-pages/</guid>
       <description>撰写博文 使用RStudio IDE
 blogdown::serve_site()命令，提供个人网站的本地实时渲染
 blogdown::hugo_build()命令，在push给Github远程仓库之前，编译文件

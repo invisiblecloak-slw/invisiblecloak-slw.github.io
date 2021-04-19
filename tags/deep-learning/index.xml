@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deep Learning on XIU</title>
+    <link>https://qidi.ink/tags/deep-learning/</link>
+    <description>Recent content in Deep Learning on XIU</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 19 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【动手学深度学习】数据处理</title>
+      <link>https://qidi.ink/post/2021/04/19/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</link>
+      <pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/04/19/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</guid>
+      <description>目标   深度学习经典模型和最新模型
+  机器学习基础
+  实践
+  深度学习基础
+ 线性神经网络 多层感知机    卷积神经网络（空间）
+  循环神经网络（时间）
+  注意力机制
+  优化算法
+  高性能计算
+  计算机视觉
+  自然语言处理
+  将要学习到什么  深度学习里有什么技术 如何实现和调参 背后的原因（直觉、数学）  资源  教材:https://zh-v2.d2l.ai/  Q&amp;amp;A  模型可解释性  有效与可解释性不同。    安装 </description>
+    </item>
+    
+  </channel>
+</rss>

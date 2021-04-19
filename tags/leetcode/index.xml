@@ -2,17 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Leetcode on XIU</title>
-    <link>/tags/leetcode/</link>
+    <link>https://qidi.ink/tags/leetcode/</link>
     <description>Recent content in Leetcode on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0031-next permutation</title>
+      <link>https://qidi.ink/post/2021/04/19/0031-next-permutation/</link>
+      <pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/04/19/0031-next-permutation/</guid>
+      <description>问题描述 实现获取下一个排列的函数：将给定数字序列重新排列成字典序中下一个更大的排列。
+如果不存在下一个更大的排列，则将数组重新排列盛最小的序列（即升序排列）。
+考虑原地修改，且只使用额外常数空间。
+ 示例1
+ 输入: nums = [1,2,3]
+输出: [1,3,2]
+ 示例2
+ 输入: nums = [3,2,1]
+输出: [1,2,3]
+ 示例3
+ 输入: nums = [1,1,5]
+输出: [1,5,1]
+ 示例4
+ 输入: nums = [1]
+输出: [1]
+ 提示:
+ 1 &amp;lt;= nums.length &amp;lt;= 100 0 &amp;lt;= nums[i] &amp;lt;= 100   代码 pre = post = -1 for pos in range(len(nums) - 1, 0, -1): if nums[pos] &amp;gt; nums[pos - 1]: pre, post = pos - 1, pos break if post == -1: nums.</description>
+    </item>
+    
     <item>
       <title>0022-generate parentheses</title>
-      <link>/post/2021/04/18/0022-generate-parentheses/</link>
+      <link>https://qidi.ink/post/2021/04/18/0022-generate-parentheses/</link>
       <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/18/0022-generate-parentheses/</guid>
+      <guid>https://qidi.ink/post/2021/04/18/0022-generate-parentheses/</guid>
       <description>问题描述 设计函数，生成所有可能的并且有效的括号组合。
 数字n代表生成括号的对数。
  示例1:
@@ -27,10 +52,10 @@
     
     <item>
       <title>0017-letter combinations of a phone number</title>
-      <link>/post/2021/04/17/0017-letter-combinations-of-a-phone-number/</link>
+      <link>https://qidi.ink/post/2021/04/17/0017-letter-combinations-of-a-phone-number/</link>
       <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/17/0017-letter-combinations-of-a-phone-number/</guid>
+      <guid>https://qidi.ink/post/2021/04/17/0017-letter-combinations-of-a-phone-number/</guid>
       <description>题目描述 给定一个仅包含数字2-9的字符串，返回所有它能表示的字母组合。
 给定数字到字母的映射如下（与电话按键相同）。
  示例1
@@ -48,10 +73,10 @@
     
     <item>
       <title>0019-remove nth node from end of list</title>
-      <link>/post/2021/04/17/0019-remove-nth-node-from-end-of-list/</link>
+      <link>https://qidi.ink/post/2021/04/17/0019-remove-nth-node-from-end-of-list/</link>
       <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/17/0019-remove-nth-node-from-end-of-list/</guid>
+      <guid>https://qidi.ink/post/2021/04/17/0019-remove-nth-node-from-end-of-list/</guid>
       <description>删除链表的倒数第N个结点 给定一个链表，删除链表的倒数第n个结点，并返回链表的头结点。
  示例1
  输入: head = [1,2,3,4,5], n = 2
@@ -68,10 +93,10 @@
     
     <item>
       <title>0015-3sum</title>
-      <link>/post/2021/04/16/0015-3sum/</link>
+      <link>https://qidi.ink/post/2021/04/16/0015-3sum/</link>
       <pubDate>Fri, 16 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/16/0015-3sum/</guid>
+      <guid>https://qidi.ink/post/2021/04/16/0015-3sum/</guid>
       <description>问题描述 给定包含n个整数的数组nums。
 判断nums中是否存在三个元素a, b, c，使得a + b + c = 0？
 找出所有和为0且不重复的三元组。
@@ -91,10 +116,10 @@
     
     <item>
       <title>0011-container with most water</title>
-      <link>/post/2021/04/15/0011-container-with-most-water/</link>
+      <link>https://qidi.ink/post/2021/04/15/0011-container-with-most-water/</link>
       <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/15/0011-container-with-most-water/</guid>
+      <guid>https://qidi.ink/post/2021/04/15/0011-container-with-most-water/</guid>
       <description>问题描述 给定n个非负整数a1,a2,...,an。每个数代表坐标中的一个点(i, ai)。在坐标内画n条垂直线，垂直线i的两个端点分别为(i,ai)和(i,0)。找出其中的两条线，使得它们与x轴共同构成的容器可以容纳最多的水。
  示例1
  输入: [1,8,6,2,5,4,8,3,7]
@@ -114,10 +139,10 @@
     
     <item>
       <title>0005-longest palindromic substring</title>
-      <link>/post/2021/04/14/0005-longest-palindromic-substring/</link>
+      <link>https://qidi.ink/post/2021/04/14/0005-longest-palindromic-substring/</link>
       <pubDate>Wed, 14 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/14/0005-longest-palindromic-substring/</guid>
+      <guid>https://qidi.ink/post/2021/04/14/0005-longest-palindromic-substring/</guid>
       <description>最长回文子串 给定字符串s，找到s中的最长回文子串。
  示例1：
  输入: s = &amp;ldquo;babad&amp;rdquo;
@@ -137,10 +162,10 @@
     
     <item>
       <title>0226-invert-binary-tree</title>
-      <link>/post/2021/04/13/0226-invert-binary-tree/</link>
+      <link>https://qidi.ink/post/2021/04/13/0226-invert-binary-tree/</link>
       <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/13/0226-invert-binary-tree/</guid>
+      <guid>https://qidi.ink/post/2021/04/13/0226-invert-binary-tree/</guid>
       <description>题目描述 翻转一棵二叉树。
  示例
  输入:
@@ -150,10 +175,10 @@
     
     <item>
       <title>0234-palindrome linked list</title>
-      <link>/post/2021/04/13/0234-palindrome-linked-list/</link>
+      <link>https://qidi.ink/post/2021/04/13/0234-palindrome-linked-list/</link>
       <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/13/0234-palindrome-linked-list/</guid>
+      <guid>https://qidi.ink/post/2021/04/13/0234-palindrome-linked-list/</guid>
       <description>问题描述 请判断一个链表是否为回文链表
  示例1:
  输入: 1-&amp;gt;2-&amp;gt;2-&amp;gt;1
@@ -167,10 +192,10 @@
     
     <item>
       <title>0461-hamming distance</title>
-      <link>/post/2021/04/12/0461-hamming-distance/</link>
+      <link>https://qidi.ink/post/2021/04/12/0461-hamming-distance/</link>
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/12/0461-hamming-distance/</guid>
+      <guid>https://qidi.ink/post/2021/04/12/0461-hamming-distance/</guid>
       <description>问题描述 两个整数之间的汉明距离指的是这两个数字对应二进制位不同的位置的数目。
 给出两个整数x和y，计算它们之间的汉明距离。
  示例
@@ -185,10 +210,10 @@
     
     <item>
       <title>0543-diameter of binary tree</title>
-      <link>/post/2021/04/12/0543-diameter-of-binary-tree/</link>
+      <link>https://qidi.ink/post/2021/04/12/0543-diameter-of-binary-tree/</link>
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/12/0543-diameter-of-binary-tree/</guid>
+      <guid>https://qidi.ink/post/2021/04/12/0543-diameter-of-binary-tree/</guid>
       <description>问题描述 给定一棵二叉树，计算它的直径长度。一棵二叉树的直径长度是指任意两个节点路径长度中的最大值。这条路径可能穿过也可能不穿过根节点。
  示例
  输入:
@@ -200,10 +225,10 @@
     
     <item>
       <title>0617-merge two binary trees</title>
-      <link>/post/2021/04/12/0617-merge-two-binary-trees/</link>
+      <link>https://qidi.ink/post/2021/04/12/0617-merge-two-binary-trees/</link>
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/12/0617-merge-two-binary-trees/</guid>
+      <guid>https://qidi.ink/post/2021/04/12/0617-merge-two-binary-trees/</guid>
       <description>问题描述 给定两个二叉树，想想当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。
 你需要将他们合并为一个新的二叉树。合并的规则是如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则不为NULL的节点将直接作为新二叉树的节点。
  示例
@@ -215,10 +240,10 @@
     
     <item>
       <title>0155-min stack</title>
-      <link>/post/2021/04/11/0155-min-stack/</link>
+      <link>https://qidi.ink/post/2021/04/11/0155-min-stack/</link>
       <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/11/0155-min-stack/</guid>
+      <guid>https://qidi.ink/post/2021/04/11/0155-min-stack/</guid>
       <description>题目描述 设计一个支持push,pop,top操作，并能在常数时间内检索到最小元素的栈。
  push(x): 将元素x推入栈中 pop(): 删除栈顶的元素 top(): 获取栈顶元素 getMin(): 检索栈中的最小元素   示例
  输入:
@@ -241,10 +266,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0206-reverse linked list</title>
-      <link>/post/2021/04/11/0206-reverse-linked-list/</link>
+      <link>https://qidi.ink/post/2021/04/11/0206-reverse-linked-list/</link>
       <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/11/0206-reverse-linked-list/</guid>
+      <guid>https://qidi.ink/post/2021/04/11/0206-reverse-linked-list/</guid>
       <description>问题描述 反转一个简单链表。
  示例:
  输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL
@@ -256,10 +281,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0283-move zeroes</title>
-      <link>/post/2021/04/11/0283-move-zeroes/</link>
+      <link>https://qidi.ink/post/2021/04/11/0283-move-zeroes/</link>
       <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/11/0283-move-zeroes/</guid>
+      <guid>https://qidi.ink/post/2021/04/11/0283-move-zeroes/</guid>
       <description>问题描述 给定数组nums，编写一个函数将所有0移动到数组的末尾，同时保持非零元素的相对顺序。
  示例
  输入: [0,1,0,3,12]
@@ -272,10 +297,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0448-find all numbers disappeared in an array</title>
-      <link>/post/2021/04/11/0448-find-all-numbers-disappeared-in-an-array/</link>
+      <link>https://qidi.ink/post/2021/04/11/0448-find-all-numbers-disappeared-in-an-array/</link>
       <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/11/0448-find-all-numbers-disappeared-in-an-array/</guid>
+      <guid>https://qidi.ink/post/2021/04/11/0448-find-all-numbers-disappeared-in-an-array/</guid>
       <description>找到所有数组中消失的数字 给定一个范围在 1 &amp;lt;= a[i] &amp;lt;= n(n = 数组大小)的整型数组，数组中的元素一些出现了两次，另一些只出现一次。
 找到所有在[1,n]范围之间没有出现在数组中的数字。
 考虑不使用额外空间的时间复杂度为O(n)的算法。
@@ -287,10 +312,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0160-intersection of two linked lists</title>
-      <link>/post/2021/04/10/0160-intersection-of-two-linked-lists/</link>
+      <link>https://qidi.ink/post/2021/04/10/0160-intersection-of-two-linked-lists/</link>
       <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/10/0160-intersection-of-two-linked-lists/</guid>
+      <guid>https://qidi.ink/post/2021/04/10/0160-intersection-of-two-linked-lists/</guid>
       <description>题目描述 编写一个程序，找到两个单链表相交的起始节点。
  示例1:
  输入: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3
@@ -306,10 +331,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0169-majority element</title>
-      <link>/post/2021/04/10/0169-majority-element/</link>
+      <link>https://qidi.ink/post/2021/04/10/0169-majority-element/</link>
       <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/10/0169-majority-element/</guid>
+      <guid>https://qidi.ink/post/2021/04/10/0169-majority-element/</guid>
       <description>多数元素 给定一个大小为n的数组，找到其中的多数元素。
 多数元素是指在数组中出现次数大于⌊ n/2 ⌋的元素。
 可以假设数组是非空的，并且给定的数组总是存在多数元素。
@@ -324,10 +349,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0101-symmetric tree</title>
-      <link>/post/2021/04/09/0101-symmetric-tree/</link>
+      <link>https://qidi.ink/post/2021/04/09/0101-symmetric-tree/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/09/0101-symmetric-tree/</guid>
+      <guid>https://qidi.ink/post/2021/04/09/0101-symmetric-tree/</guid>
       <description>题目描述 给定一个二叉树，检查它是否是镜像对称的。
  示例1:
  输入:
@@ -339,10 +364,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0104-maximum depth of binary tree</title>
-      <link>/post/2021/04/09/0104-maximum-depth-of-binary-tree/</link>
+      <link>https://qidi.ink/post/2021/04/09/0104-maximum-depth-of-binary-tree/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/09/0104-maximum-depth-of-binary-tree/</guid>
+      <guid>https://qidi.ink/post/2021/04/09/0104-maximum-depth-of-binary-tree/</guid>
       <description>题目描述 给定一个二叉树，找出其最大深度。
 二叉树的深度为根结点到最远叶子结点的最长路径上的节点数。
  示例:
@@ -354,10 +379,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0121-best time to buy and sell stock</title>
-      <link>/post/2021/04/09/0121-best-time-to-buy-and-sell-stock/</link>
+      <link>https://qidi.ink/post/2021/04/09/0121-best-time-to-buy-and-sell-stock/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/09/0121-best-time-to-buy-and-sell-stock/</guid>
+      <guid>https://qidi.ink/post/2021/04/09/0121-best-time-to-buy-and-sell-stock/</guid>
       <description>问题描述 给定一个数组prices，它的第i个元素prices[i]表示一支给定股票第i天的价格。
 你只能选择某一天买入这只股票，并选择在未来的某一个不同的日子卖出该股票。设计一个算法来计算你所能获取的最大利润。
 返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回0。
@@ -366,10 +391,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0136-single nubmer</title>
-      <link>/post/2021/04/09/0136-single-nubmer/</link>
+      <link>https://qidi.ink/post/2021/04/09/0136-single-nubmer/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/09/0136-single-nubmer/</guid>
+      <guid>https://qidi.ink/post/2021/04/09/0136-single-nubmer/</guid>
       <description>问题描述  给定一个非空整数数组，除了某个元素只出现一次之外，其余每个元素均出现两次。找出那个只出现了一次的元素。
 示例1:
  输入: [2,2,1]
@@ -387,10 +412,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0141-linked list cycle</title>
-      <link>/post/2021/04/09/0141-linked-list-cycle/</link>
+      <link>https://qidi.ink/post/2021/04/09/0141-linked-list-cycle/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/09/0141-linked-list-cycle/</guid>
+      <guid>https://qidi.ink/post/2021/04/09/0141-linked-list-cycle/</guid>
       <description>问题描述 给定一个链表，判断链表中是否有环。
 如果链表中有某个节点，可以通过连续跟踪next指针再次到达，则链表中存在环。为了表示给定链表中的环，我们使用整数pos来表示链表尾连接到链表中的位置（索引从0开始）。如果pos是-1，则在该链表中没有环。注意：pos不作为参数进行传递，仅仅是为了标识链表的实际情况。
 如果链表中存在环，则返回true。否则返回false。
@@ -412,10 +437,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0021-merge two sorted list</title>
-      <link>/post/2021/04/08/0021-merge-two-sorted-list/</link>
+      <link>https://qidi.ink/post/2021/04/08/0021-merge-two-sorted-list/</link>
       <pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/08/0021-merge-two-sorted-list/</guid>
+      <guid>https://qidi.ink/post/2021/04/08/0021-merge-two-sorted-list/</guid>
       <description>题目描述  将两个升序链表合并为一个新的升序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
 示例1
  输入: l1 = [1,2,4], l2 = [1,3,4]
@@ -432,10 +457,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0053-maximum subarray</title>
-      <link>/post/2021/04/08/0053-maximum-subarray/</link>
+      <link>https://qidi.ink/post/2021/04/08/0053-maximum-subarray/</link>
       <pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/08/0053-maximum-subarray/</guid>
+      <guid>https://qidi.ink/post/2021/04/08/0053-maximum-subarray/</guid>
       <description>题目描述  给定一个整数数组nums，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
 示例1:
  输入: nums = [-2,1,-3,4,-1,2,1,-5,4]
@@ -461,10 +486,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0070-climbing stairs</title>
-      <link>/post/2021/04/08/0070-climbing-stairs/</link>
+      <link>https://qidi.ink/post/2021/04/08/0070-climbing-stairs/</link>
       <pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/08/0070-climbing-stairs/</guid>
+      <guid>https://qidi.ink/post/2021/04/08/0070-climbing-stairs/</guid>
       <description>问题描述
 假设你正在爬楼梯。需要n阶你才能到达楼顶。
 每次你可以爬1或2个台阶。你有多少种不同的方法可以爬到楼顶呢？
@@ -488,10 +513,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0002-add-two-numbers</title>
-      <link>/post/2021/04/07/0002-add-two-numbers/</link>
+      <link>https://qidi.ink/post/2021/04/07/0002-add-two-numbers/</link>
       <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/07/0002-add-two-numbers/</guid>
+      <guid>https://qidi.ink/post/2021/04/07/0002-add-two-numbers/</guid>
       <description>题目描述  给定两个非空的链表，表示两个非负整数。它们的每位数字都是按照逆序的方式存储的，并且每个节点只能存储一位数字。
 请你将两个数字相加，并以相同形式返回一个表示和的链表
 你可以假设除了数字0之外，这两个数都不会以0开头。
@@ -514,10 +539,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0003-longest substring without repeating characters</title>
-      <link>/post/2021/04/07/0003-longest-substring-without-repeating-characters/</link>
+      <link>https://qidi.ink/post/2021/04/07/0003-longest-substring-without-repeating-characters/</link>
       <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/07/0003-longest-substring-without-repeating-characters/</guid>
+      <guid>https://qidi.ink/post/2021/04/07/0003-longest-substring-without-repeating-characters/</guid>
       <description>题目描述  给定一个字符串，请你找出其中不含有重复字符的最长子串的长度。
 示例1
  输入: s = &amp;ldquo;abcabcbb&amp;rdquo;
@@ -542,10 +567,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0020-Valid Parentheses</title>
-      <link>/post/2021/04/07/0020-valid-parentheses/</link>
+      <link>https://qidi.ink/post/2021/04/07/0020-valid-parentheses/</link>
       <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/07/0020-valid-parentheses/</guid>
+      <guid>https://qidi.ink/post/2021/04/07/0020-valid-parentheses/</guid>
       <description>问题描述  给定一个只包括&#39;(&#39;,&#39;)&#39;,&#39;{&#39;,&#39;}&#39;,&#39;[&#39;,&#39;]&#39;的字符串s，判断字符串是否有效。
 有效字符串需满足：
  左括号必须用相同类型的右括号闭合。 左括号必须以正确的顺序闭合。  示例1:
@@ -571,10 +596,10 @@ minStack.getMin(); &amp;ndash;&amp;gt; 返回 -2.
     
     <item>
       <title>0001-Two Sum</title>
-      <link>/post/2021/04/06/0001-two-sum/</link>
+      <link>https://qidi.ink/post/2021/04/06/0001-two-sum/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/06/0001-two-sum/</guid>
+      <guid>https://qidi.ink/post/2021/04/06/0001-two-sum/</guid>
       <description>题目描述  给定一个整数数组nums和一个整数目标值target，请你在该数组中找出和为目标值的那两个整数，并返回它们的数组下标。
 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
 你可以按任意顺序返回答案。

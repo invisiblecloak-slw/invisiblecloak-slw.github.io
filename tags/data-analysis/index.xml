@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Analysis on XIU</title>
-    <link>/tags/data-analysis/</link>
+    <link>https://qidi.ink/tags/data-analysis/</link>
     <description>Recent content in Data Analysis on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/data-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/tags/data-analysis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[利用Python进行数据分析] Ch5. Pandas基础</title>
-      <link>/post/2021/04/18/python-ch5-pandas/</link>
+      <link>https://qidi.ink/post/2021/04/18/python-ch5-pandas/</link>
       <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/18/python-ch5-pandas/</guid>
+      <guid>https://qidi.ink/post/2021/04/18/python-ch5-pandas/</guid>
       <description>Pandas 简介  Pandas采用了Numpy编码风格。特别是基于数组的函数和不使用for循环的数据处理。  Numpy更适合处理统一的数值数组数据。 Pandas专门为处理表格和混杂数据设计。    Pandas 数据结构 Series  Series是一种类似于一维数组的对象。由一组数据以及一组与之相关的数据标签（索引）组成。  可通过Series的values和index属性获取其数组表示形式和索引对象。 可通过指定index关键字制定索引。  obj = pd.Series([4, 7, -4, 3], index = [&#39;d&#39;, &#39;b&#39;, &#39;a&#39;, &#39;c&#39;])     由于可看作是索引值到数据值的一个映射，Series可以看成是一种定长的有序字典。  可以通过Python内置字典来创建Series。  如果只传入一个字典，则结果Series中的索引就是原字典的键（有序排列）。可以传入排序好的字典的键来改变顺序。      sdata = {&amp;#39;Ohio&amp;#39;: 35000, &amp;#39;Texas&amp;#39;: 71000, &amp;#39;Oregon&amp;#39;: 16000, &amp;#39;Utah&amp;#39;: 5000} states = [&amp;#39;California&amp;#39;, &amp;#39;Ohio&amp;#39;, &amp;#39;Oregon&amp;#39;, &amp;#39;Texas&amp;#39;] obj = pd.Series(sdata, index = states) # obj: # California NaN # Ohio 35000.</description>
     </item>
     
     <item>
       <title>[利用Python进行数据分析] Ch4. Numpy基础 数组和矢量计算</title>
-      <link>/post/2021/04/17/python-ch4-numpy/</link>
+      <link>https://qidi.ink/post/2021/04/17/python-ch4-numpy/</link>
       <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/17/python-ch4-numpy/</guid>
+      <guid>https://qidi.ink/post/2021/04/17/python-ch4-numpy/</guid>
       <description>ndarray: 一种多维数组对象  ndarray是一个通用的同构数据多维容器。  ndarray中所有元素必须是相同类型的。 ndarray有shape属性（表示各维度大小的元组）和dtype属性（用于说明数组数据类型的对象）    创建ndarray  array函数：将一切序列对象（含其他数组）转化为NumPy数组。 np.zeros、np.ones、np.empty分别可以创建指定长度或形状的全0或全1数组或没有任何具体值的数组。需传入一个表示形状的元组  np.empty返回数组的元素大多是未初始化的值，非全0或全1。   np.arange函数是Python内置函数range的数组版。     函数 说明     array 将输入数据（列表、元组、数组或序列类型）转换为ndarray。推断或指定dtype。创建新ndarray对象   asarray 将输入转换为ndarray，如果输入本身是ndarray对象则指向输入   arange 与内置range相似，返回ndarray对象而非列表`   ones 根据指定的形状和dtype创建一个全1数组   ones_like 以另一个数组为参数，根据其形状和dtype创建一个全1数组   zeros 根据指定的形状和dtype创建一个全0数组   zeros_like 以另一个数组为参数，根据其形状和dtype创建一个全0数组   empty 根据指定的形状和dtype创建数组，只分配内存空间不填充值   empty_like 以另一个数组为参数，根据祺形状和dtype创建数组，只分配内存空间不填充值   full 根据指定的形状和dtype创建数组，值依据参数fill_value指定   full_like 以另一个数组为参数，根据祺形状和dtype创建数组，值依据参数fill_value指定   eye 创建N阶方阵    ndarray数据类型  dtype含有ndarray将一块内存解释为特定数据类型所需的信息。  需要控制数据再内存和磁盘中的存储方式时，要了解如何控制存储类型。 narray的astype方法将数组的dtype转变后返回。当前数组不变。即创建一个新的数组。    NumPy数组运算  数组使得批量处理数据不需要借助循环。即向量化(vectorization)。  相同shape的数组之间的算术运算将作用于元素级。 数组与标量的算术运算会将标量值传播到数组各个元素。 大小相同的数组之间的比较会生成布尔值数组。  大小不同的数组之间的运算称为广播。      索引和切片  将一个标量值赋给一个切片时，该值会自动传播。  arr = np.</description>
     </item>
     
     <item>
       <title>[利用Python进行数据分析] Ch3. Python数据结构 函数和文件</title>
-      <link>/post/2021/04/15/python-ch2-python/</link>
+      <link>https://qidi.ink/post/2021/04/15/python-ch2-python/</link>
       <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/15/python-ch2-python/</guid>
+      <guid>https://qidi.ink/post/2021/04/15/python-ch2-python/</guid>
       <description>数据结构和序列 元组  元组是一个固定长度的不可变Python序列对象。 创建元组，可用逗号分隔一列值。  In [1]: tup = 4, 5, 6  In [2]: tup Out[2]: (4, 5, 6)     用复杂的表达式定义元组，最好将值放到圆括号内。  In [3]: nested_tup = (4, 5, 6), (7, 8)  In [4]: nested_tup Out[4]: ((4, 5, 6), (7, 8))     元组是不可变对象。但元组中存储的对象可以是可变对象。  可以原地修改这些可变对象。   将元组赋值给类似元组的变量的语句，会拆分等号右边的值。  In [5]: tup = 4, 5, (6, 7)  In [6]: a, b, (c, d) = tup  In [7]: d Out[7]: 7       变量拆分常用于迭代元组或列表:  In [8]: seq = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]  In[9] : for a, b, c in seq: &amp;hellip;     使用*_的元组拆分:  In [10]: values = 1, 2, 3, 4, 5  In [11]: a, b, *_ = values  In [12]: _ Out[12]: [3, 4, 5]        列表   切片语法seq[::-1]返回颠倒的列表或元组。</description>
     </item>
     
     <item>
       <title>[利用Python进行数据分析] Ch2. Python语法基础 Ipython和Jupyter Notebooks</title>
-      <link>/post/2021/04/13/python-ch2-python-ipython-jupyter-notebooks/</link>
+      <link>https://qidi.ink/post/2021/04/13/python-ch2-python-ipython-jupyter-notebooks/</link>
       <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/13/python-ch2-python-ipython-jupyter-notebooks/</guid>
+      <guid>https://qidi.ink/post/2021/04/13/python-ch2-python-ipython-jupyter-notebooks/</guid>
       <description>2.1 Python解释器  退出Python解释器返回终端，可输入exit()或Ctrl+D。  2.2 Ipython基础   在IPython中使用%run命令，将执行指定文件，执行结束之后可以与结果进行交互
  如果是在%run一个脚本或一条语句时抛出异常，Ipython默认会打印完整的调用栈，在栈的每个点都会有几行上下文。在发生错误之后，可以使用%debug或%pdb访问栈进行事后调试。    Ipython shell相对于标准Python解释器的进步之一是具备其他IDE和交互计算分析环境所具有的Tab补全功能
   对象的自省:在变量前后使用问号?，可以显示对象的信息。

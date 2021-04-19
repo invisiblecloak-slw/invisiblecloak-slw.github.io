@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on XIU</title>
-    <link>/categories/linux/</link>
+    <link>https://qidi.ink/categories/linux/</link>
     <description>Recent content in Linux on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mac下使用VMware创建Ubuntu虚拟机</title>
-      <link>/post/2021/04/06/macos-vmware-ubuntu/</link>
+      <link>https://qidi.ink/post/2021/04/06/macos-vmware-ubuntu/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/06/macos-vmware-ubuntu/</guid>
+      <guid>https://qidi.ink/post/2021/04/06/macos-vmware-ubuntu/</guid>
       <description>配置Ubuntu虚拟机使用宿主机VPN 环境介绍 macOS Big Sur: 11.0.1
 ShadowsocksX-NG:
 VMware Fusion:

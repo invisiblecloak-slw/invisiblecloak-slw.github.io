@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Grammer on XIU</title>
-    <link>/categories/grammer/</link>
+    <link>https://qidi.ink/categories/grammer/</link>
     <description>Recent content in Grammer on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/grammer/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/categories/grammer/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Markdown Grammer</title>
-      <link>/post/2021/04/06/markdown-grammer/</link>
+      <link>https://qidi.ink/post/2021/04/06/markdown-grammer/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/06/markdown-grammer/</guid>
+      <guid>https://qidi.ink/post/2021/04/06/markdown-grammer/</guid>
       <description>HTML 上标: Bull&amp;lt;sup&amp;gt;TM&amp;lt;/sup&amp;gt; BullTM
 下标: H&amp;lt;sub&amp;gt;2&amp;lt;/sub&amp;gt;O H2O
 表格 markdown制作表格，使用|分隔不同单元格，-分隔表头和其他行。

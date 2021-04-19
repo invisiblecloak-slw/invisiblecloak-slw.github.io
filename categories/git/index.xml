@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Git on XIU</title>
-    <link>/categories/git/</link>
+    <link>https://qidi.ink/categories/git/</link>
     <description>Recent content in Git on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/categories/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git 简介</title>
-      <link>/post/2021/04/09/git/</link>
+      <link>https://qidi.ink/post/2021/04/09/git/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/04/09/git/</guid>
+      <guid>https://qidi.ink/post/2021/04/09/git/</guid>
       <description>版本控制 版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。
 图形或网页设计师，可能会需要保存某一幅图片或页面布局文件的所有修订版本。版本控制系统可以帮助将选定的文件甚或整个项目回溯到之前某个状态、比较文件的变化细节、查看何时报告了某个功能缺陷。
 分布式版本控制系统 在分布式版本控制系统 (Distributed Version Control System) 中，客户端不只提取最新版本的文件快照，而是把代码仓库完整地镜像下来，包括完整的历史记录。

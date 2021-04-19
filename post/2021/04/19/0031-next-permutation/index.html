@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0031-next permutation - XIU</title>
+    <meta property="og:title" content="0031-next permutation - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="实现获取下一个排列的函数：将给定数字序列重新排列成字典序中下一个更大的排列。
+如果不存在下一个更大的排列，则将数组重新排列盛最小的序列（即升序排列）。
+考虑原地修改，且只使用额外常数空间。
+[&amp;hellip;] 示例1
+[&amp;hellip;] 输入: nums = [1,2,3]
+输出: [1,3,2]
+[&amp;hellip;] 示例2
+[&amp;hellip;] 输入: nums = [3,2,1]
+输出: &amp;hellip;">
+      <meta property="og:description" content="实现获取下一个排列的函数：将给定数字序列重新排列成字典序中下一个更大的排列。
+如果不存在下一个更大的排列，则将数组重新排列盛最小的序列（即升序排列）。
+考虑原地修改，且只使用额外常数空间。
+[&amp;hellip;] 示例1
+[&amp;hellip;] 输入: nums = [1,2,3]
+输出: [1,3,2]
+[&amp;hellip;] 示例2
+[&amp;hellip;] 输入: nums = [3,2,1]
+输出: &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>0031-next permutation</h1>
+
+<h3>Xiu Di
+  /  2021-04-19</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="问题描述">问题描述</h2>
+<p>实现获取<strong>下一个排列</strong>的函数：将给定数字序列重新排列成字典序中下一个更大的排列。</p>
+<p>如果不存在下一个更大的排列，则将数组重新排列盛最小的序列（即升序排列）。</p>
+<p>考虑<strong>原地</strong>修改，且只使用额外常数空间。</p>
+<blockquote>
+<p><strong>示例1</strong></p>
+<blockquote>
+<p><strong>输入</strong>: nums = [1,2,3]</p>
+<p><strong>输出</strong>: [1,3,2]</p>
+</blockquote>
+<p><strong>示例2</strong></p>
+<blockquote>
+<p><strong>输入</strong>: nums = [3,2,1]</p>
+<p><strong>输出</strong>: [1,2,3]</p>
+</blockquote>
+<p><strong>示例3</strong></p>
+<blockquote>
+<p><strong>输入</strong>: nums = [1,1,5]</p>
+<p><strong>输出</strong>: [1,5,1]</p>
+</blockquote>
+<p><strong>示例4</strong></p>
+<blockquote>
+<p><strong>输入</strong>: nums = [1]</p>
+<p><strong>输出</strong>: [1]</p>
+</blockquote>
+<p><strong>提示</strong>:</p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 100</code></li>
+<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
+</ul>
+</blockquote>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pre <span style="color:#f92672">=</span> post <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">for</span> pos <span style="color:#f92672">in</span> range(len(nums) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
+    <span style="color:#66d9ef">if</span> nums[pos] <span style="color:#f92672">&gt;</span> nums[pos <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>]:
+        pre, post <span style="color:#f92672">=</span> pos <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, pos
+        <span style="color:#66d9ef">break</span>
+    <span style="color:#66d9ef">if</span> post <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>:
+        nums<span style="color:#f92672">.</span>reverse()
+        <span style="color:#66d9ef">return</span>
+    <span style="color:#66d9ef">for</span> pos <span style="color:#f92672">in</span> range(len(nums) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, pre, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
+        <span style="color:#66d9ef">if</span> nums[pos] <span style="color:#f92672">&gt;</span> nums[pre]:
+            post <span style="color:#f92672">=</span> pos
+            <span style="color:#66d9ef">break</span>
+    nums[pre], nums[post] <span style="color:#f92672">=</span> nums[post], nums[pre]
+    l, r <span style="color:#f92672">=</span> pre <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, len(nums) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">while</span> l <span style="color:#f92672">&lt;</span> r:
+        nums[l], nums[r] <span style="color:#f92672">=</span> nums[r], nums[l]
+        l <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+        r <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</code></pre></div><h2 id="分析">分析</h2>
+<p><strong>考虑当前数字序列到下一个数字序列的转移：</strong></p>
+<ul>
+<li>对于转移到更大数字序列的情况：
+<ul>
+<li>发生了一个顺序数对的交换。</li>
+<li>由于是向最邻近的下一个数字序列转移，故交换的是靠最右侧的顺序对。
+<ul>
+<li>考虑数字序列中的所有顺序对<code>(pre, post)</code>，<code>pre</code>和<code>post</code>代表下标。</li>
+<li>若所有顺序对的<code>pre</code>值不同，则最右侧的顺序对为<code>pre</code>值最大的顺序对。</li>
+<li>若最大的<code>pre</code>值对应多个<code>post</code>值，则最右侧的顺序对为<code>post</code>值最大的顺序对。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>对于不存在下一个更大的排列的情况：
+<ul>
+<li>当前数字序列中不存在顺序对。</li>
+</ul>
+</li>
+<li>援引<strong>Wikipedia</strong>中的算法描述：
+<ul>
+<li><code>The following algorithm generates the next permutation lexicographically after a given permutation. It changes the given permutation in-place.</code>
+<ul>
+<li>
+<ol>
+<li>Find the largest index <code>k</code> such that <code>a[k] &lt; a[k+1]</code>. If no such index exists, the permutation is the last permutation.</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>Find the largest index <code>l</code> greater than k such that <code>a[k] &lt; a[l]</code>.</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>Swap the value of <code>a[k]</code> with that of <code>a[l]</code>.</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>Reverse the sequence from <code>a[k+1]</code> up to and including the final element <code>a[n]</code>.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>步骤1和步骤2，旨在找到当前数字序列最右侧的顺序对<code>(pre, post)</code>。</li>
+<li>步骤3将当前数字序列最右侧的顺序对消除。</li>
+<li>步骤4将<code>(pre+1, n)</code>中的元素进行翻转。<code>(pre+1, n)</code>对应一个降序排列的序列。将此降序序列转化为顺序排列的序列。</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order">Generation in lexicographic order</a></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/19/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">【动手学深度学习】数据处理</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
