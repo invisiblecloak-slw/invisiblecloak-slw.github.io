@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0198-house robber - XIU</title>
+    <meta property="og:title" content="0198-house robber - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
+给定一个代表每个房屋存放金额的非负整数数组，计算你不触动警报装置的情况下，一夜之内能够偷窃到的最高金额。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: [1,2,3,1]
+输出: 4 &amp;hellip;">
+      <meta property="og:description" content="你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
+给定一个代表每个房屋存放金额的非负整数数组，计算你不触动警报装置的情况下，一夜之内能够偷窃到的最高金额。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: [1,2,3,1]
+输出: 4 &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>0198-house robber</h1>
+
+<h3>Xiu Di
+  /  2021-04-20</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="问题描述">问题描述</h2>
+<p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，<strong>如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警</strong>。</p>
+<p>给定一个代表每个房屋存放金额的非负整数数组，计算你<strong>不触动警报装置的情况下</strong>，一夜之内能够偷窃到的最高金额。</p>
+<blockquote>
+<p><strong>示例1</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: [1,2,3,1]</p>
+<p><strong>输出</strong>: 4</p>
+</blockquote>
+<p><strong>示例2</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: [2,7,9,3,1]</p>
+<p><strong>输出</strong>: 12</p>
+</blockquote>
+<p><strong>提示</strong>:</p>
+<ul>
+<li><code>0 &lt;= nums.length &lt;= 100</code></li>
+<li><code>0 &lt;= nums[i] &lt;= 400</code></li>
+</ul>
+</blockquote>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rob</span>(self, nums: List[int]) <span style="color:#f92672">-&gt;</span> int:
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> nums: <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">if</span> len(nums) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>: <span style="color:#66d9ef">return</span> nums[<span style="color:#ae81ff">0</span>]
+        <span style="color:#66d9ef">if</span> len(nums) <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>: <span style="color:#66d9ef">return</span> max(nums[<span style="color:#ae81ff">0</span>], nums[<span style="color:#ae81ff">1</span>])
+        pre, cur <span style="color:#f92672">=</span> nums[<span style="color:#ae81ff">0</span>], max(nums[<span style="color:#ae81ff">0</span>], nums[<span style="color:#ae81ff">1</span>])
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>, len(nums)):
+            pre, cur <span style="color:#f92672">=</span> cur, max(cur, pre <span style="color:#f92672">+</span> nums[i])
+        <span style="color:#66d9ef">return</span> post
+</code></pre></div><h2 id="分析">分析</h2>
+<p>本问题可以用<strong>动态规划</strong>的思想进行求解。</p>
+<ul>
+<li>考虑第<code>k</code>间房屋。
+<ul>
+<li>若选择盗窃第<code>k</code>间房屋，则可偷窃到最大金额<code>G1</code>为第<code>k</code>间房屋存放金额与<code>前k-2间房屋可偷窃到的最大金额</code>之和。</li>
+<li>若选择不偷窃第<code>k</code>间房屋，则可偷窃得到的最大金额<code>G2</code>为<code>前k-1间房屋可偷窃到的最大金额</code>。</li>
+</ul>
+</li>
+<li>因此<code>前k间房屋可偷窃得到的最大金额</code>为<code>max(G1, G2)</code>。</li>
+<li>小偷一夜之间能够偷窃到的最高金额可表示为<code>前n间房屋可偷窃得到的最大金额</code>。</li>
+</ul>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/20/ch1/">【动手学深度学习】Ch1.前言</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
