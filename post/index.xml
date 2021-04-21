@@ -6,7 +6,26 @@
     <description>Recent content in Posts on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0200-number of islands</title>
+      <link>https://qidi.ink/post/2021/04/21/0200-number-os-islands/</link>
+      <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/04/21/0200-number-os-islands/</guid>
+      <description>问题描述 给定一个由1(陆地)和0(水)组成的二维网格，计算网格中岛屿的数量。
+岛屿总是被水包围，并且每座岛屿只能由水平方向和/或竖直方向上相邻的陆地连接形成。
+此外，可以假设网格的四条边均被水包围。
+ 示例1
+ 输入: grid = [[&amp;quot;1&amp;quot;, &amp;quot;1&amp;quot;, &amp;quot;1&amp;quot;, &amp;quot;1&amp;quot;, &amp;quot;0&amp;quot;], [&amp;quot;1&amp;quot;, &amp;quot;1&amp;quot;, &amp;quot;0&amp;quot;, &amp;quot;1&amp;quot;, &amp;quot;0&amp;quot;], [&amp;quot;1&amp;quot;, &amp;quot;1&amp;quot;, &amp;quot;0&amp;quot;, &amp;quot;0&amp;quot;, &amp;quot;0&amp;quot;], [&amp;quot;0&amp;quot;, &amp;quot;0&amp;quot;, &amp;quot;0&amp;quot;, &amp;quot;0&amp;quot;, &amp;quot;0&amp;quot;]]
+输出: 1
+ 示例2
+ 输入: grid = [[&amp;quot;1&amp;quot;, &amp;quot;1&amp;quot;, &amp;quot;0&amp;quot;, &amp;quot;0&amp;quot;, &amp;quot;0&amp;quot;], [&amp;quot;1&amp;quot;, &amp;quot;1&amp;quot;, &amp;quot;0&amp;quot;, &amp;quot;0&amp;quot;, &amp;quot;0&amp;quot;], [&amp;quot;0&amp;quot;, &amp;quot;0&amp;quot;, &amp;quot;1&amp;quot;, &amp;quot;0&amp;quot;, &amp;quot;0&amp;quot;], [&amp;quot;0&amp;quot;, &amp;quot;0&amp;quot;, &amp;quot;0&amp;quot;, &amp;quot;1&amp;quot;, &amp;quot;1&amp;quot;]]
+输出: 3
+ 提示:
+ m == grid.length n == grid[i].length 1 &amp;lt;= m, n &amp;lt;= 300 grid[i][j] 的值为0或1   代码 class Solution: def numIslands(self, grid: List[List[str]]) -&amp;gt; int: cnt, self.</description>
+    </item>
+    
     <item>
       <title>0198-house robber</title>
       <link>https://qidi.ink/post/2021/04/20/0198-house-robber/</link>
@@ -48,7 +67,15 @@
 在分类任务重，常见的损失函数是错误率，即预测与实际情况不符的样本比例。
 有些目标函数易于被优化，有些目标函数由于不可微性或其他复杂性难以直接优化。此时通常会优化替代目标。
 损失函数通常根据模型参数定义，并取决于数据集。在某一数据集上，通过最小化总损失来学习模型参数的最佳值。 该数据集由一些为训练而收集的样本组成，称之为训练集。训练集用于拟合模型参数，测试集用于评估拟合的模型。
-优化算法 在获取了数据源及其表示、模型、适合的损失函数之后，需要一种用于搜索最佳参数以最小化损失函数的优化算法。 深度学习中多数优化算法基于梯度下降。</description>
+优化算法 在获取了数据源及其表示、模型、适合的损失函数之后，需要一种用于搜索最佳参数以最小化损失函数的优化算法。 深度学习中多数优化算法基于梯度下降。
+各种机器学习问题 监督学习 监督学习长于在给定输入特征的情况下预测标签。
+  回归：当标签取任意数值时，称之为回归问题。
+  分类：训练一个分类器，输出为预测的类别。
+  标记：学习预测不相互排斥的类别的问题称为多标签分类。
+  搜索：在信息检索领域，希望对一组项目进行排序。
+  推荐：为特定用户进行个性化推荐。
+  序列学习：摄取输入序列或预测输出序列，或两者兼而有之。输入和输出都是可变长度的序列。
+  无监督学习 无监督学习是一种数据中不含有”目标“的机器学习问题。</description>
     </item>
     
     <item>
