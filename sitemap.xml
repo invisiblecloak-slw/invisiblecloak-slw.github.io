@@ -2,25 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://qidi.ink/post/2021/04/21/0200-number-os-islands/</loc>
-    <lastmod>2021-04-21T00:00:00+00:00</lastmod>
+    <loc>https://qidi.ink/post/2021/04/22/739/</loc>
+    <lastmod>2021-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://qidi.ink/categories/</loc>
-    <lastmod>2021-04-21T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://qidi.ink/categories/data-structure-and-algorithm/</loc>
-    <lastmod>2021-04-21T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://qidi.ink/</loc>
-    <lastmod>2021-04-21T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://qidi.ink/tags/leetcode/</loc>
-    <lastmod>2021-04-21T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://qidi.ink/post/</loc>
-    <lastmod>2021-04-21T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://qidi.ink/tags/</loc>
+    <lastmod>2021-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://qidi.ink/post/2021/04/21/0200-number-os-islands/</loc>
     <lastmod>2021-04-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://qidi.ink/post/2021/04/20/0198-house-robber/</loc>
@@ -188,9 +191,6 @@
     <loc>https://qidi.ink/categories/linux/</loc>
     <lastmod>2021-04-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://qidi.ink/post/2021/04/06/macos-vmware-ubuntu/</loc>
-    <lastmod>2021-04-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://qidi.ink/tags/markdown/</loc>
     <lastmod>2021-04-06T00:00:00+00:00</lastmod>
   </url><url>
@@ -204,6 +204,9 @@
     <lastmod>2021-04-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://qidi.ink/post/2021/04/06/hugo-github-pages/</loc>
+    <lastmod>2021-04-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://qidi.ink/post/2021/04/06/macos-vmware-ubuntu/</loc>
     <lastmod>2021-04-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://qidi.ink/about/</loc>

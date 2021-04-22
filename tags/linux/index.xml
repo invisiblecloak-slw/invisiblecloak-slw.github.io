@@ -8,18 +8,19 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Mac下使用VMware创建Ubuntu虚拟机</title>
+      <title>用Parallels Desktop搭建Ubuntu 20.04虚拟机</title>
       <link>https://qidi.ink/post/2021/04/06/macos-vmware-ubuntu/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://qidi.ink/post/2021/04/06/macos-vmware-ubuntu/</guid>
-      <description>配置Ubuntu虚拟机使用宿主机VPN 环境介绍 macOS Big Sur: 11.0.1
-ShadowsocksX-NG:
-VMware Fusion:
-Ubuntu:
-step1:修改ShadowsocksX-NG http 代理端口 step2:测试通过局域网是否能访问(可选) step3:查看虚拟机局域网ip step4:找到主机的局域网ip step5:虚拟机export代理配置 使用export命令只对当前的terminal session有效，如果想全部流量都走Shadowsocks出去，需要将export命令写到.bashrc、.zshrc、.profile文件中。
-参考链接 Mac下虚拟机如何使用主机的shadowsockets科学上网
-VMware虚拟机（Ubuntu）通过主机代理实现翻墙（shadowsocks）</description>
+      <description>配置虚拟机使用宿主机VPN 环境介绍 - macOS Big Sur: 11.0.1 - ShadowsocksX-NG: 1.4.1-R8 - Parallels Desktop: 16.5.0 - Ubuntu: 20.04 配置过程  修改ShadowsocksX-NG http 代理端口  HTTP Proxy Preferences中：
+ 设置HTTP Proxy Listen Address为0.0.0.0 设置HTTP Proxy Listen Port为1087  测试通过局域网是否能访问(可选)   通过lsof查看是否能够在0.0.0.0:1087端口工作。  $ lsof -sTCP:LISTEN -n -P|grep 1087 若显示*:1087说明服务正常。
+查看虚拟机局域网ip  在虚拟机中使用ifconfig命令查看局域网ip(以192、172、10开头)并记录。
+找到主机的局域网ip  在主机上找出与虚拟机同网段的ip地址，记为IP。此ip地址和虚拟机ip地址的前三段相同。
+虚拟机export代理配置  在.bashrc、.zshrc、.profile文件中，指定代理地址。
+export http_proxy=http://IP:1087 export https_proxy=http://IP:1087 修改虚拟机中的Settings  打开Settings-Network-VPN-Network Proxy-Manual。
+设置HTTP Proxy和HTTPS Proxy中的地址和端口分别为IP和1087。
+参考链接 Mac下虚拟机如何使用主机的shadowsockets科学上网</description>
     </item>
     
   </channel>

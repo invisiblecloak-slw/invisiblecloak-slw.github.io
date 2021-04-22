@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0739-daily temperatures - XIU</title>
+    <meta property="og:title" content="0739-daily temperatures - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="根据每日气温列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，在该位置用0代替。
+[&amp;hellip;] 示例
+[&amp;hellip;] 输入: temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
+输出: [1, 1, 4, 2, 1, 1, 0, 0]
+[&amp;hellip;] 提示: 气温列表长度的 &amp;hellip;">
+      <meta property="og:description" content="根据每日气温列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，在该位置用0代替。
+[&amp;hellip;] 示例
+[&amp;hellip;] 输入: temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
+输出: [1, 1, 4, 2, 1, 1, 0, 0]
+[&amp;hellip;] 提示: 气温列表长度的 &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>0739-daily temperatures</h1>
+
+<h3>Xiu Di
+  /  2021-04-22</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="问题描述">问题描述</h2>
+<p>根据每日<code>气温</code>列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，在该位置用<code>0</code>代替。</p>
+<blockquote>
+<p><strong>示例</strong></p>
+<blockquote>
+<p><strong>输入</strong>: <code>temperatures = [73, 74, 75, 71, 69, 72, 76, 73]</code></p>
+<p><strong>输出</strong>: <code>[1, 1, 4, 2, 1, 1, 0, 0]</code></p>
+</blockquote>
+<p><strong>提示</strong>: <code>气温</code>列表长度的范围为<code>[1, 30000]</code>。每个气温的值均为华氏度，都是在<code>[30, 100]</code>范围内的整数。</p>
+</blockquote>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dailyTemperatures</span>(self, T: List[int]) <span style="color:#f92672">-&gt;</span> List[int]:
+        monotone_stack, res <span style="color:#f92672">=</span> list(), [<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> len(T)
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(T)):
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> monotone_stack:
+                monotone_stack<span style="color:#f92672">.</span>append(i)
+            <span style="color:#66d9ef">else</span>:
+                <span style="color:#66d9ef">while</span> monotone_stack <span style="color:#f92672">and</span> T[monotone_stack[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#f92672">&lt;</span> T[i]:
+                    res[monotone_stack[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#f92672">=</span> i <span style="color:#f92672">-</span> monotone_stack[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+                    monotone_stack<span style="color:#f92672">.</span>pop()
+                monotone_stack<span style="color:#f92672">.</span>append(i)
+        <span style="color:#66d9ef">return</span> res
+</code></pre></div><h2 id="分析">分析</h2>
+<ul>
+<li>
+<p>维护一个存储下标的单调栈，栈底至栈顶对应的温度依次递减。</p>
+</li>
+<li>
+<p>若某下标在单调栈里，表示尚未找到对应更高温度的下标。</p>
+</li>
+</ul>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://leetcode-cn.com/problems/daily-temperatures/solution/mei-ri-wen-du-by-leetcode-solution/">每日温度</a></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/21/0200-number-os-islands/">0200-number of islands</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

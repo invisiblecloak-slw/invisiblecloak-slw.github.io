@@ -6,7 +6,21 @@
     <description>Recent content in Posts on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 21 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0739-daily temperatures</title>
+      <link>https://qidi.ink/post/2021/04/22/739/</link>
+      <pubDate>Thu, 22 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/04/22/739/</guid>
+      <description>问题描述 根据每日气温列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，在该位置用0代替。
+ 示例
+ 输入: temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
+输出: [1, 1, 4, 2, 1, 1, 0, 0]
+ 提示: 气温列表长度的范围为[1, 30000]。每个气温的值均为华氏度，都是在[30, 100]范围内的整数。
+ 代码 class Solution: def dailyTemperatures(self, T: List[int]) -&amp;gt; List[int]: monotone_stack, res = list(), [0] * len(T) for i in range(len(T)): if not monotone_stack: monotone_stack.append(i) else: while monotone_stack and T[monotone_stack[-1]] &amp;lt; T[i]: res[monotone_stack[-1]] = i - monotone_stack[-1] monotone_stack.pop() monotone_stack.append(i) return res 分析   维护一个存储下标的单调栈，栈底至栈顶对应的温度依次递减。</description>
+    </item>
+    
     <item>
       <title>0200-number of islands</title>
       <link>https://qidi.ink/post/2021/04/21/0200-number-os-islands/</link>
@@ -877,21 +891,6 @@ $ git &amp;lt;verb&amp;gt; --help</description>
     </item>
     
     <item>
-      <title>Mac下使用VMware创建Ubuntu虚拟机</title>
-      <link>https://qidi.ink/post/2021/04/06/macos-vmware-ubuntu/</link>
-      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://qidi.ink/post/2021/04/06/macos-vmware-ubuntu/</guid>
-      <description>配置Ubuntu虚拟机使用宿主机VPN 环境介绍 macOS Big Sur: 11.0.1
-ShadowsocksX-NG:
-VMware Fusion:
-Ubuntu:
-step1:修改ShadowsocksX-NG http 代理端口 step2:测试通过局域网是否能访问(可选) step3:查看虚拟机局域网ip step4:找到主机的局域网ip step5:虚拟机export代理配置 使用export命令只对当前的terminal session有效，如果想全部流量都走Shadowsocks出去，需要将export命令写到.bashrc、.zshrc、.profile文件中。
-参考链接 Mac下虚拟机如何使用主机的shadowsockets科学上网
-VMware虚拟机（Ubuntu）通过主机代理实现翻墙（shadowsocks）</description>
-    </item>
-    
-    <item>
       <title>Markdown Grammer</title>
       <link>https://qidi.ink/post/2021/04/06/markdown-grammer/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
@@ -940,6 +939,22 @@ $: 选中当前行，光标位置到行尾
 blogdown::serve_site()命令，提供个人网站的本地实时渲染
 blogdown::hugo_build()命令，在push给Github远程仓库之前，编译文件
 可以在Vim中使用markdown语法对文本进行编辑</description>
+    </item>
+    
+    <item>
+      <title>用Parallels Desktop搭建Ubuntu 20.04虚拟机</title>
+      <link>https://qidi.ink/post/2021/04/06/macos-vmware-ubuntu/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/04/06/macos-vmware-ubuntu/</guid>
+      <description>配置虚拟机使用宿主机VPN 环境介绍 - macOS Big Sur: 11.0.1 - ShadowsocksX-NG: 1.4.1-R8 - Parallels Desktop: 16.5.0 - Ubuntu: 20.04 配置过程  修改ShadowsocksX-NG http 代理端口  HTTP Proxy Preferences中：
+ 设置HTTP Proxy Listen Address为0.0.0.0 设置HTTP Proxy Listen Port为1087  测试通过局域网是否能访问(可选)   通过lsof查看是否能够在0.0.0.0:1087端口工作。  $ lsof -sTCP:LISTEN -n -P|grep 1087 若显示*:1087说明服务正常。
+查看虚拟机局域网ip  在虚拟机中使用ifconfig命令查看局域网ip(以192、172、10开头)并记录。
+找到主机的局域网ip  在主机上找出与虚拟机同网段的ip地址，记为IP。此ip地址和虚拟机ip地址的前三段相同。
+虚拟机export代理配置  在.bashrc、.zshrc、.profile文件中，指定代理地址。
+export http_proxy=http://IP:1087 export https_proxy=http://IP:1087 修改虚拟机中的Settings  打开Settings-Network-VPN-Network Proxy-Manual。
+设置HTTP Proxy和HTTPS Proxy中的地址和端口分别为IP和1087。
+参考链接 Mac下虚拟机如何使用主机的shadowsockets科学上网</description>
     </item>
     
   </channel>

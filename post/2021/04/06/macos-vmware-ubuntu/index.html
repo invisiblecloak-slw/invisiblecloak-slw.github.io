@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Mac下使用VMware创建Ubuntu虚拟机 - XIU</title>
-    <meta property="og:title" content="Mac下使用VMware创建Ubuntu虚拟机 - XIU">
+    <title>用Parallels Desktop搭建Ubuntu 20.04虚拟机 - XIU</title>
+    <meta property="og:title" content="用Parallels Desktop搭建Ubuntu 20.04虚拟机 - XIU">
     
     <meta name="twitter:card" content="summary">
 
@@ -15,18 +15,10 @@
 
     
       
-      <meta property="description" content="macOS Big Sur: 11.0.1
-ShadowsocksX-NG:
-VMware Fusion:
-Ubuntu:
-[&amp;hellip;] 使用export命令只对当前的terminal session有效，如果想全部流量都走Shadowsocks出去，需要将export命令写到.bashrc、.zshrc、.profile文件中。
-[&amp;hellip;] Mac下虚拟机如何使用主机 &amp;hellip;">
-      <meta property="og:description" content="macOS Big Sur: 11.0.1
-ShadowsocksX-NG:
-VMware Fusion:
-Ubuntu:
-[&amp;hellip;] 使用export命令只对当前的terminal session有效，如果想全部流量都走Shadowsocks出去，需要将export命令写到.bashrc、.zshrc、.profile文件中。
-[&amp;hellip;] Mac下虚拟机如何使用主机 &amp;hellip;">
+      <meta property="description" content="- macOS Big Sur: 11.0.1 - ShadowsocksX-NG: 1.4.1-R8 - Parallels Desktop: 16.5.0 - Ubuntu: 20.04 配置过程  修改ShadowsocksX-NG http 代理端口  HTTP Proxy Preferences中：
+[&amp;hellip;] $ lsof -sTCP:LISTEN -n -P|grep &amp;hellip;">
+      <meta property="og:description" content="- macOS Big Sur: 11.0.1 - ShadowsocksX-NG: 1.4.1-R8 - Parallels Desktop: 16.5.0 - Ubuntu: 20.04 配置过程  修改ShadowsocksX-NG http 代理端口  HTTP Proxy Preferences中：
+[&amp;hellip;] $ lsof -sTCP:LISTEN -n -P|grep &amp;hellip;">
       
     
 
@@ -37,6 +29,11 @@ Ubuntu:
 
     
     
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
@@ -78,7 +75,7 @@ Ubuntu:
     <article class="main">
       <header class="title">
       
-<h1>Mac下使用VMware创建Ubuntu虚拟机</h1>
+<h1>用Parallels Desktop搭建Ubuntu 20.04虚拟机</h1>
 
 <h3>Xiu Di
   /  2021-04-06</h3>
@@ -89,18 +86,51 @@ Ubuntu:
 
 
 
-<h1 id="配置ubuntu虚拟机使用宿主机vpn">配置Ubuntu虚拟机使用宿主机VPN</h1>
-<h2 id="环境介绍">环境介绍</h2>
-<p>macOS Big Sur: 11.0.1</p>
-<p>ShadowsocksX-NG:</p>
-<p>VMware Fusion:</p>
-<p>Ubuntu:</p>
-<h3 id="step1修改shadowsocksx-ng-http-代理端口">step1:修改ShadowsocksX-NG http 代理端口</h3>
-<h3 id="step2测试通过局域网是否能访问可选">step2:测试通过局域网是否能访问(可选)</h3>
-<h3 id="step3查看虚拟机局域网ip">step3:查看虚拟机局域网ip</h3>
-<h3 id="step4找到主机的局域网ip">step4:找到主机的局域网ip</h3>
-<h3 id="step5虚拟机export代理配置">step5:虚拟机export代理配置</h3>
-<p>使用<code>export</code>命令只对当前的terminal session有效，如果想全部流量都走Shadowsocks出去，需要将<code>export</code>命令写到<code>.bashrc</code>、<code>.zshrc</code>、<code>.profile</code>文件中。</p>
+<h2 id="配置虚拟机使用宿主机vpn">配置虚拟机使用宿主机VPN</h2>
+<h3 id="环境介绍">环境介绍</h3>
+<pre><code>- macOS Big Sur: 11.0.1
+
+- ShadowsocksX-NG: 1.4.1-R8
+
+- Parallels Desktop: 16.5.0
+
+- Ubuntu: 20.04
+</code></pre><h3 id="配置过程">配置过程</h3>
+<ol>
+<li><strong>修改ShadowsocksX-NG http 代理端口</strong></li>
+</ol>
+<p><code>HTTP Proxy Preferences</code>中：</p>
+<ul>
+<li>设置<code>HTTP Proxy Listen Address</code>为<code>0.0.0.0</code></li>
+<li>设置<code>HTTP Proxy Listen Port</code>为<code>1087</code></li>
+</ul>
+<ol start="2">
+<li><strong>测试通过局域网是否能访问(可选)</strong></li>
+</ol>
+<ul>
+<li>通过<code>lsof</code>查看是否能够在<code>0.0.0.0:1087</code>端口工作。</li>
+</ul>
+<pre><code>$ lsof -sTCP:LISTEN -n -P|grep 1087
+</code></pre><p>若显示<code>*:1087</code>说明服务正常。</p>
+<ol start="3">
+<li><strong>查看虚拟机局域网ip</strong></li>
+</ol>
+<p>在虚拟机中使用<code>ifconfig</code>命令查看局域网ip(以192、172、10开头)并记录。</p>
+<ol start="4">
+<li><strong>找到主机的局域网ip</strong></li>
+</ol>
+<p>在主机上找出与虚拟机同网段的ip地址，记为<strong>IP</strong>。此ip地址和虚拟机ip地址的前三段相同。</p>
+<ol start="5">
+<li><strong>虚拟机export代理配置</strong></li>
+</ol>
+<p>在<code>.bashrc</code>、<code>.zshrc</code>、<code>.profile</code>文件中，指定代理地址。</p>
+<pre><code>export http_proxy=http://IP:1087
+export https_proxy=http://IP:1087
+</code></pre><ol start="6">
+<li><strong>修改虚拟机中的Settings</strong></li>
+</ol>
+<p>打开<code>Settings</code>-<code>Network</code>-<code>VPN</code>-<code>Network Proxy</code>-<code>Manual</code>。</p>
+<p>设置<code>HTTP Proxy</code>和<code>HTTPS Proxy</code>中的地址和端口分别为<strong>IP</strong>和<strong>1087</strong>。</p>
 <h2 id="参考链接">参考链接</h2>
 <p><a href="https://liushiming.cn/article/mac-virtual-machine-proxy-through-host-machine-shadowsocks.html">Mac下虚拟机如何使用主机的shadowsockets科学上网</a></p>
 <p><a href="https://steemit.com/ubutnu/@yanwu/vmware-ubuntu-shadowsocks">VMware虚拟机（Ubuntu）通过主机代理实现翻墙（shadowsocks）</a></p>
@@ -109,8 +139,8 @@ Ubuntu:
   <footer>
   
 <nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/post/2021/04/06/markdown-grammer/">Markdown Grammer</a></span>
-  <span class="nav-next"><a href="/post/2021/04/06/0001-two-sum/">0001-Two Sum</a> &rarr;</span>
+  <span class="nav-prev"></span>
+  <span class="nav-next"><a href="/post/2021/04/06/hugo-github-pages/">基于Hugo和Github Pages的个人博客搭建过程</a> &rarr;</span>
 </nav>
 
 
@@ -123,6 +153,19 @@ Ubuntu:
 <script async src="//yihui.org/js/center-img.js"></script>
 
   
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
 
   
   <hr>
