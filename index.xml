@@ -6,7 +6,36 @@
     <description>Recent content in Home on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0009-palindrome number</title>
+      <link>https://qidi.ink/post/2021/04/23/0009-palindrome-number/</link>
+      <pubDate>Fri, 23 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/04/23/0009-palindrome-number/</guid>
+      <description>问题描述 给定整数x，如果x是一个回文整数，返回true，否则返回false。
+ 示例1:
+ 输入: x = 121
+输出: true
+ 示例2:
+ 输入: x = -121
+输出: false
+ 示例3:
+ 输入: x = 10
+输出: false
+ 提示: -231 &amp;lt;= x &amp;lt;= 231 - 1
+ 代码 class Solution: def isPalindrome(self, x: int) -&amp;gt; bool: if x &amp;lt; 0: return False if x % 10 == 0 and x != 0: return False reverse_x = 0 while x &amp;gt; reverse_x: reverse_x = 10 * reverse_x + x % 10 x //= 10 return x == reverse_x or x == reverse_x // 10 参考链接 回文数</description>
+    </item>
+    
+    <item>
+      <title>第1章 引论</title>
+      <link>https://qidi.ink/dsaaaic/1/</link>
+      <pubDate>Fri, 23 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/dsaaaic/1/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>0739-daily temperatures</title>
       <link>https://qidi.ink/post/2021/04/22/739/</link>
