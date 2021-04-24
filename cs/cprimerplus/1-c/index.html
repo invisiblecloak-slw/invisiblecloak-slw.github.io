@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>第1章 初识C语言 - XIU</title>
+    <meta property="og:title" content="第1章 初识C语言 - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="注：规划好程序目标和设计框架，有助于编码过程中得心应手、条理清晰。
+[&amp;hellip;] C语言编写程序时，编写内容存储在源代码文件中。源代码文件以c为扩展名。
+[&amp;hellip;] C编程的基本策略是：通过编译和链接两个步骤将源代码文件转换为可执行文件（包含可直接运行的机器语言代码），
+编译器将源代码转换成中间代码。链接器将中间代码与其他代码合并，生成可执行文件。
+可以独立编译单独的模块，再用链 &amp;hellip;">
+      <meta property="og:description" content="注：规划好程序目标和设计框架，有助于编码过程中得心应手、条理清晰。
+[&amp;hellip;] C语言编写程序时，编写内容存储在源代码文件中。源代码文件以c为扩展名。
+[&amp;hellip;] C编程的基本策略是：通过编译和链接两个步骤将源代码文件转换为可执行文件（包含可直接运行的机器语言代码），
+编译器将源代码转换成中间代码。链接器将中间代码与其他代码合并，生成可执行文件。
+可以独立编译单独的模块，再用链 &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="https://qidi.ink/images/Octopus_pills.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="cs">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">首页</a></li>
+  
+  <li><a href="/cs/cprimerplus">C Primer Plus</a></li>
+  
+  <li><a href="/cs/dsaa/">数据结构与算法分析-C</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>第1章 初识C语言</h1>
+
+<h3>Xiu Di
+  /  2021-04-24</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="c语言的起源">C语言的起源</h2>
+<ul>
+<li><strong>1972</strong>年，贝尔实验室的<strong>Dennis Ritch</strong>和<strong>Ken Thompson</strong>在开发<strong>Unix</strong>操作系统时设计了<strong>C</strong>语言。</li>
+<li><strong>C</strong>语言基于<strong>B</strong>语言进行设计。</li>
+</ul>
+<h2 id="c语言的特点">C语言的特点</h2>
+<h3 id="设计特性">设计特性</h3>
+<ul>
+<li><strong>C</strong>语言易于完成自顶向下的规划、结构化编程和模块化设计。</li>
+<li><strong>C</strong>语言编写的程序更可靠和具有可读性。</li>
+</ul>
+<h3 id="高效性">高效性</h3>
+<ul>
+<li><strong>C</strong>相对更加紧凑，运行速度很快。</li>
+<li>具有通常是汇编语言才具有的微调控制能力，可以根据具体情况微调程序来获得最大运行速度或最有效地使用内存。</li>
+</ul>
+<h3 id="可移植性">可移植性</h3>
+<ul>
+<li>计算机系统的精简平台在指令系统和编码格式上有很大差异，同一可执行程序无法在所有平台上运行。</li>
+<li>为保证开发的程序能够兼容其他平台，需要针对目标平台，将高级程序设计语言的源代码文件进行修改和再次编译。生成目标系统的适配可执行应用程序。</li>
+<li>程序语言的可移植性是指通过<strong>编译器</strong>，将源代码编译，生成对荧幕败哦系统的可执行程序。</li>
+<li><strong>C</strong>在多种软硬件平台上有广泛的支持，<strong>C99</strong>、<strong>C11</strong>语言标准也可以很好的向下兼容。<strong>C</strong>语言具有较强的可移植性。</li>
+</ul>
+<h3 id="强大而灵活">强大而灵活</h3>
+<ul>
+<li><strong>UNIX</strong>操作系统大部分由<strong>C</strong>语言编写。</li>
+<li><strong>PORTAN</strong>、<strong>Perl</strong>、<strong>Python</strong>、<strong>LISP</strong>、<strong>Logo</strong>、<strong>BASIC</strong>等语言的许多编译器和解释器由<strong>C</strong>编写。</li>
+<li><strong>C</strong>程序可解决物理学和工程学的问题、制作电影动画特效等。</li>
+</ul>
+<h3 id="面向程序员">面向程序员</h3>
+<ul>
+<li><strong>C</strong>语言允许程序员访问硬件、操作内存中的位。</li>
+<li><strong>C</strong>语言具有丰富的运算符，能让程序员简洁的表达意图。</li>
+</ul>
+<h2 id="c语言应用范围">C语言应用范围</h2>
+<ul>
+<li><strong>C</strong>在<strong>Linux</strong>开发中扮演着重要角色。</li>
+<li><strong>C</strong>是嵌入式系统开发的流行语言。</li>
+<li><strong>C</strong>在科学编程领域与<strong>FORTAN</strong>分得一杯羹。</li>
+<li><strong>C++<strong>在</strong>C</strong>的基础上嫁接了面向对象编程工具。
+<ul>
+<li><strong>C++<strong>几乎是</strong>C</strong>的超集，任何<strong>C</strong>程序差不多就是一个 <strong>C++</strong> 程序。</li>
+<li>面向对象编程通过对语言建模来适应问题，而非对问题建模来适应语言。</li>
+</ul>
+</li>
+</ul>
+<h2 id="计算机工作原理">计算机工作原理</h2>
+<ul>
+<li>存储在计算机中的所有内容都是数字。
+<ul>
+<li>计算机以数字形式存储数字和字符，每个字符都有一个数字码。</li>
+<li>计算机载入寄存器的指令也以数字形式存储，指令集的每条代码都有一个数字码。</li>
+</ul>
+</li>
+<li>计算机程序最终必须以数字指令码表示。</li>
+<li>高级语言以抽象方式描述行为，不受限于特定CPU或指令集。</li>
+<li>编译器将高级语言程序翻译成计算机能够理解的机器语言指令集。
+<ul>
+<li>尽管不同的CPU制造商使用的指令系统和编码格式不同，但可以找到与特定类型CPU匹配的编译器。</li>
+<li>通过使用合适的编译器或编译器集，可以把一种高级语言程序转换成供各种不同类型CPU使用的机器语言程序。</li>
+</ul>
+</li>
+</ul>
+<h2 id="语言标准">语言标准</h2>
+<ul>
+<li>编写<strong>C</strong>程序时，若未使用机器特定的编程技术，程序运行情况应与<strong>C</strong>实现无关。</li>
+<li>为此，不同的实现要遵循一个标准。</li>
+</ul>
+<h3 id="kr-c">K&amp;R C</h3>
+<ul>
+<li><strong>1978</strong>年，<strong>Brian Kernighan</strong>和<strong>Dennis Ritchie</strong>合著的<strong>The C Programming Language</strong>第一版是公认的<strong>C</strong>标准。通常称之为<strong>K&amp;R C</strong>或<strong>经典C</strong>。
+<ul>
+<li><strong>The C Programming Language</strong>附录中的<strong>C</strong>语言参考手册成为实现<strong>C</strong>的指导标准。</li>
+</ul>
+</li>
+<li><strong>The C Programming Language</strong>的附录定义了<strong>C</strong>语言，但没有定义<strong>C</strong>库。
+<ul>
+<li><strong>C</strong>语言比其他语言更依赖库，因此需要一个<strong>标准库</strong>。</li>
+<li>由于缺乏官方标准，<strong>UNIX</strong>实现提供的库成为了<strong>标准库</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="ansiiso-c">ANSI/ISO C</h3>
+<ul>
+<li>随着<strong>C</strong>的不断发展，<strong>C</strong>社区意识到需要一个更全面、更新颖、更严格的标准。</li>
+<li>美国国家标准协会<strong>ANSI</strong>于<strong>1989</strong>年公布了<strong>ANSI C</strong>标准，定义了<strong>C</strong>语言和<strong>C</strong>标准库。
+<ul>
+<li><strong>ISO</strong>于<strong>1990</strong>年采用了这套<strong>C</strong>标准。
+<ul>
+<li>因此<strong>ISO C</strong>和<strong>ANSI C</strong>是完全相同的标准。</li>
+</ul>
+</li>
+<li><strong>ANSI/ISO</strong>标准的最终版本通常叫做<strong>C89</strong>或<strong>C90</strong>。</li>
+</ul>
+</li>
+<li>由于<strong>ANSI</strong>先公布<strong>C</strong>标准，业界人士通常使用<strong>ANSI C</strong>。</li>
+<li><strong>ANSI</strong>委员会指定的指导原则中提出要保持<strong>C</strong>的精神：
+<ul>
+<li>信任程序员</li>
+<li>不妨碍程序员做需要做的事</li>
+<li>保持语言精练简单</li>
+<li>只提供一种方法执行一项操作</li>
+<li>让程序运行更快，即使不能保证其可移植性
+<ul>
+<li>作为实现，应该针对目标计算机来定义最合适的某特定操作。而不是强加一个抽象、统一的定义。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="c99">C99</h3>
+<ul>
+<li><strong>1994</strong>年，<strong>ANSI/ISO</strong>联合委员会开始修订<strong>C</strong>标准，并最终发布了<strong>C99</strong>标准。</li>
+<li><strong>C99</strong>标准遵循了<strong>C90</strong>标准的原则，包括保持语言的精炼简单。</li>
+<li>委员会用意不在于向<strong>C</strong>语言中添加新特性，而是为了达到新的目标。
+<ul>
+<li>支持国际化编程。如提供多种方法处理国际字符集。</li>
+<li>调整现有实践致力于解决明显的缺陷。如根据现实生活中处理问题的经验，添加将<strong>C</strong>移至64位处理器的标准。</li>
+<li>提高<strong>C</strong>在科学和工程项目中的关键数值计算的适应性。</li>
+</ul>
+</li>
+</ul>
+<h3 id="c11">C11</h3>
+<ul>
+<li>标准委员会在<strong>2011</strong>年发布了<strong>C11</strong>标准。</li>
+<li>出于对编程安全的担忧，不再那么强调“信任程序员”目标。</li>
+<li>出于跟进新技术的需要，如添加可选项支持使用多处理器的计算机，是修订标准的原因。</li>
+</ul>
+<h2 id="c语言的编程步骤">C语言的编程步骤</h2>
+<ul>
+<li>定义程序目标
+<ul>
+<li>思考程序需要哪些信息，要进行哪些计算和控制，需要报告什么信息。</li>
+</ul>
+</li>
+<li>设计程序　
+<ul>
+<li>考虑如何用程序完成目标，如：数据表示和处理方法、用户界面、程序组织方式、目标用户、开发周期等。</li>
+</ul>
+</li>
+<li>编写代码
+<ul>
+<li>在编程环境中编写<strong>C</strong>语言代码。为所编写的程序添加文字注释。</li>
+</ul>
+</li>
+<li>编译、链接
+<ul>
+<li><strong>C</strong>编译器和链接器把<strong>C</strong>代码翻译成特定的机器语言。</li>
+<li>某些系统中需要分别运行<strong>编译</strong>和<strong>链接</strong>程序。另一些系统中，<strong>编译器</strong>会自动启动<strong>链接器</strong>，用户只需给出编译命令。</li>
+</ul>
+</li>
+<li>运行程序</li>
+<li>测试和调试</li>
+<li>维护和修改</li>
+</ul>
+<p><strong>注</strong>：规划好程序目标和设计框架，有助于编码过程中得心应手、条理清晰。</p>
+<h2 id="编程机制">编程机制</h2>
+<p><strong>C</strong>语言编写程序时，编写内容存储在<strong>源代码文件</strong>中。<strong>源代码文件</strong>以<strong>c</strong>为扩展名。</p>
+<h3 id="目标文件可执行文件和库">目标文件、可执行文件和库</h3>
+<p><strong>C</strong>编程的基本策略是：通过<strong>编译</strong>和<strong>链接</strong>两个步骤将<strong>源代码文件</strong>转换为<strong>可执行文件</strong>（包含可直接运行的机器语言代码），</p>
+<p><strong>编译器</strong>将源代码转换成<strong>中间代码</strong>。<strong>链接器</strong>将中间代码与其他代码合并，生成<strong>可执行文件</strong>。</p>
+<p>可以独立编译单独的模块，再用链接器合并已编译的模块。因此若只更改某个模块，不必重新编译其他模块。</p>
+<p>链接器还将所编写的程序和预编译的库代码合并。</p>
+<ul>
+<li><strong>目标文件</strong>：中间文件最普遍的一种形式是，将源代码转换为机器语言代码，并把结果放在<strong>目标文件</strong>中。
+<ul>
+<li><strong>目标文件</strong>包含机器语言代码，但还不能直接运行。因为<strong>目标文件</strong>还不是一个完整的程序。</li>
+<li><strong>目标文件</strong>缺失<strong>启动码</strong>，<strong>启动码</strong>是程序和操作系统之间的接口。</li>
+<li><strong>目标代码</strong>缺少<strong>库函数</strong>。</li>
+</ul>
+</li>
+</ul>
+<p>链接器将<strong>目标文件</strong>、<strong>启动码</strong>、<strong>库代码</strong>三部分合并成<strong>可执行文件</strong>。</p>
+<p>简言之，<strong>目标文件</strong>和<strong>可执行文件</strong>都由机器语言指令组成。但<strong>目标文件</strong>只包含编译器将所编写的代码翻译成的机器语言代码，可执行文件中还包含<strong>库函数</strong>和启动代码的机器代码（<strong>启动码</strong>）。</p>
+<p><strong>编译器</strong>和<strong>链接器</strong>的分治策略能够提高代码的<strong>可重用性</strong>、<strong>可移植性</strong>、<strong>编译效率</strong>。系统库代码可以不编译，部分无修改的代码也可以直接使用原有的目标文件，直接通过高效率的链接形成可执行文件。</p>
+<h2 id="gnu编译器集合和llvm项目">GNU编译器集合和LLVM项目</h2>
+<ul>
+<li>
+<p><strong>GNU</strong>项目始于<strong>1987</strong>年，是一个开发大量自由<strong>UNIX</strong>软件的集合。</p>
+<ul>
+<li><strong>GNU</strong>编译器集合，也被称为<strong>GCC</strong>，包含<strong>GCC C</strong>编译器。</li>
+<li><strong>GCC</strong>在指导委员会的带领下持续不断的开发，<strong>GCC C</strong>编译器紧跟<strong>C</strong>标准的改动。</li>
+<li><strong>GCC</strong>有各种版本适应不同的硬件平台和操作系统。</li>
+<li><code>gcc</code>命令可调用<strong>GCC C</strong>编译器。许多系统使用<strong>cc</strong>作为<strong>gcc</strong>的别名。</li>
+</ul>
+</li>
+<li>
+<p><strong>LLVM</strong>项目始于<strong>ISU</strong>，是与编辑器相关的开源软件集合。</p>
+<ul>
+<li><strong>LLVM</strong>的<strong>Clang</strong>编译器处理<strong>C</strong>代码，可以通过<code>clang</code>调用。</li>
+<li><strong>Clang</strong>对最新的<strong>C</strong>标准也有很好的支持。</li>
+<li><strong>Clang</strong>有多种版本供不同平台使用。</li>
+</ul>
+</li>
+<li>
+<p><code>cc -v</code>命令显示系统当前所使用的编译器及其版本。</p>
+</li>
+<li>
+<p><code>gcc</code>和<code>clang</code>命令可通过提供参数来调用不同的<strong>C</strong>标准。</p>
+</li>
+</ul>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev"></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

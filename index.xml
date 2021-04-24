@@ -6,7 +6,49 @@
     <description>Recent content in Home on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 23 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0001-two sum</title>
+      <link>https://qidi.ink/cs/dsaa/0001-two-sum/</link>
+      <pubDate>Sat, 24 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/cs/dsaa/0001-two-sum/</guid>
+      <description>problem description </description>
+    </item>
+    
+    <item>
+      <title>0048-rotate image</title>
+      <link>https://qidi.ink/post/2021/04/24/0048-rotate-image/</link>
+      <pubDate>Sat, 24 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/04/24/0048-rotate-image/</guid>
+      <description>问题描述 给定一个n级矩阵matrix表示一个图像。请将图像顺时针旋转90度。
+考虑原地旋转图像，即直接修改输入的二维数组，不借助另一个矩阵来旋转图像。
+ 示例1:
+ 输入: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+输出: matrix = [[7,4,1],[8,5,2],[9,6,3]]
+ 示例2:
+ 输入: matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
+输出: matrix = [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
+ 示例3:
+ 输入: matrix = [[1]]
+输出: matrix = [[1]]
+ 示例4:
+ 输入: matrix = [[1,2],[3,4]]
+输出: matrix = [[3,1],[4,2]]
+ 提示:
+ matrix.length == n matrix[i].length == n 1 &amp;lt;= n &amp;lt;= 20 -1000 &amp;lt;= matrix[i][j] &amp;lt;= 1000   代码 自研 class Solution: def rotate(self, matrix: List[List[int]]) -&amp;gt; None: i, j = 0, len(matrix) - 1 while i &amp;lt; j: for k in range(i, j): matrix[i][k], matrix[k][j], matrix[j][j-k+i], matrix[j-k+i][i] = matrix[j-k+i], matrix[i][k], matrix[k][j], matrix[j][j-k+i] i += 1 j -= 1 用翻转代替旋转 class Solution: def rotate(self, matrix: List[List[int]]) -&amp;gt; None: n = len(matrix) for i in range(n // 2): for j in range(n): matrix[i][j], matrix[n-1-i][j] = matrix[n-1-i][j], matrix[i][j] for i in range(n): for j in range(i): matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j] 分析  对于行标、列标分别为row、col的元素matrix[row][col]，在旋转变换作用下将映射到matrix[col][n-1-row]。 对于水平翻转结合对称变换，可注意到元素matrix[row][col]先变换为matrix[n-1-row][col]，再变换为matrix[col][n-1-row]。故水平翻转结合对称变换等价于旋转变换。 也可以结合递归思想，由外向内地逐方框进行旋转变换。可以用i、j分别指向方框的最小行标（最小列标）、最大行标（最大列标）。结合下图可实现旋转变换。   </description>
+    </item>
+    
+    <item>
+      <title>第1章 初识C语言</title>
+      <link>https://qidi.ink/cs/cprimerplus/1-c/</link>
+      <pubDate>Sat, 24 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/cs/cprimerplus/1-c/</guid>
+      <description>C语言的起源  1972年，贝尔实验室的Dennis Ritch和Ken Thompson在开发Unix操作系统时设计了C语言。 C语言基于B语言进行设计。  C语言的特点 设计特性  C语言易于完成自顶向下的规划、结构化编程和模块化设计。 C语言编写的程序更可靠和具有可读性。  高效性  C相对更加紧凑，运行速度很快。 具有通常是汇编语言才具有的微调控制能力，可以根据具体情况微调程序来获得最大运行速度或最有效地使用内存。  可移植性  计算机系统的精简平台在指令系统和编码格式上有很大差异，同一可执行程序无法在所有平台上运行。 为保证开发的程序能够兼容其他平台，需要针对目标平台，将高级程序设计语言的源代码文件进行修改和再次编译。生成目标系统的适配可执行应用程序。 程序语言的可移植性是指通过编译器，将源代码编译，生成对荧幕败哦系统的可执行程序。 C在多种软硬件平台上有广泛的支持，C99、C11语言标准也可以很好的向下兼容。C语言具有较强的可移植性。  强大而灵活  UNIX操作系统大部分由C语言编写。 PORTAN、Perl、Python、LISP、Logo、BASIC等语言的许多编译器和解释器由C编写。 C程序可解决物理学和工程学的问题、制作电影动画特效等。  面向程序员  C语言允许程序员访问硬件、操作内存中的位。 C语言具有丰富的运算符，能让程序员简洁的表达意图。  C语言应用范围  C在Linux开发中扮演着重要角色。 C是嵌入式系统开发的流行语言。 C在科学编程领域与FORTAN分得一杯羹。 C++在C的基础上嫁接了面向对象编程工具。  C++几乎是C的超集，任何C程序差不多就是一个 C++ 程序。 面向对象编程通过对语言建模来适应问题，而非对问题建模来适应语言。    计算机工作原理  存储在计算机中的所有内容都是数字。  计算机以数字形式存储数字和字符，每个字符都有一个数字码。 计算机载入寄存器的指令也以数字形式存储，指令集的每条代码都有一个数字码。   计算机程序最终必须以数字指令码表示。 高级语言以抽象方式描述行为，不受限于特定CPU或指令集。 编译器将高级语言程序翻译成计算机能够理解的机器语言指令集。  尽管不同的CPU制造商使用的指令系统和编码格式不同，但可以找到与特定类型CPU匹配的编译器。 通过使用合适的编译器或编译器集，可以把一种高级语言程序转换成供各种不同类型CPU使用的机器语言程序。    语言标准  编写C程序时，若未使用机器特定的编程技术，程序运行情况应与C实现无关。 为此，不同的实现要遵循一个标准。  K&amp;amp;R C  1978年，Brian Kernighan和Dennis Ritchie合著的The C Programming Language第一版是公认的C标准。通常称之为K&amp;amp;R C或经典C。  The C Programming Language附录中的C语言参考手册成为实现C的指导标准。   The C Programming Language的附录定义了C语言，但没有定义C库。  C语言比其他语言更依赖库，因此需要一个标准库。 由于缺乏官方标准，UNIX实现提供的库成为了标准库。    ANSI/ISO C  随着C的不断发展，C社区意识到需要一个更全面、更新颖、更严格的标准。 美国国家标准协会ANSI于1989年公布了ANSI C标准，定义了C语言和C标准库。  ISO于1990年采用了这套C标准。  因此ISO C和ANSI C是完全相同的标准。   ANSI/ISO标准的最终版本通常叫做C89或C90。   由于ANSI先公布C标准，业界人士通常使用ANSI C。 ANSI委员会指定的指导原则中提出要保持C的精神：  信任程序员 不妨碍程序员做需要做的事 保持语言精练简单 只提供一种方法执行一项操作 让程序运行更快，即使不能保证其可移植性  作为实现，应该针对目标计算机来定义最合适的某特定操作。而不是强加一个抽象、统一的定义。      C99  1994年，ANSI/ISO联合委员会开始修订C标准，并最终发布了C99标准。 C99标准遵循了C90标准的原则，包括保持语言的精炼简单。 委员会用意不在于向C语言中添加新特性，而是为了达到新的目标。  支持国际化编程。如提供多种方法处理国际字符集。 调整现有实践致力于解决明显的缺陷。如根据现实生活中处理问题的经验，添加将C移至64位处理器的标准。 提高C在科学和工程项目中的关键数值计算的适应性。    C11  标准委员会在2011年发布了C11标准。 出于对编程安全的担忧，不再那么强调“信任程序员”目标。 出于跟进新技术的需要，如添加可选项支持使用多处理器的计算机，是修订标准的原因。  C语言的编程步骤  定义程序目标  思考程序需要哪些信息，要进行哪些计算和控制，需要报告什么信息。   设计程序　 考虑如何用程序完成目标，如：数据表示和处理方法、用户界面、程序组织方式、目标用户、开发周期等。   编写代码  在编程环境中编写C语言代码。为所编写的程序添加文字注释。   编译、链接  C编译器和链接器把C代码翻译成特定的机器语言。 某些系统中需要分别运行编译和链接程序。另一些系统中，编译器会自动启动链接器，用户只需给出编译命令。   运行程序 测试和调试 维护和修改  注：规划好程序目标和设计框架，有助于编码过程中得心应手、条理清晰。</description>
+    </item>
+    
     <item>
       <title>0009-palindrome number</title>
       <link>https://qidi.ink/post/2021/04/23/0009-palindrome-number/</link>
@@ -25,15 +67,6 @@
 输出: false
  提示: -231 &amp;lt;= x &amp;lt;= 231 - 1
  代码 class Solution: def isPalindrome(self, x: int) -&amp;gt; bool: if x &amp;lt; 0: return False if x % 10 == 0 and x != 0: return False reverse_x = 0 while x &amp;gt; reverse_x: reverse_x = 10 * reverse_x + x % 10 x //= 10 return x == reverse_x or x == reverse_x // 10 参考链接 回文数</description>
-    </item>
-    
-    <item>
-      <title>第1章 引论</title>
-      <link>https://qidi.ink/dsaaaic/1/</link>
-      <pubDate>Fri, 23 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://qidi.ink/dsaaaic/1/</guid>
-      <description></description>
     </item>
     
     <item>

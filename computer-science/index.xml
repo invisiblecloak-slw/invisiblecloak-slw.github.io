@@ -5,6 +5,16 @@
     <link>https://qidi.ink/computer-science/</link>
     <description>Recent content in 计算机科学 on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://qidi.ink/computer-science/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/computer-science/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ch2</title>
+      <link>https://qidi.ink/computer-science/dsaaaic/ch2/</link>
+      <pubDate>Sat, 24 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/computer-science/dsaaaic/ch2/</guid>
+      <description>!!!</description>
+    </item>
+    
   </channel>
 </rss>

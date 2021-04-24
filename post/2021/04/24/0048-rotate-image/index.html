@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0048-rotate image - XIU</title>
+    <meta property="og:title" content="0048-rotate image - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="给定一个n级矩阵matrix表示一个图像。请将图像顺时针旋转90度。
+考虑原地旋转图像，即直接修改输入的二维数组，不借助另一个矩阵来旋转图像。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+输出: matrix = [[7,4,1],[8,5,2],[9,6,3]]
+[&amp;hellip;] 示例2: &amp;hellip;">
+      <meta property="og:description" content="给定一个n级矩阵matrix表示一个图像。请将图像顺时针旋转90度。
+考虑原地旋转图像，即直接修改输入的二维数组，不借助另一个矩阵来旋转图像。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+输出: matrix = [[7,4,1],[8,5,2],[9,6,3]]
+[&amp;hellip;] 示例2: &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="https://qidi.ink/images/Octopus_pills.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/books/">读书</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>0048-rotate image</h1>
+
+<h3>Xiu Di
+  /  2021-04-24</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="问题描述">问题描述</h2>
+<p>给定一个<code>n</code>级矩阵<code>matrix</code>表示一个图像。请将图像顺时针旋转90度。</p>
+<p>考虑<strong>原地</strong>旋转图像，即直接修改输入的二维数组，不借助另一个矩阵来旋转图像。</p>
+<blockquote>
+<p><strong>示例1</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>matrix = [[1,2,3],[4,5,6],[7,8,9]]</code></p>
+<p><strong>输出</strong>: <code>matrix = [[7,4,1],[8,5,2],[9,6,3]]</code></p>
+</blockquote>
+<p><strong>示例2</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]</code></p>
+<p><strong>输出</strong>: <code>matrix = [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]</code></p>
+</blockquote>
+<p><strong>示例3</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>matrix = [[1]]</code></p>
+<p><strong>输出</strong>: <code>matrix = [[1]]</code></p>
+</blockquote>
+<p><strong>示例4</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>matrix = [[1,2],[3,4]]</code></p>
+<p><strong>输出</strong>: <code>matrix = [[3,1],[4,2]]</code></p>
+</blockquote>
+<p><strong>提示</strong>:</p>
+<ul>
+<li><code>matrix.length == n</code></li>
+<li><code>matrix[i].length == n</code></li>
+<li><code>1 &lt;= n &lt;= 20</code></li>
+<li><code>-1000 &lt;= matrix[i][j] &lt;= 1000</code></li>
+</ul>
+</blockquote>
+<h2 id="代码">代码</h2>
+<h3 id="自研">自研</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rotate</span>(self, matrix: List[List[int]]) <span style="color:#f92672">-&gt;</span> None:
+        i, j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, len(matrix) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">while</span> i <span style="color:#f92672">&lt;</span> j:
+            <span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> range(i, j):
+                matrix[i][k], matrix[k][j], matrix[j][j<span style="color:#f92672">-</span>k<span style="color:#f92672">+</span>i], matrix[j<span style="color:#f92672">-</span>k<span style="color:#f92672">+</span>i][i] <span style="color:#f92672">=</span> matrix[j<span style="color:#f92672">-</span>k<span style="color:#f92672">+</span>i], matrix[i][k], matrix[k][j], matrix[j][j<span style="color:#f92672">-</span>k<span style="color:#f92672">+</span>i]
+        i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+        j <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</code></pre></div><h3 id="用翻转代替旋转">用翻转代替旋转</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rotate</span>(self, matrix: List[List[int]]) <span style="color:#f92672">-&gt;</span> None:
+        n <span style="color:#f92672">=</span> len(matrix)
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>):
+            <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(n):
+                matrix[i][j], matrix[n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>i][j] <span style="color:#f92672">=</span> matrix[n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>i][j], matrix[i][j]
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+            <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(i):
+                matrix[i][j], matrix[j][i] <span style="color:#f92672">=</span> matrix[j][i], matrix[i][j]
+            
+</code></pre></div><h2 id="分析">分析</h2>
+<ul>
+<li>对于行标、列标分别为<code>row</code>、<code>col</code>的元素<code>matrix[row][col]</code>，在旋转变换作用下将映射到<code>matrix[col][n-1-row]</code>。</li>
+<li>对于<strong>水平翻转</strong>结合<strong>对称变换</strong>，可注意到元素<code>matrix[row][col]</code>先变换为<code>matrix[n-1-row][col]</code>，再变换为<code>matrix[col][n-1-row]</code>。故<strong>水平翻转</strong>结合<strong>对称变换</strong>等价于旋转变换。</li>
+<li>也可以结合递归思想，由外向内地逐方框进行旋转变换。可以用<code>i</code>、<code>j</code>分别指向方框的最小行标（最小列标）、最大行标（最大列标）。结合下图可实现旋转变换。
+<img src="images/rotate_image.png" alt="rotate image"></li>
+</ul>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/23/0009-palindrome-number/">0009-palindrome number</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
