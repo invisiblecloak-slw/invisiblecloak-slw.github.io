@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0055-jump game - XIU</title>
+    <meta property="og:title" content="0055-jump game - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="给定非负整数数组nums，最初位于数组的第一个下标。
+数组中的每个元素代表在该位置可以跳跃的最大长度。
+判定是否可以到达最后一个下标。
+[&amp;hellip;] 示例1：
+[&amp;hellip;] 输入：nums = [2,3,1,1,4]
+输出： true
+解释： 可以先跳一步，从下标0到达下标1，然后再从下标1跳3步到达最后一个下标。
+[&amp;hellip;] 示例2：
+[&amp;hellip;] 输入： &amp;hellip;">
+      <meta property="og:description" content="给定非负整数数组nums，最初位于数组的第一个下标。
+数组中的每个元素代表在该位置可以跳跃的最大长度。
+判定是否可以到达最后一个下标。
+[&amp;hellip;] 示例1：
+[&amp;hellip;] 输入：nums = [2,3,1,1,4]
+输出： true
+解释： 可以先跳一步，从下标0到达下标1，然后再从下标1跳3步到达最后一个下标。
+[&amp;hellip;] 示例2：
+[&amp;hellip;] 输入： &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="https://qidi.ink/images/Octopus_pills.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/books/">读书</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>0055-jump game</h1>
+
+<h3>Xiu Di
+  /  2021-04-25</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="问题描述">问题描述</h2>
+<p>给定非负整数数组<code>nums</code>，最初位于数组的<strong>第一个下标</strong>。</p>
+<p>数组中的每个元素代表在该位置可以跳跃的最大长度。</p>
+<p>判定是否可以到达最后一个下标。</p>
+<blockquote>
+<p><strong>示例1</strong>：</p>
+<blockquote>
+<p><strong>输入</strong>：<code>nums = [2,3,1,1,4]</code></p>
+<p><strong>输出</strong>： <code>true</code></p>
+<p><strong>解释</strong>： 可以先跳一步，从下标0到达下标1，然后再从下标1跳3步到达最后一个下标。</p>
+</blockquote>
+<p><strong>示例2</strong>：</p>
+<blockquote>
+<p><strong>输入</strong>： <code>nums = [3,2,1,0,4]</code></p>
+<p><strong>输出</strong>: <code>false</code></p>
+<p><strong>解释</strong>：无论怎样，总会到达下标为3的位置。但该下标的最大跳跃长度是0，所以永远不可能到达最后一个下标。</p>
+</blockquote>
+<p><strong>提示</strong>：</p>
+<ul>
+<li>1 &lt;= nums.length &lt;= 3 * 10<sup>4</sup></li>
+<li>0 &lt;= nums[i] &lt;= 10<sup>5</sup></li>
+</ul>
+</blockquote>
+<h2 id="代码">代码</h2>
+<h3 id="forward">Forward</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">canJump</span>(self, nums: List[int]) <span style="color:#f92672">-&gt;</span> bool:
+        border <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">for</span> i, radius <span style="color:#f92672">in</span> enumerate(nums):
+            <span style="color:#66d9ef">if</span> i <span style="color:#f92672">&lt;=</span> border:
+                <span style="color:#66d9ef">if</span> i <span style="color:#f92672">+</span> radius <span style="color:#f92672">&gt;=</span> len(nums) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>: <span style="color:#66d9ef">return</span> True
+                <span style="color:#66d9ef">if</span> i <span style="color:#f92672">+</span> radius <span style="color:#f92672">&gt;</span> border: border <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> radius
+            <span style="color:#66d9ef">else</span>:
+                <span style="color:#66d9ef">return</span> False
+        <span style="color:#66d9ef">return</span> True
+</code></pre></div><h3 id="backward">Backward</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">canJump</span>(self, nums: List[int]) <span style="color:#f92672">-&gt;</span> bool:
+            target <span style="color:#f92672">=</span> len(nums) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(nums) <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
+                <span style="color:#66d9ef">if</span> i <span style="color:#f92672">+</span> nums[i] <span style="color:#f92672">&gt;=</span> target:
+                    target <span style="color:#f92672">=</span> i
+            <span style="color:#66d9ef">return</span> target <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
+</code></pre></div><h2 id="分析">分析</h2>
+<h3 id="事实1若位置i可达则位置i之前的位置均可达"><strong>事实1</strong>：若位置<code>i</code>可达，则位置<code>i</code>之前的位置均可达。</h3>
+<ul>
+<li><code>nums[i]</code>可视为位置<code>i</code>的可达半径。
+<ul>
+<li>以位置<code>i</code>为圆心，<code>nums[i]</code>为可达半径，张成一个可达圆。
+<ul>
+<li>只考虑圆<code>abs(theta) &lt;= 90</code>度在横轴上的投影即可。</li>
+</ul>
+</li>
+<li>若各可达圆的并集的投影覆盖了横轴<code>[0, n-1]</code>的所有点，则最后一个位置可达。</li>
+</ul>
+</li>
+<li>若从前向后的遍历过程发现某个位置超出了当前的可达范围，则由<strong>事实1</strong>可知，最后一个位置无法到达。
+<ul>
+<li>从前向后的遍历过程不能够跃过某些点，因为某个点可能蕴含着更大的可达范围。</li>
+</ul>
+</li>
+<li>若遍历过程中发现可达范围已包含最后一个位置，则返回<code>true</code>。</li>
+</ul>
+<h3 id="事实2若位置i可达则可达圆包含位置i且最近临位置i的位置j一定可达"><strong>事实2</strong>：若位置<code>i</code>可达，则可达圆包含位置<code>i</code>且最近临位置<code>i</code>的位置<code>j</code>一定可达。</h3>
+<ul>
+<li><strong>事实2</strong>可用反证法证明：倘若位置<code>j</code>不可达，由位置<code>i</code>的可达性知，必存在位置<code>k</code>的可达圆包含位置<code>i</code>，又位置<code>k</code>的可达圆一定包含位置<code>i</code>，故矛盾，因此位置<code>j</code>可达。</li>
+<li>假设最后一个位置可达，由<strong>事实2</strong>知，问题可转换为收敛圆包含最后一个位置的最近邻位置是否可达。并转换为具有相同结构的子问题。</li>
+<li>这种可达性在传递过程中下标递减。因此若最后一个位置可达，则链条的最后一环将是位置<code>0</code>。</li>
+<li>若<strong>反向传播</strong>过程中发现某个位置不可达，则说明最后一个位置不可达。</li>
+</ul>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/24/0048-rotate-image/">0048-rotate image</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

@@ -107,10 +107,10 @@
 </ul>
 <h3 id="可移植性">可移植性</h3>
 <ul>
-<li>计算机系统的精简平台在指令系统和编码格式上有很大差异，同一可执行程序无法在所有平台上运行。</li>
+<li>计算机系统的硬件平台在指令系统和编码格式上有很大差异，同一可执行程序无法在所有平台上运行。</li>
 <li>为保证开发的程序能够兼容其他平台，需要针对目标平台，将高级程序设计语言的源代码文件进行修改和再次编译。生成目标系统的适配可执行应用程序。</li>
-<li>程序语言的可移植性是指通过<strong>编译器</strong>，将源代码编译，生成对荧幕败哦系统的可执行程序。</li>
-<li><strong>C</strong>在多种软硬件平台上有广泛的支持，<strong>C99</strong>、<strong>C11</strong>语言标准也可以很好的向下兼容。<strong>C</strong>语言具有较强的可移植性。</li>
+<li>程序语言的可移植性是指通过<strong>编译器</strong>，将源代码编译，生成对目标系统的可执行程序。</li>
+<li><strong>C</strong>在多种软硬件平台上有广泛的支持，<strong>C99</strong>、<strong>C11</strong>语言标准也可以很好的向下兼容。<strong>C</strong>语言具有较好的可移植性。</li>
 </ul>
 <h3 id="强大而灵活">强大而灵活</h3>
 <ul>
@@ -164,9 +164,9 @@
 <li><strong>The C Programming Language</strong>附录中的<strong>C</strong>语言参考手册成为实现<strong>C</strong>的指导标准。</li>
 </ul>
 </li>
-<li><strong>The C Programming Language</strong>的附录定义了<strong>C</strong>语言，但没有定义<strong>C</strong>库。
+<li><strong>C</strong>语言比其他语言更依赖库，因此需要一个<strong>标准库</strong>。
 <ul>
-<li><strong>C</strong>语言比其他语言更依赖库，因此需要一个<strong>标准库</strong>。</li>
+<li><strong>The C Programming Language</strong>的附录定义了<strong>C</strong>语言，但没有定义<strong>C</strong>库。</li>
 <li>由于缺乏官方标准，<strong>UNIX</strong>实现提供的库成为了<strong>标准库</strong>。</li>
 </ul>
 </li>
@@ -189,7 +189,7 @@
 <ul>
 <li>信任程序员</li>
 <li>不妨碍程序员做需要做的事</li>
-<li>保持语言精练简单</li>
+<li>保持语言精炼简单</li>
 <li>只提供一种方法执行一项操作</li>
 <li>让程序运行更快，即使不能保证其可移植性
 <ul>
@@ -206,8 +206,12 @@
 <li>委员会用意不在于向<strong>C</strong>语言中添加新特性，而是为了达到新的目标。
 <ul>
 <li>支持国际化编程。如提供多种方法处理国际字符集。</li>
-<li>调整现有实践致力于解决明显的缺陷。如根据现实生活中处理问题的经验，添加将<strong>C</strong>移至64位处理器的标准。</li>
-<li>提高<strong>C</strong>在科学和工程项目中的关键数值计算的适应性。</li>
+<li>调整现有实践致力于解决明显的缺陷。
+<ul>
+<li>如根据现实生活中处理问题的经验，添加将<strong>C</strong>移至64位处理器的标准。</li>
+</ul>
+</li>
+<li>提高<strong>C</strong>对科学和工程项目中的关键数值计算的适应性。</li>
 </ul>
 </li>
 </ul>
@@ -215,7 +219,7 @@
 <ul>
 <li>标准委员会在<strong>2011</strong>年发布了<strong>C11</strong>标准。</li>
 <li>出于对编程安全的担忧，不再那么强调“信任程序员”目标。</li>
-<li>出于跟进新技术的需要，如添加可选项支持使用多处理器的计算机，是修订标准的原因。</li>
+<li>跟进新技术的需要，如添加可选项支持使用多处理器的计算机。</li>
 </ul>
 <h2 id="c语言的编程步骤">C语言的编程步骤</h2>
 <ul>
@@ -296,7 +300,7 @@
   
 <nav class="post-nav">
   <span class="nav-prev"></span>
-  <span class="nav-next"></span>
+  <span class="nav-next"><a href="/cs/cprimerplus/2-c/">第2章 C语言概述</a> &rarr;</span>
 </nav>
 
 

@@ -2,40 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://qidi.ink/post/2021/04/25/0055-jump-game/</loc>
+    <lastmod>2021-04-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://qidi.ink/categories/</loc>
+    <lastmod>2021-04-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://qidi.ink/categories/data-structure-and-algorithm/</loc>
+    <lastmod>2021-04-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://qidi.ink/</loc>
+    <lastmod>2021-04-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://qidi.ink/tags/leetcode/</loc>
+    <lastmod>2021-04-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://qidi.ink/post/</loc>
+    <lastmod>2021-04-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://qidi.ink/tags/</loc>
+    <lastmod>2021-04-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://qidi.ink/cs/cprimerplus/</loc>
+    <lastmod>2021-04-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://qidi.ink/cs/cprimerplus/2-c/</loc>
+    <lastmod>2021-04-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://qidi.ink/cs/</loc>
+    <lastmod>2021-04-25T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://qidi.ink/cs/dsaa/0001-two-sum/</loc>
     <lastmod>2021-04-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://qidi.ink/post/2021/04/24/0048-rotate-image/</loc>
     <lastmod>2021-04-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://qidi.ink/categories/</loc>
-    <lastmod>2021-04-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://qidi.ink/categories/data-structure-and-algorithm/</loc>
-    <lastmod>2021-04-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://qidi.ink/</loc>
-    <lastmod>2021-04-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://qidi.ink/tags/leetcode/</loc>
-    <lastmod>2021-04-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://qidi.ink/post/</loc>
-    <lastmod>2021-04-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://qidi.ink/tags/</loc>
-    <lastmod>2021-04-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://qidi.ink/cs/cprimerplus/</loc>
-    <lastmod>2021-04-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://qidi.ink/cs/dsaa/</loc>
     <lastmod>2021-04-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://qidi.ink/cs/cprimerplus/1-c/</loc>
-    <lastmod>2021-04-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://qidi.ink/cs/</loc>
     <lastmod>2021-04-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://qidi.ink/post/2021/04/23/0009-palindrome-number/</loc>

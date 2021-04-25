@@ -6,7 +6,28 @@
     <description>Recent content in Posts on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0055-jump game</title>
+      <link>https://qidi.ink/post/2021/04/25/0055-jump-game/</link>
+      <pubDate>Sun, 25 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/04/25/0055-jump-game/</guid>
+      <description>问题描述 给定非负整数数组nums，最初位于数组的第一个下标。
+数组中的每个元素代表在该位置可以跳跃的最大长度。
+判定是否可以到达最后一个下标。
+ 示例1：
+ 输入：nums = [2,3,1,1,4]
+输出： true
+解释： 可以先跳一步，从下标0到达下标1，然后再从下标1跳3步到达最后一个下标。
+ 示例2：
+ 输入： nums = [3,2,1,0,4]
+输出: false
+解释：无论怎样，总会到达下标为3的位置。但该下标的最大跳跃长度是0，所以永远不可能到达最后一个下标。
+ 提示：
+ 1 &amp;lt;= nums.length &amp;lt;= 3 * 104 0 &amp;lt;= nums[i] &amp;lt;= 105   代码 Forward class Solution: def canJump(self, nums: List[int]) -&amp;gt; bool: border = 0 for i, radius in enumerate(nums): if i &amp;lt;= border: if i + radius &amp;gt;= len(nums) - 1: return True if i + radius &amp;gt; border: border = i + radius else: return False return True Backward class Solution: def canJump(self, nums: List[int]) -&amp;gt; bool: target = len(nums) - 1 for i in range(len(nums) - 2, -1, -1): if i + nums[i] &amp;gt;= target: target = i return target == 0 分析 事实1：若位置i可达，则位置i之前的位置均可达。  nums[i]可视为位置i的可达半径。  以位置i为圆心，nums[i]为可达半径，张成一个可达圆。  只考虑圆abs(theta) &amp;lt;= 90度在横轴上的投影即可。   若各可达圆的并集的投影覆盖了横轴[0, n-1]的所有点，则最后一个位置可达。   若从前向后的遍历过程发现某个位置超出了当前的可达范围，则由事实1可知，最后一个位置无法到达。  从前向后的遍历过程不能够跃过某些点，因为某个点可能蕴含着更大的可达范围。   若遍历过程中发现可达范围已包含最后一个位置，则返回true。  事实2：若位置i可达，则可达圆包含位置i且最近临位置i的位置j一定可达。  事实2可用反证法证明：倘若位置j不可达，由位置i的可达性知，必存在位置k的可达圆包含位置i，又位置k的可达圆一定包含位置i，故矛盾，因此位置j可达。 假设最后一个位置可达，由事实2知，问题可转换为收敛圆包含最后一个位置的最近邻位置是否可达。并转换为具有相同结构的子问题。 这种可达性在传递过程中下标递减。因此若最后一个位置可达，则链条的最后一环将是位置0。 若反向传播过程中发现某个位置不可达，则说明最后一个位置不可达。  </description>
+    </item>
+    
     <item>
       <title>0048-rotate image</title>
       <link>https://qidi.ink/post/2021/04/24/0048-rotate-image/</link>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>第2章 C语言概述 - XIU</title>
+    <meta property="og:title" content="第2章 C语言概述 - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="#include&amp;lt;stdio.h&amp;gt;int main(void) { int num; num = 1; printf(&amp;#34;I am a simple &amp;#34;); printf(&amp;#34;computer.\n&amp;#34;); printf(&amp;#34;My favorite number is %d because it is first.\n&amp;#34;, num); &amp;hellip;">
+      <meta property="og:description" content="#include&amp;lt;stdio.h&amp;gt;int main(void) { int num; num = 1; printf(&amp;#34;I am a simple &amp;#34;); printf(&amp;#34;computer.\n&amp;#34;); printf(&amp;#34;My favorite number is %d because it is first.\n&amp;#34;, num); &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="https://qidi.ink/images/Octopus_pills.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="cs">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">首页</a></li>
+  
+  <li><a href="/cs/cprimerplus">C Primer Plus</a></li>
+  
+  <li><a href="/cs/dsaa/">数据结构与算法分析-C</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>第2章 C语言概述</h1>
+
+<h3>Xiu Di
+  /  2021-04-25</h3>
+<hr>
+
+
+      </header>
+
+
+
+<ul>
+<li>程序可看作希望计算机如何完成任务的描述。</li>
+<li>编译器负责将程序转换为机器语言。</li>
+<li><strong>由于编译器不具有真正的智能，因此必须用编译器能理解的特定格式的指令表达意图。这些特定格式的指令就是C语言标准规定的形式规则</strong>。</li>
+<li>编写<strong>C</strong>程序即是在符合<strong>C</strong>标准的编译器框架下，表达程序如何完成任务的想法。</li>
+</ul>
+<h2 id="demo">demo</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)               
+{
+    <span style="color:#66d9ef">int</span> num;
+    num <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+
+    printf(<span style="color:#e6db74">&#34;I am a simple &#34;</span>);
+    printf(<span style="color:#e6db74">&#34;computer.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+    printf(<span style="color:#e6db74">&#34;My favorite number is %d because it is first.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, num);
+
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+}
+</code></pre></div><ul>
+<li><strong>C</strong>程序由一个或多个函数组成，必须有<code>main()</code>函数。
+<ul>
+<li>函数由<strong>函数头</strong>和<strong>函数体</strong>组成。
+<ul>
+<li><strong>函数头</strong>包含函数名、传入该函数的信息类型和函数的返回类型。</li>
+<li><strong>函数体</strong>被花括号扩起来，由一系列语句、声明组成。</li>
+</ul>
+</li>
+<li>通过函数名后的圆括号可识别出函数。
+<ul>
+<li>圆括号内可能为空，可能有参数。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>C</strong>语言中有<strong>关键字</strong>、<strong>标识符</strong>、<strong>运算符</strong>、<strong>数据</strong>。</li>
+<li><strong>C</strong>语言中有六种语句：<code>标号语句</code>、<code>复合语句</code>、<code>表达式语句</code>、<code>选择语句</code>、<code>迭代语句</code>·、<code>跳转语句</code>。
+<ul>
+<li><strong>C</strong>语言中的函数调用是一种<strong>后缀表达式语句</strong>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="解释">解释</h2>
+<h3 id="include指令和头文件">#include指令和头文件</h3>
+<ul>
+<li><code>#include&lt;stdio.h&gt;</code>是一种<strong>拷贝-粘贴</strong>的操作。相当于将<code>stdio.h</code>文件中的所有内容都输入到该行所在的位置。</li>
+<li><em>标准输入输出</em><strong>头文件</strong><code>stdio.h</code>是<strong>C</strong>编译器软件包的标准部分，提供键盘输入和键盘输出的支持。
+<ul>
+<li>在<strong>C</strong>程序顶部的信息被称为<strong>头文件</strong>。</li>
+<li><strong>头文件</strong>包含了编译器创建最终可执行程序要用到的信息。</li>
+<li>不将<strong>输入和输出</strong>作为语言内置功能体现了<strong>C</strong>语言经济实用资源的原则，这种原则使得<strong>C</strong>语言成为流行的嵌入式编程语言。</li>
+</ul>
+</li>
+<li><code>#include&lt;stdio.h&gt;</code>是一条<code>预处理指令</code>。
+<ul>
+<li><strong>C</strong>编译器在变异之前会对源代码做一些准备工作，称为<strong>预处理</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="main函数">main()函数</h3>
+<ul>
+<li>函数是<strong>C</strong>程序的基本模块。圆括号用于对函数的标识。</li>
+<li><strong>C</strong>程序从**main()**函数开始执行。
+<ul>
+<li><strong>C</strong>编译器允许<code>main()</code>没有参数或有两个参数。一些实现允许<code>main()</code>有更多参数，属于对标准的扩展。
+<ul>
+<li><code>int main(void)</code>是标准<strong>ANSI C</strong>定义<code>main()</code>的一部分。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="注释">注释</h3>
+<ul>
+<li><strong>C</strong>语言中被<code>/* */</code>两个符号扩起来的部分是程序的注释。</li>
+</ul>
+<pre><code>/* 这是一条C注释 */
+/*
+   也可以这样写C注释
+*/
+</code></pre><ul>
+<li><strong>C99</strong>中新增了<code>//</code>风格的注释。这种风格的注释只能写成一行。</li>
+</ul>
+<h3 id="花括号函数体和块">花括号、函数体和块</h3>
+<ul>
+<li>花括号用于把函数中的多条语句合并为一个单元或块。<strong>C</strong>函数使用花括号标记函数体的开始和结束。</li>
+</ul>
+<h3 id="声明">声明</h3>
+<ul>
+<li><strong>标识符</strong>是变量、函数或其他实体的名称。</li>
+<li><strong>声明</strong>是<strong>C</strong>语言最重要的特性之一。<strong>声明</strong>完成了两件事：
+<ul>
+<li>将特定<strong>标识符</strong>与计算机内存中的特定位置联系起来。</li>
+<li>确定存储在特定位置的<strong>数据类型</strong>。</li>
+</ul>
+</li>
+<li>编译器使用上述信息为<strong>标识符</strong>在内存中分配存储空间。</li>
+<li>分号在<strong>C</strong>语言中是大部分语句和声明的一部分，不只是语句间的分隔符。</li>
+<li><strong>C</strong>语言中，所有变量都必须先声明才能使用，这意味着必须列出程序中用到的所有变量名及其类型。</li>
+<li>以前的<strong>C</strong>语言要求把变量声明在块的顶部，任何其他语句不能出现在声明之前。</li>
+<li><strong>C99</strong>和<strong>C11</strong>遵循 <strong>C++</strong> 的惯例，允许将声明放在块中的任何位置，但首次使用变量前需要先进行声明。</li>
+</ul>
+<h3 id="赋值">赋值</h3>
+<ul>
+<li><strong>C</strong>语言通过<strong>赋值运算符</strong>完成赋值操作。</li>
+<li><strong>C</strong>语言的赋值操作是一种<strong>赋值表达式</strong>语句。</li>
+</ul>
+<h3 id="return语句">return语句</h3>
+<ul>
+<li><strong>C</strong>语言中<strong>return</strong>语句是一种<strong>跳转语句</strong>。</li>
+<li><code>int main(void)</code>中的<code>int</code>表明<code>main()</code>函数应返回一个整数。这是<strong>C</strong>标准要求之一。</li>
+<li><strong>return</strong>语句在<strong>UNIX</strong>、<strong>Linux</strong>等操作系统中有实际用途。</li>
+</ul>
+<h2 id="提高程序可读性">提高程序可读性</h2>
+<ul>
+<li>选择有意义的函数名。</li>
+<li>适当地添加注释。</li>
+<li>在函数中用<strong>空行</strong>分隔概念上的多个部分。</li>
+<li>每条语句各占一行。</li>
+</ul>
+<h2 id="函数原型">函数原型</h2>
+<ul>
+<li><strong>C90</strong>标准新增了<strong>函数原型</strong>。</li>
+<li><strong>函数原型</strong>是一种声明形式，告知编译器正在使用某函数。</li>
+<li><strong>C</strong>的惯例是将<code>main()</code>放在开头，它提供了程序的基本框架。</li>
+<li><strong>C</strong>标准建议为程序中用到的所有函数提供函数原型。
+<ul>
+<li>标准include文件为标准库函数提供了函数原型。</li>
+</ul>
+</li>
+</ul>
+<h2 id="调试程序">调试程序</h2>
+<h3 id="语法错误">语法错误</h3>
+<ul>
+<li><strong>语法</strong>是一套规则，用于管理语言中各有效语句组合在一起的方式。</li>
+<li>不遵循<strong>C</strong>语法规则会导致<strong>语法错误</strong>。</li>
+</ul>
+<h3 id="语义错误">语义错误</h3>
+<ul>
+<li><strong>语义</strong>是语句要表达的意思。</li>
+<li><strong>语义错误</strong>表现的程序的行为中。检查<strong>语义错误</strong>要跟踪程序状态。</li>
+</ul>
+<h3 id="程序状态">程序状态</h3>
+<ul>
+<li><strong>程序状态</strong>是在程序的执行过程中，某给定点上所有变量值的集合，是计算机当前状态的一个快照。</li>
+</ul>
+<p>跟踪<strong>程序状态</strong>的方法有：</p>
+<ul>
+<li>忠实于代码，模拟计算机逐步执行程序。</li>
+<li>在程序的关键点插入额外的<code>printf()</code>语句，监视指定变量值的变化。</li>
+<li>使用<strong>调试器</strong>。</li>
+</ul>
+<h2 id="关键字和保留标识符">关键字和保留标识符</h2>
+<ul>
+<li><strong>关键字</strong>是<strong>C</strong>语言的词汇。若不当使用<strong>关键字</strong>，编译器会视之为语法错误。</li>
+<li><strong>保留标识符</strong>已被<strong>C</strong>语言指定了用途或保留使用权，若用<strong>保留标识符</strong>表示其他意思可能会导致命名冲突。</li>
+</ul>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/cs/cprimerplus/1-c/">第1章 初识C语言</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
