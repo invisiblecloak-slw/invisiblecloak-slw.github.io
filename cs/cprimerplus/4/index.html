@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>第4章 字符串和格式化输入/输出 - XIU</title>
+    <meta property="og:title" content="第4章 字符串和格式化输入/输出 - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="明示常量
+">
+      <meta property="og:description" content="明示常量
+">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="https://qidi.ink/images/Octopus_pills.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="cs">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">首页</a></li>
+  
+  <li><a href="/cs/cprimerplus">C Primer Plus</a></li>
+  
+  <li><a href="/cs/dsaa/">数据结构与算法分析-C</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>第4章 字符串和格式化输入/输出</h1>
+
+<h3>Xiu Di
+  /  2021-04-27</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="字符串">字符串</h2>
+<ul>
+<li><strong>字符串</strong>是一系列被视为一个处理单元的字符，以双引号标识。</li>
+</ul>
+<h3 id="char类型数组和null字符">char类型数组和null字符</h3>
+<ul>
+<li><strong>C</strong>语言没有专门用于存储字符串的变量类型。字符串存储在<strong>char</strong>类型数组中。
+<ul>
+<li>数组是同类型数据元素的有序序列。字符串中的字符被存储在相邻的存储单元中，每个单元存储一个字符。</li>
+</ul>
+</li>
+<li><strong>C</strong>语言用<strong>空字符</strong><code>\0</code>标记字符串的结束。
+<ul>
+<li>空字符是一种非打印字符，不是数字0，其<strong>ASCII</strong>码为0。</li>
+<li>字符串字符串是一种派生类型（<strong>char</strong>数组）。字符是一种基本类型。
+<ul>
+<li>常量<code>&quot;x&quot;</code>和字符常量<code>'x'</code>不同。<code>&quot;x&quot;</code>实际上由两个字符组成：<code>'x'</code>和空字符<code>\0</code>。</li>
+</ul>
+</li>
+<li><strong>C</strong>语言中的字符串一定以<strong>空字符</strong>结束，从而用于存储字符串的字符数组的容量必须至少比待存储字符串中的字符数多1。</li>
+</ul>
+</li>
+<li><code>sizeof</code>运算符以字节为单位给出数组的大小。
+<ul>
+<li><code>sizeof</code>是否使用圆括号取决于运算对象是类型还是特定量。
+<ul>
+<li>运算对象是类型时，圆括号必不可少。如<code>sizeof(char)</code>。</li>
+<li>运算对象是特定量时，圆括号可以不加。如<code>sizeof name</code>或<code>sizeof(name)</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>头文件<code>string.h</code>中的函数<code>strlen()</code>给出字符串中的字符长度。</li>
+<li><strong>C99</strong>和<strong>C11</strong>标准为<code>sizeof</code>运算符的返回类型添加了<code>%zd</code>转换说明，这对于<code>strlen()</code>同样适用。
+<ul>
+<li>对于早期的<strong>C</strong>，需要知道<code>sizeof</code>和<code>strlen()</code>返回的实际类型。通常是<strong>unsigned</strong>或<strong>unsigned long</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="常量和c预处理器">常量和C预处理器</h3>
+<ul>
+<li>在<strong>K&amp;R</strong>合著的<strong>The C Programming Language</strong>中介绍过<strong>符号常量</strong>的概念。</li>
+<li>历年<strong>C</strong>标准中，提及<code>#define</code>的用法之一是定义一个<strong>明示常量</strong>。</li>
+<li><strong>C</strong>语言中可以借助<strong>C</strong>预处理器定义<strong>明示常量</strong>。
+<ul>
+<li>通用格式为<code>#define NAME value</code>。
+<ul>
+<li><code>NAME</code>和<code>value</code>之间没有等号，语句末尾也没有分号。</li>
+<li><code>NAME</code>全大写是<strong>C</strong>的一贯传统，提高了程序的可读性。</li>
+<li><code>value</code>也可以是字符和字符串常量。</li>
+</ul>
+</li>
+<li>编译程序时，程序中的所有<strong>明示常量</strong><code>NAME</code>都会被值<code>value</code>替代。这一过程称为<strong>编译时替换</strong>。</li>
+<li><strong>符号常量</strong>的命名规则与变量相同。可以使用大小写字母、数字和下划线，但首字符不能是数字。</li>
+<li><strong>符号常量</strong>提高了程序的可读性和可维护性。</li>
+</ul>
+</li>
+<li><strong>C90</strong>标准新增了<strong>const</strong>关键字，用于限定一个变量为<strong>只读</strong>。
+<ul>
+<li><code>const int MONTHS = 12;</code></li>
+<li><strong>const</strong>关键字使得<code>MONTHS</code>成为一个只读值。即可以在计算中使用<code>MONTHS</code>，可以打印<code>MONTHS</code>，但是不能够更改<code>MONTHS</code>的值。</li>
+</ul>
+</li>
+</ul>
+<p><strong>明示常量</strong></p>
+<ul>
+<li><strong>C</strong>头文件<code>limits.h</code>和<code>float.h</code>分别提供了与整数类型和浮点类型大小限制相关的详细信息。两个头文件都定义了一系列明示常量。</li>
+<li><code>limits.h</code>头文件定义的明示常量：
+<table>
+<thead>
+<tr>
+<th>明示常量</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CHAR_BIT</td>
+<td><strong>char</strong>类型的位数</td>
+</tr>
+<tr>
+<td>CHAR_MAX</td>
+<td><strong>char</strong>类型的最大值</td>
+</tr>
+<tr>
+<td>CHAR_MIN</td>
+<td><strong>char</strong>类型的最小值</td>
+</tr>
+<tr>
+<td>SCHAR_MAX</td>
+<td><strong>signed char</strong>类型的最大值</td>
+</tr>
+<tr>
+<td>SCHAR_MIN</td>
+<td><strong>signed char</strong>类型的最小值</td>
+</tr>
+<tr>
+<td>UCHAR_MAX</td>
+<td><strong>unsigned char</strong>类型的最大值</td>
+</tr>
+<tr>
+<td>SHRT_MAX</td>
+<td><strong>short</strong>类型的最大值</td>
+</tr>
+<tr>
+<td>SHRT_MIN</td>
+<td><strong>short</strong>类型的最小值</td>
+</tr>
+<tr>
+<td>USHRT_MAX</td>
+<td><strong>unsigned short</strong>类型的最大值</td>
+</tr>
+<tr>
+<td>INT_MAX</td>
+<td><strong>int</strong>类型的最大值</td>
+</tr>
+<tr>
+<td>INT_MIN</td>
+<td><strong>int</strong>类型的最小值</td>
+</tr>
+<tr>
+<td>UINT_MAX</td>
+<td><strong>unsigned int</strong>类型的最大值</td>
+</tr>
+<tr>
+<td>LONG_MAX</td>
+<td><strong>long</strong>类型的最大值</td>
+</tr>
+<tr>
+<td>LONG_MIN</td>
+<td><strong>long</strong>类型的最小值</td>
+</tr>
+<tr>
+<td>ULONG_MAX</td>
+<td><strong>unsigned long</strong>类型的最大值</td>
+</tr>
+<tr>
+<td>ULONG_MIN</td>
+<td><strong>unsigned long</strong>类型的最小值</td>
+</tr>
+<tr>
+<td>LLONG_MAX</td>
+<td><strong>long long</strong>类型的最大值</td>
+</tr>
+<tr>
+<td>LLONG_MIN</td>
+<td><strong>long long</strong>类型的最小值</td>
+</tr>
+<tr>
+<td>ULLONG_MAX</td>
+<td><strong>unsigned long long</strong>类型的最大值</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><code>float.h</code>头文件定义的明示常量：
+<table>
+<thead>
+<tr>
+<th>明示常量</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FLT_MANT_DIG</td>
+<td><strong>float</strong>类型的尾数位数</td>
+</tr>
+<tr>
+<td>FLT_DIG</td>
+<td><strong>float</strong>类型的最少有效位数（十进制）</td>
+</tr>
+<tr>
+<td>FLT_MIN_10_EXP</td>
+<td>带全部有效数字的<strong>float</strong>类型的最小负指数（以10为底）</td>
+</tr>
+<tr>
+<td>FLT_MAX_10_EXP</td>
+<td><strong>float</strong>类型的最大正指数（以10为底）</td>
+</tr>
+<tr>
+<td>FLT_MIN</td>
+<td>保留全部精度的<strong>float</strong>类型最小正数</td>
+</tr>
+<tr>
+<td>FLT_AX</td>
+<td><strong>float</strong>类型的最大正数</td>
+</tr>
+<tr>
+<td>FLT_EPSILON</td>
+<td>1.00和比1.00大的最小<strong>float</strong>类型之间的差值</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>若将<code>FLT</code>替换为<code>DBL</code>和<code>LDBL</code>，即可分别表示<strong>double</strong>和<strong>long double</strong>类型对应的明示常量。</li>
+</ul>
+<h2 id="printf">printf()</h2>
+<h3 id="printf函数">printf()函数</h3>
+<ul>
+<li><strong>转换说明</strong>指定了如何把数据转换成可显示的形式。将以二进制格式存储在计算机中的值转换成字符串以便于显示。
+<ul>
+<li><strong>转换说明</strong>是翻译说明，如<code>%d</code>意指将给定的值翻译成十进制整数文本并打印出来。
+<table>
+<thead>
+<tr>
+<th><strong>转换说明</strong></th>
+<th><strong>输出</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%a</code></td>
+<td>浮点数、十六进制数和<code>p</code>记数法（<strong>C99</strong>/<strong>C11</strong>）</td>
+</tr>
+<tr>
+<td><code>%A</code></td>
+<td>浮点数、十六进制数和<code>p</code>记数法（<strong>C99</strong>/<strong>C11</strong>）</td>
+</tr>
+<tr>
+<td><code>%c</code></td>
+<td>单个字符</td>
+</tr>
+<tr>
+<td><code>%d</code></td>
+<td>有符号十进制整数</td>
+</tr>
+<tr>
+<td><code>%e</code></td>
+<td>浮点数，<code>e</code>记数法</td>
+</tr>
+<tr>
+<td><code>%E</code></td>
+<td>浮点数，<code>e</code>记数法</td>
+</tr>
+<tr>
+<td><code>%f</code></td>
+<td>浮点数，十进制记数法</td>
+</tr>
+<tr>
+<td><code>%g</code></td>
+<td>自动选择<code>%f</code>或<code>%e</code>。<code>%e</code>格式用于指数小于-4或大于等于精度时</td>
+</tr>
+<tr>
+<td><code>%G</code></td>
+<td>自动选择<code>%f</code>或<code>%E</code>。<code>%E</code>格式用于指数小于-4或大于等于精度时</td>
+</tr>
+<tr>
+<td><code>%i</code></td>
+<td>有符号十进制整数（与<code>%d</code>相同）</td>
+</tr>
+<tr>
+<td><code>%o</code></td>
+<td>无符号八进制整数</td>
+</tr>
+<tr>
+<td><code>%p</code></td>
+<td>指针</td>
+</tr>
+<tr>
+<td><code>%s</code></td>
+<td>字符串</td>
+</tr>
+<tr>
+<td><code>%u</code></td>
+<td>无符号十进制整数</td>
+</tr>
+<tr>
+<td><code>%x</code></td>
+<td>无符号十六进制整数</td>
+</tr>
+<tr>
+<td><code>%X</code></td>
+<td>无符号十六进制整数</td>
+</tr>
+<tr>
+<td><code>%%</code></td>
+<td>打印一个百分号</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+<li><code>printf()</code>函数格式为：<strong>printf(</strong><code>格式字符串</code>,<code>待打印项1</code>,<code>待打印项2</code>,&hellip;<strong>)</strong>
+<ul>
+<li><code>待打印项1</code>、<code>待打印项2</code>都是要打印的项。可以是<strong>变量</strong>、<strong>常量</strong>、<strong>表达式</strong>。</li>
+<li><strong>格式字符串</strong>应包含每个待打印项对应的转换说明。</li>
+<li>格式字符串中的转换说明要与后面的每个待打印项<strong>匹配</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="printf函数的转换说明修饰符">printf()函数的转换说明修饰符</h3>
+<ul>
+<li>在<code>%</code>和转换字符之间插入修饰符可以修饰基本的转换说明。</li>
+<li>若要插入多个修饰字符，则修饰字符的书写顺序应与表中所列顺序相同。
+<table>
+<thead>
+<tr>
+<th><strong>修饰符</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标记</td>
+<td><code>-</code>、<code>+</code>、<code> </code>、<code>#</code>、<code>0</code>。可不使用标记或使用多个标记，如<code>%-10d</code></td>
+</tr>
+<tr>
+<td>数字</td>
+<td>指定最小字段宽度。若该字段不能容纳待打印的数字或字符串，系统会使用更宽的字段，如<code>%4d</code></td>
+</tr>
+<tr>
+<td>.数字</td>
+<td>指定精度。对于<code>%e</code>、<code>%E</code>和<code>%f</code>转换，表示小数点右边数字的位数。对于<code>%g</code>和<code>%G</code>转换，表示有效数字的最大位数。对于<code>%s</code>转换，表示待打印字符的最大数量。对于整型转换，表示待打印数字的最小位数，如有必要则使用前导0来达到这个位数。若只使用.则表示其后紧随一个0，因此<code>%.f</code>和<code>%.0f</code>相同</td>
+</tr>
+<tr>
+<td>h</td>
+<td>与整型转换说明一起使用，表示<strong>short int</strong>或<strong>unsigned short int</strong>类型的值。如<code>%hu</code>、<code>%hx</code>、<code>%6.4hd</code></td>
+</tr>
+<tr>
+<td>hh</td>
+<td>和整型转换说明一起使用，表示<strong>signed char</strong>或<strong>unsigned char</strong>类型的值。如<code>%hhu</code>、<code>hhx</code>、<code>%6.4hhd</code></td>
+</tr>
+<tr>
+<td>j</td>
+<td>和整型转换说明一起使用，表示<strong>intmax_t</strong>或<strong>uintmax_t</strong>类型的值。这些类型定义在<code>stdint.h</code>中，如<code>%jd</code>、<code>%8jx</code></td>
+</tr>
+<tr>
+<td>l</td>
+<td>和整型转换说明一起使用，表示<strong>long int</strong>或<strong>unsigned long int</strong>类型的值。如<code>%ld</code>、<code>%8lu</code></td>
+</tr>
+<tr>
+<td>ll</td>
+<td>和整型转换说明一起使用，表示<strong>long long int</strong>或<strong>unsigned long long int</strong>类型的值。如<code>%lld</code>、<code>%8llu</code></td>
+</tr>
+<tr>
+<td>L</td>
+<td>和浮点转换说明一起使用，表示<strong>long double</strong>类型的值。如<code>%Lf</code>、<code>%10.4Le</code></td>
+</tr>
+<tr>
+<td>t</td>
+<td>和整型转换说明一起使用，表示<strong>ptrdiff_t</strong>类型的值。<strong>ptrdiff_t</strong>是两个指针差值的类型。如<code>%td</code>、<code>%12ti</code></td>
+</tr>
+<tr>
+<td>z</td>
+<td>和整型转换说明一起使用，表示<strong>size_t</strong>类型的值。<strong>size_t</strong>是<code>sizeof</code>返回的类型。如<code>%zd</code>、<code>%12zd</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><strong>size_t</strong>是系统使用<code>sizeof</code>返回的类型，这被称为底层类型。<code>printf()</code>使用<code>z</code>修饰符打印相应的类型。</li>
+<li>对于浮点类型，有用于<strong>double</strong>和<strong>long double</strong>类型的转换说明，但没有用于<strong>float</strong>类型的转换说明。
+<ul>
+<li>在<strong>K&amp;R C</strong>中，表达式或参数中的<strong>float</strong>类型值会被自动转换成<strong>double</strong>类型。</li>
+<li>一般而言，<strong>ANSI C</strong>不会把<strong>float</strong>自动转换成<strong>double</strong>。但<code>printf()</code>函数中所有的<strong>float</strong>类型的参数仍自动转换成<strong>double</strong>类型。</li>
+<li>因此无论是<strong>K&amp;R C</strong>还是<strong>ANSI C</strong>都没有显示<strong>float</strong>类型值专用的转换说明。
+<table>
+<thead>
+<tr>
+<th><strong>标记</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-</td>
+<td>待打印项左对齐。即从字段的左侧开始打印该项。如<code>%-20s</code></td>
+</tr>
+<tr>
+<td>+</td>
+<td>有符号值若为正，则在值前面显示加号；若为负，则在值前面显示减号。如<code>%+6.2f</code></td>
+</tr>
+<tr>
+<td>空格</td>
+<td>有符号值若为正，则在值前面显示前导空格（不显示任何符号）；若为负，则在值前面显示减号标记并覆盖空格，如<code>% 6.2f</code></td>
+</tr>
+<tr>
+<td>#</td>
+<td>将结果转换成另一种形式。<code>%o</code>以0开始；<code>%x</code>或<code>%X</code>，则以<code>0x</code>或<code>0X</code>开始；对于所有的浮点格式，#保证了即使后面没有任何数字，也打印一个小数点字符。对于<code>%g</code>和<code>%G</code>格式，#防止结果后面的0被删除，如<code>%#o</code>、<code>%#8.0f</code>、<code>%+#10.3e</code></td>
+</tr>
+<tr>
+<td>0</td>
+<td>对于数值格式，用前导0代替空格填充字段宽度。对于整数格式，如果出现-标记或指定精度，则忽略该标记。如<code>%010d</code>和<code>%08.3f</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+<li><code>printf()</code>函数的返回值是<strong>打印字符的个数</strong>，如果有输出错误，<code>printf()</code>函数则返回一个负值。</li>
+<li>打印较长的字符串的方法：
+<ul>
+<li>在<code>printf()</code>语句的不同部分之间以空白（空格、制表符、换行符）分隔。</li>
+<li>使用多个<code>printf()</code>语句。</li>
+<li>以反斜杠和<strong>Enter</strong>键组合来断行。</li>
+<li>使用<strong>ANSI C</strong>引入的字符串连接。
+<ul>
+<li>字符串连接机制为：在两个用双引号括起来的字符串之间用空白隔开，<strong>C</strong>编译器会把多个字符串看作是一个字符串。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="scanf">scanf()</h2>
+<ul>
+<li><code>scanf()</code>函数用于将输入的字符转换成数值（整数、浮点数、字符或字符串）。</li>
+<li><code>scanf()</code>函数也使用格式字符串和参数列表。
+<ul>
+<li>格式字符串表明字符输入流的目标数据类型。</li>
+<li>参数列表中使用指向变量的指针。</li>
+</ul>
+</li>
+<li><code>scanf()</code>函数用空白（空格、制表符、换行符）将输入分成多个字段。
+<ul>
+<li><code>scanf()</code>函数在依次把转换说明和字段匹配时跳过空白。</li>
+<li>根据<code>%c</code>，<code>scanf()</code>函数会读取每个字符，包括空白。</li>
+</ul>
+</li>
+<li><code>scanf()</code>函数对于<strong>double</strong>类型要使用<code>l</code>修饰符。
+<table>
+<thead>
+<tr>
+<th><strong>转换说明</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%c</code></td>
+<td>把输入解释为字符</td>
+</tr>
+<tr>
+<td><code>%d</code></td>
+<td>把输入解释为有符号十进制整数</td>
+</tr>
+<tr>
+<td><code>%e</code>、<code>%f</code>、<code>%g</code>、<code>%a</code></td>
+<td>把输入解释为浮点数</td>
+</tr>
+<tr>
+<td><code>%E</code>、<code>%F</code>、<code>%G</code>、<code>%A</code></td>
+<td>把输入解释为浮点数</td>
+</tr>
+<tr>
+<td><code>%i</code></td>
+<td>把输入解释为有符号十进制整数</td>
+</tr>
+<tr>
+<td><code>%o</code></td>
+<td>把输入解释为有符号八进制整数</td>
+</tr>
+<tr>
+<td><code>%p</code></td>
+<td>把输入解释为指针（地址）</td>
+</tr>
+<tr>
+<td><code>%s</code></td>
+<td>把输入解释为字符串。从第一个非空白字符开始，到下一个空白字符之前的所有字符都是输入</td>
+</tr>
+<tr>
+<td><code>%u</code></td>
+<td>把输入解释为无符号十进制整数</td>
+</tr>
+<tr>
+<td><code>%x</code>、<code>%X</code></td>
+<td>把输入解释为有符号十六进制整数</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><code>scanf()</code>转换说明中的修饰符如下：
+<table>
+<thead>
+<tr>
+<th><strong>转换说明</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*</code></td>
+<td>抑制赋值，如<code>%*d</code></td>
+</tr>
+<tr>
+<td>数字</td>
+<td>最大字段宽度。输入达到最大字段宽度处或第一次遇到空白字符时终止。如<code>%10s</code></td>
+</tr>
+<tr>
+<td><code>hh</code></td>
+<td>把整数作为<strong>singed char</strong>或<strong>unsigned char</strong>类型读取。如<code>%hhd</code>、<code>%hhu</code></td>
+</tr>
+<tr>
+<td><code>ll</code></td>
+<td>把整数作为<strong>long long</strong>或<strong>unsigned long long</strong>类型读取。如<code>%lld</code>、<code>%llu</code></td>
+</tr>
+<tr>
+<td><code>h</code>、<code>l</code>或<code>L</code></td>
+<td><code>%hd</code>和<code>%hi</code>把对应的值存储为<strong>short int</strong>类型。<code>%ho</code>、<code>%hx</code>、<code>%hu</code>把对应的值存储为<strong>unsigned short int</strong>类型。<code>%ld</code>和<code>%li</code>表明把对应的值存储为<strong>long</strong>类型。<code>%lo</code>、<code>%lx</code>和<code>%lu</code>表明把对应的值存储为<strong>unsigned long</strong>类型。<code>%le</code>、<code>%lf</code>、<code>%lg</code>把对应的值存储为<strong>double</strong>类型。在<code>e</code>、<code>f</code>和<code>g</code>前使用<code>L</code>而不是<code>l</code>，表明把对应的值存储为<strong>long double</strong>类型。如果没有修饰符，<code>d</code>、<code>i</code>、<code>o</code>和<code>x</code>表明对应的值被存储为<strong>int</strong>类型，<code>f</code>和<code>g</code>表明把对应的值存储为<strong>float</strong>类型。</td>
+</tr>
+<tr>
+<td><code>j</code></td>
+<td>在类型转换说明后面时，表明使用<strong>intmax_t</strong>或<strong>uintmax_t</strong>类型。如<code>%jd</code>、<code>%ju</code>。</td>
+</tr>
+<tr>
+<td><code>z</code></td>
+<td>在类型转换说明后面时，表明使用<code>sizeof</code>的返回类型。如<code>%zd</code>、<code>%zo</code>。</td>
+</tr>
+<tr>
+<td><code>t</code></td>
+<td>在类型转换说明后面时，表明使用两个指针差值的类型。如<code>%td</code>、<code>%tx</code>。</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><code>scanf()</code>函数允许把普通字符放在格式字符串中。除空格字符外的普通字符必须与输入字符串严格匹配。</li>
+<li>除了<code>%c</code>，其它转换说明都会自动跳过待输入值前面所有的空白。因此<code>scanf(&quot;%d%d&quot;, &amp;n, &amp;m)</code>和<code>scanf(&quot;%d %d&quot;, &amp;n, &amp;m)</code>的行为相同。
+<ul>
+<li><code>scanf(&quot;%c&quot;, &amp;ch)</code>从输入中的第一个字符开始读取。</li>
+<li><code>scanf(&quot; %c&quot;, &amp;ch)</code>从输入中的第一个非空白字符开始读取。</li>
+</ul>
+</li>
+<li><code>scanf()</code>函数返回成功读取的项数。如果没有成功读取任何项，则返回0。当<code>scanf()</code>监测到文件结尾时，会返回<strong>EOF</strong>。</li>
+<li><code>printf()</code>函数使用<code>*</code>修饰符，根据参数指定字段宽度或（和）精度。</li>
+<li><code>scanf()</code>函数使用<code>*</code>修饰符，跳过相应的输入项。可用于读取文件中特定列的内容。</li>
+</ul>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/cs/cprimerplus/3-c/">第3章 数据和C</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

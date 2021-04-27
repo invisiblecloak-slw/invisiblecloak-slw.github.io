@@ -6,7 +6,21 @@
     <description>Recent content in Data Structure and Algorithm on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/categories/data-structure-and-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/categories/data-structure-and-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0049-group anagrams</title>
+      <link>https://qidi.ink/post/2021/04/27/0049-group-anagrams/</link>
+      <pubDate>Tue, 27 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/04/27/0049-group-anagrams/</guid>
+      <description>问题描述 给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排序不同的字符串。
+ 示例:
+ 输入: [&amp;lsquo;eat&amp;rsquo;, &amp;lsquo;tea&amp;rsquo;, &amp;lsquo;tan&amp;rsquo;, &amp;lsquo;ate&amp;rsquo;, &amp;lsquo;nat&amp;rsquo;, &amp;lsquo;bat&amp;rsquo;]
+输出: [ [&amp;lsquo;ate&amp;rsquo;,&amp;lsquo;eat&amp;rsquo;,&amp;lsquo;tea&amp;rsquo;], [&amp;lsquo;nat&amp;rsquo;, &amp;lsquo;tan&amp;rsquo;], [&amp;lsquo;bat&amp;rsquo;] ]
+ 说明:
+ 所有输入均为小写字母。 不考虑答案输出的顺序。   代码 以排序后的字符串作为键 class Solution: def groupAnagrams(self, strs: List[str]) -&amp;gt; List[List[str]]: hashTable = collections.defaultdict(list) for word in strs: hashTable[&amp;#39;&amp;#39;.join(sorted(word))].append(word) return list(hashTable.values()]) 以字符串中各字母的频次统计作为键 class Solution: def groupAnagrams(self, strs: List[str]) -&amp;gt; List[List[str]]: hashTable = collections.default(list) for word in strs: cnt = [0] * 26 for ch in word: cnt[ord(ch) - ord(&amp;#39;a&amp;#39;)] += 1 hashTable[tuple(cnt)].</description>
+    </item>
+    
     <item>
       <title>0238-product of array except self</title>
       <link>https://qidi.ink/post/2021/04/26/0238-product-of-array-except-self/</link>
