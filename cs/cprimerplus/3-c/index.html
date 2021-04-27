@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>第3章 数据和C - XIU</title>
+    <meta property="og:title" content="第3章 数据和C - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="程序离不开数据。程序利用数字、字母和文字等数据完成某些任务。
+[&amp;hellip;] 精确宽度整数类型
+[&amp;hellip;] 最小宽度类型
+[&amp;hellip;] 最快最小宽度类型
+[&amp;hellip;] 系统最大整数类型
+[&amp;hellip;] 浮点型常量
+[&amp;hellip;] 打印浮点数
+[&amp;hellip;] 浮点数的上溢和下溢
+[&amp;hellip;] 浮点数舍入错误
+[&amp;hellip;] 浮点数实现标 &amp;hellip;">
+      <meta property="og:description" content="程序离不开数据。程序利用数字、字母和文字等数据完成某些任务。
+[&amp;hellip;] 精确宽度整数类型
+[&amp;hellip;] 最小宽度类型
+[&amp;hellip;] 最快最小宽度类型
+[&amp;hellip;] 系统最大整数类型
+[&amp;hellip;] 浮点型常量
+[&amp;hellip;] 打印浮点数
+[&amp;hellip;] 浮点数的上溢和下溢
+[&amp;hellip;] 浮点数舍入错误
+[&amp;hellip;] 浮点数实现标 &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="https://qidi.ink/images/Octopus_pills.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="cs">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">首页</a></li>
+  
+  <li><a href="/cs/cprimerplus">C Primer Plus</a></li>
+  
+  <li><a href="/cs/dsaa/">数据结构与算法分析-C</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>第3章 数据和C</h1>
+
+<h3>Xiu Di
+  /  2021-04-26</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>程序离不开<strong>数据</strong>。程序利用数字、字母和文字等数据完成某些任务。</p>
+<h2 id="变量与常量数据">变量与常量数据</h2>
+<ul>
+<li><strong>数据</strong>是承载信息的数字和字符。</li>
+<li>在程序运行过程中没有发生变化的量称为<strong>常量</strong>。</li>
+<li>在程序运行过程中可能会改变或被赋值的量称为<strong>变量</strong>。</li>
+</ul>
+<h2 id="数据类型关键字">数据类型关键字</h2>
+<ul>
+<li><strong>C</strong>语言通过识别<strong>数据类型</strong>来区分和使用不同的数据。</li>
+<li><strong>常量</strong>数据一般通过用户书写的形式识别。<strong>变量</strong>则是在声明时指定其类型。</li>
+<li><strong>K&amp;R C</strong>最初给定了七个与类型相关的关键字<strong>int</strong>、<strong>long</strong>、<strong>short</strong>、<strong>unsigned</strong>、<strong>char</strong>、<strong>float</strong>、<strong>double</strong>。</li>
+<li><strong>C90</strong>标准添加了关键字<strong>signed</strong>和<strong>void</strong>。</li>
+<li><strong>C99</strong>标准添加了关键字<code>_Bool</code>、<code>_Complex</code>和<code>_Imaginary</code>。</li>
+<li><strong>C</strong>语言中，用<strong>int</strong>关键字表示基本的整数类型。
+<ul>
+<li>关键字<strong>long</strong>、<strong>short</strong>、<strong>unsigned</strong>和<strong>signed</strong>用于提供基本整数类型的变式。如<code>unsigned short int</code>和<code>long long int</code>。</li>
+</ul>
+</li>
+<li><strong>C</strong>语言中，用<strong>char</strong>关键字指定字母和其它字符。也可用<strong>char</strong>类型表示较小的数。</li>
+<li><strong>C</strong>语言中，用<strong>float</strong>、<strong>double</strong>和<strong>long double</strong>表示带小数点的数。</li>
+<li><strong>C</strong>语言中，<code>_Bool</code>类型表示布尔值，<code>_Complex</code>和<code>_Imaginary</code>分别表示复数和虚数。</li>
+<li>通过上述关键字创建的类型，按照计算机的存储方式可以分为两大基本类型：<strong>整数类型</strong>和<strong>浮点数类型</strong>。</li>
+<li>在某些系统化的命名约定中，在变量名中体现出变量的类型。
+<ul>
+<li>用<code>i_</code>前缀表示<strong>int</strong>类型。如<code>i_smart</code>。</li>
+<li>用<code>us_</code>前缀表示<strong>unsigned short</strong>类型。如<code>us_versmart</code>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="位字节字">位、字节、字</h2>
+<ul>
+<li><strong>位</strong>、<strong>字节</strong>、<strong>字</strong>用于描述计算机数据单元或存储单元，主要指<strong>存储单元</strong>。</li>
+<li><strong>位</strong>是计算机内存的基本构建块，计算机中<strong>位</strong>的数量十分庞大。<strong>位</strong>用于设置<strong>开</strong>或<strong>关</strong>。</li>
+<li><strong>字节</strong>是常用的计算机存储单位。在<strong>字节</strong>的标准定义中，1<strong>字节</strong>为8<strong>位</strong>。</li>
+<li><strong>字</strong>是设计计算机时给定的自然存储单位。计算机的字长越大，其数据转移越快，允许的内存访问也越多。</li>
+</ul>
+<h2 id="整数">整数</h2>
+<ul>
+<li><strong>C</strong>语言中，<strong>整数</strong>是没有小数部分的数。计算机以<strong>二进制数字</strong>存储整数。</li>
+</ul>
+<h3 id="int类型">int类型</h3>
+<ul>
+<li><strong>int</strong>类型是有符号整型，取值范围依系统而异。
+<ul>
+<li>一般而言，存储一个<strong>int</strong>要占用一个机器字长。</li>
+<li><strong>ISO C</strong>规定<strong>int</strong>的最小取值范围为<code>-32768 ~ 32768</code>。</li>
+<li>系统用一个特殊位的值表示有符号整数的正负号。</li>
+<li><strong>int</strong>类型被认为是计算机处理整数类型时最高效的类型。</li>
+</ul>
+</li>
+</ul>
+<h3 id="其它整数类型">其它整数类型</h3>
+<ul>
+<li><strong>C</strong>语言提供三个附属关键字修饰基本整数类型：<strong>short</strong>、<strong>long</strong>和<strong>unsigned</strong>。
+<ul>
+<li><strong>short int</strong>类型或<strong>short</strong>占用的存储空间<strong>可能比</strong>int类型少，常用于较小数值的场合以节省空间。
+<ul>
+<li><strong>C</strong>语言规定<strong>short</strong>类型至少占16位。</li>
+<li>在给函数传递参数时，<strong>C</strong>编译器会把<strong>short</strong>类型的值自动转换成<strong>int</strong>类型的值。</li>
+</ul>
+</li>
+<li><strong>long int</strong>或<strong>long</strong>占用的存储空间<strong>可能比</strong>int类型多，适用于较大数值的场合。
+<ul>
+<li><strong>C</strong>语言规定<strong>long</strong>类型至少占32位。</li>
+</ul>
+</li>
+<li><strong>long long int</strong>或<strong>long long</strong>（<strong>C99</strong>加入）占用的存储空间可能比<strong>long</strong>多，适用于更大数值的场合。<strong>long long</strong>类型至少占<strong>64</strong>位。
+<ul>
+<li><strong>C</strong>语言规定<strong>long long</strong>类型至少占64位。</li>
+</ul>
+</li>
+<li><strong>unsigned int</strong>或<strong>unsigned</strong>用于表达非负值。
+<ul>
+<li><strong>unsigned</strong>类型中，用于表示正负号的位现用于表示另一个二进制位，故无符号整型可以表示更大的数。</li>
+</ul>
+</li>
+<li><strong>C</strong>语言只规定<strong>short</strong>占用的存储空间不能多于<strong>int</strong>，<strong>long</strong>占用的存储空间不能少于<strong>int</strong>。
+<ul>
+<li>即<strong>C</strong>语言只规定了基本数据类型的最小取值范围。</li>
+<li>这种规定是为了适应不同的机器。</li>
+<li>在运行<strong>Windows 3.x</strong>的机器，<strong>int</strong>和<strong>short</strong>类型都占16位，<strong>long</strong>类型占32位。</li>
+<li>后来<strong>Windows</strong>和<strong>Apple</strong>系统使用16位存储<strong>short</strong>类型，32位存储<strong>int</strong>类型和<strong>long</strong>类型。</li>
+<li>现在计算机普遍使用64位处理器。为存储64位的整数，引入了<strong>long long</strong>类型。</li>
+<li>当前个人计算机上常见的设置是：<strong>short</strong>占16位，<strong>int</strong>占16位或32位，<strong>long</strong>占32位，<strong>long long</strong>占64位。</li>
+</ul>
+</li>
+<li><strong>C90</strong>标准中添加了<strong>unsigned long int</strong>或<strong>unsigned long</strong>和<strong>unsigned short int</strong>或<strong>unsigned short</strong>类型。<strong>C99</strong>标准又添加了<strong>unsigned long long int</strong>或<strong>unsigned long long</strong>。</li>
+<li>任何有符号类型前面添加关键字<strong>signed</strong>，可以强调使用有符号类型的意图。</li>
+<li>对于数字常量，编译器首先考虑<strong>int</strong>类型，若超出了<strong>int</strong>类型的表示范围，编译器会考虑<strong>long</strong>类型。若超出<strong>long</strong>类型表示范围，考虑<strong>unsigned long</strong>。之后考虑<strong>long long</strong>和<strong>unsigned long long</strong>类型。
+<ul>
+<li>八进制和十六进制常量被视为<strong>int</strong>类型。</li>
+</ul>
+</li>
+<li>若需要编译器将一个小常量以<strong>long</strong>对待，可以在值末尾加上<strong>l</strong>或<strong>L</strong>后缀。
+<ul>
+<li><strong>l</strong>或<strong>L</strong>后缀也可以用于八进制和十六进制整数。如<strong>020L</strong>和<strong>0x10L</strong>。</li>
+</ul>
+</li>
+<li>在支持<strong>long long</strong>类型的系统中，可以使用<strong>ll</strong>或<strong>LL</strong>后缀表示<strong>long long</strong>类型的值，<strong>u</strong>或<strong>U</strong>后缀表示<strong>unsigned long long</strong>。如<strong>3LL</strong>、<strong>5ull</strong>、<strong>10LLU</strong>、<strong>6LLU</strong>或<strong>9ULL</strong>。</li>
+<li><strong>溢出</strong>：整数超出了相应类型的取值范围。在<strong>C</strong>语言中，<strong>溢出</strong>是未定义的行为。</li>
+<li><strong>C</strong>语言中有多种<code>printf()</code>格式：
+<ul>
+<li><code>%u</code>用于打印<strong>unsigned int</strong>类型的值。</li>
+<li><code>%ld</code>用于打印<strong>long</strong>类型的值。</li>
+<li>在<strong>x</strong>和<strong>o</strong>前面可以使用<strong>l</strong>前缀：<code>%lx</code>表示以十六进制格式打印<strong>long</strong>类型整数，<code>%lo</code>表示以八进制打印<strong>long</strong>类型整数。</li>
+<li>对于<strong>short</strong>类型，可以使用<strong>h</strong>前缀。<code>%hd</code>表示以十进制显示<strong>short</strong>类型的整数，<code>%ho</code>表示以八进制显示<strong>short</strong>类型的整数。</li>
+<li><code>h</code>和<code>l</code>前缀都可以与<code>u</code>一起使用，勇于表示无符号类型。如<code>%lu</code>用于打印<strong>unsigned long</strong>类型。</li>
+<li>需要确保<code>printf()</code>函数中转换说明的数量与待打印值的数量相同，以及待打印值的类型与转换说明的类型匹配。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="字符char类型">字符：char类型</h3>
+<ul>
+<li>计算机使用数字编码来处理字符。
+<ul>
+<li>用于存储字符的<strong>char</strong>类型是一种整数类型，存储的是整数而非字符。
+<ul>
+<li>在<strong>ASCII</strong>编码中，整数65代表大写字母A。存储字母A实际是存储整数65。</li>
+</ul>
+</li>
+<li><strong>C</strong>语言把1字节定义为<strong>char</strong>类型占用的位数。
+<ul>
+<li>如果要表示基本字符集，也可以是16位或更大。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>C</strong>语言中，用单引号括起来的单个字符被称为<strong>字符常量</strong>，可以使用<strong>字符常量</strong>初始化字符变量。</li>
+<li>某些<strong>ASCII</strong>字符是<strong>非打印字符</strong>，<strong>C</strong>语言有三种表示<strong>非打印字符</strong>的方式：
+<ul>
+<li>使用<strong>ASCII</strong>码。
+<ul>
+<li>蜂鸣字符的<strong>ASCII</strong>值是7，因此可写作：<code>char beep = 7</code>。</li>
+</ul>
+</li>
+<li>用<strong>转义序列</strong>表示一些特殊字符。
+<ul>
+<li><strong>活跃位置</strong>指的是显示设备中下一个字符将出现的位置。显示设备包括屏幕、电传打字机、打印机等。<strong>屏幕光标位置</strong>就是活跃位置。</li>
+<li><code>\a</code>：<strong>警报</strong>，发出警报，不改变活跃位置。</li>
+<li><code>\r</code>：<strong>回车</strong>，活跃位置移到当前行的开始处。</li>
+<li><code>\n</code>：<strong>换行</strong>，活跃位置移到下一行的开始处。</li>
+<li><code>\b</code>：<strong>退格</strong>，活跃位置移到前一个位置，会出现擦除和非擦除的情况。</li>
+<li><code>\t</code>：<strong>水平制表符</strong>，活跃位置移动到下一个水平制表点。</li>
+<li><code>\v</code>：<strong>垂直制表符</strong>，活跃位置移动到下一个垂直制表点。</li>
+<li><code>\?</code>：<strong>问号</strong>。</li>
+</ul>
+</li>
+<li>在<strong>转义序列</strong>中使用<strong>八进制值</strong>或<strong>十六进制值</strong>以表示<strong>ASCII</strong>码中的一个字符。
+<ul>
+<li><code>\0oo</code>：<strong>八进制值</strong>，每个<strong>o</strong>可表示<code>0~7</code>中的每一个数。</li>
+<li><code>\xhh</code>：<strong>十六进制值</strong>，每个<strong>h</strong>可表示<code>0~f</code>中的每一个数。</li>
+</ul>
+</li>
+<li>在<strong>非打印字符</strong>中，考虑如下的优先级：
+<ul>
+<li>优先使用<strong>转移序列</strong>而非<strong>ASCII</strong>码表示。这样在不使用<strong>ASCII</strong>码的系统中仍然有效。</li>
+<li>使用<strong>ASCII</strong>码时，使用<strong>八进制值</strong>或<strong>十六进制值</strong>的转移序列可以嵌入到字符串中，而直接使用<strong>ASCII</strong>码的数字编码将会被作为普通字符。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>printf()</code>函数中使用<code>%c</code>指定待打印的字符。使用<code>%d</code>打印<strong>char</strong>类型变量的整数值。</li>
+<li>有的<strong>编译器</strong>将<strong>char</strong>实现为有符号，相应地表示范围为<code>-128~127</code>。若<strong>char</strong>实现为无符号，则表示范围是<code>0~255</code>。
+<ul>
+<li><strong>C90</strong>标准允许在关键字<strong>char</strong>前使用<strong>signed</strong>或<strong>unsigned</strong>。<strong>signed char</strong>表示有符号字符类型，<strong>unsigned char</strong>表示无符号自负类型。
+<ul>
+<li><strong>unsigned</strong>和<strong>signed</strong>修饰在表示和处理小整数时很有用。</li>
+<li>如果只用<strong>char</strong>处理字符，那么<strong>char</strong>前无需使用任何修饰符。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="_bool类型"><code>_Bool</code>类型</h3>
+<ul>
+<li><strong>C99</strong>标准新增了<code>_Bool</code>类型用于表示布尔值，即逻辑值<strong>true</strong>和<strong>false</strong>。</li>
+<li><strong>C</strong>语言用值1表示<strong>true</strong>，用值0表示<strong>false</strong>，<code>_Bool</code>类型实际上也是一种整数类型。</li>
+<li><code>_Bool</code>类型占据1<strong>位</strong>的存储空间。</li>
+</ul>
+<h3 id="可移植类型stdinth和inttypesh">可移植类型<code>stdint.h</code>和<code>inttypes.h</code></h3>
+<ul>
+<li><strong>C</strong>语言提供了许多整数类型，但某些类型名在不同系统中的功能不同。</li>
+<li><strong>C99</strong>新增了头文件<code>stdint.h</code>和<code>inttypes.h</code>，确保<strong>C</strong>语言类型在各系统中的功能相同。</li>
+</ul>
+<p><strong>精确宽度整数类型</strong></p>
+<ul>
+<li><strong>int32_t</strong>表示32位的有符号整数类型。
+<ul>
+<li>在使用32位<strong>int</strong>的系统中，头文件会把<strong>int32_t</strong>作为<strong>int</strong>的别名。</li>
+<li>在<strong>int</strong>为16位、<strong>long</strong>为32位的系统中，头文件会把<strong>int32_t</strong>作为<strong>long</strong>的别名。</li>
+</ul>
+</li>
+<li>某些系统可能不支持<strong>int32_t</strong>，因此<strong>精确宽度整数类型</strong>是可选项。</li>
+</ul>
+<p><strong>最小宽度类型</strong></p>
+<ul>
+<li><strong>最小宽度类型</strong>保证所示的类型一定是<strong>至少有指定宽度</strong>的<strong>最小整数类型</strong>。</li>
+<li><strong>int_least8_t</strong>是可容纳8位有符号整数值的类型中宽度最小的类型的别名。
+<ul>
+<li>若某系统最小整数类型是16位，可能不会定义<strong>int8_t</strong>类型，但该系统仍可使用<strong>int_least8_t</strong>类型。即把后者实现为16位的整数类型。</li>
+</ul>
+</li>
+</ul>
+<p><strong>最快最小宽度类型</strong></p>
+<ul>
+<li>某些应用相比空间而言更关心速度。</li>
+<li><strong>C99</strong>和<strong>C11</strong>定义了一组<strong>可使计算达到最快的类型集合</strong>。</li>
+<li><strong>int_fast8_t</strong>定义为系统中对8位有符号值而言运算最快的整数类型的别名。</li>
+</ul>
+<p><strong>系统最大整数类型</strong></p>
+<ul>
+<li><strong>C99</strong>定义了最大的有符号整数类型<strong>intmax_t</strong>。类似地，<strong>uintmax_t</strong>表示最大的无符号整数类型。    - 这些类型有可能比<strong>long long</strong>和<strong>unsigned long</strong>类型更大。
+<ul>
+<li><strong>C</strong>编译器除了实现标准规定的类型之外，还可利用<strong>C</strong>语言实现其它类型。
+<ul>
+<li>一些编译器在标准中引入<strong>long long</strong>类型之前，已提前实现了该类型。
+<strong>可移植类型相应的输入和输出</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>C99</strong>和<strong>C11</strong>不仅提供可移植的类型名，还提供相应的输入和输出。</li>
+<li><code>printf()</code>打印特定类型时要求与相应的转换说明匹配。<strong>C</strong>标准提供了一些<strong>字符串宏</strong>来显示<strong>可移植类型</strong>。
+<ul>
+<li>如<code>inttypes.h</code>头文件中定义了<strong>PRId32</strong>字符串宏，代表打印32位有符号值<strong>int32_t</strong>的合适转换说明。</li>
+</ul>
+</li>
+</ul>
+<h2 id="浮点数">浮点数</h2>
+<ul>
+<li><strong>C</strong>语言中，一个值后面加上一个小数点，该值就成为一个浮点值。</li>
+<li>计算机对于<strong>浮点数</strong>和<strong>整数</strong>的存储方案不同。
+<ul>
+<li>计算机把<strong>浮点数</strong>分为<strong>小数部分</strong>和<strong>指数部分</strong>来表示，且对这两部分分开存储。</li>
+</ul>
+</li>
+<li>浮点数类型能够表示包括小数在内更大范围的数。浮点数的表示类似<strong>科学记数法</strong>。此技术系统常用于表达非常大或非常小的数。<strong>e记数法</strong>是科学记数法在计算机中的写法。</li>
+<li><strong>C</strong>标准规定<strong>float</strong>类型必须至少能表示六位有效数字，取值范围至少是10<sup>-37</sup>~10<sup>+37</sup>。</li>
+<li>通常，系统存储一个浮点数要占用32位。其中8位用于表示<strong>指数</strong>的值和符号，剩下24位用于表示<strong>非指数</strong>部分（也叫做<strong>尾数</strong>或<strong>有效数</strong>）及其符号。</li>
+<li><strong>C</strong>语言提供的另一种浮点数类型是<strong>double</strong>。<strong>double</strong>类型与<strong>float</strong>类型的最小取值范围相同，但至少必须能表示10位有效数字。一般情况下，<strong>double</strong>占用64位而不是32位。
+<ul>
+<li>某些系统将多出的32位全部用来表示<strong>非指数部分</strong>，增加了有效数字的位数（提高了精度）、减少了舍入误差。</li>
+<li>某些系统把其中的一些位分配给<strong>指数部分</strong>，增加了可表示数的范围。
+-上述两种方法中，<strong>double</strong>类型的值至少有13位有效数字，超出了标准的最低位数规定。</li>
+</ul>
+</li>
+<li><strong>C</strong>语言的第三种浮点类型是<strong>long double</strong>，以满足比<strong>double</strong>类型更高的精度要求以及提供更大的浮点数范围。不过<strong>C</strong>只保证<strong>long double</strong>类型至少与<strong>double</strong>类型的精度相同。</li>
+</ul>
+<p><strong>浮点型常量</strong></p>
+<ul>
+<li>浮点型常量的基本形式是：有符号的数字（包括小数点），后面紧跟<strong>e</strong>或<strong>E</strong>，最后是一个有符号数表示10的指数。
+<ul>
+<li><code>3.14159</code>、<code>.2</code>、<code>4e16</code>、<code>.8E-5</code>、<code>100.</code>。</li>
+</ul>
+</li>
+<li>默认情况下，编译器假定<strong>浮点型</strong>常量是<strong>double</strong>类型的精度。
+<ul>
+<li>在浮点数后面加上<strong>f</strong>或<strong>F</strong>会覆盖默认设置，编译器会将浮点型常量看作<strong>float</strong>类型。</li>
+<li>在浮点数后面加上<strong>l</strong>或<strong>L</strong>后缀会使得浮点数成为<strong>long double</strong>类型。</li>
+<li>没有后缀的浮点型常量是<strong>double</strong>类型。</li>
+</ul>
+</li>
+<li><strong>C99</strong>标准添加了一种新的浮点型常量格式：用<strong>十六进制和2的幂表示浮点型常量</strong>。
+<ul>
+<li>在十六进制数前加上十六进制前缀（<strong>0x</strong>或<strong>0X</strong>），用<strong>p</strong>和<strong>P</strong>分别代替<strong>e</strong>和<strong>E</strong>，用2的幂代替10的幂。</li>
+<li><strong>0xa.1fp10</strong>等于(10 + 1/16 + 15/256) * 1025。</li>
+</ul>
+</li>
+</ul>
+<p><strong>打印浮点数</strong></p>
+<ul>
+<li><code>printf()</code>函数使用<code>%f</code>转换说明打印十进制计数法的<strong>float</strong>和<strong>double</strong>类型浮点数。</li>
+<li>用<code>%e</code>或<code>%E</code>打印指数记数法的浮点数。</li>
+<li>若系统支持十六进制格式的浮点数，可以用<code>%a</code>和<code>%A</code>分别代替<code>%e</code>和<code>%E</code>。</li>
+<li>打印<strong>long double</strong>类型要使用<code>%Lf</code>、<code>%Le</code>、<code>%LE</code>、<code>%La</code>、<code>%LA</code>转换说明。</li>
+<li>向在函数原型中未显示说明参数类型的函数（如<code>printf()</code>）传递参数时，<strong>C</strong>编译器会将<strong>float</strong>类型的值自动转换成<strong>double</strong>类型。</li>
+</ul>
+<p><strong>浮点数的上溢和下溢</strong></p>
+<ul>
+<li>当数字过大超出当前类型能表达的范围时，会发生<strong>上溢</strong>。
+<ul>
+<li><strong>C</strong>语言规定，在发生<strong>上溢</strong>的情况下，会给变量赋一个表示<strong>无穷大</strong>的值，<code>printf()</code>显示该值为<strong>inf</strong>或<strong>infinity</strong>或其它有无穷含义的内容。</li>
+</ul>
+</li>
+<li>计算过程中损失了原末尾有效位上数字的情况叫做<strong>下溢</strong>。<strong>C</strong>语言把损失了类型全精度的浮点值称为<strong>低于正常</strong>的浮点值。</li>
+<li><strong>C</strong>语言中有另一个特殊的浮点值<strong>NaN(Not a number)</strong>。</li>
+</ul>
+<p><strong>浮点数舍入错误</strong></p>
+<ul>
+<li>考虑给定一个数，加上1，再减去给定的数，在某些浮点数运算中，结果并非为1。</li>
+<li>这种情况的发生是因为计算机缺少足够的有效数字位数（精度）来完成正确的计算。</li>
+</ul>
+<p><strong>浮点数实现标准</strong></p>
+<ul>
+<li>为统一浮点数表示法的实现方式，<strong>IEEE</strong>未浮点数计算和表示法开发了一套标准。</li>
+<li><strong>2011</strong>年该标准被<strong>ISO/IEC/IEEE 60559:2011</strong>标准收录，该标准作为<strong>C99</strong>和<strong>C11</strong>的可选项，符合硬件要求的平台可以开启。</li>
+</ul>
+<h2 id="八进制和十六进制">八进制和十六进制</h2>
+<ul>
+<li><strong>C</strong>语言通常嘉定整型常量是十进制数。而<strong>八进制</strong>和<strong>十六进制</strong>记数系统在表达与计算机相关的值时很方便。
+<ul>
+<li><strong>十六进制</strong>数的每一位的数恰好由4位二进制数表示。</li>
+<li><strong>C</strong>语言使用特定的前缀表示使用哪种机制。
+<ul>
+<li><strong>0x</strong>或<strong>0X</strong>前缀表示十六进制值。</li>
+<li><strong>0</strong>前缀表示八进制值。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用不同进制数是出于便利考虑，不影响数据存储方式。计算机内部采用二进制进行编码。</li>
+<li><strong>C</strong>程序中可以显示不同进制的数。
+<ul>
+<li>以十进制显示数字，用<code>%d</code>。</li>
+<li>以八进制显示数字，用<code>%o</code>。显示前缀<code>0</code>，则使用<code>%#0</code>。</li>
+<li>以十六进制显示数字，用<code>%x</code>。显示前缀<code>0x</code>或<code>0X</code>，使用<code>%#x</code>或<code>%#X</code>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="复数和虚数类型">复数和虚数类型</h2>
+<ul>
+<li><strong>C99</strong>标准支持复数类型和虚数类型。<strong>C11</strong>标准把整个复数软件包都作为可选项。</li>
+<li><strong>C</strong>语言有三种复数类型<code>float _Complex</code>、<code>double _Complex</code>和<code>long double _Complex</code>。
+<ul>
+<li><code>float_Complex</code>类型的变量包含两个<strong>float</strong>类型的值，分别表示复数的实部和虚部。</li>
+</ul>
+</li>
+<li><strong>C</strong>语言的三种虚数类型是<strong>float_Imaginary</strong>、<strong>double_Imaginary</strong>和<strong>long double_Imaginary</strong>。</li>
+<li>如果包含<code>complex.h</code>头文件，可以使用<code>complex</code>作为关键字代替<code>_Complex</code>，用<code>I</code>代替-1的平方根。</li>
+</ul>
+<h2 id="类型大小">类型大小</h2>
+<ul>
+<li><code>sizeof</code>是<strong>C</strong>语言的内置运算符。此运算符以字节为单位给出制定类型的大小。</li>
+<li><strong>C99</strong>和<strong>C11</strong>提供<code>%zd</code>转换说明匹配<code>sizeof</code>的返回类型（<code>size_t</code>）。
+<ul>
+<li>一些不支持<strong>C99</strong>和<strong>C11</strong>的编译器可用<code>%u</code>或<code>%lu</code>代替<code>%zd</code>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="刷新输出">刷新输出</h2>
+<ul>
+<li><code>printf()</code>最初把输出发送到中间存储区域<strong>缓冲区</strong>，然后<strong>缓冲区</strong>中的内容再不断被发送到屏幕或文件（<strong>刷新缓冲区</strong>）。</li>
+<li><strong>C</strong>标准规定，当<strong>缓冲区满</strong>、<strong>遇到换行符</strong>或<strong>需要输入时</strong>，将会<strong>刷新缓冲区</strong>。</li>
+<li>可以使用<code>fflush()</code>函数刷新缓冲区。</li>
+</ul>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/cs/cprimerplus/2-c/">第2章 C语言概述</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

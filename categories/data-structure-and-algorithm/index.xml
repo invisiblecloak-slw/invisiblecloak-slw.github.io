@@ -6,7 +6,23 @@
     <description>Recent content in Data Structure and Algorithm on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/categories/data-structure-and-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/categories/data-structure-and-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0238-product of array except self</title>
+      <link>https://qidi.ink/post/2021/04/26/0238-product-of-array-except-self/</link>
+      <pubDate>Mon, 26 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/04/26/0238-product-of-array-except-self/</guid>
+      <description>问题描述 给定长度为n的整数数组nums，其中n&amp;gt;1，返回输出数组output[i]等于nums中除nums[i]之外其余各元素的乘积。
+ 示例
+ 输入：[1,2,3,4]
+输出：[24,12,8,6]
+ 提示：数目数据保证数组之中任意元素的全部前缀元素和后缀）甚至是整个数组）的乘积都在32位整数范围内。
+说明：不要使用除法，且在O(n)时间复杂度哪完成此题。
+进阶：老吕在常数空间复杂度内解决这一问题。（出于对空间复杂度分析的目的，输出数组不被视为额外空间。）
+ 代码 class Solution: def productExceptSelf(self, nums: List[int]) -&amp;gt; List[int]: n = len(nums) L, R, res = [1] * n, [1] * n, [1] * n for i in range(1, n): L[i] = nums[i-1] * L[i-1] for j in range(n-2, -1, -1): R[j] = R[j+1] * nums[j+1] for i in range(n): res[i] = L[i] * R[i] return res class Solution: def productExceptSelf(self, nums: List[int]) -&amp;gt; List[int]: n = len(nums) res = [1] * n R = 1 for i in range(1, n): res[i] = nums[i-1] * res[i-1] for j in range(n-1, -1, -1): res[j], R = res[j] * R, R * nums[j] return res 分析  直观上可以通过以下方式解决：计算数组全部元素之积，再对数组中的每个元素x，将乘积除以x求得除自身以外数组的乘积。  若输入数组中出现0，那么本方法将会失效。   不必计算数组全部元素之积再除以给定索引处的数字得到相应的答案。可以利用索引左侧所有数字的乘积和索引右侧所有数字的乘积（前缀与后缀）相乘得到答案。  参考链接 除自身以外数组的乘积</description>
+    </item>
+    
     <item>
       <title>0055-jump game</title>
       <link>https://qidi.ink/post/2021/04/25/0055-jump-game/</link>
