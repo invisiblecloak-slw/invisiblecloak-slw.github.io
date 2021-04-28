@@ -6,7 +6,21 @@
     <description>Recent content in Data Structure and Algorithm on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 27 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/categories/data-structure-and-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/categories/data-structure-and-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🚩0105-construct binary tree from preorder and inorder traversal</title>
+      <link>https://qidi.ink/post/2021/04/28/0105-construct-binary-tree-from-preorder-and-inorder-traversal/</link>
+      <pubDate>Wed, 28 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/04/28/0105-construct-binary-tree-from-preorder-and-inorder-traversal/</guid>
+      <description>问题描述 根据一棵树的前序遍历与中序遍历构造二叉树。
+ 示例
+ 输入:
+ 前序遍历 preorder = [3,9,20,15,7] 中序遍历 inorder = [9,3,15,20,7]  输出:
+ 3 / \ 9 20 / \ 15 7   注:假定树中没有重复的元素
+ 代码 # Definition for a binary tree node. # class TreeNode: # def __init__(self, val=0, left=None, right=None): # self.val = val # self.left = left # self.right = right class Solution: def buildTree(self, preorder: List[int], inorder: List[int]) -&amp;gt; TreeNode: self.</description>
+    </item>
+    
     <item>
       <title>0049-group anagrams</title>
       <link>https://qidi.ink/post/2021/04/27/0049-group-anagrams/</link>

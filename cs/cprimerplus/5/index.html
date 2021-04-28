@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>第5章 运算符、表达式和语句 - XIU</title>
+    <meta property="og:title" content="第5章 运算符、表达式和语句 - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="注：
+[&amp;hellip;] 类型转换规则：
+[&amp;hellip;] 待转换的值与目标类型不匹配：
+[&amp;hellip;] 目标类型是无符号整型，待赋的值是整数时，额外的位将被忽略。
+[&amp;hellip;] 目标类型是有符号整型，待赋的值是整数，结果因实现而异。
+[&amp;hellip;] 目标类型是整型，待赋的值是浮点数，则该行为未定义。
+[&amp;hellip;] 有时需要进行精确的类型转换，或表明类型转换的意 &amp;hellip;">
+      <meta property="og:description" content="注：
+[&amp;hellip;] 类型转换规则：
+[&amp;hellip;] 待转换的值与目标类型不匹配：
+[&amp;hellip;] 目标类型是无符号整型，待赋的值是整数时，额外的位将被忽略。
+[&amp;hellip;] 目标类型是有符号整型，待赋的值是整数，结果因实现而异。
+[&amp;hellip;] 目标类型是整型，待赋的值是浮点数，则该行为未定义。
+[&amp;hellip;] 有时需要进行精确的类型转换，或表明类型转换的意 &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="https://qidi.ink/images/Octopus_pills.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="cs">
+    <header class="masthead">
+      <h1><a href="/">XIU</a></h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">首页</a></li>
+  
+  <li><a href="/cs/cprimerplus">C Primer Plus</a></li>
+  
+  <li><a href="/cs/dsaa/">数据结构与算法分析-C</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>第5章 运算符、表达式和语句</h1>
+
+<h3>Xiu Di
+  /  2021-04-28</h3>
+<hr>
+
+
+      </header>
+
+
+
+<h2 id="基本运算符">基本运算符</h2>
+<ul>
+<li><strong>C</strong>语言用 <strong>运算符(operator)</strong> 表示算术运算。</li>
+<li><strong>运算对象(operand)<strong>是</strong>运算符</strong>操作的对象。</li>
+</ul>
+<h3 id="赋值运算符">赋值运算符</h3>
+<ul>
+<li><strong>C</strong>语言中，<code>=</code>不意味着相等，而是一个赋值运算符。</li>
+<li>赋值表达式语句的目的是把值存储到内存位置上。</li>
+<li>用于存储值的数据存储区域称为<strong>数据对象（data object）</strong>。</li>
+<li><strong>左值</strong>：用于标识特定<strong>数据对象</strong>的名称或表达式。
+<ul>
+<li>用<strong>const</strong>创建的变量不可修改。
+<ul>
+<li>用<strong>const</strong>创建的变量指定一个<strong>数据对象</strong>，但不可用在赋值运算符的左侧。</li>
+</ul>
+</li>
+<li><strong>可修改的左值</strong>：用于标识可修改的<strong>数据对象</strong>。</li>
+</ul>
+</li>
+<li>赋值运算符的左侧应该是<strong>可修改的左值（对象定位值）</strong>。</li>
+<li><strong>右值</strong>：能赋值给可修改左值的量，是一种<strong>表达式的值</strong>。如常量、变量、可求值的表达式。</li>
+</ul>
+<h3 id="加减符号乘法除法运算符">加、减、符号、乘法、除法运算符</h3>
+<ul>
+<li><strong>加法运算符</strong><code>+</code>用于加法运算，使其两侧的值相加。相加的值可以是变量也可以是常量。</li>
+<li><strong>减法运算符</strong><code>-</code>用于减法运算，使其左侧的数减去右侧的数。
+<ul>
+<li><code>+</code>和<code>-</code>运算符为<strong>二元运算符</strong>。</li>
+</ul>
+</li>
+<li><strong>符号运算符</strong><code>-</code>和<code>+</code>：
+<ul>
+<li><code>-</code>可以用于标明或改变一个值的代数符号。
+<ul>
+<li>以这种方式使用的负号为<strong>一元运算符</strong>。</li>
+</ul>
+</li>
+<li><strong>C90</strong>标准新增了一元运算符<code>+</code>，它不会改变运算对象的值或符号。
+<ul>
+<li><code>dozen = +12</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>乘法运算符</strong><code>*</code>用于乘法运算。</li>
+<li><strong>除法运算符</strong><code>/</code>用于除法运算。
+<ul>
+<li><code>/</code>左侧的值是被除数，右侧的值是除数。</li>
+<li>浮点数除法结果是浮点数，整数除法的结果是整数。
+<ul>
+<li>正整数除法采用<strong>截断</strong>处理，丢弃除法结果的小数部分。</li>
+<li><strong>C99</strong>标准建议负数的整数整数采用<strong>趋零截断</strong>。</li>
+</ul>
+</li>
+<li>混合整数和浮点数的计算结果是浮点数。
+<ul>
+<li>计算机会把两个运算对象转换成相同的类型。这种情况下会把整数转换成浮点数。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="运算符优先级">运算符优先级</h3>
+<ul>
+<li><strong>C</strong>语言通过运算符优先级解决运算符操作顺序的问题。</li>
+<li>上述运算符的优先级依次为：括号运算符、一元符号运算符、乘除运算符、加减运算符、赋值运算符。
+<ul>
+<li>若两运算符共享一个运算对象，则优先级决定了求职顺序。</li>
+<li>若两运算符优先级相同且处理同一个运算对象，则根据它们在语句中出现的顺序执行。</li>
+<li>若两运算符优先级相同，但不处理同一个运算对象，<strong>C</strong>并未规定先进行哪一个运算。因具体实现而异。</li>
+</ul>
+</li>
+</ul>
+<h3 id="sizeof运算符">sizeof运算符</h3>
+<ul>
+<li><code>sizeof</code>运算符以字节为单位返回运算对象的大小。<strong>C</strong>规定<code>sizeof</code>运算符返回<strong>size_t</strong>类型的值。</li>
+<li><strong>C</strong>语言有一个<strong>typedef</strong>机制，允许为现有类型创建别名。
+<ul>
+<li>如<code>typedef double real;</code>。<strong>real</strong>将作为<strong>double</strong>的别名。</li>
+</ul>
+</li>
+<li><strong>C</strong>语言规定，<code>sizeof</code>返回<strong>size_t</strong>类型的值。
+<ul>
+<li><strong>C</strong>头文件系统使用<strong>typedef</strong>将<strong>sizt_t</strong>作为<strong>unsigned int</strong>或<strong>unsigned long</strong>的别名。</li>
+<li>在使用<strong>sizt_t</strong>类型时，编译器会根据不同的系统替换标准类型。</li>
+</ul>
+</li>
+<li><strong>C99</strong>标准新增了<code>%zd</code>转换说明用于<code>printf()</code>显示<strong>sizt_t</strong>类型的值。</li>
+</ul>
+<h3 id="求模运算符">求模运算符</h3>
+<ul>
+<li>求模运算符常用于控制程序流。</li>
+<li>求模运算符给出其左侧整数除以右侧整数的余数。</li>
+<li>对于负数求模，在<strong>C99</strong>规定<strong>趋零截断</strong>之后
+<ul>
+<li>若第一个运算对象是负数，那么求模结果也是负数。</li>
+<li>若第一个运算对象是正数，那么求模结果也是正数。</li>
+<li>若<code>a</code>和<code>b</code>都是整数值，则可以通过<code>a - (a/b)*b</code>来计算<code>a%b</code>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="递增运算符递减运算符">递增运算符/递减运算符</h3>
+<ul>
+<li>递增运算符使其运算对象递增1。</li>
+<li><strong>前缀模式</strong>：<code>++</code>出现在操作对象之前。
+<ul>
+<li><code>++x</code>：在使用<code>x</code>的值之前，递增<code>x</code>。</li>
+<li><code>x++</code>：在使用<code>x</code>的值之后，递增<code>x</code>。</li>
+</ul>
+</li>
+<li><strong>后缀模式</strong>：<code>++</code>出现在操作对象之后。</li>
+<li>每种形式的递增运算符都有一个递减运算符与之对应。</li>
+<li>递增运算符和递减运算符都有很高的结合优先级，只有圆括号的优先级比它们高。</li>
+<li>递增递减运算符智能影像一个<strong>可修改的左值</strong>。<code>(x*y)++</code>的语法无效。</li>
+</ul>
+<p><strong>注</strong>：</p>
+<ul>
+<li>如果一个变量出现在一个函数的多个参数中，不要对该变量使用递增或递减运算符。</li>
+<li>如果一个变量多次出现在一个表达式中，不要对该变量使用递增或递减运算符。</li>
+</ul>
+<h2 id="表达式和语句">表达式和语句</h2>
+<ul>
+<li><strong>C</strong>的基本程序步骤由<strong>语句</strong>组成。大部分<strong>语句</strong>都由<strong>表达式</strong>组成。</li>
+</ul>
+<h3 id="表达式">表达式</h3>
+<ul>
+<li><strong>表达式</strong>由运算符和<strong>运算对象</strong>组成。
+<ul>
+<li>一些<strong>表达式</strong>由<strong>子表达式</strong>组成，<strong>子表达式</strong>是较小的表达式。</li>
+</ul>
+</li>
+<li>最简单的<strong>表达式</strong>是一个单独的<strong>运算对象</strong>。以此为基础可以建立复杂的表达式。
+<ul>
+<li><strong>运算对象</strong>可以是常量、变量或二者的组合。</li>
+</ul>
+</li>
+<li><strong>C</strong>语言的每个<strong>表达式</strong>都有一个值。
+<ul>
+<li><strong>赋值表达式</strong>的值与<strong>赋值运算符</strong>左侧变量的值相同。</li>
+</ul>
+</li>
+</ul>
+<h3 id="语句">语句</h3>
+<ul>
+<li><strong>语句</strong>是<strong>C</strong>的基本构件块。语句可以改变值或调用函数。</li>
+<li>最简单的语句是<strong>空语句</strong><code>;</code>。</li>
+<li><strong>C</strong>把末尾加上一个分号的表达式都看作是一条语句，即<strong>表达式语句</strong>。</li>
+<li>一条语句相当于一条完整的指令。但并不是所有的指令都是语句。
+<ul>
+<li><code>x = 6 + (y = 5)</code></li>
+<li>其中的子表达式<code>y = 5</code>是一条完整的指令，但它只是语句的一部分。</li>
+<li>即<strong>一条完整的指令不一定是一条语句</strong>。</li>
+</ul>
+</li>
+<li><strong>C</strong>语言有六种语句：<code>标号语句</code>、<code>复合语句</code>、<code>表达式语句</code>、<code>选择语句</code>、<code>迭代语句</code>、<code>跳转语句</code>。</li>
+<li><strong>复合语句</strong>使用花括号括起来的一条或多条语句。<strong>复合语句</strong>也称为<strong>块</strong>。</li>
+<li><code>while</code>语句是一种<strong>迭代语句</strong>，有时也被称为<strong>结构化语句</strong>，因为其结构比简单的赋值表达式语句复杂。</li>
+<li>使用<strong>缩进</strong>可以指明程序的结构，但编译器会忽略缩进。</li>
+<li><strong>C</strong>语言中，<strong>赋值</strong>和<strong>函数调用</strong>都是表达式，相应地是<code>表达式语句</code>。</li>
+<li><strong>C</strong>语言中，声明不是语句。如果删除声明后面的分号，剩下的部分不是一个表达式。
+<ul>
+<li><code>int port /* 不是表达式，没有值*/</code>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="副作用和序列点">副作用和序列点</h2>
+<ul>
+<li><strong>副作用</strong>：对<strong>数据对象</strong>或<strong>文件</strong>的修改。
+<ul>
+<li>赋值运算符、递增和递减运算符的主要使用目的就是使用其副作用。</li>
+<li><code>printf()</code>函数显示信息是其副作用。(<code>printf()</code>的返回值是待显示字符的个数)。</li>
+</ul>
+</li>
+<li><strong>序列点</strong>：程序执行的点。在该点上，所有的<strong>副作用</strong>都在进入下一步之前发生。
+<ul>
+<li><strong>C</strong>语言中，语句中的<strong>分号</strong>标记了一个<strong>序列点</strong>。
+<ul>
+<li>在一个语句中，<strong>赋值运算符</strong>、<strong>递增运算符</strong>、<strong>递减运算符</strong>对<strong>运算对象</strong>所做的改变，必须在<strong>程序执行下一条语句之前</strong>完成。</li>
+</ul>
+</li>
+<li><strong>任何一个完整的表达式结束</strong>也是一个<strong>序列点</strong>。
+<ul>
+<li><strong>完整表达式</strong>是指这个表达式不是另一个更大表达式的子表达式。</li>
+<li><strong>表达式语句</strong>中的表达式和<code>while</code>循环中作为测试条件的表达式，都是<strong>完整表达式</strong>。</li>
+<li><code>while (guests++ &lt; 10)</code>的块中，<code>guests</code>的值为递增之后的值。且<code>guests</code>完成与10的比较之后才进行递增。</li>
+<li><code>y = (4 + x++) + (6 + x++)</code>中<code>4 + x++</code>不是一个完整的表达式，<code>6 + x++</code>非完整表达式。</li>
+<li>完整表达式是整个赋值语句，分号标记了序列点。</li>
+<li><strong>C</strong>保证程序在执行下一条语句之前递增<code>x</code>两次，但<strong>C</strong>并未指明是在对子表达式求值以后递增<code>x</code>，还是对所有表达式求值之后递增<code>x</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="类型转换">类型转换</h2>
+<ul>
+<li>在语句和表达式中应该使用<strong>类型相同</strong>的变量和常量。如果使用<strong>混合类型</strong>，<strong>C</strong>语言会采用一套规则进行<strong>自动类型转换</strong>。
+<ul>
+<li>通常，尽量避免<strong>自动类型转换</strong>，应<strong>显式</strong>选择合适的类型或使用<strong>强制类型转换</strong>。</li>
+</ul>
+</li>
+</ul>
+<p><strong>类型转换规则</strong>：</p>
+<ul>
+<li>类型的级别从高到低依次是<strong>long double</strong>、<strong>double</strong>、<strong>float</strong>、<strong>unsigned long long</strong>、<strong>long long</strong>、<strong>unsigned long</strong>、<strong>long</strong>、<strong>unsigned int</strong>、<strong>int</strong>、<strong>unsigned short</strong>、<strong>short</strong>、<strong>unsigned char</strong>、<strong>char</strong>。</li>
+<li>在赋值表达式语句中，计算的最终结果会被转换成赋值变量的类型。
+<ul>
+<li>这个过程可能会导致<strong>类型升级</strong>或<strong>类型降级</strong>。
+<ul>
+<li><strong>类型升级</strong>：由较小类型转换为较大类型。</li>
+<li><strong>类型降级</strong>：由较高类型转换为较低类型。</li>
+</ul>
+</li>
+<li><strong>类型升级</strong>通常不会产生问题。<strong>类型降级</strong>可能会导致问题。因为较低类型可能放不下整个数字。</li>
+</ul>
+</li>
+<li>涉及两种类型的运算中，两个值将会被分别转换成两种类型的<strong>更高级别</strong>。</li>
+<li>类型转换<strong>出现</strong>在表达式中时，<strong>unsigned char</strong>和<strong>signed char</strong>，<strong>unsigned short</strong>和<strong>signed short</strong>都会被自动转换为<strong>int</strong>。
+<ul>
+<li>如有必要，会转换为<strong>unsigned int</strong>。
+<ul>
+<li><strong>short</strong>若与<strong>int</strong>大小相同，那么<strong>unsigned short</strong>会比<strong>int</strong>大。此时<strong>unsigned short</strong>会转换为<strong>unsigned int</strong>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>作为函数参数传递时，<strong>char</strong>和<strong>short</strong>被转换成<strong>int</strong>，<strong>float</strong>被转换成<strong>double</strong>。
+<ul>
+<li><strong>K&amp;R C</strong>下，表达式中的<strong>float</strong>会被自动转换为<strong>double</strong>。而<strong>ANSI C</strong>并非如此。</li>
+</ul>
+</li>
+<li><strong>函数原型</strong>会覆盖<strong>自动升级</strong>。</li>
+</ul>
+<p><strong>待转换的值与目标类型不匹配</strong>：</p>
+<ul>
+<li>
+<p><strong>目标类型</strong>是无符号整型，<strong>待赋的值</strong>是整数时，额外的位将被忽略。</p>
+<ul>
+<li><strong>目标类型</strong>是8位<strong>unsigned char</strong>，待赋的值是原始值求模256。</li>
+</ul>
+</li>
+<li>
+<p><strong>目标类型</strong>是有符号整型，<strong>待赋的值</strong>是整数，结果因实现而异。</p>
+</li>
+<li>
+<p><strong>目标类型</strong>是整型，<strong>待赋的值</strong>是浮点数，则该行为未定义。</p>
+</li>
+<li>
+<p>有时需要进行<strong>精确</strong>的类型转换，或表明类型转换的<strong>意图</strong>。此时需要用到<strong>强制类型转换</strong>。</p>
+<ul>
+<li>形式为<code>(type)</code>。圆括号和它括起来的类型名构成了<strong>强制类型转换运算符</strong>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="函数原型形式参数与实际参数">函数原型、形式参数与实际参数</h2>
+<ul>
+<li><strong>原型(prototype)<strong>是函数的声明，描述了函数的</strong>返回值</strong>和<strong>参数</strong>。</li>
+<li><strong>C99</strong>标准规定：
+<ul>
+<li>对于<strong>actual patameter</strong>和<strong>actual argument</strong>使用术语<strong>argument</strong>。</li>
+<li>对于<strong>formal argument</strong>或<strong>formal parameter</strong>使用术语<strong>parameter</strong>。</li>
+</ul>
+</li>
+<li>为遵循这一规定，可以说<strong>形参</strong>是函数中声明的变量，<strong>实参</strong>是函数调用提供的值。
+<ul>
+<li>函数调用传入的<strong>实参</strong>会被赋给<strong>形参</strong>。从而在函数中就可以使用该值。</li>
+</ul>
+</li>
+</ul>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/cs/cprimerplus/4/">第4章 字符串和格式化输入/输出</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
