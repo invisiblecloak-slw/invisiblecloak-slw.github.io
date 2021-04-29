@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>第6章 C控制语句：循环 - XIU</title>
+    <meta property="og:title" content="第6章 C控制语句：循环 - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="对于计算机科学而言，一门语言应该提供以下三种形式的程序流：
+[&amp;hellip;] 伪代码pseudocode
+[&amp;hellip;] while (scanf(&amp;#34;%ld&amp;#34;, &amp;amp;num) == 1) { /* 循环行为 */ }  while循环的通用形式为  while (expression) statement  statement部分可以是单独的简单语句或复合语句。   &amp;hellip;">
+      <meta property="og:description" content="对于计算机科学而言，一门语言应该提供以下三种形式的程序流：
+[&amp;hellip;] 伪代码pseudocode
+[&amp;hellip;] while (scanf(&amp;#34;%ld&amp;#34;, &amp;amp;num) == 1) { /* 循环行为 */ }  while循环的通用形式为  while (expression) statement  statement部分可以是单独的简单语句或复合语句。   &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="https://qidi.ink/images/Octopus_pills.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.14.1/styles/googlecode.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="cs">
+    <header class="masthead">
+      <h1 class="headimg">
+    
+    <a href="/"><img src="/img/headimg.png" alt="Fuhui "></a>
+</h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">首页</a></li>
+  
+  <li><a href="/cs/cprimerplus">C Primer Plus</a></li>
+  
+  <li><a href="/cs/dsaa/">数据结构与算法分析-C</a></li>
+  
+  
+
+
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      <h1>第6章 C控制语句：循环</h1>
+
+
+
+
+    
+    
+    <section class="post-meta">
+        <span class="post-author">Xiu Di
+        
+            
+            
+             /  2021-04-29
+            
+        </span>
+        
+    </section>
+    
+
+
+
+<hr>
+      </header>
+
+
+
+<p>对于计算机科学而言，一门语言应该提供以下三种形式的<strong>程序流</strong>：</p>
+<ul>
+<li>执行语句序列。</li>
+<li>如果满足某些条件就重复执行语句序列（循环）。</li>
+<li>通过测试选择执行哪一个语句序列（分支）。</li>
+</ul>
+<p><strong>伪代码pseudocode</strong></p>
+<ul>
+<li>用简单的句子表示程序思路的方法，与计算机语言的形式相对应。</li>
+<li>伪代码有助于设计程序的逻辑，将注意力集中在程序的组织和逻辑上。</li>
+<li>确定程序逻辑无误后，将伪代码翻译成实际的编程代码。</li>
+</ul>
+<h2 id="入口条件循环">入口条件循环</h2>
+<ul>
+<li><strong>条件</strong>指的是语句部分的执行取决于测试表达式描述的条件。</li>
+<li><code>while</code>循环中的<strong>测试条件</strong>是<strong>入口条件</strong>。必须满足条件才能够进入循环体。</li>
+<li>入口条件循环可能不执行循环。</li>
+</ul>
+<h3 id="while语句">while语句</h3>
+<ul>
+<li>借助<code>scanf()</code>函数，<code>while</code>语句中允许将获取值和判断值放在一处。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">while</span> (scanf(<span style="color:#e6db74">&#34;%ld&#34;</span>, <span style="color:#f92672">&amp;</span>num) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>)
+{
+    <span style="color:#75715e">/* 循环行为 */</span>
+}
+</code></pre></div><ul>
+<li><code>while</code>循环的通用形式为</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">while</span> (expression)
+    statement
+</code></pre></div><ul>
+<li><code>statement</code>部分可以是单独的简单语句或复合语句。
+<ul>
+<li>复合语句再语句构成上也是一条单独的语句。</li>
+<li><strong>C</strong>语言中，单独的分号表示空语句，空语句不执行任何操作。
+<ul>
+<li>当所有的任务都在测试条件中完成时，可以使用带空语句的<code>while</code>语句。</li>
+<li><code>while (scanf(&quot;%d&quot;, &amp;num) == 1) ; /* 跳过输入到达第一个既非空白字符也非数字的位置 */</code></li>
+<li>为提高代码可读性，空语句应单独占据一行。</li>
+<li>处理这种情况的更好方法是使用<code>continue</code>语句。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>每次循环称为一次迭代<strong>iteration</strong>。</li>
+<li>构建<code>while</code>循环时，必须让测试表达式的值有变换。即测试表达式最终要为假，否则循环不会终止。
+<ul>
+<li>只有在对测试条件求值时，才决定是否继续循环。</li>
+</ul>
+</li>
+<li>关系运算符常用于构造关系表达式。
+<ul>
+<li>比较浮点数时，尽量只使用<code>&lt;</code>和<code>&gt;</code>。</li>
+<li>浮点数的舍入误差会导致在逻辑上应该相等的两数却不相等。
+<ul>
+<li><code>fabs()</code>函数可以用于比较两浮点数是否足够接近。</li>
+</ul>
+</li>
+<li>关系表达式的真值为1，假值为0。
+<ul>
+<li>一般而言，在<strong>C</strong>中，所有的非零值都视为真，只有0视为假。</li>
+</ul>
+</li>
+<li>为避免误用赋值运算符作为相等运算符，可在常量比较时，将常量置于表达式左侧。
+<ul>
+<li><strong>C</strong>语言不允许给常量赋值，编译器会标记这种用法为语法错误。</li>
+</ul>
+</li>
+<li>关系运算符的优先级比算术运算符低，比赋值运算符高。
+<ul>
+<li><code>&lt;</code>、<code>&lt;=</code>、<code>&gt;</code>、<code>&gt;=</code>是高优先级的关系运算符。</li>
+<li><code>==</code>、<code>!=</code>是低优先级的关系运算符。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>C99</strong>标准新增了<code>_Bool</code>类型作为<strong>C</strong>语言中布尔变量的类型名。
+<ul>
+<li>如果将非零数值赋给<code>_Bool</code>类型的变量，该变量会被设置为1。</li>
+<li><strong>C99</strong>提供了<code>stdbool.h</code>头文件，此头文件使<code>bool</code>成为<code>_Bool</code>的别名。并将<code>true</code>和<code>false</code>分别定义为1和0的符号常量。</li>
+</ul>
+</li>
+</ul>
+<h3 id="for循环">for循环</h3>
+<ul>
+<li><strong>不确定循环</strong>：在测试表达式为假之前，预先不知道要执行多少次循环。</li>
+<li><strong>计数循环</strong>：再执行循环之前就知道要重复执行多少次。</li>
+<li><code>for</code>循环将<strong>初始化</strong>、<strong>条件测试</strong>、<strong>更新</strong>组合在一处。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">for</span> (initialize; test; update)
+    statement
+</code></pre></div><ul>
+<li>
+<p><code>for</code>圆括号中的表达式都是<strong>完整表达式</strong>，每个变量的<strong>副作用</strong>都发生在对下一个表达式求值之前。</p>
+</li>
+<li>
+<p><code>for</code>循环中的<code>update</code>部分可以使用任意合法的表达式。每次迭代都会更新这一表达式的值。</p>
+</li>
+<li>
+<p><code>for</code>循环中可以省略一个或多个表达式，但是不能够省略分号。需要在循环中包含能结束循环的语句。</p>
+</li>
+<li>
+<p><code>for</code>循环中的<code>initialize</code>部分不一定是给变量赋初值，也可以使用<code>printf()</code>。</p>
+</li>
+<li>
+<p><strong>逗号运算符</strong>：</p>
+</li>
+<li>
+<p>逗号运算符保证被它分隔的表达式从左向右求值。</p>
+<ul>
+<li>逗号是一个<strong>序列点</strong>。逗号左侧项的所有<strong>副作用</strong>都在程序执行逗号右侧项之前发生。</li>
+<li>整个逗号表达式的值是右侧项的值。</li>
+<li><code>houseprice = 249,500;</code>会被编译器解释为一个逗号表达式。
+<ul>
+<li><code>houseprice = 249</code>是逗号左侧的子表达式</li>
+<li><code>500</code>是逗号右侧的子表达式</li>
+<li>整个逗号表达式的值是逗号右侧表达式的值。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>可以使用逗号运算符扩展<code>for</code>循环的灵活性，以便在循环头中包含更多的表达式。</p>
+</li>
+<li>
+<p>当循环涉及初始化和更新变量，以及涉及索引记数的循环时，用<code>for</code>循环更加合适。</p>
+</li>
+<li>
+<p>其他情况下使用<code>while</code>循环更加合适。如<code>while (scanf(&quot;%ld&quot;, &amp;num) == 1)</code>。</p>
+</li>
+</ul>
+<h2 id="出口条件循环">出口条件循环</h2>
+<ul>
+<li><strong>C</strong>语言中的<strong>出口条件循环</strong>在执行完循环体之后根据测试条件决定是否再次执行循环。</li>
+<li><strong>出口条件循环</strong>保证了至少执行循环体中的内容一次。</li>
+<li><code>do while</code>循环的通用形式为:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">do</span>
+    statement
+<span style="color:#a6e22e">while</span> (expression);
+</code></pre></div><ul>
+<li><code>do while</code>循环适用于至少要迭代一次的循环。</li>
+</ul>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/cs/cprimerplus/5/">第5章 运算符、表达式和语句</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

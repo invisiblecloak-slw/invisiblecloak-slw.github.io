@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0056-merge intervals - XIU</title>
+    <meta property="og:title" content="0056-merge intervals - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="以数组intervals表示若干个区间的集合，其中单个区间为intervals[i] = [start_i, end_i]。
+要求合并所有的区间，并返回一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: intervals = [[1,2], [2,6], [8,10], [15,18]]
+输出: [[1,6], [8,10], &amp;hellip;">
+      <meta property="og:description" content="以数组intervals表示若干个区间的集合，其中单个区间为intervals[i] = [start_i, end_i]。
+要求合并所有的区间，并返回一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: intervals = [[1,2], [2,6], [8,10], [15,18]]
+输出: [[1,6], [8,10], &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="https://qidi.ink/images/Octopus_pills.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.14.1/styles/googlecode.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1 class="headimg">
+    
+    <a href="/"><img src="/img/headimg.png" alt="Fuhui "></a>
+</h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/books/">读书</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+
+
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      <h1>0056-merge intervals</h1>
+
+
+
+
+    
+    
+    <section class="post-meta">
+        <span class="post-author">Xiu Di
+        
+            
+            
+             /  2021-04-29
+            
+        </span>
+        
+        <a href="/tags/leetcode">Leetcode</a>
+        
+    </section>
+    
+
+
+
+<hr>
+      </header>
+
+
+
+<h2 id="问题描述">问题描述</h2>
+<p>以数组<code>intervals</code>表示若干个区间的集合，其中单个区间为<code>intervals[i] = [start_i, end_i]</code>。</p>
+<p>要求合并所有的区间，并返回一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间。</p>
+<blockquote>
+<p><strong>示例1</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>intervals = [[1,2], [2,6], [8,10], [15,18]]</code></p>
+<p><strong>输出</strong>: <code>[[1,6], [8,10], [15,18]]</code></p>
+<p><strong>解释</strong>: 区间<code>[1,3]</code> 和<code>[2,6]</code>重叠，将它们合并为<code>[1,6]</code>。</p>
+</blockquote>
+<p><strong>示例2</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>intervals = [[1,4], [4,5]]</code></p>
+<p><strong>输出</strong>: <code>[[1,5]]</code></p>
+<p><strong>解释</strong>: 区间<code>[1,4]</code> 和<code>[4,5]</code>可被视为重叠区间。</p>
+</blockquote>
+<p><strong>提示</strong>:</p>
+<ul>
+<li>1 &lt;= intervals.length &lt;= 10<sup>4</sup></li>
+<li>intervals[i].length == 2</li>
+<li>0 &lt;= start_i &lt;= end_i &lt;= 10<sup>4</sup></li>
+</ul>
+</blockquote>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">merge</span>(self, intervals: List[List[int]]) <span style="color:#f92672">-&gt;</span> List[List[int]]:
+        intervals<span style="color:#f92672">.</span>sort(key <span style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">0</span>])
+        res <span style="color:#f92672">=</span> []
+        <span style="color:#66d9ef">for</span> interval <span style="color:#f92672">in</span> intervals:
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> res:
+                res<span style="color:#f92672">.</span>append(interval)
+            elseif interval[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&gt;</span> res[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>]:
+                res<span style="color:#f92672">.</span>append(interval)
+            <span style="color:#66d9ef">else</span>:
+                res[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> max(res[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>], interval[<span style="color:#ae81ff">1</span>])
+        <span style="color:#66d9ef">return</span> res
+</code></pre></div><h2 id="参考链接">参考链接</h2>
+<p><a href="https://leetcode-cn.com/problems/merge-intervals/solution/chi-jing-ran-yi-yan-miao-dong-by-sweetiee/">吃🐳！🤷竟然一眼秒懂合并区间！</a></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/28/0105-construct-binary-tree-from-preorder-and-inorder-traversal/">🚩0105-construct binary tree from preorder and inorder traversal</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
