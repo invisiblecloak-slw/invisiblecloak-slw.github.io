@@ -6,7 +6,16 @@
     <description>Recent content in 《C Primer Plus》 on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/cs/cprimerplus/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/cs/cprimerplus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>第7章 C控制语句：分支和跳转</title>
+      <link>https://qidi.ink/cs/cprimerplus/7-c/</link>
+      <pubDate>Fri, 30 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/cs/cprimerplus/7-c/</guid>
+      <description>智能的一个方面是：根据情况做出相应的响应。 选择语句是开发具有智能行为程序的基础。 C语言通过if、if else和switch语句以及条件运算符(?:)可以实现智能选择。  if语句  if语句用于选择是否执行一个行为，又称为分支语句或选择语句。相当于一个交叉点。  if ( expression ) statement  if else语句用于在两个行为之间选择。if else语句的通用形式是：  if ( expression ) statement1 else statement2  if和else之间只允许有一条简单语句或复合语句。 整个if else语句被视为一条语句。 如果没有花括号，else与离它最近的if匹配。 在else后面适用另一个if语句形成else if，可以构造多选一的结构。  if ( expression1 ) statement1 else if ( expression2 ) statement2 else statement3  除非最近的if被花括号括起来。 if和if else语句使用测试条件判断执行哪些语句。测试通常涉及关系表达式、逻辑表达式。  getchar()和putchar()  getchar()和putchar()函数定义在头文件stdio.h中。 getchar()和putchar()是预处理宏，不是真正的函数。 getchar()函数不带任何参数，从输入队列中返回下一个字符。  ch = getchar()等效于scanf(&amp;quot;%c&amp;quot;, &amp;amp;ch)。   putchar()函数打印它的参数。  putchar(ch)等效于printf(&amp;quot;%c&amp;quot;, ch)。   getchar()和putchar()函数只处理字符，它们比通用的scanf()和printf()函数更快。 getchar()和putchar()函数不需要转换说明。 putchar()函数接受int类型参数，该函数只根据最后一个字节确定显示哪个字符。  ctype.</description>
+    </item>
+    
     <item>
       <title>第6章 C控制语句：循环</title>
       <link>https://qidi.ink/cs/cprimerplus/6-c/</link>
