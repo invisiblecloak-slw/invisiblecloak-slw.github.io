@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0690-employee importance - XIU</title>
+    <meta property="og:title" content="0690-employee importance - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="给定一个保存员工信息的数据结构，它包含了员工唯一的id，重要度和直系下属的id。
+比如，员工1是员工2的领导，员工2是员工3的领导。他们相应的重要度为15，10，5。那么员工1的数据结构式[1,15,[2]]，员工2的数据结构是[2,10,[3]，员工3的数据结构是[3,5,[]]。注意虽然员工3也是员工1的一个下属，但是由于并不是直系下属，因此没有体现在员工1的数据结构中。
+现在输入一个公司的所 &amp;hellip;">
+      <meta property="og:description" content="给定一个保存员工信息的数据结构，它包含了员工唯一的id，重要度和直系下属的id。
+比如，员工1是员工2的领导，员工2是员工3的领导。他们相应的重要度为15，10，5。那么员工1的数据结构式[1,15,[2]]，员工2的数据结构是[2,10,[3]，员工3的数据结构是[3,5,[]]。注意虽然员工3也是员工1的一个下属，但是由于并不是直系下属，因此没有体现在员工1的数据结构中。
+现在输入一个公司的所 &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="https://qidi.ink/images/Octopus_pills.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.14.1/styles/googlecode.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1 class="headimg">
+    
+    <a href="/"><img src="/img/headimg.png" alt="Fuhui "></a>
+</h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/books/">读书</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+
+
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      <h1>0690-employee importance</h1>
+
+
+
+
+    
+    
+    <section class="post-meta">
+        <span class="post-author">Xiu Di
+        
+            
+            
+             /  2021-05-01
+            
+        </span>
+        
+        <a href="/tags/leetcode">Leetcode</a>
+        
+    </section>
+    
+
+
+
+<hr>
+      </header>
+
+
+
+<h2 id="问题描述">问题描述</h2>
+<p>给定一个保存员工信息的数据结构，它包含了员工<strong>唯一的id，重要度</strong>和<strong>直系下属的id</strong>。</p>
+<p>比如，员工1是员工2的领导，员工2是员工3的领导。他们相应的重要度为15，10，5。那么员工1的数据结构式<code>[1,15,[2]]</code>，员工2的数据结构是<code>[2,10,[3]</code>，员工3的数据结构是<code>[3,5,[]]</code>。注意虽然员工3也是员工1的一个下属，但是由于并不是直系下属，因此没有体现在员工1的数据结构中。</p>
+<p>现在输入一个公司的所有员工信息，以及单个员工id，返回这个员工和他所有下属的重要度之和。</p>
+<blockquote>
+<p><strong>示例</strong></p>
+<blockquote>
+<p><strong>输入</strong>: [[1,5,[2,3]], [2,3,[]], [3,3,[]]], 1</p>
+<p><strong>输出</strong>: 11</p>
+</blockquote>
+<p><strong>提示</strong></p>
+<ul>
+<li>一个员工最多有一个<strong>直系</strong>领导，但是可以有多个<strong>直系</strong>下属</li>
+<li>员工数量不超过2000</li>
+</ul>
+</blockquote>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74"># Definition for Employee.
+</span><span style="color:#e6db74">class Employee:
+</span><span style="color:#e6db74">    def __init__(self, id: int, importance: int, subordinates: List[int]):
+</span><span style="color:#e6db74">        self.id = id
+</span><span style="color:#e6db74">        self.importance = importance
+</span><span style="color:#e6db74">        self.subordinates = subordinates
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">getImportance</span>(self, employees: List[<span style="color:#e6db74">&#39;Employee&#39;</span>], id: int) <span style="color:#f92672">-&gt;</span> int:
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> employees: <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+        
+        hashTable <span style="color:#f92672">=</span> dict()
+        <span style="color:#66d9ef">for</span> index, employee <span style="color:#f92672">in</span> enumerate(employees):
+            hashTable[employee<span style="color:#f92672">.</span>id] <span style="color:#f92672">=</span> index
+            
+        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">getImportanceHelper</span>(employees: List[<span style="color:#e6db74">&#39;Employee&#39;</span>], id: int) <span style="color:#f92672">-&gt;</span> int:
+            employee <span style="color:#f92672">=</span> employees[hashTable[id]]
+            total_importance <span style="color:#f92672">=</span> employee<span style="color:#f92672">.</span>importance
+            <span style="color:#66d9ef">for</span> subordinate <span style="color:#f92672">in</span> employee<span style="color:#f92672">.</span>subordinates:
+                total_importance <span style="color:#f92672">+=</span> self<span style="color:#f92672">.</span>getImportance(employees, subordinate)
+            <span style="color:#66d9ef">return</span> total_importance
+        
+        <span style="color:#66d9ef">return</span> getImportanceHelper(employees, id)   
+</code></pre></div>
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/04/30/0046-permutations/">0046-permutations</a></span>
+  <span class="nav-next"><a href="/post/2021/05/01/0078-subsets/">0078-subsets</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
