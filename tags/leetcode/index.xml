@@ -6,7 +6,51 @@
     <description>Recent content in Leetcode on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 02 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0139-word break</title>
+      <link>https://qidi.ink/post/2021/05/03/0139-word-break/</link>
+      <pubDate>Mon, 03 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/05/03/0139-word-break/</guid>
+      <description>问题描述 给定一个非空字符串s和一个包含非空单词的列表wordDict，判定s是否可以被空格拆封为一个或多个在字典中出现的单词。
+ 说明：
+ 拆分时可以重复使用字典中的单词。 你可以假设字典中没有重复的单词。  示例1:
+ 输入: s = &amp;quot;leetcode&amp;quot;, wordDict = [&amp;quot;leet&amp;quot;, &amp;quot;code&amp;quot;]
+输出: true
+ 示例2:
+ 输入: s = &amp;quot;applepenpple&amp;quot;, wordDict = [&amp;quot;apple&amp;quot;, &amp;quot;pen&amp;quot;]
+输出: true
+ 示例3:
+ 输入: s = &amp;quot;catsandog&amp;quot;, wordDict = [&amp;quot;cats&amp;quot;, &amp;quot;dog&amp;quot;, &amp;quot;sand&amp;quot;, &amp;quot;and&amp;quot;, &amp;quot;cat&amp;quot;]
+输出: false
+  </description>
+    </item>
+    
+    <item>
+      <title>🚩 0142-linked list cycle ii</title>
+      <link>https://qidi.ink/post/2021/05/03/0142-linked-list-cycle-ii/</link>
+      <pubDate>Mon, 03 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/05/03/0142-linked-list-cycle-ii/</guid>
+      <description>问题描述 给定一个链表，返回链表开始入环的第一个节点。如果链表无环，则返回null。
+为了表示给定链表中的环，使用整数pos来表示链表尾连接到链表中的位置（索引从0开始）。 如果pos是-1，则在该链表中没有环。
+ 示例1:
+ 输入: head = [3,2,0,-4], pos = 1
+输出: 返回索引为1的链表节点
+解释: 链表中有一个环，其尾部连接到第二个节点。
+ 示例2:
+ 输入: head = [1,2], pos = 0
+输出: 返回索引为0的链表节点
+解释: 链表中有一个环，其尾部连接到第一个节点。
+ 示例3:
+ 输入: head = [1], pos = -1
+输出: 返回null
+解释: 链表中没有环。
+ 提示;
+ 链表中节点数目范围在[0, 104]内。 -105 &amp;lt;= None.val &amp;lt;= 105。 pos的值为-1或链表中的一个有效索引。 不允许修改给定的链表。 考虑使用O(1)空间复杂度解决此问题。   代码 # Definition for singly-linked list. # class ListNode: # def __init__(self, x): # self.</description>
+    </item>
+    
     <item>
       <title>0039-combination sum</title>
       <link>https://qidi.ink/post/2021/05/02/0039-combination-sum/</link>

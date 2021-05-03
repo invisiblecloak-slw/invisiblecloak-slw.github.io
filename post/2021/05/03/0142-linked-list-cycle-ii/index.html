@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>🚩 0142-linked list cycle ii - XIU</title>
+    <meta property="og:title" content="🚩 0142-linked list cycle ii - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="给定一个链表，返回链表开始入环的第一个节点。如果链表无环，则返回null。
+为了表示给定链表中的环，使用整数pos来表示链表尾连接到链表中的位置（索引从0开始）。 如果pos是-1，则在该链表中没有环。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: head = [3,2,0,-4], pos = 1
+输出: 返回索引为1的链表节点
+解释: 链表中有一个环，其尾部连接到第二个节点。 &amp;hellip;">
+      <meta property="og:description" content="给定一个链表，返回链表开始入环的第一个节点。如果链表无环，则返回null。
+为了表示给定链表中的环，使用整数pos来表示链表尾连接到链表中的位置（索引从0开始）。 如果pos是-1，则在该链表中没有环。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: head = [3,2,0,-4], pos = 1
+输出: 返回索引为1的链表节点
+解释: 链表中有一个环，其尾部连接到第二个节点。 &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="https://qidi.ink/images/Octopus_pills.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.14.1/styles/googlecode.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1 class="headimg">
+    
+    <a href="/"><img src="/img/headimg.png" alt="Fuhui "></a>
+</h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/books/">读书</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+
+
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      <h1>🚩 0142-linked list cycle ii</h1>
+
+
+
+
+    
+    
+    <section class="post-meta">
+        <span class="post-author">Xiu Di
+        
+            
+            
+             /  2021-05-03
+            
+        </span>
+        
+        <a href="/tags/leetcode">Leetcode</a>
+        
+    </section>
+    
+
+
+
+<hr>
+      </header>
+
+
+
+<h2 id="问题描述">问题描述</h2>
+<p>给定一个链表，返回链表开始入环的第一个节点。如果链表无环，则返回<code>null</code>。</p>
+<p>为了表示给定链表中的环，使用整数<code>pos</code>来表示链表尾连接到链表中的位置（索引从0开始）。
+如果<code>pos</code>是<code>-1</code>，则在该链表中没有环。</p>
+<blockquote>
+<p><strong>示例1</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>head = [3,2,0,-4], pos = 1</code></p>
+<p><strong>输出</strong>: 返回索引为1的链表节点</p>
+<p><strong>解释</strong>: 链表中有一个环，其尾部连接到第二个节点。</p>
+</blockquote>
+<p><strong>示例2</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>head = [1,2], pos = 0</code></p>
+<p><strong>输出</strong>: 返回索引为0的链表节点</p>
+<p><strong>解释</strong>: 链表中有一个环，其尾部连接到第一个节点。</p>
+</blockquote>
+<p><strong>示例3</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>head = [1], pos = -1</code></p>
+<p><strong>输出</strong>: 返回<code>null</code></p>
+<p><strong>解释</strong>: 链表中没有环。</p>
+</blockquote>
+<p><strong>提示</strong>;</p>
+<ul>
+<li>链表中节点数目范围在[0, 10<sup>4</sup>]内。</li>
+<li>-10<sup>5</sup> &lt;= None.val &lt;= 10<sup>5</sup>。</li>
+<li><code>pos</code>的值为<code>-1</code>或链表中的一个有效索引。</li>
+<li>不允许修改给定的链表。</li>
+<li>考虑使用<code>O(1)</code>空间复杂度解决此问题。</li>
+</ul>
+</blockquote>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for singly-linked list.</span>
+<span style="color:#75715e"># class ListNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.next = None</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">move</span>(self) <span style="color:#f92672">-&gt;</span> bool:
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> self<span style="color:#f92672">.</span>rabbit<span style="color:#f92672">.</span>next <span style="color:#f92672">or</span> <span style="color:#f92672">not</span> self<span style="color:#f92672">.</span>rabbit<span style="color:#f92672">.</span>next<span style="color:#f92672">.</span>next:
+            <span style="color:#66d9ef">return</span> False
+
+        self<span style="color:#f92672">.</span>rabbit <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>rabbit<span style="color:#f92672">.</span>next<span style="color:#f92672">.</span>next
+        self<span style="color:#f92672">.</span>tortoise <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>tortoise<span style="color:#f92672">.</span>next
+        <span style="color:#66d9ef">return</span> True
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">detectCycle</span>(self, head: ListNode) <span style="color:#f92672">-&gt;</span> ListNode:
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> head:
+            <span style="color:#66d9ef">return</span> None
+        
+        self<span style="color:#f92672">.</span>tortoise <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>rabbit <span style="color:#f92672">=</span> head
+        
+        <span style="color:#75715e"># Floyd判环法</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> self<span style="color:#f92672">.</span>move():
+            <span style="color:#66d9ef">return</span> None
+        <span style="color:#66d9ef">while</span> self<span style="color:#f92672">.</span>rabbit <span style="color:#f92672">!=</span> self<span style="color:#f92672">.</span>tortoise:
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> self<span style="color:#f92672">.</span>move():
+                <span style="color:#66d9ef">return</span> None
+
+        <span style="color:#75715e"># 寻找环口节点</span>
+        self<span style="color:#f92672">.</span>tortoise <span style="color:#f92672">=</span> head
+        <span style="color:#66d9ef">while</span> self<span style="color:#f92672">.</span>tortoise <span style="color:#f92672">!=</span> self<span style="color:#f92672">.</span>rabbit:
+            self<span style="color:#f92672">.</span>tortoise <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>tortoise<span style="color:#f92672">.</span>next
+            self<span style="color:#f92672">.</span>rabbit <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>rabbit<span style="color:#f92672">.</span>next
+
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>tortoise
+</code></pre></div><h2 id="分析">分析</h2>
+<h2 id="快慢指针">快慢指针</h2>
+<ul>
+<li>设快慢指针分别为<code>rabbit</code>和<code>tortoise</code>。二者每时间间隔分别移动两步、一步。</li>
+<li>若链表无环，按照上述设定，<code>rabbit</code>显然更早成为<code>null</code>指针。</li>
+<li>若链表有环，有下述结论：
+<ul>
+<li><code>rabbit</code>指针与<code>tortoise</code>指针必相遇。</li>
+<li>当<code>tortoise</code>指针与<code>rabbit</code>指针相遇时，tortoise`指针尚未在环中周游一圈。</li>
+</ul>
+</li>
+<li>上述结论证明如下：
+<ul>
+<li>考虑<strong>相对运动</strong>问题。当<code>tortoise</code>指针运动到环入口时，设此时<code>rabbit</code>指针与<code>tortoise</code>指针的顺时针距离为<code>c</code>，<code>rabbit</code>指针距离环入口的距离为<code>b</code>，表头距离环入口的距离为<code>a</code>。</li>
+<li>由于<code>tortoise</code>指针与<code>rabbit</code>指针的速度分别为1步、2步，可视为<code>tortoise</code>指针静止，而<code>rabbit</code>指针以1步每时间间隔的速度运动。因此经过<code>c</code>时间间隔后，<code>tortoise</code>指针与<code>rabbit</code>指针相遇。</li>
+<li>由<code>c in [0, n-1]</code>，其中<code>n</code>为环的长度。则<code>rabbit</code>指针与<code>tortoise</code>指针相遇时，<code>tortoise</code>指针尚未在环中周游一圈。</li>
+</ul>
+</li>
+<li>相遇时设<code>rabbit</code>指针已经绕环<code>p</code>圈。
+<ul>
+<li>当<code>p = 0</code>时有：环的长度为<code>a</code>。</li>
+<li>当<code>p &gt;= 1</code>时有：
+<ul>
+<li><code>tortoise</code>指针运动的距离为<code>a + b</code>。</li>
+<li><code>rabbit</code>指针运动的距离为<code>2(a + b) = a + p( b + c ) + b</code>。</li>
+<li>因此有<code>a = (p - 1)(b + c) + c</code>。</li>
+<li>此时置<code>tortoise</code>指针和<code>rabbit</code>指针的速度均为1步每时间间隔，则两指针将在环入口相遇。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/05/02/0039-combination-sum/">0039-combination sum</a></span>
+  <span class="nav-next"><a href="/post/2021/05/03/0139-word-break/">0139-word break</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
