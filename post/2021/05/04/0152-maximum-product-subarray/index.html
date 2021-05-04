@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0152-maximum product subarray - XIU</title>
+    <meta property="og:title" content="0152-maximum product subarray - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="给定整数数组nums，找出数组中乘积最大的连续子数组对应的乘积。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: [2,3,-2,4]
+输出: 6
+解释: 子数组[2,3]有最大乘积。
+[&amp;hellip;] 示例2:
+[&amp;hellip;] 输入: [-2,0,-1]
+输出: 0
+解释: 结果不能为2，因为[-2,-1]不是子数组。
+[&amp;hellip;] 提示:
+[&amp;hellip;] &amp;hellip;">
+      <meta property="og:description" content="给定整数数组nums，找出数组中乘积最大的连续子数组对应的乘积。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: [2,3,-2,4]
+输出: 6
+解释: 子数组[2,3]有最大乘积。
+[&amp;hellip;] 示例2:
+[&amp;hellip;] 输入: [-2,0,-1]
+输出: 0
+解释: 结果不能为2，因为[-2,-1]不是子数组。
+[&amp;hellip;] 提示:
+[&amp;hellip;] &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="https://qidi.ink/images/Octopus_pills.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.14.1/styles/googlecode.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1 class="headimg">
+    
+    <a href="/"><img src="/img/headimg.png" alt="Fuhui "></a>
+</h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/books/">读书</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+
+
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      <h1>0152-maximum product subarray</h1>
+
+
+
+
+    
+    
+    <section class="post-meta">
+        <span class="post-author">Xiu Di
+        
+            
+            
+             /  2021-05-04
+            
+        </span>
+        
+        <a href="/tags/leetcode">Leetcode</a>
+        
+    </section>
+    
+
+
+
+<hr>
+      </header>
+
+
+
+<h2 id="问题描述">问题描述</h2>
+<p>给定整数数组<code>nums</code>，找出数组中<strong>乘积最大的连续子数组对应的乘积</strong>。</p>
+<blockquote>
+<p><strong>示例1</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>[2,3,-2,4]</code></p>
+<p><strong>输出</strong>: 6</p>
+<p><strong>解释</strong>: 子数组<code>[2,3]</code>有最大乘积。</p>
+</blockquote>
+<p><strong>示例2</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>[-2,0,-1]</code></p>
+<p><strong>输出</strong>: 0</p>
+<p><strong>解释</strong>: 结果不能为2，因为<code>[-2,-1]</code>不是子数组。</p>
+</blockquote>
+<p><strong>提示</strong>:</p>
+<ul>
+<li><code>nums</code>至少包含一个数字。</li>
+</ul>
+</blockquote>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">maxProduct</span>(self, nums: List[int]) <span style="color:#f92672">-&gt;</span> int:
+        <span style="color:#66d9ef">if</span> len(nums) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+            <span style="color:#66d9ef">return</span> nums[<span style="color:#ae81ff">0</span>]
+        res <span style="color:#f92672">=</span> maxval <span style="color:#f92672">=</span> minval <span style="color:#f92672">=</span> nums[<span style="color:#ae81ff">0</span>]
+        <span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> nums[<span style="color:#ae81ff">1</span>:]:
+            maxval, minval <span style="color:#f92672">=</span> max(num, maxval <span style="color:#f92672">*</span> num, minval <span style="color:#f92672">*</span> num), min(num, minval <span style="color:#f92672">*</span> num, maxval <span style="color:#f92672">*</span> num)
+            res <span style="color:#f92672">=</span> max(res, maxval)
+        <span style="color:#66d9ef">return</span> res
+</code></pre></div><h2 id="分析">分析</h2>
+<ul>
+<li>记<code>maxval</code>和<code>minval</code>分别标识<strong>以当前元素结尾的子数组的最大连续乘积</strong>和<strong>以当前元素结尾的子数组的最小连续乘积</strong>。</li>
+<li>采用动态规划的思路，即当前元素为<code>num</code>：
+<ul>
+<li>若<code>num</code>为正：
+<ul>
+<li>若<code>maxval &gt; 0</code>，则<code>maxval</code>更新为<code>maxval * num</code>。</li>
+<li>若<code>maxval &lt;= 0</code>，则<code>maxval</code>更新为<code>num</code>。</li>
+<li>若<code>minval &lt; 0</code>，则<code>minval</code>更新为<code>minval * num</code>。</li>
+<li>若<code>minval &gt;= 0</code>，则<code>minval</code>更新为<code>num</code>。</li>
+</ul>
+</li>
+<li>若<code>num</code>为负：
+<ul>
+<li>若<code>minval &lt; 0</code>，则<code>maxval</code>更新为<code>minval * num</code>。</li>
+<li>若<code>minval &gt;= 0</code>，则<code>maxval</code>更新为<code>num</code>。</li>
+<li>若<code>maxval &gt; 0</code>，则<code>minval</code>更新为<code>maxval * num</code>。</li>
+<li>若<code>maxval &lt;= 0</code>，则<code>minval</code>更新为<code>num</code>。</li>
+</ul>
+</li>
+<li>若<code>num</code>为零：
+<ul>
+<li><code>maxval</code>更新为<code>0</code>。</li>
+<li><code>minval</code>更新为<code>0</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>上述分析内蕴条件<code>maxval &gt;= minval</code>。</li>
+<li>在一趟遍历的过程中用变量<code>res</code>记录各处<code>maxval</code>中的最大值。</li>
+<li>注意到<code>maxval</code>取值在<code>maxval * num</code>、<code>num</code>、<code>minval * num</code>中取得。因此可以利用<code>max</code>函数从三者中取得最大值，从而避免较为复杂的<code>if else</code>讨论。
+<ul>
+<li><code>minval</code>的更新同理。</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://leetcode-cn.com/problems/maximum-product-subarray/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by--36/">详细通俗的思路分析，多解法</a></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/05/03/0139-word-break/">0139-word break</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
