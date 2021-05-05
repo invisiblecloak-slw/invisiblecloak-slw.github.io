@@ -6,7 +6,27 @@
     <description>Recent content in Leetcode on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🚩 0114-flatten binary tree to linked list</title>
+      <link>https://qidi.ink/post/2021/05/05/0114-flatten-binary-tree-to-linked-list/</link>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/05/05/0114-flatten-binary-tree-to-linked-list/</guid>
+      <description>问题描述 给定二叉树的根节点root，将它展开为一个单链表：
+ 展开后的单链表应该同样使用TreeNode，其中right子指针指向链表中下一个结点，而左子指针始终为null。 展开后的单链表应该与二叉树先序遍历顺序相同。   示例1:
+ 1 1 / \ \ 2 5 =&amp;gt; 2 / \ \ \ 3 4 6 3 \ 4 \ 5 \ 6   输入: root = [1,2,5,3,4,null,6]
+输出: [1,null,2,null,3,null,4,null,5,null,6]
+ 示例2:
+ 输入: root = []
+输出: []
+ 示例3:
+ 输入: root = [0]
+输出: [0]
+ 提示:
+ 树中结点数在范围[0, 2000]内 -100 &amp;lt;= Node.val &amp;lt;= 100   代码 递归 # Definition for a binary tree node.</description>
+    </item>
+    
     <item>
       <title>0152-maximum product subarray</title>
       <link>https://qidi.ink/post/2021/05/04/0152-maximum-product-subarray/</link>

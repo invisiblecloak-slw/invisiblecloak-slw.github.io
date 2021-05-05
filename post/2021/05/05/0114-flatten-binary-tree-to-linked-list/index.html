@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>🚩 0114-flatten binary tree to linked list - XIU</title>
+    <meta property="og:title" content="🚩 0114-flatten binary tree to linked list - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="给定二叉树的根节点root，将它展开为一个单链表：
+[&amp;hellip;] 示例1:
+ 1 1 / \ \ 2 5 =&amp;gt; 2 / \ \ \ 3 4 6 3 \ 4 \ 5 \ 6   输入: root = [1,2,5,3,4,null,6]
+输出: [1,null,2,null,3,null,4,null,5,null,6]
+[&amp;hellip;] 示例2:
+[&amp;hellip;] 输入: &amp;hellip;">
+      <meta property="og:description" content="给定二叉树的根节点root，将它展开为一个单链表：
+[&amp;hellip;] 示例1:
+ 1 1 / \ \ 2 5 =&amp;gt; 2 / \ \ \ 3 4 6 3 \ 4 \ 5 \ 6   输入: root = [1,2,5,3,4,null,6]
+输出: [1,null,2,null,3,null,4,null,5,null,6]
+[&amp;hellip;] 示例2:
+[&amp;hellip;] 输入: &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="https://qidi.ink/images/Octopus_pills.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.14.1/styles/googlecode.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1 class="headimg">
+    
+    <a href="/"><img src="/img/headimg.png" alt="Fuhui "></a>
+</h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/books/">读书</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+
+
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      <h1>🚩 0114-flatten binary tree to linked list</h1>
+
+
+
+
+    
+    
+    <section class="post-meta">
+        <span class="post-author">Xiu Di
+        
+            
+            
+             /  2021-05-05
+            
+        </span>
+        
+        <a href="/tags/leetcode">Leetcode</a>
+        
+    </section>
+    
+
+
+
+<hr>
+      </header>
+
+
+
+<h2 id="问题描述">问题描述</h2>
+<p>给定二叉树的根节点<code>root</code>，将它展开为一个单链表：</p>
+<ul>
+<li>展开后的单链表应该同样使用<code>TreeNode</code>，其中<code>right</code>子指针指向链表中下一个结点，而左子指针始终为<code>null</code>。</li>
+<li>展开后的单链表应该与二叉树<strong>先序遍历</strong>顺序相同。</li>
+</ul>
+<blockquote>
+<p><strong>示例1</strong>:</p>
+<pre><code>       1                  1
+      / \                  \
+     2   5        =&gt;        2
+    / \   \                  \
+   3   4   6                  3
+                               \
+                                4
+                                 \
+                                  5
+                                   \
+                                    6
+</code></pre>
+<blockquote>
+<p><strong>输入</strong>: <code>root = [1,2,5,3,4,null,6]</code></p>
+<p><strong>输出</strong>: <code>[1,null,2,null,3,null,4,null,5,null,6]</code></p>
+</blockquote>
+<p><strong>示例2</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>root = []</code></p>
+<p><strong>输出</strong>: <code>[]</code></p>
+</blockquote>
+<p><strong>示例3</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>root = [0]</code></p>
+<p><strong>输出</strong>: <code>[0]</code></p>
+</blockquote>
+<p><strong>提示</strong>:</p>
+<ul>
+<li>树中结点数在范围<code>[0, 2000]</code>内</li>
+<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+</ul>
+</blockquote>
+<h2 id="代码">代码</h2>
+<h3 id="递归">递归</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, val=0, left=None, right=None):</span>
+<span style="color:#75715e">#         self.val = val</span>
+<span style="color:#75715e">#         self.left = left</span>
+<span style="color:#75715e">#         self.right = right</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">flatten</span>(self, root: TreeNode) <span style="color:#f92672">-&gt;</span> None:
+        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">flattenHelper</span>(root: TreeNode) <span style="color:#f92672">-&gt;</span> TreeNode:
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root:
+                <span style="color:#66d9ef">return</span> None
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root<span style="color:#f92672">.</span>left:
+                flattenHelper(root<span style="color:#f92672">.</span>right)
+                <span style="color:#66d9ef">return</span> root
+            <span style="color:#66d9ef">elif</span> <span style="color:#f92672">not</span> root<span style="color:#f92672">.</span>right:
+                root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> flattenHelper(root<span style="color:#f92672">.</span>left)
+                root<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> None
+                <span style="color:#66d9ef">return</span> root
+            <span style="color:#66d9ef">else</span>:
+                flattenHelper(root<span style="color:#f92672">.</span>left)
+                tail <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>left
+                <span style="color:#66d9ef">while</span>(tail<span style="color:#f92672">.</span>right):
+                    tail <span style="color:#f92672">=</span> tail<span style="color:#f92672">.</span>right
+                tail<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> flattenHelper(root<span style="color:#f92672">.</span>right)
+                root<span style="color:#f92672">.</span>left, root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> None, root<span style="color:#f92672">.</span>left
+                <span style="color:#66d9ef">return</span> root
+
+        flattenHelper(root)
+</code></pre></div><h3 id="类morris算法">类Morris算法</h3>
+<ul>
+<li>将左子树插入到右子树的位置</li>
+<li>将原来的右子树接到左子树的最右侧节点</li>
+<li>继而考虑新的右子树的根节点，一直重复上边的过程，直到新的右子树为<code>null</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">flatten</span>(self, root: TreeNode) <span style="color:#f92672">-&gt;</span> None:
+        <span style="color:#66d9ef">while</span> root:
+            <span style="color:#75715e"># 如果左子树为空，则直接考虑下一个结点</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root<span style="color:#f92672">.</span>left:
+                root <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>right
+            <span style="color:#66d9ef">else</span>:
+                <span style="color:#75715e"># 找到左子树的最右侧结点</span>
+                tail <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>left
+                <span style="color:#66d9ef">while</span> tail<span style="color:#f92672">.</span>right:
+                    tail <span style="color:#f92672">=</span> tail<span style="color:#f92672">.</span>right
+
+                <span style="color:#75715e"># 将右子树插入到左子树的最右侧结点</span>
+                tail<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>right
+                
+                <span style="color:#75715e"># 将左子树置为右子树，并将左子树置空</span>
+                root<span style="color:#f92672">.</span>left, root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> None, root<span style="color:#f92672">.</span>left
+
+                <span style="color:#75715e"># 考虑下一个节点</span>
+                root <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>right
+</code></pre></div><h2 id="参考链接">参考链接</h2>
+<p><a href="https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by--26/">详细通俗的思路分析，多解法</a></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/05/04/0152-maximum-product-subarray/">0152-maximum product subarray</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
