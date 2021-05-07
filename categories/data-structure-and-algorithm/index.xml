@@ -6,7 +6,20 @@
     <description>Recent content in Data Structure and Algorithm on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/categories/data-structure-and-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/categories/data-structure-and-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0236-lowest common ancestor of a binary tree</title>
+      <link>https://qidi.ink/post/2021/05/07/0236-lowest-common-ancestor-of-a-binary-tree/</link>
+      <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/05/07/0236-lowest-common-ancestor-of-a-binary-tree/</guid>
+      <description>问题描述 给定二叉树，找到该树中两个指定节点的最近公共祖先。
+最近公共祖先的的定义为：“对于有根树T的两个节点p和q，最近公共祖先表示为一个节点x，满足 x是p、q的祖先且x的深度尽可能大（一个节点也可以是它自己的祖先）”。
+![lowest common ancestor of a binary tree](images/Screen Shot 2021-05-07 at 9.30.46 PM.png)
+ 提示:
+ 树中节点数目在范围[2, 105]内。 -109 &amp;lt;= Node.val &amp;lt;= 109。 所有Node.val互不相同。 p != q p和q均存在于给定的二叉树中。   代码 # Definition for a binary tree node. # class TreeNode: # def __init__(self, x): # self.val = x # self.left = None # self.right = None class Solution: def lowestCommonAncestor(self, root: &amp;#39;TreeNode&amp;#39;, p: &amp;#39;TreeNode&amp;#39;, q: &amp;#39;TreeNode&amp;#39;) -&amp;gt; &amp;#39;TreeNode&amp;#39;: if not root: return None if root == p: return root if root == q: return root left = self.</description>
+    </item>
+    
     <item>
       <title>0337-house robber iii</title>
       <link>https://qidi.ink/post/2021/05/06/0337-house-robber-iii/</link>
