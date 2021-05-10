@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>🚩 0279-perfect squares - XIU</title>
+    <meta property="og:title" content="🚩 0279-perfect squares - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="给定正整数n，找到若干个完全平方数（比如1, 4, 9, 16, ...）使得它们的和等于n。
+返回和为n的完全平方数的最少数量。
+完全平方数是一个整数，其值等于另一个整数的平方。即其值等于一个整数自身的积。例如，1、4、9和16都是完全平方数，而3和11不是。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: n = 12
+输出: 3
+解释: 12 = 4 &#43; 4 &#43; 4 &amp;hellip;">
+      <meta property="og:description" content="给定正整数n，找到若干个完全平方数（比如1, 4, 9, 16, ...）使得它们的和等于n。
+返回和为n的完全平方数的最少数量。
+完全平方数是一个整数，其值等于另一个整数的平方。即其值等于一个整数自身的积。例如，1、4、9和16都是完全平方数，而3和11不是。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: n = 12
+输出: 3
+解释: 12 = 4 &#43; 4 &#43; 4 &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="https://qidi.ink/images/Octopus_pills.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.14.1/styles/googlecode.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1 class="headimg">
+    
+    <a href="/"><img src="/img/headimg.png" alt="Fuhui "></a>
+</h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/books/">读书</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+
+
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      <h1>🚩 0279-perfect squares</h1>
+
+
+
+
+    
+    
+    <section class="post-meta">
+        <span class="post-author">Xiu Di
+        
+            
+            
+             /  2021-05-08
+            
+        </span>
+        
+        <a href="/tags/leetcode">Leetcode</a>
+        
+    </section>
+    
+
+
+
+<hr>
+      </header>
+
+
+
+<h2 id="问题描述">问题描述</h2>
+<p>给定正整数<code>n</code>，找到若干个完全平方数（比如<code>1, 4, 9, 16, ...</code>）使得它们的和等于<code>n</code>。</p>
+<p>返回和为<code>n</code>的完全平方数的<strong>最少数量</strong>。</p>
+<p><strong>完全平方数</strong>是一个整数，其值等于另一个整数的平方。即其值等于一个整数自身的积。例如，<code>1</code>、<code>4</code>、<code>9</code>和<code>16</code>都是完全平方数，而<code>3</code>和<code>11</code>不是。</p>
+<blockquote>
+<p><strong>示例1</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>n = 12</code></p>
+<p><strong>输出</strong>: <code>3</code></p>
+<p><strong>解释</strong>: <code>12 = 4 + 4 + 4</code></p>
+</blockquote>
+<p><strong>示例2</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>n = 13</code></p>
+<p><strong>输出</strong>: <code>2</code></p>
+<p><strong>解释</strong>: <code>13 = 4 + 9</code></p>
+</blockquote>
+<p><strong>提示</strong>:
+1 &lt;= n &lt;= 10<sup>4</sup></p>
+</blockquote>
+<h2 id="代码">代码</h2>
+<h3 id="动态规划">动态规划</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">numSquares</span>(self, n: int) <span style="color:#f92672">-&gt;</span> int:
+        squares <span style="color:#f92672">=</span> [i <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, int(math<span style="color:#f92672">.</span>sqrt(n)) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)]
+
+        dp <span style="color:#f92672">=</span> [float(<span style="color:#e6db74">&#39;inf&#39;</span>)] <span style="color:#f92672">*</span> (n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+        dp[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
+            <span style="color:#66d9ef">for</span> square <span style="color:#f92672">in</span> squares:
+                <span style="color:#66d9ef">if</span> square <span style="color:#f92672">&gt;</span> n:
+                    <span style="color:#66d9ef">break</span>
+                dp[i] <span style="color:#f92672">=</span> min(dp[i], <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> dp[i <span style="color:#f92672">-</span> square])
+</code></pre></div><h3 id="贪心枚举">贪心枚举</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">numSquares</span>(self, n: int) <span style="color:#f92672">-&gt;</span> int:
+        self<span style="color:#f92672">.</span>squares <span style="color:#f92672">=</span> [i <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, int(math<span style="color:#f92672">.</span>sqrt(n)) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)]
+        <span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+            <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>canBeComposed(n, k):
+                <span style="color:#66d9ef">return</span> k
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">canBeComposed</span>(self, n: int, k: int):
+        <span style="color:#66d9ef">if</span> k <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+            <span style="color:#66d9ef">return</span> n <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>squares
+
+        <span style="color:#66d9ef">for</span> square <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>squares:
+            <span style="color:#66d9ef">if</span> square <span style="color:#f92672">&gt;</span> n: 
+                <span style="color:#66d9ef">break</span>
+            <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>canBeComposed(n <span style="color:#f92672">-</span> square, k <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>):
+                <span style="color:#66d9ef">return</span> True
+
+        <span style="color:#66d9ef">return</span> False
+</code></pre></div><h3 id="legendre三平方定理lagrange四平方定理">Legendre三平方定理&amp;Lagrange四平方定理</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">numSquares</span>(self, n: int) <span style="color:#f92672">-&gt;</span> int:
+        squares <span style="color:#f92672">=</span> [i <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, int(math<span style="color:#f92672">.</span>sqrt(n)) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)]
+        
+        <span style="color:#66d9ef">if</span> n <span style="color:#f92672">in</span> squares: <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+        
+        <span style="color:#66d9ef">for</span> square <span style="color:#f92672">in</span> squares:
+            <span style="color:#66d9ef">if</span> square <span style="color:#f92672">&gt;</span> n: <span style="color:#66d9ef">break</span>
+            <span style="color:#66d9ef">if</span> n <span style="color:#f92672">-</span> square <span style="color:#f92672">in</span> squares: <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span>
+
+        <span style="color:#66d9ef">while</span> n <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+            n <span style="color:#f92672">&gt;&gt;</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+        <span style="color:#66d9ef">if</span> n <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">7</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">7</span>:
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">3</span>
+
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">4</span>
+</code></pre></div><h2 id="参考链接">参考链接</h2>
+<p><a href="https://leetcode-cn.com/problems/perfect-squares/solution/wan-quan-ping-fang-shu-by-leetcode/">完全平方数</a></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/05/07/0236-lowest-common-ancestor-of-a-binary-tree/">0236-lowest common ancestor of a binary tree</a></span>
+  <span class="nav-next"><a href="/post/2021/05/09/0322-coin-change/">0322-coin change</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

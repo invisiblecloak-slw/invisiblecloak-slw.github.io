@@ -6,7 +6,72 @@
     <description>Recent content in 日拱一卒 功不唐捐 on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0098- validate binary search tree</title>
+      <link>https://qidi.ink/post/2021/05/10/0098-validate-binary-search-tree/</link>
+      <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/05/10/0098-validate-binary-search-tree/</guid>
+      <description>问题描述 给定一个二叉树，判断其是否是一个有效的二叉搜索树。
+假设一个二叉搜索树具有如下特征：
+ 节点的左子树只包含小于当前节点的数。 节点的右子树只包含大于当前节点的数。 所有左子树和右子树自身必须也是二叉搜索树。   示例1:
+ 输入: [2, 1, 3]
+输出: true
+ 示例2:
+ 输入: [5, 1, 4, null, null, 3, 6]
+输出: false
+  代码 中序遍历+递归 # Definition for a binary tree node. # class TreeNode: # def __init__(self, val=0, left=None, right=None): # self.val = val # self.left = left # self.right = right class Solution: pre = float(&amp;#39;-inf&amp;#39;) def isValidBST(self, root: TreeNode) -&amp;gt; bool: if not root: return True if not self.</description>
+    </item>
+    
+    <item>
+      <title>0322-coin change</title>
+      <link>https://qidi.ink/post/2021/05/09/0322-coin-change/</link>
+      <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/05/09/0322-coin-change/</guid>
+      <description>问题描述 给定不同面额的硬币coins和一个总金额amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回-1。
+可以认为每种硬币的数量是无限的。
+ 示例1:
+ 输入: coins = [1, 2, 5], amount = 11
+输出: 3
+ 示例2:
+ 输入: coins = [2], amount = 3
+输出: -1
+ 示例3:
+ 输入: coins = [1], amount = 0
+输出: 0
+ 示例4:
+ 输入: coins = [1], amount = 1
+输出: 1
+ 示例5:
+ 输入: coins = [1], amount = 2
+输出: 2
+ 提示:
+ 1 &amp;lt;= coins.</description>
+    </item>
+    
+    <item>
+      <title>🚩 0279-perfect squares</title>
+      <link>https://qidi.ink/post/2021/05/08/0279-perfect-squares/</link>
+      <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/05/08/0279-perfect-squares/</guid>
+      <description>问题描述 给定正整数n，找到若干个完全平方数（比如1, 4, 9, 16, ...）使得它们的和等于n。
+返回和为n的完全平方数的最少数量。
+完全平方数是一个整数，其值等于另一个整数的平方。即其值等于一个整数自身的积。例如，1、4、9和16都是完全平方数，而3和11不是。
+ 示例1:
+ 输入: n = 12
+输出: 3
+解释: 12 = 4 + 4 + 4
+ 示例2:
+ 输入: n = 13
+输出: 2
+解释: 13 = 4 + 9
+ 提示: 1 &amp;lt;= n &amp;lt;= 104
+ 代码 动态规划 class Solution: def numSquares(self, n: int) -&amp;gt; int: squares = [i ** 2 for i in range(1, int(math.sqrt(n)) + 1)] dp = [float(&amp;#39;inf&amp;#39;)] * (n + 1) dp[0] = 0 for i in range(1, n+1): for square in squares: if square &amp;gt; n: break dp[i] = min(dp[i], 1 + dp[i - square]) 贪心枚举 class Solution: def numSquares(self, n: int) -&amp;gt; int: self.</description>
+    </item>
+    
     <item>
       <title>0236-lowest common ancestor of a binary tree</title>
       <link>https://qidi.ink/post/2021/05/07/0236-lowest-common-ancestor-of-a-binary-tree/</link>

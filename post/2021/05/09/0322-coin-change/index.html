@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0322-coin change - XIU</title>
+    <meta property="og:title" content="0322-coin change - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="给定不同面额的硬币coins和一个总金额amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回-1。
+可以认为每种硬币的数量是无限的。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: coins = [1, 2, 5], amount = 11
+输出: 3
+[&amp;hellip;] 示例2:
+[&amp;hellip;] 输入: coins &amp;hellip;">
+      <meta property="og:description" content="给定不同面额的硬币coins和一个总金额amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回-1。
+可以认为每种硬币的数量是无限的。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: coins = [1, 2, 5], amount = 11
+输出: 3
+[&amp;hellip;] 示例2:
+[&amp;hellip;] 输入: coins &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="https://qidi.ink/images/Octopus_pills.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.14.1/styles/googlecode.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1 class="headimg">
+    
+    <a href="/"><img src="/img/headimg.png" alt="Fuhui "></a>
+</h1>
+
+<p class="tagline">欢迎</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/books/">读书</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+
+
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      <h1>0322-coin change</h1>
+
+
+
+
+    
+    
+    <section class="post-meta">
+        <span class="post-author">Xiu Di
+        
+            
+            
+             /  2021-05-09
+            
+        </span>
+        
+        <a href="/tags/leetcode">Leetcode</a>
+        
+    </section>
+    
+
+
+
+<hr>
+      </header>
+
+
+
+<h2 id="问题描述">问题描述</h2>
+<p>给定不同面额的硬币<code>coins</code>和一个总金额<code>amount</code>。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回<code>-1</code>。</p>
+<p>可以认为每种硬币的数量是无限的。</p>
+<blockquote>
+<p><strong>示例1</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>:  <code>coins = [1, 2, 5], amount = 11</code></p>
+<p><strong>输出</strong>: <code>3</code></p>
+</blockquote>
+<p><strong>示例2</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>coins = [2], amount = 3</code></p>
+<p><strong>输出</strong>: <code>-1</code></p>
+</blockquote>
+<p><strong>示例3</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>coins = [1], amount = 0</code></p>
+<p><strong>输出</strong>: <code>0</code></p>
+</blockquote>
+<p><strong>示例4</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>coins = [1], amount = 1</code></p>
+<p><strong>输出</strong>: <code>1</code></p>
+</blockquote>
+<p><strong>示例5</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>coins = [1], amount = 2</code></p>
+<p><strong>输出</strong>: <code>2</code></p>
+</blockquote>
+<p><strong>提示</strong>:</p>
+<ul>
+<li>1 &lt;= coins.length &lt;= 12</li>
+<li>1 &lt;= coins[i] &lt;= 2<sup>31</sup> - 1</li>
+<li>0 &lt;= amount &lt;= 10<sup>4</sup></li>
+</ul>
+</blockquote>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">coinChange</span>(self, coins: List[int], amount: int) <span style="color:#f92672">-&gt;</span> int:
+        dp <span style="color:#f92672">=</span> [float(<span style="color:#e6db74">&#39;inf&#39;</span>)] <span style="color:#f92672">*</span> (amount <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+        dp[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+
+        coins<span style="color:#f92672">.</span>sort()
+        <span style="color:#66d9ef">for</span> val <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, amount <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+            <span style="color:#66d9ef">for</span> coin <span style="color:#f92672">in</span> coins:
+                <span style="color:#66d9ef">if</span> coin <span style="color:#f92672">&gt;</span> val: <span style="color:#66d9ef">break</span>
+                dp[val] <span style="color:#f92672">=</span> min(dp[val], dp[val <span style="color:#f92672">-</span> coin] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#66d9ef">if</span> dp[amount] <span style="color:#f92672">==</span> float(<span style="color:#e6db74">&#39;inf&#39;</span>) <span style="color:#66d9ef">else</span> dp[amount]
+</code></pre></div><h2 id="参考链接">参考链接</h2>
+<p><a href="https://leetcode-cn.com/problems/coin-change/solution/322-ling-qian-dui-huan-by-leetcode-solution/">零钱兑换</a></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/05/08/0279-perfect-squares/">🚩 0279-perfect squares</a></span>
+  <span class="nav-next"><a href="/post/2021/05/10/0098-validate-binary-search-tree/">0098- validate binary search tree</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
