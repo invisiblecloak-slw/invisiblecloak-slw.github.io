@@ -6,7 +6,27 @@
     <description>Recent content in 日拱一卒 功不唐捐 on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0207-course schedule</title>
+      <link>https://qidi.ink/post/2021/05/11/0207-course-schedule/</link>
+      <pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/05/11/0207-course-schedule/</guid>
+      <description>问题描述 设在某个学期需要选修numCourses门课程，记为0到numCourses - 1。
+在选修某些课程之前需要一些先修课程。先修课程按数组prerequisites给出，其中prerequisites[i] = [ai, bi]，表示如果要学习课程ai则必须先学习课程bi。
+如，先修课程对[0, 1]表示：学习课程0之前需要完成课程1。
+判断是否可能完成所有课程的学习？如果可以，返回true，否则返回false。
+ 示例1:
+ 输入: numCourses = 2, prerequisites = [[1,0]]
+输出: true
+ 示例2:
+ 输入: numCourses = 2, prerequisites = [[1,0], [0,1]]
+输出: false
+ 提示:
+ 1 &amp;lt;= numCourses &amp;lt;= 105 0 &amp;lt;= prerequisites.length &amp;lt;= 5000 prerequisites[i].length == 2 0 &amp;lt;= ai, bi &amp;lt; numCourses prerequisites[i] 中所有的课程对互不相同   代码 class Solution: def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -&amp;gt; bool: # 入度矩阵 inDegree = [0] * numCourses # 后继课程列表 suc = collections.</description>
+    </item>
+    
     <item>
       <title>0098- validate binary search tree</title>
       <link>https://qidi.ink/post/2021/05/10/0098-validate-binary-search-tree/</link>
