@@ -6,7 +6,25 @@
     <description>Recent content in Posts on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0704-binary search</title>
+      <link>https://qidi.ink/post/2021/05/12/0704-binary-search/</link>
+      <pubDate>Wed, 12 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/05/12/0704-binary-search/</guid>
+      <description>问题描述 给定一个n个元素的升序整数数组nums和一个目标值target。
+搜索nums中的target，如果目标值存在返回下标，否则返回-1。
+ 示例1:
+ 输入: nums = [-1,0,3,5,9,12], target = 9
+输出: 4
+ 示例2:
+ 输入: nums = [-1,0,3,5,9,12], target = 2
+输出: -1
+ 提示:
+ 数组nums中所有元素不重复 n在[1, 10000]之间 nums每个元素在[-9999, 9999]之间   代码 class Solution: def search(self, nums: List[int], target: int) -&amp;gt; int: left, right = 0, len(nums) - 1 while left &amp;lt;= right: mid = left + (right - left) // 2 if nums[mid] == target: return mid if nums[mid] &amp;lt; target: left = mid + 1 else: right = mid - 1 return -1 </description>
+    </item>
+    
     <item>
       <title>0207-course schedule</title>
       <link>https://qidi.ink/post/2021/05/11/0207-course-schedule/</link>
