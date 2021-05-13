@@ -6,7 +6,31 @@
     <description>Recent content in Posts on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 12 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0035-search insert position</title>
+      <link>https://qidi.ink/post/2021/05/13/0035-search-insert-position/</link>
+      <pubDate>Thu, 13 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/05/13/0035-search-insert-position/</guid>
+      <description>问题描述 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。
+如果目标值不存在数组中，返回它将会被按顺序插入的位置。
+假定数组中无重复元素。
+ 示例1:
+ 输入: [1,3,5,6], 5
+输出: 2
+ 示例2:
+ 输入: [1,3,5,6], 2
+输出: 1
+ 示例3:
+ 输入: [1,3,5,6], 7
+输出: 4
+ 示例4:
+ 输入: [1,3,5,6], 0
+输出: 0
+  代码 class Solution: def searchInsert(self, nums: List[int], target: int) -&amp;gt; int: sz = len(nums) if not sz: return 0 if nums[-1] &amp;lt; target: return sz left, right = 0, sz - 1 while left &amp;lt; right: mid = left + (right - left) // 2 if nums[mid] &amp;gt;= target: right = mid else: left = mid + 1 return left 参考链接 写对二分查找不能靠模板，需要理解加练习 （附练习题，持续更新）</description>
+    </item>
+    
     <item>
       <title>0704-binary search</title>
       <link>https://qidi.ink/post/2021/05/12/0704-binary-search/</link>
