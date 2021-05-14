@@ -6,7 +6,24 @@
     <description>Recent content in Data Structure and Algorithm on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/categories/data-structure-and-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/categories/data-structure-and-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>96</title>
+      <link>https://qidi.ink/post/2021/05/14/96/</link>
+      <pubDate>Fri, 14 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/05/14/96/</guid>
+      <description>问题描述 给定整数n，求恰由n个节点组成且节点值从1到n互不相同的二叉搜索树的个数。
+ 示例1:
+ 输入: n = 3
+输出: 5
+ 示例2:
+ 输入: n = 1
+输出: 1
+ 提示: 1 &amp;lt;= n &amp;lt;= 19
+ 代码 class Solution: def numTrees(self, n: int) -&amp;gt; int: dp = [0] * (n + 1) dp[0], dp[1] = 1, 1 for amount in range(2, n+1): for root in range(1, amount + 1): left_amount = root - 1 right_amount = amount - root dp[amount] += dp[left_amount] * dp[right_amount] return dp[n] 参考链接 「手画图解」详解 DP、记忆化递归 | 96.</description>
+    </item>
+    
     <item>
       <title>0035-search insert position</title>
       <link>https://qidi.ink/post/2021/05/13/0035-search-insert-position/</link>
