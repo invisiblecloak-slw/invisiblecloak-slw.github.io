@@ -6,7 +6,24 @@
     <description>Recent content in Posts on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0240-search a 2d matrix ii</title>
+      <link>https://qidi.ink/post/2021/05/15/0240-search-a-2d-matrix-ii/</link>
+      <pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/05/15/0240-search-a-2d-matrix-ii/</guid>
+      <description>问题描述 在m x n矩阵matrix中搜索目标值target，该矩阵具有以下特性： - 每行的元素从左到右升序排列。 - 每列的元素从上到下升序排列。
+ 示例1:
+ 输入: matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5
+输出: true
+ 示例2:
+ 输入: matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 20
+输出: false
+ 提示:
+ m == matrix.length n == matrix[i].length 1 &amp;lt;= n, m &amp;lt;= 300 -109 &amp;lt;= matrix[i][j] &amp;lt;= 109 每行的所有元素从左到右升序排列 每列的所有元素从上到下升序排列 -109 &amp;lt;= target &amp;lt;= 109   代码 class Solution: def searchMatrix(self, matrix: List[List[int]], target: int) -&amp;gt; bool: m, n = len(matrix), len(matrix[0]) i, j = 0, n-1 while i in range(m) and j in range(n): if matrix[i][j] == target: return True if matrix[i][j] &amp;lt; target: i += 1 else: j -= 1 return False 参考链接 详细通俗的思路分析，多解法</description>
+    </item>
+    
     <item>
       <title>96</title>
       <link>https://qidi.ink/post/2021/05/14/96/</link>
