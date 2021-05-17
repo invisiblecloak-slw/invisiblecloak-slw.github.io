@@ -6,7 +6,35 @@
     <description>Recent content in Data Structure and Algorithm on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/categories/data-structure-and-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/categories/data-structure-and-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0338-counting bits</title>
+      <link>https://qidi.ink/post/2021/05/17/0338-counting-bits/</link>
+      <pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/05/17/0338-counting-bits/</guid>
+      <description>问题描述 给定非负整数num，对于0&amp;lt;=i&amp;lt;=num范围中的每个数字i，计算其二进制数中的1的数目并将它们作为数组返回。
+ 示例1:
+ 输入: 2
+输出: [0, 1, 1]
+ 示例2:
+ 输入: 5
+输出: [0, 1, 1, 2, 1, 2]
+ 进阶:
+ 考虑在线性时间复杂度**O(n)**内完成。 要求空间复杂度为O(n)。   代码 class Solution: def countBits(self, num: int) -&amp;gt; List[int]: count = [0] * (num + 1) for i in range(1, num + 1): if i &amp;amp; 1: count[i] = count[i-1] + 1 else: count[i] = count[i &amp;gt;&amp;gt; 1] return count 参考链接 清晰的思路</description>
+    </item>
+    
+    <item>
+      <title>0538-convert binary search tree to greater tree</title>
+      <link>https://qidi.ink/post/2021/05/16/0538-convert-binary-search-tree-to-greater-tree/</link>
+      <pubDate>Sun, 16 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/05/16/0538-convert-binary-search-tree-to-greater-tree/</guid>
+      <description>问题描述 给定二叉搜索树的根节点，该树节点值各不相同。将其转换为累加树(Greater Sum Tree)，使每个节点node的新值等于原树中大于或等于node.val的值之和。
+ 提示:
+ 树中节点数介于0和104之间。 每个节点的值介于-104和104之间。 树中所有值互不相同。 给定的树是二叉搜索树。   代码 逆中序遍历，DFS实现 # Definition for a binary tree node. # class TreeNode: # def __init__(self, val=0, left=None, right=None): # self.val = val # self.left = left # self.right = right class Solution: cumsum = 0 def convertBST(self, root: TreeNode) -&amp;gt; TreeNode: self.DFS(root) return root def DFS(self, root: TreeNode) -&amp;gt; None: if not root: return 0 self.DFS(root.right) root.val += self.</description>
+    </item>
+    
     <item>
       <title>0240-search a 2d matrix ii</title>
       <link>https://qidi.ink/post/2021/05/15/0240-search-a-2d-matrix-ii/</link>
