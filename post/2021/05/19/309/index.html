@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Best time to buy and sell stock with cooldown - XIU</title>
+    <meta property="og:title" content="Best time to buy and sell stock with cooldown - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="给定一个整数数组，其中第i个元素代表第i天的股票价格。
+设计一个算法计算出最大利润。需满足下述约束条件。
+[&amp;hellip;] 示例:
+[&amp;hellip;] 输入: [1,2,3,0,2]
+输出: 3
+解释: 对应的交易状态为[买入，卖出，冷冻期，买入，卖出]
+[&amp;hellip;] class Solution: def maxProfit(self, prices: List[int]) &amp;hellip;">
+      <meta property="og:description" content="给定一个整数数组，其中第i个元素代表第i天的股票价格。
+设计一个算法计算出最大利润。需满足下述约束条件。
+[&amp;hellip;] 示例:
+[&amp;hellip;] 输入: [1,2,3,0,2]
+输出: 3
+解释: 对应的交易状态为[买入，卖出，冷冻期，买入，卖出]
+[&amp;hellip;] class Solution: def maxProfit(self, prices: List[int]) &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="https://qidi.ink/images/Octopus_pills.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.14.1/styles/googlecode.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1 class="headimg">
+    
+    <a href="/"><img src="/img/headimg.png" alt="Fuhui "></a>
+</h1>
+
+<p class="tagline">成为自己</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/books/">读书</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+
+
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      <h1>Best time to buy and sell stock with cooldown</h1>
+
+
+
+
+    
+    
+    <section class="post-meta">
+        <span class="post-author">Xiu Di
+        
+            
+            
+             /  2021-05-19
+            
+        </span>
+        
+        <a href="/tags/leetcode">Leetcode</a>
+        
+    </section>
+    
+
+
+
+<hr>
+      </header>
+
+
+
+<h2 id="问题描述">问题描述</h2>
+<p>给定一个整数数组，其中第<code>i</code>个元素代表第<code>i</code>天的股票价格。</p>
+<p>设计一个算法计算出最大利润。需满足下述约束条件。</p>
+<ul>
+<li>不能同时参与多笔交易（必须在再次购买前出售掉之前的股票）。</li>
+<li>卖出股票后，不能在第二天买入股票，即有一天的冷冻期。</li>
+</ul>
+<blockquote>
+<p><strong>示例</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>[1,2,3,0,2]</code></p>
+<p><strong>输出</strong>: <code>3</code></p>
+<p><strong>解释</strong>: <code>对应的交易状态为[买入，卖出，冷冻期，买入，卖出]</code></p>
+</blockquote>
+</blockquote>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">maxProfit</span>(self, prices: List[int]) <span style="color:#f92672">-&gt;</span> int:
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> prices: <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+
+        <span style="color:#75715e"># 初值</span>
+        hold <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>prices[<span style="color:#ae81ff">0</span>]       <span style="color:#75715e"># status 1: 持有股票</span>
+        melt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>                <span style="color:#75715e"># status 2: 不持有股票，不处于冷冻期</span>
+        freeze <span style="color:#f92672">=</span> float(<span style="color:#e6db74">&#39;-inf&#39;</span>)  <span style="color:#75715e"># status 3: 不持有股票，处于冷冻期</span>
+        
+        <span style="color:#75715e"># Vitebi algorithm</span>
+        <span style="color:#75715e"># hold    -&gt;    hold</span>
+        <span style="color:#75715e">#         -&gt;    freeze</span>
+        <span style="color:#75715e"># melt    -&gt;    melt</span>
+        <span style="color:#75715e">#         -&gt;    hold</span>
+        <span style="color:#75715e"># freeze  -&gt;    melt</span>
+        
+        days <span style="color:#f92672">=</span> len(prices)
+        <span style="color:#66d9ef">for</span> day <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, days):
+            hold, melt, freeze <span style="color:#f92672">=</span> max(melt <span style="color:#f92672">-</span> prices[day], hold), max(freeze, melt), hold <span style="color:#f92672">+</span> prices[day]
+
+        <span style="color:#66d9ef">return</span> max(freeze, melt)
+</code></pre></div><h2 id="参考链接">参考链接</h2>
+<p><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/solution/zui-jia-mai-mai-gu-piao-shi-ji-han-leng-dong-qi-4/">最佳买卖股票时机含冷冻期</a></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/05/18/0647-palindromic-substrings/">0647-palindromic substrings</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

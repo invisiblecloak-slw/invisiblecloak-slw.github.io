@@ -6,7 +6,22 @@
     <description>Recent content in Posts on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Best time to buy and sell stock with cooldown</title>
+      <link>https://qidi.ink/post/2021/05/19/309/</link>
+      <pubDate>Wed, 19 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/05/19/309/</guid>
+      <description>问题描述 给定一个整数数组，其中第i个元素代表第i天的股票价格。
+设计一个算法计算出最大利润。需满足下述约束条件。
+ 不能同时参与多笔交易（必须在再次购买前出售掉之前的股票）。 卖出股票后，不能在第二天买入股票，即有一天的冷冻期。   示例:
+ 输入: [1,2,3,0,2]
+输出: 3
+解释: 对应的交易状态为[买入，卖出，冷冻期，买入，卖出]
+  代码 class Solution: def maxProfit(self, prices: List[int]) -&amp;gt; int: if not prices: return 0 # 初值 hold = -prices[0] # status 1: 持有股票 melt = 0 # status 2: 不持有股票，不处于冷冻期 freeze = float(&amp;#39;-inf&amp;#39;) # status 3: 不持有股票，处于冷冻期 # Vitebi algorithm # hold -&amp;gt; hold # -&amp;gt; freeze # melt -&amp;gt; melt # -&amp;gt; hold # freeze -&amp;gt; melt days = len(prices) for day in range(1, days): hold, melt, freeze = max(melt - prices[day], hold), max(freeze, melt), hold + prices[day] return max(freeze, melt) 参考链接 最佳买卖股票时机含冷冻期</description>
+    </item>
+    
     <item>
       <title>0647-palindromic substrings</title>
       <link>https://qidi.ink/post/2021/05/18/0647-palindromic-substrings/</link>
