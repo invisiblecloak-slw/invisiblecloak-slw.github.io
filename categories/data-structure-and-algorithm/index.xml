@@ -6,7 +6,21 @@
     <description>Recent content in Data Structure and Algorithm on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/categories/data-structure-and-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/categories/data-structure-and-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0560-subarray sum equals k</title>
+      <link>https://qidi.ink/post/2021/05/20/0560-subarray-sum-equals-k/</link>
+      <pubDate>Thu, 20 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/05/20/0560-subarray-sum-equals-k/</guid>
+      <description>问题描述 给定整数数组和整数k，找到该数组中和为k的连续子数组的个数。
+ 示例1:
+ 输入: nums = [1,1,1], k = 2
+输出: 2, [1,1] 与 [1,1] 属于两种不同的情况。
+ 说明:
+ 数组长度为[1, 2e4] 数组中元素范围为[-1e3, 1e3], 整数k范围为[-1e7, 1e7]   代码 前缀和 class Solution: def subarraySum(self, nums: List[int], k: int) -&amp;gt; int: hashTable = collections.defaultdict(int) hashTable[0] = 1 prefixSum, cnt = 0, 0 for num in nums: prefixSum += num if hashTable[prefixSum - k]: cnt += hashTable[prefixSum - k] hashTable[prefixSum] += 1 return cnt 参考链接 前缀和的运用，一步步优化 | 560.</description>
+    </item>
+    
     <item>
       <title>Best time to buy and sell stock with cooldown</title>
       <link>https://qidi.ink/post/2021/05/19/309/</link>
