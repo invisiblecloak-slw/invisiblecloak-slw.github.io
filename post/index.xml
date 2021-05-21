@@ -6,7 +6,29 @@
     <description>Recent content in Posts on XIU</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://qidi.ink/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🚩 0300-Longest increasing subsequence</title>
+      <link>https://qidi.ink/post/2021/05/21/0300-longest-increasing-subsequence/</link>
+      <pubDate>Fri, 21 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://qidi.ink/post/2021/05/21/0300-longest-increasing-subsequence/</guid>
+      <description>问题描述 给定整数数组nums，找到其中最长严格递增子序列的长度。
+子序列是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺序。例如，[3,6,2,7]是数组[0,3,1,6,2,2,7]的子序列。
+ 示例1:
+ 输入: nums = [10,9,2,5,3,7,101,18]
+输出: 4
+ 示例2:
+ 输入: nums = [0,1,0,3,2,3]
+输出: 4
+ 示例3:
+ 输入: nums = [7,7,7,7,7,7,7]
+输出: 1
+ 提示:
+ 1 &amp;lt;= nums.length &amp;lt;= 2.5e3 -1e4 &amp;lt;= nums[i] &amp;lt;= 1e4  进阶:
+ 考虑时间复杂度为O(n2)的解决方案。 考虑将算法的时间复杂度降到O(nlogn)。   代码 动态规划 O(n2) class Solution: def lengthOfLIS(self, nums: List[int]) -&amp;gt; int: if not nums: return 0 mem = [1] * len(nums) for i in range(len(nums)): for j in range(i): if nums[j] &amp;lt; nums[i]: mem[i] = max(mem[i], mem[j] + 1) return max(mem) 动态规划&amp;amp;贪心&amp;amp;二分 O(nlogn) class Solution: def lengthOfLIS(self, nums: List[int]) -&amp;gt; int: if not nums: return 0 Tails = [nums[0]] for num in nums[1:len(nums)]: if num &amp;gt; Tails[-1]: Tails.</description>
+    </item>
+    
     <item>
       <title>0560-subarray sum equals k</title>
       <link>https://qidi.ink/post/2021/05/20/0560-subarray-sum-equals-k/</link>

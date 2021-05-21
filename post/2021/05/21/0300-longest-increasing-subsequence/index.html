@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>🚩 0300-Longest increasing subsequence - XIU</title>
+    <meta property="og:title" content="🚩 0300-Longest increasing subsequence - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="给定整数数组nums，找到其中最长严格递增子序列的长度。
+子序列是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺序。例如，[3,6,2,7]是数组[0,3,1,6,2,2,7]的子序列。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: nums = [10,9,2,5,3,7,101,18]
+输出: 4
+[&amp;hellip;] 示例2:
+[&amp;hellip;] 输 &amp;hellip;">
+      <meta property="og:description" content="给定整数数组nums，找到其中最长严格递增子序列的长度。
+子序列是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺序。例如，[3,6,2,7]是数组[0,3,1,6,2,2,7]的子序列。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: nums = [10,9,2,5,3,7,101,18]
+输出: 4
+[&amp;hellip;] 示例2:
+[&amp;hellip;] 输 &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="https://qidi.ink/images/Octopus_pills.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.14.1/styles/googlecode.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1 class="headimg">
+    
+    <a href="/"><img src="/img/headimg.png" alt="Fuhui "></a>
+</h1>
+
+<p class="tagline">成为自己</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/books/">读书</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+
+
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      <h1>🚩 0300-Longest increasing subsequence</h1>
+
+
+
+
+    
+    
+    <section class="post-meta">
+        <span class="post-author">Xiu Di
+        
+            
+            
+             /  2021-05-21
+            
+        </span>
+        
+        <a href="/tags/leetcode">Leetcode</a>
+        
+    </section>
+    
+
+
+
+<hr>
+      </header>
+
+
+
+<h2 id="问题描述">问题描述</h2>
+<p>给定整数数组<code>nums</code>，找到其中最长严格递增子序列的长度。</p>
+<p>子序列是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺序。例如，<code>[3,6,2,7]</code>是数组<code>[0,3,1,6,2,2,7]</code>的子序列。</p>
+<blockquote>
+<p><strong>示例1</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>nums = [10,9,2,5,3,7,101,18]</code></p>
+<p><strong>输出</strong>: <code>4</code></p>
+</blockquote>
+<p><strong>示例2</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>nums = [0,1,0,3,2,3]</code></p>
+<p><strong>输出</strong>: <code>4</code></p>
+</blockquote>
+<p><strong>示例3</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>nums = [7,7,7,7,7,7,7]</code></p>
+<p><strong>输出</strong>: <code>1</code></p>
+</blockquote>
+<p><strong>提示</strong>:</p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 2.5e3</code></li>
+<li><code>-1e4 &lt;= nums[i] &lt;= 1e4</code></li>
+</ul>
+<p><strong>进阶</strong>:</p>
+<ul>
+<li>考虑时间复杂度为O(n<sup>2</sup>)的解决方案。</li>
+<li>考虑将算法的时间复杂度降到O(nlogn)。</li>
+</ul>
+</blockquote>
+<h2 id="代码">代码</h2>
+<h3 id="动态规划-onsup2sup">动态规划 O(n<sup>2</sup>)</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lengthOfLIS</span>(self, nums: List[int]) <span style="color:#f92672">-&gt;</span> int:
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> nums: <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+    
+        mem <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>] <span style="color:#f92672">*</span> len(nums)
+
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(nums)):
+            <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(i):
+                <span style="color:#66d9ef">if</span> nums[j] <span style="color:#f92672">&lt;</span> nums[i]:
+                    mem[i] <span style="color:#f92672">=</span> max(mem[i], mem[j] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+
+        <span style="color:#66d9ef">return</span> max(mem)
+</code></pre></div><h3 id="动态规划贪心二分-onlogn">动态规划&amp;贪心&amp;二分 O(nlogn)</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lengthOfLIS</span>(self, nums: List[int]) <span style="color:#f92672">-&gt;</span> int:
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> nums: <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+        
+        Tails <span style="color:#f92672">=</span> [nums[<span style="color:#ae81ff">0</span>]]
+        <span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> nums[<span style="color:#ae81ff">1</span>:len(nums)]:
+            <span style="color:#66d9ef">if</span> num <span style="color:#f92672">&gt;</span> Tails[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]:
+                Tails<span style="color:#f92672">.</span>append(num)
+            <span style="color:#66d9ef">else</span>:
+                left, right <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, len(Tails) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+                <span style="color:#66d9ef">while</span> left <span style="color:#f92672">&lt;</span> right:
+                    mid <span style="color:#f92672">=</span> left <span style="color:#f92672">+</span> (right <span style="color:#f92672">-</span> left) <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+                    <span style="color:#66d9ef">if</span> Tails[mid] <span style="color:#f92672">&lt;</span> num:
+                        left <span style="color:#f92672">=</span> mid <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+                    <span style="color:#66d9ef">else</span>:
+                        right <span style="color:#f92672">=</span> mid
+                Tails[left] <span style="color:#f92672">=</span> num
+        <span style="color:#66d9ef">return</span> len(Tails)
+</code></pre></div><h2 id="参考链接">参考链接</h2>
+<p><a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/dong-tai-gui-hua-er-fen-cha-zhao-tan-xin-suan-fa-p/">动态规划 （包含O (N log N) 解法的状态定义以及解释）</a></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/05/20/0560-subarray-sum-equals-k/">0560-subarray sum equals k</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
