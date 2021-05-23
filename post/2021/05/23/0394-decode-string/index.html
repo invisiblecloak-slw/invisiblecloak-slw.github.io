@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0394-decode string - XIU</title>
+    <meta property="og:title" content="0394-decode string - XIU">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="给定一个经过编码的字符串，返回它解码后的字符串。
+编码规则为:k[encoded_string]，表示其中方括号内部的encoded_string正好重复k次。其中k为正整数。
+输入字符串总是有效的。输入字符串中没有额外的空格，且输入的方括号总是符合格式要求。
+原始数据中的数字只表示重复的次数k，不会出现像3a或2[4]的输入。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: s = &amp;hellip;">
+      <meta property="og:description" content="给定一个经过编码的字符串，返回它解码后的字符串。
+编码规则为:k[encoded_string]，表示其中方括号内部的encoded_string正好重复k次。其中k为正整数。
+输入字符串总是有效的。输入字符串中没有额外的空格，且输入的方括号总是符合格式要求。
+原始数据中的数字只表示重复的次数k，不会出现像3a或2[4]的输入。
+[&amp;hellip;] 示例1:
+[&amp;hellip;] 输入: s = &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="https://qidi.ink/images/Octopus_pills.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.14.1/styles/googlecode.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1 class="headimg">
+    
+    <a href="/"><img src="/img/headimg.png" alt="Fuhui "></a>
+</h1>
+
+<p class="tagline">成为自己</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/books/">读书</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+
+
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      <h1>0394-decode string</h1>
+
+
+
+
+    
+    
+    <section class="post-meta">
+        <span class="post-author">Xiu Di
+        
+            
+            
+             /  2021-05-23
+            
+        </span>
+        
+        <a href="/tags/leetcode">Leetcode</a>
+        
+    </section>
+    
+
+
+
+<hr>
+      </header>
+
+
+
+<h2 id="问题描述">问题描述</h2>
+<p>给定一个经过编码的字符串，返回它解码后的字符串。</p>
+<p>编码规则为:<code>k[encoded_string]</code>，表示其中方括号内部的<code>encoded_string</code>正好重复<code>k</code>次。其中<code>k</code>为正整数。</p>
+<p>输入字符串总是有效的。输入字符串中没有额外的空格，且输入的方括号总是符合格式要求。</p>
+<p>原始数据中的数字只表示重复的次数<code>k</code>，不会出现像<code>3a</code>或<code>2[4]</code>的输入。</p>
+<blockquote>
+<p><strong>示例1</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>s = &quot;3[a]2[bc]&quot;</code></p>
+<p><strong>输出</strong>: <code>aaabcbc</code></p>
+</blockquote>
+<p><strong>示例2</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>s = &quot;3[a2[c]]&quot;</code></p>
+<p><strong>输出</strong>: <code>&quot;accaccacc&quot;</code></p>
+</blockquote>
+<p><strong>示例3</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>s = &quot;2[abc]3[cd]ef&quot;</code></p>
+<p><strong>输出</strong>: <code>&quot;abcabccdcdcdef&quot;</code></p>
+</blockquote>
+<p><strong>示例4</strong>:</p>
+<blockquote>
+<p><strong>输入</strong>: <code>s = &quot;abc3[cd]xyz&quot;</code></p>
+<p><strong>输出</strong>: <code>&quot;abccdcdcdxyz&quot;</code></p>
+</blockquote>
+</blockquote>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">decodeString</span>(self, s: str) <span style="color:#f92672">-&gt;</span> str:
+        numStack <span style="color:#f92672">=</span> list()
+        strStack <span style="color:#f92672">=</span> list()
+        
+        curStr, multiplier <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>, <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> s:
+            <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#f92672">&lt;=</span> c <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#39;9&#39;</span>:
+                multiplier <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">*</span> multiplier <span style="color:#f92672">+</span> ord(c) <span style="color:#f92672">-</span> ord(<span style="color:#e6db74">&#39;0&#39;</span>)
+            <span style="color:#66d9ef">elif</span> <span style="color:#e6db74">&#39;a&#39;</span> <span style="color:#f92672">&lt;=</span> c <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#39;z&#39;</span> <span style="color:#f92672">or</span> <span style="color:#e6db74">&#39;A&#39;</span> <span style="color:#f92672">&lt;=</span> c <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#39;Z&#39;</span>:
+                curStr <span style="color:#f92672">+=</span> c
+            <span style="color:#66d9ef">elif</span> c <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;[&#39;</span>:
+                numStack<span style="color:#f92672">.</span>append(multiplier)
+                strStack<span style="color:#f92672">.</span>append(curStr)
+                curStr, multiplier <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>, <span style="color:#ae81ff">0</span>
+            <span style="color:#66d9ef">elif</span> c <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;]&#39;</span>:
+                curStr <span style="color:#f92672">*=</span> numstack<span style="color:#f92672">.</span>pop()
+                strStack[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+=</span> curStr
+                curStr <span style="color:#f92672">=</span> strStack<span style="color:#f92672">.</span>pop()
+
+    <span style="color:#66d9ef">return</span> curStr
+</code></pre></div><h2 id="参考链接">参考链接</h2>
+<p><a href="https://leetcode-cn.com/problems/decode-string/solution/decode-string-fu-zhu-zhan-fa-di-gui-fa-by-jyd/">字符串解码（辅助栈法/递归法，清晰图解）</a></p>
+<p><a href="https://leetcode-cn.com/problems/decode-string/solution/ti-jie-czhan-by-youlookdeliciousc/">题解C++，栈</a></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/05/22/0581-shortest-unsorted-continuous-subarray/">0581-shortest unsorted continuous subarray</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.14.1/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://qidi.ink">Xiu Di</a> 2021 | <a href="https://github.com/invisiblecloak-slw">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

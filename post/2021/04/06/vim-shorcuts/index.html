@@ -143,6 +143,118 @@ $: 选中当前行，光标位置到行尾
 <h2 id="撤销与恢复">撤销与恢复</h2>
 <p><code>u</code>: 撤销上一次操作</p>
 <p><code>:redo</code>: 恢复</p>
+<h3 id="level-1">Level 1</h3>
+<table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>功能</strong></th>
+<th><strong>命令</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>h</code></td>
+<td><code>Move cursor left</code></td>
+<td><strong><code>:wq  :x  ZZ</code></strong></td>
+<td><code>Save changes and close file</code></td>
+</tr>
+<tr>
+<td><code>l</code></td>
+<td><code>Move cursor right</code></td>
+<td><code>x</code></td>
+<td><code>Delete character at cursor</code></td>
+</tr>
+<tr>
+<td><code>j</code></td>
+<td><code>Move cursor down</code></td>
+<td><code>i</code></td>
+<td><code>Insert at cursor</code></td>
+</tr>
+<tr>
+<td><code>k</code></td>
+<td><code>Move cursor up</code></td>
+<td><strong><code>I</code></strong></td>
+<td><code>Insert at beginning of line</code></td>
+</tr>
+<tr>
+<td><code>:q</code></td>
+<td><code>Close file</code></td>
+<td><code>a</code></td>
+<td><code>Append at cursor</code></td>
+</tr>
+<tr>
+<td><code>:q!</code></td>
+<td><code>Close file, don't save changes</code></td>
+<td><strong><code>A</code></strong></td>
+<td><code>Append at end of line</code></td>
+</tr>
+<tr>
+<td><code>:q</code></td>
+<td><code>Save changes to file</code></td>
+<td><strong><code>ESC  ctrl+[</code></strong></td>
+<td><code>Exit insert mode</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="level-2">Level 2</h3>
+<table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>功能</strong></th>
+<th><strong>命令</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dw</code></td>
+<td><code>Delete word</code></td>
+<td><code>3e</code></td>
+<td><code>Go to end of third word ahead</code></td>
+</tr>
+<tr>
+<td><code>d$ D</code></td>
+<td><code>Delete to end of line</code></td>
+<td><code>d2w</code></td>
+<td><code>Delete two words</code></td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td><code>Next word</code></td>
+<td><code>dd</code></td>
+<td><code>Delete entire line</code></td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td><code>Go to end of current line</code></td>
+<td><code>2dd</code></td>
+<td><code>Delete two lines</code></td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td><code>Go to beginning of text on current line</code></td>
+<td><code>u</code></td>
+<td><code>Undo last change</code></td>
+</tr>
+<tr>
+<td><code>0</code></td>
+<td><code>Go to beginning of current line</code></td>
+<td><code>U</code></td>
+<td><code>Undo changes on entire line</code></td>
+</tr>
+<tr>
+<td><code>2w</code></td>
+<td><code>Go two words forward</code></td>
+<td><code>CTRL+R</code></td>
+<td><code>Redo changes</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="http://www.vimgenius.com/">VIMGENIUS</a></p>
 
 
   <footer>

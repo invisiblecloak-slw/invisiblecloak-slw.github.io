@@ -25,7 +25,8 @@ p: 粘贴
 0: 选中当前行，光标位置到行首
 $: 选中当前行，光标位置到行尾
 撤销与恢复 u: 撤销上一次操作
-:redo: 恢复</description>
+:redo: 恢复
+Level 1    命令 功能 命令 功能     h Move cursor left :wq :x ZZ Save changes and close file   l Move cursor right x Delete character at cursor   j Move cursor down i Insert at cursor   k Move cursor up I Insert at beginning of line   :q Close file a Append at cursor   :q!</description>
     </item>
     
   </channel>
